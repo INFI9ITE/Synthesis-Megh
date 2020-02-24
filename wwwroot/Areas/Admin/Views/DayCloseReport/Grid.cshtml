@@ -1,0 +1,393 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Dayclosereport>
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+
+    Layout = null;
+}
+<style>
+    .divIDClass {
+        z-index: 999999 !important;
+    }
+</style>
+
+<div id="grddata">
+    <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+    <div class="row">
+        <div class="searchfinal martopzero">
+            <div class="widget-body shadownone brdrgray">
+
+                <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="dataTables_filter">
+                        <table border="0" cellspacing="0" width="100%" style="text-align: right; margin-bottom: 0px;" cellpadding="0">
+
+                            <tr>
+                                <td></td>
+                                <td width="157">
+
+                                    <input name="txtstartdate" data-val="true" data-val-date="The field Startdate must be a date." type="text" maxlength="100" id="txtstartdate" placeholder="From" class="datepicker form-control" value="@ViewBag.Startdate">
+
+                                    
+                                </td>
+                                <td width="10"></td>
+                                <td width="157">
+
+                                    <input name="txtenddate" data-val="true" data-val-date="The field Startdate must be a date." data-val-required=" " type="text" maxlength="100" id="txtenddate" placeholder="To" class="datepicker form-control" value="@ViewBag.enddate">
+
+                                    @*value="@DateTime.Now.ToString("MM/dd/yyyy")"*@
+                                </td>
+                                <td width="10"></td>
+                                <td width="170">
+                                    @{
+                                        List<SelectListItem>
+                                                                Lststore = new List<SelectListItem>
+                                                                    ();
+                                        foreach (ddllist item in ViewBag.DataStore)
+                                        {
+                                            Lststore.Add(new SelectListItem
+                                            {
+                                                Text = item.Text,
+                                                Value = Convert.ToString(item.Value)
+                                            });
+                                        }
+                                    }
+                                    @Html.DropDownList("DrpLstStore", Lststore, "All Stores", new { @class = "myval form-control" })
+                                    @*<select class="myval">
+                                            <option>All Stores</option>
+                                            <option>D-Mart</option>
+                                        </select>*@
+
+                                </td>
+                                <td width="10"></td>
+                                <td width="170" style="display:none">
+
+                                    @*<select class="myval">
+                                            <option>Select Terminal</option>
+                                            <option>+ AEV10</option>
+                                        </select>*@
+                                </td>
+                                <td width="10"></td>
+                                <td width="75">
+                                    <div class="input-group">
+                                        <input type="submit" name="btnSearch" value="Search" id="btnSearch" onclick="javascript:FunSearchRecord();" class=".searchfinal .btnsearchicon" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        @{if (Model.Count() > 0)
+            {
+
+                <div class="datagrid martop15">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="10%"></th>
+                                    <th width="60%">Store</th>
+                                    <th width="15%" class="text-right">Tax Amount</th>
+                                    <th width="15%" class="text-right">Net Amount</th>
+                                    <th class="padd_set" width="12"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    var imgname = "imgdiv" + @item.Storename;
+                                    var divvalue = "div" + @item.Storename;
+                                    var trvalue = "tr" + @item.Storename;
+
+
+                                    <tr>
+                                        <td>
+                                            @{
+
+                                                <text>
+                                                    <a href="JavaScript:divexpandcollapse('@divvalue','@trvalue');"><img id="@imgname" src="../Content/Admin/images/btn_rowplus.png" /></a></text>
+
+                                            }
+                                        </td>
+
+                                        <td>@item.Storename</td>
+                                        <td class="text-right">
+                                            $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@item.TotTaxAmt))
+
+
+                                        </td>
+                                        <td class="text-right">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@item.TotNetAmt))</td>
+                                        <td class="padd_set"></td>
+
+                                    </tr>
+                                    <tr id="@trvalue" style="display:none;">
+
+                                        <td colspan="5">
+                                            <div id="@divvalue" style="display:none;">
+                                                <table class="table table-bordered brd_right_none">
+                                                    @{WestZoneEntities db1 = new WestZoneEntities();
+                                                        //var terminallist = db1.tbl_SalesActivitySummary_Terminallist(item.Storeid).ToList();
+
+
+                                                        foreach (var item1 in item.listofterminal)
+                                                        {
+                                                            <tr>
+                                                                <td>@Html.Raw(item1.Terminal)</td>
+                                                                <td class="text-right" width="12.5%">$ @Html.Raw(@wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item1.TaxAmt)))</td>
+                                                                <td width="15.7%" class="text-right">
+                                                                    $
+                                                                    @Html.Raw(@wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item1.NetAmt)))
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+                                                    }
+                                                    @*<tr>
+                                                            <td>+ AEV11</td>
+                                                            <td>$ 3,000.00</td>
+                                                            <td class="text-right">$ 4,000.00</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>+ AEV12</td>
+                                                            <td>$ 1,000.00</td>
+                                                            <td class="text-right">$ 2,000.00</td>
+
+                                                        </tr>*@
+                                                </table>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+
+
+
+
+                                                        }
+                                <tr class="invoic_toatal_area">
+                                    <td colspan="5" class="paddnone">
+                                        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                                            <tr class="invoicetotalcountbox">
+                                                <td><h1>Final Amount</h1></td>
+                                                <td width="25%" class="invoiceamt"><span>Tax Amount </span>$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(ViewBag.TotalTaxAmt)) <span class="dashline">+</span></td>
+                                                <td width="25%" class="invoiceamt"><span>Net Amount </span> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(ViewBag.TotalNetAmt)) </td>
+                                                <td width="25%" class="totalamt">
+                                                    @{
+                                                        var Grandtotal = ViewBag.TotalTaxAmt + ViewBag.TotalNetAmt;
+
+                                                    }
+
+                                                    <span class="dashline">=</span> <span>Total </span>
+                                                    $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(Grandtotal))
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                                                        }
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function ()
+    {
+        $('#txtstartdate').datetimepicker({
+            format: 'MM/DD/YYYY',
+            useCurrent: false,
+
+        });
+        $('#txtenddate').datetimepicker({
+            format: 'MM/DD/YYYY',
+            useCurrent: false
+        });
+
+        // bind();
+
+    });
+
+</script>
+
+<script>
+    function divexpandcollapse(divname, trname)
+    {
+
+        var div = document.getElementById(divname);
+        var img = document.getElementById('img' + divname);
+        var tr = document.getElementById(trname);
+
+        if (div.style.display == "none")
+        {
+            div.style.display = "inline";
+            tr.style.display = "";
+            img.src = "../Content/Admin/images/btn_rowminus.png";
+
+        }
+        else
+        {
+            div.style.display = "none";
+            tr.style.display = "none";
+            img.src = "../Content/Admin/images/btn_rowplus.png";
+            //  divexpandcollapse("", "");
+        }
+    }
+    function cleartextsearch()
+    {
+        document.getElementById('txtSearchTitle').value = '';
+        FunSearchRecord();
+    }
+
+    var top = 0;
+    function Loader(val)
+    {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if (val == 1)
+        {
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else
+        {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+        }
+        bind();
+    }
+
+    function FunPageIndex(pageindex)//grid pagination
+    {
+
+        GetData(0, pageindex, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid');
+    }
+
+    function FunSortData(SortData)//Grid header sorting
+    {
+        GetData(0, @ViewBag.CurrentPageIndex, SortData, @ViewBag.AscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid');
+    }
+
+    function FunPageRecord(PageRecord)//Grid Page per record
+    {
+
+        GetData(0, 1, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, PageRecord, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid');
+    }
+
+    function FunAlphaSearchRecord(alpha)//Alpha Search
+    {
+        GetData(1, 1, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, alpha, @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid');
+    }
+    //For Search Button
+    function FunSearchRecord()//Search
+    {
+
+        var element_Store = document.getElementById('DrpLstStore').value;
+        var element_txtstartdate = document.getElementById('txtstartdate').value;
+        var element_txtenddate = document.getElementById('txtenddate').value;
+
+        GetData(1, 1, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '', '', element_txtstartdate, element_txtenddate, element_Store);
+
+    }
+
+    function GetData(IsBindData_val, PageIndex, orderby_val, isAsc_val, PageSize_val, alpha_val, SearchRecords_val, startdate_val, enddate_val, Storeid_val)
+    {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/DayCloseReport/grid',
+            data: { IsBindData: IsBindData_val, currentPageIndex: PageIndex,orderby: orderby_val.trim(),IsAsc: isAsc_val,PageSize: PageSize_val,SearchRecords: SearchRecords_val,Alpha: alpha_val,startdate: startdate_val, enddate: enddate_val,Storeid: Storeid_val},
+            beforeSend: function() { Loader(1); },
+            // async: false,
+            success: function(response) {
+
+                //    $("body").html(response);
+                $('#grddata').empty();
+                $('#grddata').append(response);
+                Loader(0);
+            }
+        });
+    }
+
+
+    //document.getElementById('txtSearchTitle').onkeypress=function(e){
+    //    if(e.keyCode==13){
+    //        document.getElementById('btnSearch').click();
+    //    }
+    //}
+    function bind()
+    {
+       
+
+        var Storeid='@ViewBag.Storeid';
+
+        if(Storeid!='0')
+        {
+            document.getElementById('DrpLstStore').value = '@ViewBag.Storeid';
+        }
+        $(".myval").select2({
+            //placeholder: "select",
+            allowclear: true,
+            //minimumResultsForSearch: -1
+        });
+        $('#txtstartdate').datetimepicker({
+            format: 'MM/DD/YYYY',
+            useCurrent: false,
+
+        });
+        $('#txtenddate').datetimepicker({
+            format: 'MM/DD/YYYY',
+            useCurrent: false
+        });
+    }
+    function ComfirmDelete(ID) {
+        var DivId = "#" + ID + "D";
+        $(DivId).show();
+        @*var check = confirm("Are you sure you want to Delete this record?");
+        if (check == true) {
+            Delete(ID);
+            GetData(1,@ViewBag.CurrentPageIndex,  '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle');
+            return true;
+        }
+        else {
+            return false;
+        }*@
+    }
+
+
+    function Delete(ID) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/Store/delete',
+            data: { Id: ID },
+            async: false,
+            success: function (response) {
+
+                @*GetData(1,@ViewBag.CurrentPageIndex,'@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle');*@
+                //return true;
+            },
+            error: function () {
+                //return false;
+            }
+        });
+    }
+
+    function closemodal() {
+        $(".divIDClass").hide();
+    }
+
+</script>

@@ -1,0 +1,1165 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Invoice_Dashbord_Select>
+@using wwwroot.Areas.Admin.Models
+@using wwwroot.Class
+@using System.Configuration;
+@{
+
+    Layout = null;
+}
+<style>
+    .divIDClass {
+        z-index: 999999 !important;
+    }
+
+    .datagrid .table tr td img {
+        height: 30px;
+    }
+</style>
+<div id="grddata">
+    <div class="animate-panelmessesgarea padbtmzero">
+
+        @if (ViewBag.StatusMessage.ToString() == "SuccessEdit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('Invoice Updated Successfully.');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Success")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+
+                toastr.success('The invoice was created successfully and it was sent for approval.');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Success1")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+
+                toastr.success('The invoice was created successfully.');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Delete")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr.success('Invoice deleted Successfully');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Edit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('Invoice updated Successfully');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Exists")
+        {
+            <script>
+                MyfunExistsInvoice();
+            </script>
+
+        }
+
+
+    </div>
+    <div class="addinvoice" style="padding-top:0px!important;">
+
+        <input type="hidden" id="hdnpagevalue" value="0" />
+        <div class="page-body headertopbox special_bg">
+            <div class="page-header-main position-relative ">
+                <h2>UnSettled Invoices</h2>
+                <span class="searchinvoicebox ">
+                    <a href="#" class="searchbtn" id="searchicon"></a>
+                    @*@ViewBag.searchdashbord /////*@
+
+                    <input id="search-box" type="text" class="form-control inputvendorname" placeholder="Search by Vendor, Invoice #, Amount" />
+                    <a href="#" class="search_close" onclick="cleartextsearch();">x</a>
+
+                </span>
+                <span class="pull-right btnburgermenu dropdown">
+                    <a herf="#" class="dropdown-toggle align_left_svg" data-toggle="dropdown" role="button" aria-expanded="false"><img src="../Content/Admin/images/align-left.svg" alt="" /> </a>
+
+
+                    <div class="dropdown-menu form-login stop-propagation" role="menu">
+                        @using (Html.BeginForm("Grid", "UnsettledInvoice", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmid" }))
+                        {
+                            <h3>Filter by Payment Method</h3>
+                            <div class="formgroup">
+                                <table>
+
+                                    <td class="pad10">
+                                        <input class="chk" id="radio1" type="checkbox" name="radio" value="Cash">
+                                        <label for="radio1">Cash</label>
+                                    </td>
+                                    <td>
+                                        <input class="chk" id="radio2" type="checkbox" name="radio" value="Check/ACH">
+                                        <label for="radio2">Check/ACH</label>
+                                    </td>
+                                </table>
+                            </div>
+                            <div class="formgroup">
+                                <h3>Filter By Date</h3>
+                                <ul>
+                                    <li>
+                                        @*<input class="form-control " data-val="true" data-val-date="The field Startdate must be a date." data-val-required=" " id="datepicker" name="Startdate1" placeholder="From Date" type="text" value="" />*@
+                                        <input name="txtstartdate" type="text" maxlength="100" id="txtstartdate" placeholder="From" class="datepicker form-control">
+
+                                    </li>
+                                    <li>
+                                        @*<input class="form-control " data-val="true" data-val-date="The field Startdate must be a date." data-val-required=" " id="datepicker1" name="Startdate1" placeholder="To Date" type="text" value="" />*@
+                                        <input name="txtenddate" type="text" maxlength="100" id="txtenddate" placeholder="To" class="datepicker form-control">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="formgroup martop20">
+                                <h3>Filter By Department</h3>
+                                @{
+                                    List<SelectListItem>
+                                                            Lstdept = new List<SelectListItem>
+                                                                ();
+                                    foreach (ddllist item in ViewBag.Datadept)
+                                    {
+                                        Lstdept.Add(new SelectListItem
+                                        {
+                                            Text = item.Text,
+                                            Value = Convert.ToString(item.Value)
+                                        });
+                                    }
+                                }
+                                @Html.DropDownList("DrpLstdept", Lstdept, "Select Department", new { @class = "myval" })
+                            </div>
+                            <div class="clear martop20"></div>
+                            <button type="submit" class="btn btn-danger btn-block"><strong> Filter</strong></button>
+
+                            @*@Html.ActionLink("Filter", "Index", new { id = 1 }, new { @class = "btn btn-danger btn-block" })*@
+                        }
+                    </div>
+
+                </span>
+            </div>
+
+
+            @{if (Model.Count() > 0)
+                {
+
+                    <div class="datagrid">
+                        <div class="table-responsive" id="test">
+
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th><a class="textred" onclick="javascript:FunSortData('Vendorname');" style="color:#fff; text-decoration:none; cursor:pointer;">Vendor Name</a></th>
+                                        <th class="text-align-left">Invoice Type</th>
+                                        <th><a class="textred" onclick="javascript:FunSortData('Invoice_Number');" style="color:#fff; text-decoration:none; cursor:pointer;">Invoice #</a></th>
+                                        <th class="text-align-center"><a class="textred" onclick="javascript:FunSortData('Invoice_Date');" style="color:#fff; text-decoration:none; cursor:pointer;">Invoice Date</a></th>
+                                        <th style="text-align:right">Amount</th>
+                                        <th class="text-align-center">Docs</th>
+                                        <th class="text-align-center">Status</th>
+                                        <th class="text-align-center">Notes</th>
+                                        <th class="text-align-center">Payment Method</th>
+
+                                        @if ((Roles.IsUserInRole("Administrator")) || (Roles.IsUserInRole("Back Office Manager")) || (Roles.IsUserInRole("Data Approver")))
+                                        {
+                                            <th>Action</th>
+                                        }
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr class="even">
+                                            @*<td style="width:20%">@Html.Raw(item.Vendorname)</td>*@
+                                            <td class="fntlight" style="width:23%"><a href="javascript:void(0)" class="clsvendorname text-align-center" id="Vendorid">@Html.Raw(item.Vendorname)</a></td>
+                                            <td class="fntlight" style="width:7%" class="text-align-left" id="Typeid">@Html.Raw(item.Type)</td>
+                                            <td class="fntlight" style="width:5%" id="invoicenumberid">
+                                                <a href="@Url.Action("Detail", "UnsettledInvoice" ,new { Id=item.id } )">@Html.Raw(item.Invoice_Number)</a>
+                                            </td>
+                                            <td style="width:10%" class="text-align-center" id="invoicedateid">
+                                                @wwwroot.Class.AdminSiteConfiguration.GetDateformat(Convert.ToString(item.Invoice_Date))
+                                            </td>
+
+                                            <td style="width:10%;text-align:right" id="invoiceamt">
+                                                @if (item.Type_id == 2)
+                                                {
+                                                    if (item.deptid == 0)
+                                                    {
+                                                        <span style="color:red"> - @Html.Raw("$ " + wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item.TotalAmtByDept))) </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span style="color:red"> - @Html.Raw("$ " + wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item.Amt))) </span>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (item.deptid == 0)
+                                                    {
+                                                        <span>@Html.Raw("$ " + wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item.TotalAmtByDept)))</span>
+                                                    }
+                                                    else
+                                                    {<span>
+                                                            @Html.Raw("$ " + wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item.Amt)))
+                                                        </span>
+                                                    }
+                                                }
+
+                                            </td>
+                                            <td class="text-align-center" style="width:5%" id="scaninvoiceid">
+
+
+                                                @*<a href="@ConfigurationManager.AppSettings["cloudurl"]scanimage/@item.ScanInvoice" target="_blank">*@
+                                                    <a href="~/userfiles/scanimage/@item.ScanInvoice" target="_blank">
+                                                    <!--<i class="fa fa-file-pdf-o" aria-hidden="true"></i>-->
+                                                    <img src="/Content/Admin/images/pdf.png" />
+                                                </a>
+                                            </td>
+
+                                            <td class="text-align-center clsstatus1">
+                                                @if (item.Status == "Approved")
+                                                {
+                                                    <span class="btn btn-success btn-xs clsstatus"><i class="fa fa-check"></i> Approved</span>@*btndisable*@
+
+
+
+                                                }
+                                                else if (item.Status == "Rejected")
+                                                { <span class="btn btn-danger btn-xs clsstatus"><i class="fa fa-times"></i> Rejected</span>}@*btndisable*@
+                                                else if (item.Status == "On Hold")
+                                                {
+                                                    <span class="btn btn-warning btn-xs btndisable clsstatus"><i class="fa fa-minus" aria-hidden="true"></i> On Hold</span>
+                                                }
+                                                else if (item.Status == "Pending")
+                                                {
+                                                    <span class="btn btn-warning btn-xs btnpending clsstatus"><i class="fa fa-minus" aria-hidden="true"></i> Pending</span>
+                                                }
+                                            </td>
+                                            <td class="text-align-center clsNote" style="width:5%" id="">
+                                                @if (item.Note != null && item.Note != "")
+                                                {
+                                                    <img id="ok" src="../Content/Admin/images/icons/icon_notes.png" title="@Html.Raw(item.Note)" />
+                                                }
+                                            </td>
+                                            <td style="width:10%" id="paymanettypeid"> @Html.Raw(item.Payment_type) </td>
+                                            @if ((Roles.IsUserInRole("Administrator")) || (Roles.IsUserInRole("Back Office Manager")) || (Roles.IsUserInRole("Data Approver")))
+                                            {
+
+                                                <td style="vertical-align:middle;text-align:center;width:5%" class="printarea img_with img_color" id="editdeleteid">
+                                                    <input type="hidden" id="itemhiddenID" name="ID" value="@item.id" />
+                                                    <input type="hidden" id="ID" name="ID" value="@item.Store_id" />
+
+                                                    @{
+                                                        var UserIdD = @item.id + "D";
+                                                    }
+                                                    @if ((Roles.IsUserInRole("Back Office Manager")) || (Roles.IsUserInRole("Data Approver")))
+                                                    {
+                                                        if (item.IsStatus_id != 2 && item.IsStatus_id != 3)
+                                                        {
+                                                            <a href="#" onclick="return ComfirmDelete(@item.id);" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><img src="~/Content/Admin/images/trash-2.svg" alt="" /> </a>
+                                                            <a href="@Url.Action("Edit","UnsettledInvoice" , new { Id=item.id })" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><img src="~/Content/Admin/images/edit-2.svg" alt="" /></a>
+                                                        }
+                                                    }
+                                                    else if (Roles.IsUserInRole("Administrator"))
+                                                    {
+                                                        <a href="#" onclick="return ComfirmDelete(@item.id);" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><img src="~/Content/Admin/images/trash-2.svg" alt="" /> </a>
+                                                        <a href="@Url.Action("Edit","UnsettledInvoice" , new { Id=item.id })" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><img src="~/Content/Admin/images/edit-2.svg" alt="" /></a>
+                                                    }
+                                                    <div id="@UserIdD" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                                                        <div class="modal-content ">
+                                                            <div class="modal-header text-center">
+                                                                <i class="glyphicon glyphicon-trash"></i>
+                                                            </div>
+                                                            <div class="modal-title">Message</div>
+                                                            <div class="modal-body ">Are you sure want to delete this Invoice?</div>
+                                                            <div class="modal-footer" style="text-align:center">
+                                                                <a class="btn btn-danger" onclick="Delete(@item.id);">Ok </a>
+                                                                <a class="btn" data-dismiss="modal" onclick="closemodal()">Cancel</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+
+                                            }
+                                        </tr>
+                                    }
+
+
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                }
+            }
+
+
+            @*<div class="pagination">
+                            <span style="min-width: 25px; display: inline-block;">1          </span>
+                            <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);">2</a>
+                            <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);">3</a>
+                            <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);">4</a>
+                            <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);">5</a>
+                            <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn">Next</a>
+                            <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn">Last</a>
+                        </div>
+                <div class="pagination">
+                        <span style="min-width: 25px; display: inline-block;"></span>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                        <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                        <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                    </div><div class="pagination">
+                        <span style="min-width: 25px; display: inline-block;"></span>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                        <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                        <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                    </div>
+                <div class="pagination">
+                    <span style="min-width: 25px; display: inline-block;"></span>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                </div><div class="pagination">
+                    <span style="min-width: 25px; display: inline-block;"></span>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                </div>
+                <div class="pagination">
+                    <span style="min-width: 25px; display: inline-block;"></span>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                </div>
+                <div class="pagination">
+                    <span style="min-width: 25px; display: inline-block;"></span>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                </div>
+                <div class="pagination">
+                    <span style="min-width: 25px; display: inline-block;"></span>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                </div>
+                <div class="pagination">
+                    <span style="min-width: 25px; display: inline-block;"></span>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(2);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(3);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(4);"></a>
+                    <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(5);"></a>
+                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(1    +1);" class=" Linkbutton nextbtn"></a>
+                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(6);" class=" Linkbutton lastpage nextbtn"></a>
+                </div>*@
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('#txtstartdate').attr('autocomplete', 'off');
+        $('#txtenddate').attr('autocomplete', 'off');
+
+       // $("#txtstartdate").inputmask({"mask": "(999) 999-9999"});
+        $( "#search-box" ).focus();
+        Loader(0);
+        @*alert(@GlobalStore.GlobalStore_id)
+        $("#drp").val('@GlobalStore.GlobalStore_name')*@
+        //Loader(0);
+
+        $('#txtstartdate').datetimepicker({
+            format: 'MM-DD-YYYY',
+            useCurrent: false
+        });
+        $('#txtenddate').datetimepicker({
+            format: 'MM-DD-YYYY',
+            useCurrent: false
+        });
+
+        $('#txtstartdate').on("dp.change", function (e) {
+            $('#txtenddate').data("DateTimePicker").minDate(e.date);
+        });
+        $('#txtenddate').click("dp.change", function (e) {
+
+            $('#txtenddate').data("DateTimePicker").minDate($('#txtstartdate').val());
+        });
+        document.getElementsByName('radio').value  = '@ViewBag.payment';
+        var searchval='@ViewBag.searchdashbord';
+        if(searchval!=null)
+        {
+            document.getElementById('search-box').value = (searchval).replace(/&amp;/g, '&');
+            $("#search-box").val((searchval).replace(/&amp;/g, '&'));
+        }
+
+        bind()
+
+
+    });
+
+    //test
+
+    @*var searchRequest = null;
+
+    $(function () {
+        var minlength = 0;
+
+        $(".inputvendorname").keyup(function () {
+            var that = this,
+            value = $(this).val();
+
+            if (value.length >= minlength ) {
+                if (searchRequest != null)
+                    searchRequest.abort();
+                searchRequest =  $.ajax({
+                    url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/DashBoard/Grid',
+                    data: { IsBindData: 1, currentPageIndex: 1, orderby: '@ViewBag.OrderByVal', IsAsc: @ViewBag.IsAscVal, PageSize: 20, SearchRecords: @ViewBag.SearchRecords, Alpha: '@ViewBag.Alpha',deptname: '', startdate: '', enddate: '',payment:'',Store_val:'',searchdashbord:value},
+                    beforeSend: function () { Loader(1); },
+                    async: false,
+                    success: function (response) {
+                        //$("body").html(response);
+                        //alert($(this).val())
+
+                        $('#grddata').empty();
+                        $('#grddata').append(response);
+                        // $('#search-box').val('@ViewBag.searchdashbord')
+
+
+                        Loader(0);
+
+                    },
+                    error:function()
+                    {
+                        Loader(0);
+                    }
+                });
+            }
+        });
+    });*@
+
+    //test
+
+    function cleartextsearch()
+    {
+        var searchdashbord_val = '';
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Grid',
+            data: { IsBindData: 1, currentPageIndex: 1, orderby: '@ViewBag.OrderByVal', IsAsc: @ViewBag.IsAscVal, PageSize: 20, SearchRecords: @ViewBag.SearchRecords, Alpha: '@ViewBag.Alpha',deptname: '', startdate: '', enddate: '',payment:'',Store_val:'',searchdashbord:''},
+            beforeSend: function () { Loader(1); },
+            async: false,
+            success: function (response) {
+                //$("body").html(response);
+
+                $('#grddata').empty();
+                $('#grddata').append(response);
+
+                Loader(0);
+
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+    }
+
+    // vendor link functionality
+    $('.clsvendorname').on("click",function(){
+        var setvendorname =  $(this).text();
+        $(".inputvendorname").val(setvendorname);
+        //   document.getElementById('search-box').value = (searchval).replace(/&amp;/g, '&');
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Grid',
+            data: { IsBindData: 1, currentPageIndex: 1, orderby: '@ViewBag.OrderByVal', IsAsc: @ViewBag.IsAscVal, PageSize: 20, SearchRecords: @ViewBag.SearchRecords, Alpha: '@ViewBag.Alpha',deptname: '', startdate: '', enddate: '',payment:'',Store_val:'',searchdashbord:setvendorname},
+            beforeSend: function () { Loader(1); },
+            async: false,
+            success: function (response) {
+                $('#grddata').empty();
+                $('#grddata').append(response);
+                // $('#search-box').val('@ViewBag.searchdashbord')
+
+                document.getElementById('search-box').value = setvendorname;
+                $('#search-box').val(setvendorname);
+                Loader(0);
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+    });
+    //vendor link close
+    var top=0;
+    function Loader(val)
+    {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if(val==1){
+            $(".loading-container").attr("style","display:block;")
+        }
+        else{
+            $(".loading-container").attr("style","display:none;")
+        }
+        bind();
+    }
+    $("#searchicon").change(function(){
+
+
+        var searchdashbord_val = document.getElementById('search-box').value;
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Grid',
+            data: { IsBindData: 1, currentPageIndex: 1, orderby: '@ViewBag.OrderByVal', IsAsc: @ViewBag.IsAscVal, PageSize: 20, SearchRecords: '@ViewBag.SearchRecords', Alpha: '@ViewBag.Alpha',deptname: '', startdate: '', enddate: '',payment:'',Store_val:'',searchdashbord:$(this).val()},
+            beforeSend: function () { Loader(1); },
+            async: false,
+            success: function (response) {
+                //$("body").html(response);
+
+                $('#grddata').empty();
+                $('#grddata').append(response);
+                @*$('#search-box').val('@ViewBag.searchdashbord')*@
+                Loader(0);
+
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+    });
+    $("#search-box").change(function(){
+        searchEvent();
+    });
+
+    function searchEvent()
+    {
+        var searchdashbord_val = document.getElementById('search-box').value;
+        //alert(searchdashbord_val);
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Grid',
+            data: { IsBindData: 1, currentPageIndex: 1, orderby: '@ViewBag.OrderByVal', IsAsc: '@ViewBag.IsAscVal', PageSize: 20, SearchRecords: '@ViewBag.SearchRecords', Alpha: '@ViewBag.Alpha',deptname: '', startdate: '', enddate: '',payment:'',Store_val:'',searchdashbord:searchdashbord_val},
+            beforeSend: function () { Loader(1); },
+            async: false,
+            success: function (response) {
+                //$("body").html(response);
+                //alert($(this).val())
+
+                $('#grddata').empty();
+                $('#grddata').append(response);
+                $('#search-box').val(searchdashbord_val)
+
+                Loader(0);
+                $('#search-box').val(searchdashbord_val)
+                //  alert($('#search-box').val() +'after');
+
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+    }
+
+    var top=0;
+    function Loader(val)
+    {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if(val==1){
+            $(".loading-container").attr("style","display:block;")
+        }
+        else{
+            $(".loading-container").attr("style","display:none;")
+        }
+        bind();
+    }
+
+    function FunSearchRecord()//Search
+    {
+        //var chk;
+        //$('[name="radio"]:checked').each(function () {
+
+        //    chk=$(this).val();
+        //    //alert(chk);
+        //});
+
+
+
+        window.FunSearchRecord=FunSearchRecord
+        //  var element_txtSearchTitle = document.getElementById('txtSearchTitle').value;
+        var element_dept = document.getElementById('DrpLstdept').value;
+        var element_txtstartdate = document.getElementById('txtstartdate').value;
+        var element_txtenddate = document.getElementById('txtenddate').value;
+        // var element_Status = document.getElementById('Drpstatus').value;
+        var element_chkpayment=chk;
+
+        @*var element_Store;
+
+        var role = '@Roles.IsUserInRole("Data Approver")';
+
+        if (role == 'True') {
+            var store = $("#drp").val();
+            element_Store=store;
+        }
+        else {
+            var storename = $('#spnStore').html();
+            element_Store=storename;
+        }*@
+        GetData(1, 1, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize, '', '', element_dept, element_txtstartdate, element_txtenddate,element_chkpayment,@Session["storeid"]);
+
+    }
+
+    function FunPageIndex(pageindex)//grid pagination
+    {
+        GetData(0,pageindex, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.deptname','@ViewBag.startdate','@ViewBag.enddate','@ViewBag.payment','@ViewBag.Store_val');
+    }
+
+    function FunSortData(SortData)//Grid header sorting
+    {
+        GetData(0,@ViewBag.CurrentPageIndex, SortData,@ViewBag.AscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.deptname','@ViewBag.startdate','@ViewBag.enddate','@ViewBag.payment','@ViewBag.Store_val');
+        myCustomFn();
+    }
+
+    function FunPageRecord(PageRecord)//Grid Page per record
+    {
+        GetData(0,1, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,PageRecord,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.deptname','@ViewBag.startdate','@ViewBag.enddate','@ViewBag.payment','@ViewBag.Store_val');
+    }
+
+    function FunAlphaSearchRecord(alpha)//Alpha Search
+    {
+        GetData(1,1,'@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,alpha,@ViewBag.SearchRecords,'@ViewBag.deptname','@ViewBag.startdate','@ViewBag.enddate','@ViewBag.payment','@ViewBag.Store_val');
+    }
+
+    function ComfirmDelete(ID)
+    {
+        var DivId="#"+ID+"D";
+        $(DivId).show();
+        @*var check = confirm("Are you sure you want to Delete this record?");
+        if (check == true) {
+            Delete(ID);
+            GetData(1,@ViewBag.CurrentPageIndex,  '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle');
+            return true;
+        }
+        else {
+            return false;
+        }*@
+    }
+    function Delete(ID)
+    {
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/delete',
+            data: { Id: ID},
+            async: false,
+            success: function (response) {
+                //$('.divIDClass').hide();
+                $('.divIDClass').css('display','none');
+                GetData(1,@ViewBag.CurrentPageIndex, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.deptname','@ViewBag.startdate','@ViewBag.enddate','@ViewBag.payment','@ViewBag.Store_val');
+
+                return true;
+            },
+            error:function()
+            {
+
+                Loader(0);
+            }
+        });
+    }
+    function closemodal(){
+        $(".divIDClass").hide();
+        //$(".overlaybox").hide();
+    }
+    //For Search Button
+
+    function GetData(IsBindData_val, PageIndex, orderby_val, isAsc_val, PageSize_val, alpha_val, SearchRecords_val, dept_val, startdate_val, enddate_val,payment_val,Store_val)
+    {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/UnsettledInvoice/Grid',
+
+            data: { IsBindData: IsBindData_val, currentPageIndex: PageIndex, orderby: orderby_val.trim(), IsAsc: isAsc_val, PageSize: 20, SearchRecords: SearchRecords_val, Alpha: alpha_val,deptname: dept_val, startdate: startdate_val, enddate: enddate_val,payment:payment_val,Store_val:Store_val,searchdashbord:''},
+            beforeSend: function () { Loader(1); },
+            // async: false,
+            success: function (response) {
+
+                if (response != null) {
+                    //$("#scrolldata").html("");
+                    //$("#scrolldata").append(data);
+                    $('#grddata').empty();
+                    $('#grddata').append(response);
+
+                }
+                //alert(response)
+                //    $("body").html(response);
+                //$('#datagrid').empty();
+                //$('#datagrid').append(response);
+                Loader(0);
+                @*var pay='@ViewBag.payment';
+           alert(pay)*@
+
+                if(payment_val=="Cash")
+                {
+                    $( "#radio1").prop('checked', true);
+                }
+                else if(payment_val=="Check/ACH")
+                {
+                    $( "#radio2").prop('checked', true);
+                }
+
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+
+    }
+
+
+    //document.getElementById('txtSearchTitle').onkeypress=function(e){
+    //    if(e.keyCode==13){
+    //        document.getElementById('btnSearch').click();
+    //    }
+    //}
+    function bind(){
+
+        $(".myval").select2({
+            //placeholder: "select",
+            allowclear: true,
+            //minimumResultsForSearch: -1
+        });
+        //document.getElementById('SelectRecords').value = "@ViewBag.PageSize";
+        // document.getElementById('txtSearchTitle').value = "@ViewBag.SearchTitle";
+        var pay='@ViewBag.payment';
+        var pay1='@ViewBag.IsFilter';
+
+        if(pay=="Cash")
+        {
+            $( "#radio1").prop('checked', true);
+        }
+        else if(pay=="Check/ACH")
+        {
+            $( "#radio2").prop('checked', true);
+        }
+        else if('@ViewBag.IsFilter'=="1"){
+
+            $( "#radio1").prop('checked', true);
+            $( "#radio2").prop('checked', true);
+        }
+        $(".select2-container").remove();
+
+        var dept=@ViewBag.deptname;
+        if(dept!='0')
+        {
+            document.getElementById('DrpLstdept').value = @ViewBag.deptname;
+        }
+        document.getElementById('txtstartdate').value = "@ViewBag.startdate";
+        document.getElementById('txtenddate').value = "@ViewBag.enddate";
+        document.getElementsByName('radio').value  = '@ViewBag.payment';
+
+
+        // $("#radio").val('@ViewBag.payment');
+        $("select").select2({
+            width: "100%",
+            formatResult: function (state) {
+                if (!state.id) return state.text;
+                if ($(state.element).data('active') == "0") {
+                    return state.text + "<i class='fa fa-dot-circle-o'></i>";
+                } else {
+                    return state.text;
+                }
+            },
+            formatSelection: function (state) {
+                if ($(state.element).data('active') == "0") {
+                    return state.text + "<i class='fa fa-dot-circle-o'></i>";
+                } else {
+                    return state.text;
+                }
+            }
+        });
+
+    }
+
+
+
+
+</script>
+<script>
+    var pageSize = 20;
+    var pageIndex = 1;
+    var pageCount=@ViewBag.totalcount;
+    $(window).scroll(function () {
+
+        if (Math.round($(window).scrollTop(), 0) == Math.round(($(document).height() - $(window).height()), 0)) {
+            myCustomFn();
+        }
+    });
+    function myCustomFn() {
+
+        var page_loadsize = parseInt(@ViewBag.PageSize) + parseInt(20);
+        document.getElementById('hdnpagevalue').value = page_loadsize;
+
+        GetData12(pageSize, pageIndex);
+        $("#hdnpagevalue").val(page_loadsize);
+    }
+
+    function GetData12(PageSize, CurrentPageIndex) {
+        var rdcash="";
+        var rdcheck="";
+        if($("#radio1").is(':checked')){
+            rdcash=$("#radio1").val();
+        }
+        if($("#radio2").is(':checked')){
+            rdcheck=$("#radio2").val();
+        }
+        var datval=$("#txtstartdate").val();
+        var datendval=$("#txtenddate").val();
+        var deptnm=0;
+        if($("#DrpLstdept").val()!="undefined"&&$("#DrpLstdept").val()!=""){
+
+            deptnm=$("#DrpLstdept").val();
+        }
+
+        //alert(rdcash);
+        //alert(rdcheck);
+        //alert(datval);
+        //alert(datendval);
+        var searchdashbord_val =$("#search-box").val() //document.getElementById('search-box').value;
+        //  alert(searchdashbord_val + "dgdfdfd");
+        pageIndex++;
+        if (pageIndex == 2 || pageIndex <= pageCount) {
+            $.ajax({
+                type: 'GET',
+                async: false,
+                url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/UnsettledInvoice/GetDatapagescroll',
+                data: { PageSize: PageSize, currentPageIndex: CurrentPageIndex,rdcash:rdcash,rdcheck:rdcheck,datval:datval,datendval:datendval,deptnm:deptnm,searchdashbord:searchdashbord_val },
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                beforeSend: function () {
+                    $("#loader").show();
+                },
+                success: function (data) {
+
+                    if (data != null) {
+                        //alert(data);
+                        for (var i = 0; i < data.length; i++) {
+
+                            //alert(data[i].Status);
+                            var table = $("#test table tbody tr").eq(0).clone(true);
+
+                            $("#Vendorid", table).html(data[i].Vendorname);
+                            $("#Typeid", table).html(data[i].Type);
+
+
+                            var invoicenumber = "<a href='@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/InvoiceReport/Detail/?Id=" + data[i].id + "'>"+data[i].Invoice_Number+"</a>";
+
+                            $("#invoicenumberid", table).html(invoicenumber);
+                            //var completedDateText =data[i].Invoice_Date;
+
+                            //var completedDate = new Date(parseInt(completedDateText.replace("/Date(", "").replace(")/")));
+
+                            //var date=("0" + (completedDate.getDate() + 1)).slice(-2);;
+                            //var month=("0" + (completedDate.getMonth() + 1)).slice(-2);
+                            //var yr=completedDate.getFullYear();
+                            //var fulldate=month+"/"+date+"/"+yr;
+
+                            $("#invoicedateid", table).html((data[i].StrInvoice_Date));
+                            if(data[i].Type_id=="2")
+                            {
+                                const formatter = new Intl.NumberFormat('en-US', {
+
+                                    currency: 'USD',
+                                    minimumFractionDigits: 2})
+                                if(data[i].deptid=="0")
+                                {
+                                    $("#invoiceamt", table).html('<span style="color:red">'+"$ "+formatter.format(data[i].TotalAmtByDept)+'</span>');
+                                }
+                                else
+                                {
+                                    $("#invoiceamt", table).html('<span style="color:red">'+"$ "+formatter.format(data[i].Amt)+'</span>');
+                                }
+
+
+
+                            }
+                            else if(data[i].Type_id=="1")
+                            {
+                                const formatter = new Intl.NumberFormat('en-US', {
+
+                                    currency: 'USD',
+                                    minimumFractionDigits: 2
+                                })
+                                if(data[i].deptid=="0")
+                                {
+                                    $("#invoiceamt", table).html("$ "+formatter.format(data[i].TotalAmtByDept));
+                                }
+                                else{
+                                    $("#invoiceamt", table).html("$ "+formatter.format(data[i].Amt));
+
+                                }
+                            }
+
+                            if (data[i].ScanInvoice != null) {
+                                @*var pdf = "<a href='@ConfigurationManager.AppSettings["cloudurl"]scanimage/" + data[i].ScanInvoice + "' target='_blank'>"+"<img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/pdf.png'/>"+"</a>";*@
+                                var pdf = "<a href='~/userfiles/scanimage/" + data[i].ScanInvoice + "' target='_blank'>"+"<img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/pdf.png'/>"+"</a>";
+                            }
+                            $("#scaninvoiceid", table).html(pdf);
+                            $("#paymanettypeid", table).html(data[i].Payment_type);
+                            if(data[i].Status=="Approved")
+                            {
+                                //alert(data[i].Status)
+                                $(".clsstatus1", table).html('<span class="btn btn-success btn-xs clsstatus"><i class="fa fa-check"></i> Approved</span>');
+                            }
+                            else if(data[i].Status=="Rejected")
+                            {
+                                //alert(data[i].Status)
+                                $(".clsstatus1", table).html('<span class="btn btn-danger btn-xs clsstatus"><i class="fa fa-times"></i> Rejected</span>');
+                            }
+                            else if(data[i].Status=="On Hold")
+                            {
+                                //alert(data[i].Status);
+                                $(".clsstatus1", table).html('<span class="btn btn-warning btn-xs btndisable clsstatus"><i class="fa fa-minus" aria-hidden="true"></i> On Hold</span>');
+
+                            }
+                            else if(data[i].Status=="Pending")
+                            {
+                                $(".clsstatus1", table).html(' <span class="btn btn-warning btn-xs btnpending clsstatus"><i class="fa fa-minus" aria-hidden="true"></i> Pending</span>');
+
+                            }
+                            if (data[i].Note != null && data[i].Note != "")
+                            { $(".clsNote", table).html(' <img id="ok" src="../Content/Admin/images/icons/icon_notes.png" title="'+data[i].Note+'"/>');
+
+                            }
+                            var strdelete;
+                            var stredit;
+                            var adminRole = '@(Roles.IsUserInRole("Administrator") ? "true" : "false")';
+                            var backoRole = '@(Roles.IsUserInRole("Back Office Manager") ? "true" : "false")';
+                            var dataappRole = '@(Roles.IsUserInRole("Data Approver") ? "true" : "false")';
+                            if ((adminRole=='true') || (backoRole=='true') || (dataappRole=='true'))
+                            {
+
+                                if ((backoRole=='true') || (dataappRole=='true'))
+                                {
+
+
+                                    if (data[i].IsStatus_id != 2 && data[i].IsStatus_id != 3)
+                                    {
+
+                                        stredit="<a href='#' onclick='return ComfirmDelete("+data[i].id+");' data-toggle='tooltip' data-placement='top' data-original-title='Delete'><img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/trash-2.svg'/></a>";
+                                        //$("#editdeleteid", table).html(strdelete);
+
+
+                                        stredit +=" <a href='@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Edit/?Id="+ data[i].id +"'><img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/edit-2.svg'/></a>";
+
+                                        var UserIdD = data[i].id + "D";
+                                        stredit+="<div id="+UserIdD+" class='divIDClass modal-popup modal-danger modal-message' style='position: fixed;  left:45%; width:300px; top: 10px; display:none'> <div class='modal-content'><div class='modal-header text-center'><i class='glyphicon glyphicon-trash'></i></div><div class='modal-title'>Message</div><div class='modal-body'>Are you sure want to delete this Invoice?</div><div class='modal-footer' style='text-align:center'><a class='btn btn-danger' onclick=Delete("+data[i].id+");>Ok </a><a class='btn' data-dismiss='modal' onclick='closemodal()'>Cancel</a> </div></div></div>";
+
+                                        $("#editdeleteid", table).html(stredit);
+                                    }
+                                      else {
+                                         stredit = "<a href='#' style='Display:none;' onclick='return ComfirmDelete(" + data[i].id + ");' data-toggle='tooltip' data-placement='top' data-original-title='Delete'><img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/trash-2.svg'/></a>";
+                                        //$("#editdeleteid", table).html(strdelete);
+                                        stredit += " <a style='Display:none;'  href='@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/Dashboard/Edit/?Id=" + data[i].id + "'><img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/edit-2.svg'/> " + data[i].Status + "</a>";
+                                        var UserIdD = data[i].id + "D";
+                                        stredit += "<div id=" + UserIdD + " class='divIDClass modal-popup modal-danger modal-message' style='position: fixed;  left:45%; width:300px; top: 10px; display:none'> <div class='modal-content'><div class='modal-header text-center'><i class='glyphicon glyphicon-trash'></i></div><div class='modal-title'>Message</div><div class='modal-body'>Are you sure want to delete this Invoice?</div><div class='modal-footer' style='text-align:center'><a class='btn btn-danger' onclick=Delete(" + data[i].id + ");>Ok </a><a class='btn' data-dismiss='modal' onclick='closemodal()'>Cancel</a> </div></div></div>";
+                                        $("#editdeleteid", table).html(stredit);
+                                    }
+                                }
+
+                                else if (adminRole)
+                                {
+
+
+                                    stredit="<a href='#' onclick='return ComfirmDelete("+data[i].id+");' data-toggle='tooltip' data-placement='top' data-original-title='Delete'><img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/trash-2.svg'/></a>";
+                                    //$("#editdeleteid", table).html(strdelete);
+
+
+                                    stredit +=" <a href='@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Edit/?Id=" + data[i].id + "'><img src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/images/edit-2.svg'/></a>";
+
+
+                                    var UserIdD = data[i].id + "D";
+                                    stredit+="<div id="+UserIdD+" class='divIDClass modal-popup modal-danger modal-message' style='position: fixed;  left:45%; width:300px; top: 10px; display:none'> <div class='modal-content'><div class='modal-header text-center'><i class='glyphicon glyphicon-trash'></i></div><div class='modal-title'>Message</div><div class='modal-body'>Are you sure want to delete this Invoice?</div><div class='modal-footer' style='text-align:center'><a class='btn btn-danger' onclick=Delete("+data[i].id+");>Ok </a><a class='btn' data-dismiss='modal' onclick='closemodal()'>Cancel</a> </div></div></div>";
+
+                                    $("#editdeleteid", table).html(stredit);
+
+
+                                }
+
+
+                            }
+
+                            $("#test  table tbody").append("<tr class='even'> "+table.html()+"</tr>")
+
+                        }
+                    }
+                    $("#loader").hide();
+
+
+
+        $('.clsvendorname').on("click",function(){
+        var setvendorname =  $(this).text();
+        $(".inputvendorname").val(setvendorname);
+        //   document.getElementById('search-box').value = (searchval).replace(/&amp;/g, '&');
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/UnsettledInvoice/Grid',
+            data: { IsBindData: 1, currentPageIndex: 1, orderby: '@ViewBag.OrderByVal', IsAsc: @ViewBag.IsAscVal, PageSize: 20, SearchRecords: @ViewBag.SearchRecords, Alpha: '@ViewBag.Alpha',deptname: '', startdate: '', enddate: '',payment:'',Store_val:'',searchdashbord:setvendorname},
+            beforeSend: function () { Loader(1); },
+            async: false,
+            success: function (response) {
+                $('#grddata').empty();
+                $('#grddata').append(response);
+                // $('#search-box').val('@ViewBag.searchdashbord')
+
+                document.getElementById('search-box').value = setvendorname;
+                $('#search-box').val(setvendorname);
+                Loader(0);
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+    });
+
+                },
+
+                complete: function () {
+                    //  $("#progress").hide();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(thrownError);
+                }
+            });
+        }
+    }
+</script>

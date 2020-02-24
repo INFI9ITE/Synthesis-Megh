@@ -1,0 +1,48 @@
+﻿@model wwwroot.Areas.Admin.Models.Shiftwisereport_Select
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+    Layout = null;
+    WestZoneEntities db = new WestZoneEntities();
+}
+<div class="tab-content">
+
+    <div id="data" class="tab-pane in active">
+        <div class="tabsublinks">
+            @if (Model.ShiftData != null && Model.ShiftData.Count != 0)
+            {
+                <ul class="nav nav-tabs" id="mySubTab">
+                    @{
+
+                        //if (Model.ShiftData[0].ShiftdataList.Count > 0)
+                        //{
+                        //{btnotherdepositsubmit
+                        if (Model.ShiftData[0].ShiftdataList != null)
+                        {
+                            for (int k = 0; k < Model.ShiftData[0].ShiftdataList.Count; k++)
+                            {
+                                var shiftidval = "shift" + k;
+                                var terminalid_val = "ter" + k;
+                                var lishiftid = "lishift_" + Model.ShiftData[0].ShiftdataList[k].Id.ToString();
+                                    <input type="hidden" id="@shiftidval" name="@shiftidval" value="@Model.ShiftData[0].ShiftdataList[k].Id.ToString()" />
+                                    <input type="hidden" id="@terminalid_val" name="@terminalid_val" value="@Model.ShiftData[0].terminalid.ToString()" />
+                                    <li class="lishift" id="@lishiftid">
+                                        <a href="#@Model.ShiftData[0].ShiftdataList[k].Id" data-toggle="tab" aria-expanded="true" onclick="BindShifttenderData(@Model.ShiftData[0].terminalid,@Model.ShiftData[0].ShiftdataList[k].Id)">@Model.ShiftData[0].ShiftdataList[k].ShiftName</a>
+                                    </li>
+                                }
+                            }
+                        @*}*@
+
+                    }
+                </ul>
+                <div class="customer-count">
+                    <span>Customer Count (All Shifts) <strong> @wwwroot.Class.AdminSiteConfiguration.RoundPriceWithComma(Convert.ToString(@Model.ShiftData[0].CustomerCount)) </strong> </span>
+                    <span>Sales (All Shifts) <strong>$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Model.ShiftData[0].SalesAmount))</strong></span>
+                </div>
+                <div id="shifttenderdata">
+                 
+                </div>
+                        }
+        </div>
+    </div>
+</div>

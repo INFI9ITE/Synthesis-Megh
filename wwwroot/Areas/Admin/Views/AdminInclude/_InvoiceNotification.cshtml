@@ -1,0 +1,113 @@
+@*this is for notification dropdown which is on bell icon*@
+@if (@ViewBag.Modalcount > 0)
+{
+    <a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#" aria-expanded="true"><span class="badge">@ViewBag.Modalcount</span> </a>
+}
+else 
+{
+  
+    <a class="dropdown-toggle" title="Tasks"> </a>
+}
+
+@if (@ViewBag.Modalcount > 0)
+
+{  
+     var storenameval = "";
+
+    <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+<!--      <li class="notificationtitlebox"><h3>Notification</h3></li>-->
+        @foreach (var item in Model)
+        {
+            storenameval = item.Storename;
+            @*<li> <a href="~/Admin/@Url.Action("detail", "Invoicereport", new { Id = item.id, storenameval = storenameval})"> <span class="message"> Invoice # @item.Invoice_Number sent for approval from store @item.Storename by @item.username </span> </a> </li>*@
+        if (item.NotificationColor == false || item.NotificationColor == null)
+        {
+            <li class="blue"> <a href="~/Admin/@Url.Action("detail", "Invoicereport", new { Id = item.id, storenameval = storenameval })"> <span class="message"><strong> @item.username </strong>sent you the Invoice# <strong>@item.Invoice_Number</strong> for approval.</span> </a> </li>
+        }
+        else
+        {
+            <li class="grey"> <a href="~/Admin/@Url.Action("detail", "Invoicereport", new { Id = item.id, storenameval = storenameval})"> <span class="message"> <strong>@item.username</strong> sent you the Invoice# <strong>@item.Invoice_Number</strong> for approval.</span> </a> </li>
+            }
+
+        }
+        @*<li class="blue"><a href=""><span class="message">abc</span></a></li>
+        <li class="grey"><a href=""><span class="message">abc</span></a></li>*@
+        <li class="btnviewall"><a href="~/Admin/@Url.Action("Index", "Notificationreport", new { storenameval = storenameval })" class="dropdownviewall">View all</a></li>}
+    </ul>
+   
+}
+@*close*@
+<script>
+    $(document).ready(function () {
+
+        @*var cnt = '@ViewBag.Modalcount';
+        if (cnt == 0)
+        {
+            alert(cnt)
+            $("a").removeClass("dropdown-toggle");
+        }*@
+        //var store = $("#drp").val();
+        //alert(store + " store list")
+
+        @*var role = '@Roles.IsUserInRole("Data Approver")';
+        var element_Store;
+        if (role == 'True') {
+            var store = $("#drp").val();
+            alert(store + " store list")
+            element_Store = store;
+        }
+        else {
+            var storename = $('#spnStore').html();
+            alert(storename + " store")
+            element_Store = storename;
+        }*@
+
+
+
+      
+
+
+        @*var role = '@Roles.IsUserInRole("Data Approver")';
+
+        if (role == 'True') {
+            var store = $("#drp").val();
+            $('#Storename').val(store)
+            alert(store+" drp selected")
+            $("#drp").change(function () {
+                '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/AdminInclude/GetAllData';
+                var store = $("#drp").val();
+                alert(store)
+                $('#Storename').val(store)
+            });
+        }
+        else {
+            // var storename = document.getElementById('spnStore').innerHTML;
+            var storename = $('#spnStore').html();
+            //alert(storename)
+            alert(storename+" lbl")
+            $('#Storename').val(storename)
+
+        }*@
+    });
+</script>
+
+
+<script>
+
+    $('.badgeicon').click(function () {
+        var cnt = '@ViewBag.Modalcount';
+        if (cnt == 0) {
+          
+            $('.overlaytransparent').hide();
+        }
+        else {
+
+            $('.overlaytransparent').show();
+        }
+
+})
+$('.overlaytransparent').click(function(){
+    $(this).hide();
+
+})
+</script>

@@ -1,0 +1,191 @@
+﻿@model wwwroot.Areas.Admin.Models.AdminChangePasswordModel
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+
+@*<div class="page-body headertopbox">
+        <h5 class="row-title"><i class="typcn typcn-th-small"></i>Change Password</h5>
+        <div id="hbreadcrumb" class="pull-right">
+            <ol class="hbreadcrumb breadcrumb fontsize16">
+                @*<a href="@Url.Action("Index", "dashboard", new { area = "Student" })" class="btn btn-default btn-maroon"><i class="fa fa-backward"></i>Back</a>
+
+            </ol>
+        </div>
+    </div>*@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+    .divIDClass {
+        z-index: 999999 !important;
+    }
+</style>
+<div id="globalTabContent">
+
+    <div class="animate-panelmessesgarea padbtmzero">
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Success")
+        {
+            <script>
+                MyfunSuccess();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Delete")
+        {
+            <script>
+                MyfunSuccess();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+        {
+            <script>
+                MyfunExists();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "SuccessChangePassword")
+        {
+            <script>
+                MyfunSuccessChangePassword();
+            </script>
+        }
+
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Chnagepassworderror")
+        {
+            <script>
+                MyfunSuccessChangePasswordError();
+            </script>
+        }
+    </div>
+    <div id="PanAddUpdate">
+
+        <div class="header-small special_bg">
+            <h3>Change Password</h3>
+        </div>
+        @*@if (!string.IsNullOrEmpty(ViewBag.StatusMessage))
+            {<text>  <p class="tick">
+            </text>
+                @ViewBag.StatusMessage
+
+
+            }*@
+        @if (!string.IsNullOrEmpty((ViewBag.StatusMessageError)))
+        {<text>
+                <p class="cross" /></text>
+        @ViewBag.StatusMessageError
+
+
+    }
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {@Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+            <div class="datagrid martop15">
+                <div class="formmain">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label>Current Password</label>
+                                @Html.PasswordFor(m => m.OldPassword, new { maxlength = 100, @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.OldPassword)
+
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                @Html.PasswordFor(m => m.NewPassword, new { maxlength = 100, @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.NewPassword)
+
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm New Password</label>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { maxlength = 100, @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                                <span id='message'></span>
+
+                            </div>
+
+                            <div class="form-group">
+                                @* <label style="float: left; width: 150px;"><strong>&nbsp;</strong></label>*@
+                                <input type="submit" value="Change Password" class="buttonbox btnsubmit" />
+
+                                @*<img src="~/Content/Admin/images/icon_password.png" />*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    </div>
+</div>
+@*@section FooterScript{*@
+<script>
+    $('#NewPassword, #ConfirmPassword').on('keyup', function () {
+        if ($('#NewPassword').val() == $('#ConfirmPassword').val()) {
+            $('#message').html('Matching').css('color', 'green');
+
+        } else
+            $('#message').html('Not Matching').css('color', 'red');
+    });
+</script>
+<script>
+    function isaggrechange() {
+
+        if ($('#infochangespassword').valid()) {
+
+        }
+        else {
+            //$('html, body').animate({
+            //    scrollTop: $("#headerreqmsg").offset().top
+            //}, 2000);
+            $('#requiredfieldmessage').attr('style', 'display: block');
+            $('#requiredfieldmessage').delay(8000).fadeOut('slow');
+        }
+    }
+</script>
+<script>
+        function validpassword(passwd) {
+            if (passwd != '') {
+                $.ajax({
+                    url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()admin/ChangePassword/validatepassword',
+                    data: { Password: passwd },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.IsValid == false) {
+
+                            $('#invalidpassword').attr('style', 'display: block;color:red;');
+                            $('#invalidpassword').delay(8000).fadeOut('slow');
+                            $("#OldPassword").removeClass("valid");
+                            $("#OldPassword").addClass("input-validation-error");
+
+                        }
+                        else {
+
+                            $('#invalidpassword').attr('style', 'display: none');
+                            $("#OldPassword").addClass("valid");
+                            $("#OldPassword").removeClass("input-validation-error");
+                        }
+                    }
+                });
+            }
+            else {
+                return false;
+            }
+
+
+    }
+</script>
+@*}*@

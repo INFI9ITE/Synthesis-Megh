@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7787ad6a2cd4e92af84ee99358cf72a" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="WestZoneModel.QBConfig" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.SiteConfiguration" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Activity_action" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Activity_log" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Department" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_DepartmentNetSales" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_EmploymentStatus" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_EmploymentType" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Gender" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Invoice" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Invoice_Department" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_LogSummary" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_MaritalStatus" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_PaidOut" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Pamentype" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Status" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Store_Terminal" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Type" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_user" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_user_store" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Vendor" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.UserProfile" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.Utility" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.webpages_Membership" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.webpages_OAuthMembership" Width="1.5" PointX="14.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WestZoneModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="WestZoneModel.webpages_UsersInRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Store" Width="1.5" PointX="11.375" PointY="16.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_shift" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_TendersInDrawer" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Creditcard_details" Width="1.5" PointX="17.375" PointY="13.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_discounttype" Width="1.5" PointX="17.375" PointY="17.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_SalesActivitySummary" Width="1.5" PointX="5.375" PointY="17.75" />
+        <AssociationConnector Association="WestZoneModel.webpages_UsersInRoles1" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_DeletedInvoiceHistory" Width="1.5" PointX="7.375" PointY="18.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_otherdeposit" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Option" Width="1.5" PointX="17.375" PointY="10.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Payment_Method" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WestZoneModel.ExceptionHandlingLog" Width="1.5" PointX="19.375" PointY="3.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_ChildSalesEntries" Width="1.5" PointX="19.375" PointY="6.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_SalesGeneralEntries" Width="1.5" PointX="19.375" PointY="10.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_SalesGeneralEntriesHistory" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_ConfigureStatus" Width="1.5" PointX="15.375" PointY="20.75" />
+        <EntityTypeShape EntityType="WestZoneModel.Tbl_Configuration" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_GroupName" Width="1.5" PointX="2.75" PointY="19.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_TypicalBalance_master" Width="1.5" PointX="19.375" PointY="18.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Storewise_Excelupload" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_ExcelRead" Width="1.5" PointX="21.375" PointY="3.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Excelread_Errormsg" Width="1.5" PointX="21.375" PointY="6.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_DefaultAccount" Width="1.5" PointX="21.375" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

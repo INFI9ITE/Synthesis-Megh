@@ -1,0 +1,31 @@
+﻿@model wwwrootBL.Entity.Utility
+@{
+    Layout = null;
+}
+ <div id="adminHeader">
+                <input id="Button1" type="button" value="button" style="display: none" />
+
+                <div id="logo" style="margin-top: 30px">
+                    <a href="">
+                        @{
+        string SiteLogo = Html.DisplayFor(model => model.sitelogo).ToString();
+
+        if (wwwroot.Class.AdminSiteConfiguration.ExistsImage("utilities", SiteLogo))
+        {
+            SiteLogo = wwwroot.Class.AdminSiteConfiguration.GetURL() + "userfiles/utilities/" + SiteLogo;
+        <img src="@SiteLogo" style="max-height:80px;" /> 
+        }
+    }
+                    </a>
+                </div>
+
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+<div class="subNav2">
+    <ul>
+        <li style="font-size: 11px; background-image: none; margin: 4px 0 0 0;">Login to @Model.sitename Content Management System</li>
+    </ul>
+</div>

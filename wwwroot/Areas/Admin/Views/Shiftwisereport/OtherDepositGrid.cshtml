@@ -1,0 +1,240 @@
+﻿@model wwwroot.Areas.Admin.Models.Shiftwisereport_Select
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+    Layout = null;
+    WestZoneEntities db = new WestZoneEntities();
+}
+
+<div class="datagrid mt-5">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover buletable" id="data_tabletwo">
+            <thead>
+                <tr>
+                    <th width="150">Options <span class="highlight" id="">*</span></th>
+                    <th width="200">Amount <span class="highlight" id="">*</span></th>
+                    <th>Details</th>
+                    <th width="230" id="thpayid">Payment Method <span class="highlight" id="PaymentMethodN">*</span></th></th>
+                    <th width="200" id="thvendorid">Vendor <span class="highlight" id="VendorNameN">*</span></th></th>
+                    @*<th width="200" id="thother">Oher</th>*@
+                    <th width="100" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model.Otherdepositlist != null)
+                    {
+                        if (Model.Otherdepositlist.Count > 0)
+                        {
+                            for (int i = 0; i < Model.Otherdepositlist.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Model.Otherdepositlist[i].options</td>
+                                    <td>
+                                        @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Model.Otherdepositlist[i].amount))
+                                    </td>
+                                    @*<td><input type="text" id="new_" disabled="disabled" class="form-control" value="@Model.Otherdepositlist[i].name"></td>*@
+                                    <td>@Model.Otherdepositlist[i].name</td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(@Model.Otherdepositlist[i].payment))
+                                        {@Model.Otherdepositlist[i].payment}
+                                    else
+                                    {<span>NA</span>
+                                    }
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(@Model.Otherdepositlist[i].Vendor))
+                                        {@Model.Otherdepositlist[i].Vendor}
+                                    else
+                                    {<span>NA</span>
+                                    }
+                                    </td>
+                                    @*<td>
+                                            @if (!string.IsNullOrEmpty(@Model.Otherdepositlist[i].Other))
+                                            {@Model.Otherdepositlist[i].Other}
+                                        else
+                                        {<span>-</span>
+                                        }
+                                        </td>*@
+
+                                    <td class="text-center"><input type="button" class="delete_btn" onclick="ConfirmDelete('@Model.Otherdepositlist[i].Id')" value="Delete"></td>
+                                    @{
+                                        //var DivId = @Model.Otherdepositlist[i].Id;
+
+                                    }
+
+                                </tr>
+                            }
+                        }
+                    }
+                }
+                <tr>
+                    <td>
+                        @Html.DropDownListFor(model => model.Optionid, new SelectList(Model.SelectOptionList, "Value", "Text"), "Select Option", new { @class = "", @onchange = "getpayment(this.value,this.id)" })<span class="highlight" id="OptionsIsReq">Option Is Required</span>
+                    </td>
+                    <td><input type="text" onchange="CheckOtherDepositeValue()" id="new_country" maxlength="18" class="form-control decimalOnly"><span class="highlight" id="AmountIsReq">Amount Is Required</span></td>
+                    <td><input type="text" id="new_name" onchange="CheckOtherDepositeValue()" class="form-control" maxlength="40">@*<span class="highlight" id="NameIsReq">Name Is Required</span>*@</td>
+                    <td id="tdPayid">
+                        <div id="PaymentMethodNA">
+                            <span>NA</span>
+                        </div>
+                        <div id="PaymentMethod">
+                            @Html.DropDownListFor(model => model.Payid, new SelectList(Enumerable.Empty<SelectListItem>(), "Value", "Text"), "Select Paymant Method", new { @class = " form-control", @onchange = "CheckOtherDepositeValue()" })<span class="highlight" id="MethodIsReq">Paymant Method Is Required</span>
+                        </div>
+                    </td>
+                    <td id="tdvendorid">
+                        <div id="VendorNameNA">
+                            <span>NA</span>
+                        </div>
+                        <div id="VendorName">
+                            @Html.DropDownListFor(model => model.vendorid, new SelectList(Model.SelectVendorList, "Value", "Text"), "Select Vendor", new { @class = "form-control", @onchange = "CheckOtherDepositeValue()" })<span class="highlight" id="VendorIsReq">Vendor Is Required</span>
+                        </div>
+                    </td>
+                    @*<td id="tdother"><input type="text" id="Other" maxlength="18" class="form-control" onchange="CheckOtherDepositeValue()"><span class="highlight" id="OtherIsReq">Other Is Required</span></td>*@
+
+                    <td class="text-center">
+                        <input type="button" id="btnotherdepositsubmit" class="addvalue" onclick="SaveOtherdeposit()" value="Add">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="PopDeleteOtherDeposit" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none; z-index:999999999999!important;">
+    <div class="modal-content ">
+        <div class="modal-header text-center">
+            <i class="glyphicon glyphicon-trash"></i>
+        </div>
+        <div class="modal-title">Message</div>
+        <div class="modal-body ">
+            Are you sure you want to delete this Entry?
+            <input type="hidden" id="DepositId" name="DepositId" />
+        </div>
+        <div class="modal-footer" style="text-align:center">
+            <a class="btn btn-danger" onclick="delete_Other_Deposite()">Yes </a>
+            <a class="btn" data-dismiss="modal" onclick="closemodal()">No</a>
+        </div>
+    </div>
+</div>
+<script>
+    $("#Optionid").change(function () {
+        CheckOtherDepositeValue();
+    });
+</script>
+<script>
+    function getpayment(option_val, op_id) {
+
+        if (option_val == '') {
+            option_val = 0;
+        }
+        if (option_val == 'Gift Certificate' || option_val == 'House Charge Account') {
+            document.getElementById("Payid").disabled = false;
+            document.getElementById("vendorid").disabled = true;
+            $("#vendorid").val(0);
+            $("#Payid").val(0);
+            //document.getElementById("Other").disabled = true;
+            //$("#OtherIsReq").hide();
+            $("#PaymentMethod").show();
+            $("#PaymentMethodN").show();
+            $("#PaymentMethodNA").hide();
+            $("#VendorName").hide();
+            $("#VendorNameN").hide();
+            $("#VendorNameNA").show();
+            $("#VendorIsReq").hide();
+        }
+
+        if (option_val == 'Rebate') {
+            document.getElementById("vendorid").disabled = false;
+            document.getElementById("Payid").disabled = true;
+            $("#vendorid").val(0);
+            $("#Payid").val(0);
+            //document.getElementById("Other").disabled = true;
+            $("#MethodIsReq").hide();
+            $("#PaymentMethod").hide();
+            $("#PaymentMethodN").hide();
+            $("#PaymentMethodNA").show();
+            $("#VendorName").show();
+            $("#VendorIsReq").show();
+            $("#VendorNameN").show();
+            $("#VendorNameNA").hide();
+            //$("#OtherIsReq").hide();
+        }
+
+        if (option_val == 'Other') {
+            //document.getElementById("Other").disabled = false;
+            document.getElementById("vendorid").disabled = true;
+            document.getElementById("Payid").disabled = true;
+            $("#vendorid").val(0);
+            $("#Payid").val(0);
+            $("#MethodIsReq").hide();
+            $("#VendorIsReq").hide();
+            $("#PaymentMethod").hide();
+            $("#PaymentMethodN").hide();
+            $("#VendorName").hide();
+            $("#VendorNameN").hide();
+            $("#PaymentMethodNA").show();
+            $("#VendorNameNA").show();
+            $("#VendorIsReq").hide();
+        }
+        if (option_val == 'Gift Certificate' || option_val == 'House Charge Account') {
+            var Id = option_val;
+            $("#Payid").empty();
+            //var thisrow = ReplaceData(Panel_id, "PanelSelectID_", "");
+            $("#Payid").append("<option selected='selected' value=''>Select Paymant Method</option>");
+            $.getJSON('/admin/Shiftwisereport/GetPaymethodlist/' + Id, function (data) {
+                $.each(data, function (i, model1) {
+                    $("#Payid").append(
+                        "<option value=" + model1.Value + ">" + model1.Text + "</option>")
+                });
+            });
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+
+        $("#PaymentMethod").hide();
+        $("#PaymentMethodN").hide();
+        $("#VendorName").hide();
+        $("#VendorNameN").hide();
+        //$("#tdvendorid").hide();
+        //$("#thvendorid").hide();
+        //$("#thother").hide();
+        //$("#thpayid").hide();
+        //$("#tdother").hide();
+        //$("#tdPayid").hide();
+        document.getElementById("vendorid").disabled = true;
+        document.getElementById("Payid").disabled = true;
+        //document.getElementById("Other").disabled = true;
+        document.getElementById("spanotherdeposit").innerHTML = '@ViewBag.DepositeCount';
+        $("#AmountIsReq").hide();
+        $("#MethodIsReq").hide();
+        //$("#NameIsReq").hide();
+        $("#OptionsIsReq").hide();
+        //$("#OtherIsReq").hide();
+        $("#VendorIsReq").hide();
+
+
+    });
+    $(".decimalOnly").bind('keypress', function isNumberKey(evt) {
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+            return false;
+
+        return true;
+    });
+    $(".decimalOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+
+    function ConfirmDelete(ID) {
+        //var DivId = ID;
+        //$("#" + DivId).show();
+    $("#DepositId").val(ID);
+        $("#PopDeleteOtherDeposit").show();
+    }
+    function closemodal() {
+        $(".divIDClass").hide();
+    }
+</script>

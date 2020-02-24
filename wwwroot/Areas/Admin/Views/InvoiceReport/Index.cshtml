@@ -1,0 +1,43 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.User_Create>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+@*<div class="page-body headertopbox">
+        <h5 class="row-title"><i class="typcn typcn-th-small"></i>User</h5>
+        <div id="hbreadcrumb" class="pull-right">
+            <ol class="hbreadcrumb breadcrumb fontsize16">
+                <a ID="lnkAdd" runat="server" class="btn btn-default btn-maroon" href="@Url.Action("Create", "User")"><i class="fa fa-plus"></i>Add</a>
+            </ol>
+
+        </div>
+    </div>*@
+@*<div class="header-small">
+    <h3>Reports </h3>
+
+</div>*@
+
+@{
+    Html.RenderAction("Grid");
+}
+
+<script>
+    $(document).ready(function () {
+
+        Loader(0);
+       
+    });
+           
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if (val == 1) {
+            $(".loading-container").attr("style", "display:block;")
+        }
+        else {
+            $(".loading-container").attr("style", "display:none;")
+        }
+        
+    }
+</script>

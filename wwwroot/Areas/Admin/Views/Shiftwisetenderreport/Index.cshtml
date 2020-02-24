@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+<link href="~/Content/Admin/assets/css/newpage.css" rel="stylesheet" />
+<link rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.24/daterangepicker.min.css'>
+<style type="text/css">
+    .bootstrap-datetimepicker-widget table tr td.new {
+        display: none !important;
+    }
+
+    .bootstrap-datetimepicker-widget table tr td.old {
+        visibility: hidden !important;
+    }
+
+    .calendar-table table.table-condensed tr td.off.available {
+        visibility: hidden !important;
+    }
+
+    .LeftMargin {
+        margin-left: -6px !important;
+    }
+</style>
+<div>
+    @if (Convert.ToString(ViewBag.storeid) == "0")
+    {
+        <script>
+            PopUpSelectStore()
+        </script>
+    }
+</div>
+<div id="popupStoreAlert" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 30%; display:none">
+    <div class="modal-content ">
+        <div class="modal-header text-center">
+            <i class="glyphicon glyphicon-fire"></i>
+        </div>
+        <div class="modal-title">No Store Selected</div>
+        <div class="modal-body ">Please Select Store.</div>
+        <div class="modal-footer " style="text-align:center">
+            <a class="btn btn-danger" data-dismiss="modal" onclick="closemodal()" ;>Ok </a>
+        </div>
+    </div>
+</div>
+@if (Convert.ToString(ViewBag.storeid) != "0")
+{
+    <div class="header-small header_invoicedetail leftmargin">
+        <div class="headerTop">
+            <form id="form">
+                <div class="headerTopLeft tenderreportrange">
+                    <label>Select Date(s)</label>
+                    @*<div>
+                        <input data-val="true" data-val-date="The field Startdate must be a date." data-val-required=" " id="Startdate" name="Startdate" placeholder="From" type="text" value="" class="datepicker form-control required" /></div>
+                        <span id="AlertMessage" style="color:red">Please Select Both Date</span>
+                        <div>
+                        <input data-val="true" data-val-date="The field Enddate must be a date." data-val-required=" " id="Enddate" name="Enddate" placeholder="To" type="text" value="" class="datepicker form-control required" /></div>*@
+                    <input type="hidden" id="LatestDate" name="LatestDate" value="@ViewBag.LatestDate" />
+                    <div>
+                        <input type="text" name="value_from_start_date" id="Startdate" style="cursor: text;" readonly="readonly" data-datepicker="separateRange" placeholder="From" class="datepicker form-control" />
+                    </div>
+                    @*<div>
+                            to
+                        </div>*@
+                    <div>
+                        <input type="text" name="value_from_end_date" id="Enddate" data-datepicker="" style="cursor: text;" placeholder="To" class="datepicker form-control" />
+                    </div>
+
+
+                    <span id="AlertMessage" style="color:red">Please Select Both Date</span>
+                    <div class="headerTopRight">
+                        @*<button type="submit" id="Submit" onclick="GetData1()"></button>*@
+                        <a class="btn btnRed" id="Submit" onclick="GetData1()">Submit</a>
+                    </div>
+                </div>
+            </form>
+            <div class="headerTopRight" style="display:none;">
+                <a class="btn btnRed">Print</a>
+            </div>
+        </div>
+    </div>
+
+    Html.RenderAction("Grid");
+}
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.24/moment.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.24/daterangepicker.min.js'></script>
+<script src="~/Content/Admin/js/NewDatepicker.js"></script>
+<script>
+    //('.date-picker').datetimepicker();
+    function closemodal() {
+        $(".divIDClass").hide();
+    }
+    $('.stop-propagation').on('click', function (e) {
+        e.stopPropagation();
+    });
+    $(function () {
+        //$('#Startdate').datetimepicker({
+        //    format: 'MM-DD-YYYY',
+        //    useCurrent: false
+        //});
+        //$('#Enddate').datetimepicker({
+        //    format: 'MM-DD-YYYY',
+        //    useCurrent: false
+        //});
+
+        //var date = new Date();
+        //var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        //$('#Startdate').on('dp.change', function (e) {
+        //    var id = $(this).val();
+        //    //alert(id);
+        //    GetData(id);
+        //});
+
+    });
+
+    $(document).ready(function () {
+        $('#Enddate').datepicker().datepicker('disable');
+
+        //$('#Startdate').attr('autocomplete', 'off');
+
+
+
+        $('#AlertMessage').hide();
+        $(".openotherbox").click(function () {
+            $(".other-deposite").slideToggle("slow");
+        });
+
+const months = ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let current_datetime = document.getElementById('LatestDate').value;//new Date()//
+        
+//let formatted_date = months[current_datetime.getMonth()] + " " +  current_datetime.getDate() + "," + current_datetime.getFullYear()
+        $('#Startdate').val(current_datetime);
+        $('#Enddate').val(current_datetime);
+
+
+
+    });
+
+    @*function GetData() {
+        var Sdate = document.getElementById('Startdate').value;
+        var Edate = document.getElementById('Enddate').value;
+        //alert("Sdate" + Sdate + "Edate" + Edate);
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/Shiftwisetenderreport/Grid',
+            data: { date: Sdate, Edate: Edate},
+            beforeSend: function () {Loader(1);
+            },
+            // async: false,
+            success: function (response) {
+
+                //    $("body").html(response);
+               // $('#getdata').empty();
+                $('#getdata').append(response);
+             Loader(0);
+            }
+        });
+    }*@
+    @*function GetData(Currentdate)
+    {
+        //alert(Currentdate);
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/Shiftwisetenderreport/Grid',
+            data: { date: Currentdate},
+            beforeSend: function () {Loader(1);
+            },
+            // async: false,
+            success: function (response) {
+
+                //    $("body").html(response);
+                $('#getdata').empty();
+                $('#getdata').append(response);
+             Loader(0);
+            }
+        });
+    }*@
+</script>

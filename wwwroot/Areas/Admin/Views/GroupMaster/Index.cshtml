@@ -1,0 +1,163 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.GroupMaster_Select>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+@if (Convert.ToString(ViewBag.StatusMessage) == "Success")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        toastr.success('Group Account created Successfully');
+    </script>
+}
+@if (Convert.ToString(ViewBag.StatusMessage) == "Delete")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('Group Account deleted Successfully');
+    </script>
+}
+@if (Convert.ToString(ViewBag.StatusMessage) == "Edit")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        toastr.success('Group Account updated Successfully');
+    </script>
+}
+@if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('Group Account Name is already exists.');
+    </script>
+}
+@if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+{
+    <script>
+        MyfunError();
+    </script>
+}
+@if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('No Group Account Found');
+    </script>
+}
+@if (Convert.ToString(ViewBag.StatusMessage) == "EmailExists")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('Email Is already exists With Another Group Account.');
+    </script>
+}
+@*<div class="header-small special_bg">
+    <h3>Manage Group Master <a href="@Url.Action("Create", "GroupMaster")" class="pull-right addstore" class="pull-right addstore" data-toggle="tooltip" data-placement="bottom" title="Add"><img src="~/Content/Admin/images/plus.svg" alt="" /></a></h3>
+
+</div>*@
+@{
+    Html.RenderAction("Grid");
+}
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

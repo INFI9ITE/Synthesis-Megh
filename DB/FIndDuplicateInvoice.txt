@@ -1,0 +1,1 @@
+select  Store_id ,Type_id,Vendor_id,Invoice_Date,Invoice_Number from tbl_invoice where CreatedOn> '2019-03-29' and IsActive=1 group by Store_id ,Type_id,Vendor_id,Invoice_Date,Invoice_Number having COUNT(*)>1

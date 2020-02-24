@@ -1,0 +1,13 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Invoice_Create>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+
+<div class="header-small">
+    <h3>Invoice@*<a href="@Url.Action("Create", "Invoice")" class="pull-right addstore"><img src="~/Content/Admin/images/icons/icon_plus.png" alt="" /></a>*@</h3>
+
+</div>
+@{
+    Html.RenderAction("Grid");
+}0

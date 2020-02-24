@@ -1,0 +1,34 @@
+Back office manager:
+
+1. Dashboard
+
+ 1. Match the fonts and size of fonts as per the approved design ----> ajay bhai
+
+ 2. every Column should be left align, right now invoice number and Amount is not left align ---> ajay bhai
+
+ 3. search by Amount is not working ---> Done
+
+Bell Notification:
+
+1. right now back office manager is also receiving all teh alert notification from other back office managers.
+ This should be visible only to store manager and DA..When he clicks on notification ---->Done
+
+Add Invoice:
+
+1.Add *  (required field sign) for Invoice ---->Done
+
+2. when user selects Invoice breakdown and clicks on the amount field, then the number 0 should be removed.---> Done
+
+3. when user deletes the amount he has added in one of the amount field and any one is filled , then total amount shows as $NaN. It should show the total number not any other value.
+
+4.Invoice break down-select department, even without selecting department amounts are getting added and invoice generated on dashboard.
+
+ 
+
+ 
+
+Common.
+
+1.All confirmation alerts are coming , overlapping the logout button. It should be in the center of page --- ajay bhai
+
+2. Satus on dashboard should be "Approved" not Approve. -->done

@@ -1,0 +1,216 @@
+﻿@model wwwroot.Areas.Admin.Models.User_Select
+@using wwwrootBL.Entity;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+@*<div class="page-body headertopbox">
+        <h5 class="row-title"><i class="typcn typcn-th-small"></i>User</h5>
+        <div id="hbreadcrumb" class="pull-right">
+            <ol class="hbreadcrumb breadcrumb fontsize16">
+                <a runat="server" class="btn btn-default btn-maroon" href="@Url.Action("index", "User")"><i class="fa fa-backward"></i>Back</a>
+
+            </ol>
+        </div>
+    </div>*@
+
+<div id="globalTabContent">
+    <div class="animate-panelmessesgarea padbtmzero">
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Success")
+            {
+            <script>
+                MyfunSuccess();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Delete")
+            {
+            <script>
+                MyfunSuccess();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+            {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+            {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+            {
+            <script>
+                MyfunExistsEmpcode();
+            </script>
+        }
+    </div>
+
+
+
+    <div id="PanAddUpdate">
+
+        <div class="header-small special_bg icon_12">
+            <h3>User Detail <a href="@Url.Action("Index", "User")" class="pull-right addstore" data-toggle="tooltip" data-placement="bottom" data-original-title="Back"><img src="~/Content/Admin/images/chevron-left.svg" alt="" /></a></h3>
+        </div>
+
+
+        @using (Html.BeginForm("Detail", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            
+            @Html.ValidationSummary(true)
+
+            <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+                <div class="datagrid martop15">
+                    <div class="formmain detailpagecnt">
+					
+					<table class="table">
+					<tr>
+						<td width="150"> Name </td>
+						<td width="15" align="center"> : </td>
+						<td> @Model.Name</td>
+					
+					</tr>
+					@*<tr>
+						<td width="150">   Email </td>
+						<td width="15" align="center"> : </td>
+						<td> @Model.Email</td>
+					
+					</tr>*@
+					<tr>
+						<td width="150">    User Name </td>
+						<td width="15" align="center"> : </td>
+						<td> @Model.UserName</td>
+					
+					</tr>
+					<tr>
+						<td width="150">   User Role </td>
+						<td width="15" align="center"> : </td>
+						<td>  @Model.rolename</td>
+					
+					</tr>
+					@*<tr>
+						<td width="150">    User Store  </td>
+						<td width="15" align="center"> : </td>
+						<td>  @{
+                                            WestZoneEntities db = new WestZoneEntities();
+                                            var storevalue = "";
+                                            var uname = Model.UserName;
+                                            int user_id = Convert.ToInt32(WebSecurity.GetUserId(uname));
+                                            var Storenamelist = db.tbl_user_store_By_Reg_userid(user_id).Select(x => x.StoreName).ToList();
+                                            foreach (var item1 in Storenamelist)
+                                            {
+                                                if (Storenamelist.Count > 1)
+                                                {
+                                                    storevalue +=  item1+ ",";
+                                                }
+                                                else
+                                                {
+                                                    storevalue += item1;
+                                                }
+
+
+                                            }
+                                        }
+                                        @storevalue</td>
+					
+					</tr>*@
+					</table>
+					
+                        <div class="row">
+                            <div class="col-md-6">
+                               
+
+                                    @*<div class="from-group">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <input type="submit" value="Save" name="Save" id="Save"
+                                                   class="btn btn-success btnsaveicon" />
+                                            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger btncancelicon" })
+                                        </div>
+                                    </div>*@
+
+                               
+                                <div class="clear">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+@*@section FooterScript{*@
+
+<script>
+                var top = 0;
+                function Loader(val) {
+                    var doc = document.documentElement;
+
+                    if (val == 1) {
+
+                        $("#secloader").removeClass('pace-active1');
+                        $("#secloader").addClass('pace-active');
+                        $("#dvloader").removeClass('bak1');
+                        $("#dvloader").addClass('bak');
+                        $("#globalFooter").addClass('LoaderFooter');
+                        top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                    }
+                    else {
+                        $("#secloader").removeClass('pace-active');
+                        $("#secloader").addClass('pace-active1');
+                        $("#dvloader").removeClass('bak');
+                        $("#dvloader").addClass('bak1');
+                        $("#globalFooter").removeClass('LoaderFooter');
+                        doc.scrollTop = top;
+
+                    }
+                }
+
+
+
+</script>
+<script type="text/javascript">
+
+                $(document).ready(function () {
+                    ddListChange();
+                });
+                function ddChangeClearList() {
+                    $('#Storename').val(null).trigger("change");
+                    $(function () {
+                        $('li').on('click', function (e) {
+                            var menuItem = $(e.currentTarget);
+
+                            if (menuItem.attr('aria-selection') === 'true') {
+                                $(this).attr('display', 'none');
+                            } else {
+                                $(this).attr('display', 'block');
+                            }
+                        });
+                    });
+                    $('#Storename').val(null).trigger("change");
+                }
+                function ddListChange() {
+                    var role = $('#rolename option:selected').text();
+
+                    if (role == "Back Office Manager") {
+
+                        { $("#Storename").removeAttr('multiple'); }
+                        // { $("#select2-Storename-results").prop("multiple", true); }
+                    }
+                    else {
+
+                        {
+
+                            $("#Storename").prop("multiple", true);
+                        }
+
+                    }
+                }
+
+</script>
+@*}*@

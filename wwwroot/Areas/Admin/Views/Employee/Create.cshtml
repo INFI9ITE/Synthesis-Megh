@@ -1,0 +1,623 @@
+﻿@model wwwroot.Areas.Admin.Models.Employee_Create
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMAster.cshtml";
+}
+<script type="text/javascript" src='~/Content/Admin/vendor/jquery/dist/jquery.min.js'></script>
+<script src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/assets/js/datetime/bootstrap-datepicker.js'></script>
+<script type="text/javascript" src='~/Content/Admin/js/bootstrap.file-inputorijinal.js'></script>
+
+<div id="globalTabContent">
+    <div class="animate-panelmessesgarea padbtmzero">
+
+        @if (ViewBag.StatusMessage.ToString() == "Success")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('User created Successfully');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Lock")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Lock.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "UnLock")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.UnLock.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Edit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Edit.ToString()');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+        {
+            <script>
+                MyfunExistsEmpcode();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "t")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.error('User Name is already exists.');
+            </script>
+        }
+    </div>
+
+
+    <div id="PanAddUpdate">
+        <div class="header-small special_bg">
+            <h3>Add Employee </h3>
+        </div>
+
+
+
+
+        @using (Html.BeginForm("create", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmuser" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+                <div class="datagrid martop15">
+                    <div class="formmain">
+                        <div class="row">
+                            <div class="col-md-4">
+
+
+                                <div class="form-group">
+                                    <label>
+                                        Last Name<span class="highlight">*</span>
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.LastName, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.LastName)</span>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        First Name<span class="highlight">*</span>
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.FirstName, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.FirstName)</span>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Second Name
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.SecondName, new { maxlength = 100, @class = "form-control" })
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group" style="position:relative">
+                                    <label>
+                                        Birthday<span class="highlight">*</span>
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.Birthday, new {  maxlength = 100, @class = "datepicker form-control" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.Birthday)</span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Social Security Number<span class="highlight">*</span>
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.SocSecurityNo, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.SocSecurityNo)</span>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Gender<span class="highlight">*</span>
+                                    </label>
+                                    @Html.DropDownListFor(model => model.Genderid, new SelectList(Model.BindGender, "Value", "Text"), "Select Gender", new { @class = "form-control myval " })
+                                    <span class="highlight"> @Html.ValidationMessageFor(model => model.Genderid)</span>
+                                </div>
+                            </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Marital Status
+                                    </label>
+                                    @Html.DropDownListFor(model => model.MaritalStatusid, new SelectList(Model.BindMaritalStatus, "value", "text"), "Select Marital Status ", new { @class = "myval" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Note
+                                    </label>
+                                    @Html.TextAreaFor(model => model.EmpNote, new { maxlenght = 250, @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Email
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Email, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.Email)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Home Phone
+                                    </label>
+                                    @Html.TextBoxFor(model => model.HomePhone, new { maxlength = 100, @class = "form-control", placeholder = "(XXX) XXX-XXXX" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Mobile Phone
+                                    </label>
+                                    @Html.TextBoxFor(model => model.MobilePhone, new { maxlength = 100, @class = "form-control", placeholder = "(XXX) XXX-XXXX" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Street
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Street, new { maxlength = 100, @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Apt/Suite/Building
+                                    </label>
+                                    @Html.TextBoxFor(model => model.AptSuiteBuilding, new { maxlength = 100, @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        City
+                                    </label>
+                                    @Html.TextBoxFor(model => model.City, new { maxlength = 100, @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        State
+                                    </label>
+                                    @Html.TextBoxFor(model => model.State, new { maxlength = 100, @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Zip Code
+                                    </label>
+                                    @Html.TextBoxFor(model => model.ZipCode, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.ZipCode)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Employee Id <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Employeeid, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight"> @Html.ValidationMessageFor(model => model.Employeeid)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Hire Date<span class="highlight">*</span>
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.HireDate, new { onkeydown = "return false", maxlength = 100, @class = "datepicker form-control " })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.HireDate)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Termination Date
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.TerminationDate, new { onkeydown = "return false", maxlength = 100, @class = "datepicker form-control " })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.TerminationDate)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Store<span class="highlight">*</span>
+                                    </label>
+                                    @Html.DropDownListFor(model => model.Storeid, new SelectList(Model.BindStore, "value", "text"), "Select Store", new { @class = "myval" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.Storeid)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Department<span class="highlight">*</span>
+                                    </label>
+                                    @Html.DropDownListFor(model => model.Deptid, new SelectList(Model.BindDepartment, "value", "text"), "Select Department", new { @class = "myval" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.Deptid)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Employment Type<span class="highlight">*</span>
+                                    </label>
+                                    @Html.DropDownListFor(model => model.EmpTypeid, new SelectList(Model.BindEmploymentType, "value", "text"), "Select Employment Type", new { @class = "myval" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.EmpTypeid)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Status<span class="highlight">*</span>
+                                    </label>
+                                    @Html.DropDownListFor(model => model.EmpStatusId, new SelectList(Model.BindEmploymentStatus, "value", "text"), "Select Status ", new { @class = "myval" })
+                                    <span class="highlight">   @Html.ValidationMessageFor(model => model.EmpStatusId)</span>
+                                </div>
+                                <div>
+
+
+                                    <div class="clear"></div>
+                                    <div class="invoiceimage min_height10"></div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Employee Documents<span class="highlight">*</span>
+                                    </label>
+                                   
+                                        <div class="input_edite" style="float:left !important">
+                                            @Html.TextBoxFor(model => model.EmpDoc, new { type = "file" })
+
+                                            <div data-provides="fileupload">
+                                                <span id="spaninvoice1">
+
+                                                </span>
+
+                                            </div>
+
+
+                                            <div class="clear"></div>
+                                        </div>
+                                    @*<div class="clear"></div>*@
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Photo<span class="highlight">*</span>
+                                    </label>
+                                    <div>
+                                        <div class="input_edite" style="float:left !important">
+                                            @Html.TextBoxFor(model => model.Photo, new { type = "file" })
+
+                                            <div data-provides="fileupload">
+                                                <span id="spaninvoice1">
+
+                                                </span>
+
+                                            </div>
+
+
+                                            <div class="clear"></div>
+                                        </div><div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+                                    <label>
+                                        Password <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.PasswordFor(model => model.Password, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.Password)</span>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>
+                                        Confirm Password <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.PasswordFor(model => model.ConfirmPassword, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.ConfirmPassword)</span>
+
+                                </div>
+
+
+
+                                
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="from-group row">
+                                <div class="col-sm-8 ">
+                                    <input type="submit" value="Add"
+                                           class="buttonbox btnsubmit" />
+
+                                    @*@Html.ActionLink("Reset", "Create", null, new { @class = "buttonbox btncancel" })*@
+                                    @Html.ActionLink("Cancel", "Index", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="clear">
+            </div>*@
+        }
+
+    </div>
+    @*<div class="clear">
+    </div>*@
+</div>
+@*@section FooterScript{*@
+<script>
+    document.getElementById('HomePhone').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+</script>
+<script>
+
+    document.getElementById('MobilePhone').addEventListener('input', function (e) {
+        var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#Birthday').datetimepicker({
+            format: 'MMM DD,YYYY',
+            useCurrent: false
+        });
+    });
+    $(function () {
+        $('#HireDate').datetimepicker({
+            format: 'MMM DD,YYYY',
+            useCurrent: false
+        });
+    });
+    $(function () {
+        $('#TerminationDate').datetimepicker({
+            format: 'MMM DD,YYYY',
+            useCurrent: false
+        });
+    }); 
+    //function ValidateDate(dtValue) {
+    //    var dtRegex = new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
+    //    return dtRegex.test(dtValue);
+    //}
+
+
+</script>
+<script>
+
+    $(document).ready(function () {
+        $('#frmuser').attr('autocomplete', 'off');
+    });
+
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+
+        if (val == 1) {
+
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+
+        }
+
+    }
+
+
+
+    @*</script>
+<script type="text/javascript">*@
+
+
+    function ddChangeClearList() {
+        $('#Storename').val(null).trigger("change");
+        $(function () {
+            $('li').on('click', function (e) {
+                var menuItem = $(e.currentTarget);
+
+                if (menuItem.attr('aria-selection') === 'true') {
+                    $(this).attr('display', 'none');
+                } else {
+                    $(this).attr('display', 'block');
+                }
+            });
+        });
+        $('#Storename').val(null).trigger("change");
+    }
+    function ddListChange() {
+        var role = $('#rolename option:selected').text();
+
+        if (role == "Back Office Manager") {
+
+            { $("#Storename").removeAttr('multiple'); }
+            // { $("#select2-Storename-results").prop("multiple", true); }
+        }
+        else {
+
+            {
+
+                $("#Storename").prop("multiple", true);
+            }
+
+        }
+    }
+
+
+</script>
+
+@*}*@
+

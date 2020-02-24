@@ -1,0 +1,365 @@
+﻿@model wwwroot.Areas.Admin.Models.User_Create
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMAster.cshtml";
+}
+
+<script src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/assets/js/datetime/bootstrap-datepicker.js'></script>
+
+
+<div id="globalTabContent">
+    <div class="animate-panelmessesgarea padbtmzero">
+      
+        @if (ViewBag.StatusMessage.ToString() == "Success")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('User created Successfully');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Lock")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Lock.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "UnLock")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.UnLock.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Edit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Edit.ToString()');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+        {
+            <script>
+                MyfunExistsEmpcode();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "t")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.error('User Name is already exists.');
+            </script>
+        }
+    </div>
+
+
+
+    <div id="PanAddUpdate">
+        <div class="header-small special_bg">
+            <h3>Add User </h3>
+        </div>
+
+
+
+
+        @using (Html.BeginForm("create", "User", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmuser" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+                <div class="datagrid martop15">
+                    <div class="formmain">
+                        <div class="row">
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label>
+                                        Name<span class="highlight">*</span>
+                                    </label>
+
+                                    @Html.TextBoxFor(model => model.Name, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.Name)</span>
+
+
+                                </div>
+                                @*<div class="form-group">
+                                        <label>
+                                            Email<span class="highlight">*</span>
+                                        </label>
+
+
+                                            @Html.TextBoxFor(model => model.Email, new { maxlength = 100, @class = "form-control" })
+                                            <span class="highlight">     @Html.ValidationMessageFor(model => model.Email)</span>
+
+
+                                    </div>*@
+                                <div class="form-group">
+                                    <label>
+                                        User Name <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.TextBoxFor(model => model.UserName, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.UserName)</span>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Password <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.PasswordFor(model => model.Password, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.Password)</span>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        Confirm Password <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.PasswordFor(model => model.ConfirmPassword, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.ConfirmPassword)</span>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>
+                                        Role <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @*@Html.DropDownListFor(model => model.Cid, new SelectList(Model.BindCategory, "id", "name"), "Select Country* ", new { id = "cid", @class = "myval" })
+                                        @Html.ValidationMessageFor(model => model.Cid)*@
+
+                                    @Html.DropDownListFor(model => model.rolename, new SelectList(Model.BindRoleList, "value", "text"), "Select Role ", new { id = "rolename", @class = "myval", onchange = "ddChangeClearList()" })
+                                    @Html.ValidationMessageFor(model => model.rolename)
+
+                                </div>
+
+                                @*<div class="form-group">
+                                        <label>
+                                            Store <span class="highlight">*</span>
+                                        </label>
+
+
+                                            @Html.ListBoxFor(model => model.Storename, new MultiSelectList(Model.BindStoreList, "value", "text"), new { id = "Storename", @class = "myval", onchange = "ddListChange()" })
+
+
+                                            @Html.ValidationMessageFor(model => model.Storename)
+
+
+                                    </div>*@
+                                @*<div class="form-group" style="display:none" id="divdrp">
+                                        <label class="col-sm-2 control-label">
+                                            Store <span class="highlight">*</span>
+                                        </label>
+                                        <div class="col-sm-4">
+
+                                            @Html.DropDownListFor(model => model.Storename, new MultiSelectList(Model.BindStoreList, "value", "text"), new { id = "Storename1", @class = "myval" })
+
+
+                                            @Html.ValidationMessageFor(model => model.Storename)
+                                        </div>
+
+                                    </div>*@
+                                <div class="from-group row">
+                                    <div class="col-sm-8 ">
+                                        <input type="submit" value="Add"
+                                               class="buttonbox btnsubmit" />
+
+                                        @*@Html.ActionLink("Reset", "Create", null, new { @class = "buttonbox btncancel" })*@
+                                        @Html.ActionLink("Cancel", "Index", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="clear">
+                </div>
+        }
+
+    </div>
+
+</div>
+@*@section FooterScript{*@
+
+<script>
+
+    $(document).ready(function () {
+        $('#frmuser').attr('autocomplete', 'off');
+    });
+
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+
+        if (val == 1) {
+
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+
+        }
+
+    }
+
+
+
+@*</script>
+<script type="text/javascript">*@
+
+
+                        function ddChangeClearList() {
+                            $('#Storename').val(null).trigger("change");
+                            $(function () {
+                                $('li').on('click', function (e) {
+                                    var menuItem = $(e.currentTarget);
+
+                                    if (menuItem.attr('aria-selection') === 'true') {
+                                        $(this).attr('display', 'none');
+                                    } else {
+                                        $(this).attr('display', 'block');
+                                    }
+                                });
+                            });
+                            $('#Storename').val(null).trigger("change");
+                        }
+                        function ddListChange() {
+                            var role = $('#rolename option:selected').text();
+
+                            if (role == "Back Office Manager") {
+
+                                { $("#Storename").removeAttr('multiple'); }
+                                // { $("#select2-Storename-results").prop("multiple", true); }
+                            }
+                            else {
+
+                                {
+
+                                    $("#Storename").prop("multiple", true);
+                                }
+
+                            }
+                        }
+
+
+</script>
+
+@*}*@
+

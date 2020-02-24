@@ -1,0 +1,978 @@
+﻿@model wwwroot.Areas.Admin.Models.Invoice_Edit
+@using wwwrootBL.Entity;
+@using wwwroot.Class;
+@using System.Configuration;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMAster.cshtml";
+}
+
+@*<script src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/assets/js/datetime/bootstrap-datepicker.js'></script>*@
+<script type="text/javascript" src='~/Content/Admin/js/bootstrap.file-input.js'></script>
+<div class="animate-panelmessesgarea padbtmzero">
+
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Success")
+    {
+        <script>
+            MyfunSuccess();
+        </script>
+    }
+
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Delete")
+    {
+        <script>
+            MyfunSuccess();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+    {
+        <script>
+            MyfunError();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+    {
+        <script>
+            MyfunNoItem();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+    {
+        <script>
+            MyfunExistsEmpcode();
+        </script>
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#Invoice_Date').datetimepicker({
+            format: 'MMM DD,YYYY',
+            useCurrent: false
+        });
+    });
+</script>
+
+
+@*<div class="header-small">
+        <h3>Add Invoice <a href="@Url.Action("Index", "InvoiceReport")" class="pull-right btnbackbox" data-toggle="tooltip" data-placement="bottom" title="Back"> Back</a></h3>
+    </div>*@
+@using (Html.BeginForm("Edit", "UnsettledInvoice", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    WestZoneEntities db = new WestZoneEntities();
+
+
+    <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+
+        <div class="header-small header_invoicedetail">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <h3>Invoice# <span>@Html.DisplayFor(m => m.Invoice_Number)</span> </h3>
+                </div>
+                <div class="col-md-7 col-sm-12">
+                    <div class="invoicedetail_text">
+                        <ul>
+                            @{
+                                var createbyvalue = Convert.ToInt32(Model.CreatedBy);
+                                //var Modifiedbyvalue = Convert.ToInt32(Model.ModifiedBy);
+                                var createdby = db.tbl_user.Where(x => x.Reg_userid == createbyvalue).Select(x => x.Name).FirstOrDefault();
+                                // var Modifiedby = db.tbl_user.Where(x => x.Reg_userid == Modifiedbyvalue).Select(x => x.Name).FirstOrDefault();
+                                <li>
+                                    <span class="ttl1">Created By</span> <span class="namebox">@createdby</span> <span class="datebox">
+                                        @wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(Model.CreatedOn))
+                                    </span>
+                                </li>
+                                if (Model.ModifiedBy != null)
+                                {
+                                    <li> <span class="ttl1">Modified By</span> <span class="namebox">@Model.ModifiedBy</span> <span class="datebox">@wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(Model.ModifiedOn))</span> </li>
+                                }
+
+                                <li>
+                                    @{
+
+                                        if (Model.IsStatus_id == 2)
+                                        {
+                                            <span class="ttl1">Approved By</span>
+                                            <span class="namebox">@Model.ApproveRejectBy</span>
+                                            <span class="datebox">@wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(Model.ApproveRejectDate))</span>
+                                        }
+                                        else if (Model.IsStatus_id == 3)
+                                        { <span class="ttl1">Rejected By</span>
+                                            <span class="namebox">@Model.ApproveRejectBy</span>
+                                            <span class="datebox">@wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(Model.ApproveRejectDate))</span>
+
+                                        }
+                                        else
+                                        {<span class="ttl1">Approved By</span>
+                                            <span class="namebox">Not Approved Yet</span>
+                                        }
+
+
+                                    }
+
+                                </li>
+                            }
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 leftpart">
+
+            @*<div>*@
+            @*<h3>Invoice <span class="highlight">*</span></h3>*@
+
+            @*<div class="invoiceimage"></div>*@
+
+            @*<div class="uploadscanbutton">*@
+            @*<div class="fileupload fileupload-new" data-provides="fileupload">*@
+            @*<span class="btn btn-file" id="spaninvoice">
+                    <span class="fileupload-new"> <span class="btnbox btnupload"> <img src="~/Content/Admin/images/icon_pdfblack.png" alt="" class="blackicon" /> <img src="~/Content/Admin/images/icon_pdfwhite.png" alt="" class="whiteicon" /> <span>Upload Pdf</span> </span> </span>
+                    @*<span class="fileupload-exists">Change</span>
+                    @Html.TextBoxFor(model => model.ScanInvoice, new { type = "file" })
+
+                </span>
+                <span class="fileupload-preview"></span> <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                @Html.ValidationMessageFor(model => model.ScanInvoice)*@
+
+
+
+            @*</div>*@
+
+            @*@wwwroot.Class.AdminSiteConfiguration.CleanNUmber(Model.ScanInvoice)*@
+            @{
+                //if (Model.ScanInvoice != "")
+                //{
+                @*<a href="~/userfiles/scanimage/@Model.ScanInvoice" target="_blank" style="width:5%">
+                        <img src="/Content/Admin/images/pdf.png" />
+                    </a>*@
+                //}
+
+
+                <div>
+                    @*<h3>Invoice <span class="highlight">*</span></h3>*@
+
+                    <div class="input_edite">
+                        @Html.TextBoxFor(model => model.ScanInvoice, new { type = "file" })
+                        <div data-provides="fileupload">
+                            <span id="spaninvoice">
+
+                            </span>@*<span class="fileupload-preview"></span> <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                                @Html.ValidationMessageFor(model => model.ScanInvoice)*@
+                        </div>
+
+
+                        <div class="clear"></div>
+                    </div><div class="clear"></div>
+                    <div class="invoiceimage min_height10"></div>
+
+                </div>
+
+
+
+                <div class="pdf_popup_area">
+                    @*@Html.TextBoxFor(model => model.ScanInvoice, new { type = "file" })*@
+                    @if (!string.IsNullOrEmpty(Model.ScanInvoice))
+                    {
+                        @*<iframe src="@ConfigurationManager.AppSettings["cloudurl"]scanimage/@Model.ScanInvoice" frameborder="0" width="100%" height="1000" id="ifrm"></iframe>*@
+                        <iframe src="~/userfiles/scanimage/@Model.ScanInvoice#zoom=80" frameborder="0" width="100%" height="1000" id="ifrm"></iframe>
+                    }
+                </div>
+
+            }
+
+            <div class="clear"></div>
+            <div id="popupStoreid" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                <div class="modal-content ">
+                    <div class="modal-header text-center">
+                        <i class="glyphicon glyphicon-fire"></i>
+                    </div>
+                    <div class="modal-title">Invoice</div>
+                    <div class="modal-body ">Please select the store for add Invoice.</div>
+                    <div class="modal-footer " style="text-align:center">
+                        @*<a class="btn btn-danger" onclick="IsLock(@item.Reg_userid)" ;>Ok </a>*@
+                        <a class="btn" data-dismiss="modal" onclick="closemodal()">OK</a>
+                    </div>
+                </div>
+            </div>
+            @*</div>*@
+
+            @*</div>*@
+        </div>
+        @*<div class="col-md-6 col-sm-6 leftpart">
+                <div>
+                    <h3>Invoice PDF</h3>
+                    <div class="invoiceimage">
+                        @if (!string.IsNullOrEmpty(Model.ScanInvoice))
+                        {
+                            <iframe src="~/userfiles/scanimage/@Model.ScanInvoice" frameborder="0" width="100%" height="800"></iframe>
+                        }
+                    </div>
+                    @*<div class="invoiceimage"></div>
+                        <div class="uploadscanbutton">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <span class="btn btn-file">
+                                    <span class="fileupload-new"> <span class="btnbox btnupload"> <img src="~/Content/Admin/images/icon_pdfblack.png" alt="" class="blackicon" /> <img src="~/Content/Admin/images/icon_pdfwhite.png" alt="" class="whiteicon" /> <span>Upload Pdf</span> </span> </span> <span class="fileupload-exists">Change</span>
+                                    <input type="file" />
+                                </span> <span class="fileupload-preview"></span> <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                </div>
+            </div>*@
+        <div class="col-md-6 col-sm-6 rightpart">
+            <h3>
+                Invoice Information
+                <a href="@Url.Action("Index", "UnsettledInvoice" )" class="pull-right btnbackbox" placement="bottom" title="Back"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</a>
+                @*<a href="javascript:void(0);" onclick="history.go(-1);"*@
+            </h3>
+            <div class="formmain">
+                @Html.HiddenFor(model => model.IsStatus_id)
+                @{
+
+                    if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Store Name</label><br />@*<span class="highlight">*</span>*@
+
+                                    <span style="font-size:17px;color: #000;font-weight: 500;">
+                                        @Html.DisplayFor(m => m.Storename)
+                                    </span>
+
+                                    @*@Html.ValidationMessageFor(model => model.storeid)*@
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Select Payment Method</label> <span class="highlight">*</span><br />
+                            @Html.HiddenFor(model => model.Storename)
+
+                            @Html.DropDownListFor(model => model.Payment_type, new SelectList(Model.BindPaymentTypeList, "value", "text"), "Select Payment ", new { id = "Payment_type", @class = "myval", maxlength = 100, onchange = "ddListPaymentTypeChange(this.value)" })
+                            @Html.ValidationMessageFor(model => model.Payment_type)
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Select Invoice Type </label><span class="highlight">*</span>
+                            @*@Html.DisplayFor(m => m.Type)*@
+                            @Html.DropDownListFor(model => model.Type_id, new SelectList(Model.BindTypeList, "value", "text"), "Select Type ", new { id = "Type_id", @class = "myval", maxlength = 100, onchange = "ddLTypeChange(this.value)" })
+                            @Html.ValidationMessageFor(model => model.Type_id)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Vendor Name</label><span class="highlight">*</span>
+                            @Html.DropDownListFor(model => model.Vendor_id, new SelectList(Model.BindVendorList, "value", "text"), "Select Vendor ", new { id = "Vendorname", @class = "myval", maxlength = 100, @onchange = "BindAddress(this.value)" })
+                            @Html.ValidationMessageFor(model => model.Vendor_id)
+                            @*@Html.DisplayFor(m => m.Vendorname)*@
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6" id="divvendorphone">
+                        <div class="form-group">
+                            <label>Vendor Phone Number</label>
+                            <br /><br />
+                            <div class="addressbox" id="PhoneNumber">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="divvendoraddress">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label>Vendor Address</label>
+                            <div class="addressbox" id="addresss"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Invoice #</label><span class="highlight">*</span>
+                            @Html.TextBoxFor(model => model.Invoice_Number, new { maxlength = 35, @class = "form-control" })
+                            <span class="highlight">     @Html.ValidationMessageFor(model => model.Invoice_Number)</span>
+                            @*@Html.DisplayFor(m => m.Invoice_Number)*@
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Invoice Date</label><span class="highlight">*</span>
+                            <div class="">
+                                @*<span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>*@
+                                @Html.HiddenFor(model => model.TotalAmtByDept)
+                                @Html.TextBoxFor(model => model.Invoice_Date, new { onkeydown = "return false", maxlength = 100, @class = "form-control input-sm" })
+
+                                @Html.ValidationMessageFor(model => model.Invoice_Date)
+                            </div>
+                            @*@AdminSiteConfiguration.GetDateformat(Model.Invoice_Date.ToString())*@
+                        </div>
+                    </div>
+                </div>
+                <div class="whitebox">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Invoice Breakdown<span class="highlight">*</span> </label>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label><strong>Old Invoice Amount</strong> <span id="Spinvoiceamout"></span></label>
+                        </div>
+                    </div>
+
+                    <div id="tbladdon" class="tbladdoncls">
+
+                        @{
+
+                            var k = 0;
+                            var temp = "";
+                            if (Model.drplst.Count > 0)
+                            {
+                                for (var j = 0; j < Model.drplst.Count; j++)
+                                {
+                                    k = (j + 1);
+                                    <input type="hidden" id="hdninvoicecount" value='@Model.drplst.Count' />
+                                    <input type="hidden" id="hdnreqval" value="0" />
+                                    <div id="trrow_@k" class="trrowcls">
+                                        <div class="row">
+
+                                            <div class="col-sm-5 col-sm-5 jquerydiv">
+                                                <div class="form-group">
+                                                    @{
+
+                                                        @Html.DropDownList("Deptid", new SelectList(Model.BindDepartmentList, "Value", "Text", Model.drplst[j].Deptid), "Select Department", new { @class = "form-control drpcls wdith255 myval", id = "Drp_" + k })
+
+                                                        @*@Html.DropDownList(model => model.Dept_id, new SelectList(Model.BindDepartmentList, "Value", "Text"), "Select Department", new { style = "width: 220px;", @class = "form-control drpcls", id = "Drp_" + k })*@
+
+                                                        @*var department = db.tbl_Department.Where(x => x.id == item1.Dept_id).Select(x => x.Name).FirstOrDefault();
+                                                            @department*@
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-1 col-xs-1">
+                                                @*@{if (Model.Type_id == 2)
+                                                    {*@
+                                                @Html.HiddenFor(model => model.Type_id)
+                                                <span class="spncredit" style="color:red;display:none;"> - </span>
+                                                @*}
+                                                    }*@
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 padleftzero padrightzero">
+                                                <div class="form-group">
+                                                    @Html.TextBox("Amt", Model.drplst[j].Amt, new { @class = "form-control addamtcls groupOfTexbox decimalOnly", id = "Amt_" + k, onchange = "AddAmt()" })
+                                                    @*@Html.TextBoxFor(model => model.Amt, new { maxlength = 100, @class = "form-control groupOfTexbox numericOnly addamtcls", id = "Amt_" + k, onchange = "AddAmt()" })*@
+                                                    <br />
+                                                    @Html.ValidationMessageFor(model => model.Amt)
+                                                    @*<input type="hidden" />*@
+                                                    @*@{
+                                                            if (Model.Type_id == 2)
+                                                            {
+                                                                <span style="color:red">- $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item1.Amount))</span>
+                                                            }
+                                                            else
+                                                            {<span>
+                                                            $
+                                                            @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item1.Amount))
+                                                        </span>
+                                                            }
+
+                                                        }*@
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-3 paddingrightzero">
+                                                <a class="btnaddbox" id="aAdd_@k" onclick="AddField(@k)"><i class="fa fa-plus"></i></a>
+                                                <a id="aRemove_@k" class="aremove" onclick="RemoveField(@k)" style="display:none;"><i class="fa fa-minus"></i></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <input type="hidden" id="hdninvoicecount" value="1" />
+                                <input type="hidden" id="hdnreqval" value="0" />
+                                <div id="trrow_1" class="trrowcls">
+                                    <div class="row">
+                                        <div class="col-lg-7 col-md-6 col-sm-5 jquerydiv">
+                                            <div class="form-group bg_red">
+                                                @Html.DropDownListFor(model => model.Dept_id, new SelectList(Model.BindDepartmentList, "Value", "Text"), "Select Department", new { @class = "form-control drpcls wdith255 myval required", id = "Drp_1", @required = "required" })
+                                                @Html.ValidationMessageFor(model => model.Dept_id)
+                                                @*<span style="width: 20px; display: inline-block;"></span>*@
+                                                @*<br />@Html.ValidationMessageFor(model => model.Dept_id)*@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1 visible-xs visible-sm visible-md">
+                                            <span class="spncredit" style="color:red;display:none;"> - </span>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-7 padleftzero padrightzero">
+                                            <div class="form-group">
+
+                                                @Html.TextBoxFor(model => model.Amt, new { maxlength = 100, @class = "form-control groupOfTexbox decimalOnly addamtcls required", id = "Amt_1", onchange = "AddAmt()", @required = "required" })
+                                                <br />
+                                                @*@Html.ValidationMessageFor(model => model.Amt)*@
+                                                @*<input type="hidden" />*@
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 paddingrightzero">
+                                            <a class="btnaddbox" id="aAdd_1" onclick="AddField(1)"><i class="fa fa-plus"></i></a>
+                                            <a id="aRemove_1" class="aremove" onclick="RemoveField(1)" style="display:none;"><i class="fa fa-minus"></i></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group"> <span class="invoiceamttl">Total Invoice Amount</span> </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 col-xs-8 padleftzero">
+                                <div class="form-group">
+
+                                    <b><span class="spncredit spncredit2" style="color:red;display:none;"> - </span></b><span id="spanamount" class="spanamount " style="padding-left: 0px;">
+
+
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        Note
+                    </label><br />
+                    @*@if (Model.IsStatus_id != 2 && Model.IsStatus_id != 3 && Model.CreatedBy == WebSecurity.CurrentUserId.ToString())
+                        {*@
+                    @Html.TextAreaFor(model => model.Note, new { maxlength = 100, @class = "form-control addinvoiceareasize" })
+                    @*}
+                        else
+                        {
+
+                            @Html.DisplayFor(model => model.Note, new { maxlength = 100, @class = "form-control" })
+
+                        }*@
+                </div>
+
+
+                @{
+                    //if (((Model.IsStatus_id != 2) || (Model.IsStatus_id != 3)))
+                    //{
+                    //    if (Roles.IsUserInRole("Administrator"))
+                    //    {
+                    <div class="from-group row">
+                        <div class="col-sm-8 ">
+                            <input type="submit" value="Save"
+                                   class="buttonbox btnsubmit btn_spcial" />
+                            @Html.ActionLink("Cancel", "Index", "UnsettledInvoice", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+                            @*@Html.ActionLink("Cancel", "Index", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })*@
+                        </div>
+                    </div>
+                }
+                @*else if ((Model.CreatedBy == WebSecurity.CurrentUserId.ToString()) && ((Roles.IsUserInRole("Data Approver")) || (Roles.IsUserInRole("Back Office Manager"))))
+                    {
+                        <div class="from-group row">
+                            <div class="col-sm-8 ">
+                                <input type="submit" value="Save"
+                                       class="buttonbox btnsubmit btn_spcial" onclick="validatedrptext(1)" />
+                                @Html.ActionLink("Cancel", "Index", "Dashboard", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+
+                            </div>
+                        </div>
+                    }*@
+                @*//(Model.CreatedBy == WebSecurity.CurrentUserId.ToString())*@
+
+                @*}*@
+                @*}*@
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clear">
+    </div>
+}
+@*@section FooterScript{*@
+
+<div id="popupidext" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none; z-index:9999999999;">
+    <div class="modal-content ">
+        <div class="modal-header text-center">
+            <i class="glyphicon glyphicon-fire"></i>
+        </div>
+        <div class="modal-title">PDF</div>
+        <div class="modal-body ">Please upload file having extensions .pdf only.</div>
+        <div class="modal-footer " style="text-align:center">
+            @*<a class="btn btn-danger" onclick="IsLock(@item.Reg_userid)" ;>Ok </a>*@
+            <a class="btn" data-dismiss="modal" onclick="closemodal()">OK</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+
+        if (val == 1) {
+
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+
+        }
+
+    }
+
+
+</script>
+<script>
+    $("#ScanInvoice").change(function () {
+
+        if (this.files.length > 0) {
+            //alert("hiii")
+            $("#ifrm").hide()
+        }
+
+
+
+    });
+</script>
+<script type="text/javascript">
+    $(".decimalOnly").bind('keypress', function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+            return false;
+
+        return true;
+    });
+    $(".decimalOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+    $(".numericOnly").bind('keypress', function (e) {
+        if (e.keyCode == '9' || e.keyCode == '16') {
+            return;
+        }
+        var code;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        if (e.which == 46)
+            return false;
+        if (code == 8 || code == 46)
+            return true;
+        if (code < 48 || code > 57)
+            return false;
+    });
+
+    //Disable paste
+    $(".numericOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+
+    $(".numericOnly").bind('mouseenter', function (e) {
+        var val = $(this).val();
+        if (val != '0') {
+            val = val.replace(/[^0-9]+/g, "")
+            $(this).val(val);
+        }
+    });
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+    function validatedrptext(myVald) {
+
+        if (myVald == 1) {
+            var store =@Session["storeid"];
+
+            if (store == 0) {
+
+                $('#popupStoreid').show();
+            }
+            else
+            {
+                $('#popupStoreid').hide();
+
+            }
+
+        }
+
+
+    }
+
+    function ReplaceData(html_val, c_val, r_val) {
+
+        while (html_val.indexOf(c_val) != -1) {
+            html_val = html_val.replace((c_val), (r_val));
+        }
+        return html_val;
+    }
+
+    //Type addmore starts
+    function AddField(curIndex) {
+        // alert(val+"add")
+        //var val = CheckField();
+        //  alert(val + "add2")
+
+        $(".myval").select2('destroy');
+        var lastVal = $("#hdninvoicecount").val();
+        var nextVal = parseInt(lastVal) + 1;
+
+        // for require validation
+        //if (lastVal != 1) {
+        //    var abc = $("#drp_" + nextVal).val();
+        //    alert(abc)
+        //    $('#drp_' + lastVal).addClass("input-validation-error");
+
+
+        //}
+        //else {
+        //    var abc = $("#drp_" + nextVal).val();
+        //    alert(abc)
+        //    $('#drp_' + lastVal).removeClass("input-validation-error");
+        //}
+        // close for require validation
+
+
+        var html = $("#trrow_" + lastVal).html();//.replaceWith("_"+val,"_"+(val+1));
+
+        if (html == undefined) {
+            lastVal = ($(".tbladdoncls").find(".trrowcls").last().attr("id")).replace("trrow_", "");
+            html = $("#trrow_" + lastVal).html();
+        }
+
+        if ($("#hdnreqval").val() == 1)
+        {
+            //btnInvoiceSubmit
+            //alert($("#hdnreqval").val());
+
+            html = ReplaceData(html, "drpcls valid", "drpcls input-validation-error");
+
+            //$("#btnInvoiceSubmit").click("validatedrptext(0);");
+            //$('#frm1').submit();
+        }
+        html = ReplaceData(html, "_" + lastVal, "_" + nextVal);
+
+        $("#trrow_" + lastVal).after("<div id='trrow_" + nextVal + "'class=trrowcls>" + html + "</div>");
+        //$("#tdaction_" + val).hide();
+
+        document.getElementById('aRemove_' + nextVal).setAttribute('onclick', 'RemoveField(' + nextVal + ')')
+        document.getElementById('aAdd_' + (nextVal)).setAttribute('onclick', 'AddField(' + (nextVal) + ')')
+        $("#hdninvoicecount").val(nextVal);
+
+        $("#trrow_" + (nextVal) + " :input[type='text']").each(function () {
+            $(this).val("");
+        });
+        var elements1 = document.getElementById("Drp_" + (nextVal)).options;
+        for (var i = 0; i < elements1.length; i++) {
+            elements1[i].selected = false;
+        }
+
+
+        var i_rtn = CheckField();
+
+
+        $('.groupOfTexbox').keypress(function (event) {
+            return isNumber(event, this)
+        });
+        $('.groupOfTexboxInt').keypress(function (event) {
+            return isNumberint(event, this)
+        });
+        $(".myval").select2({
+            width: "50%",
+        });
+        // validatedrptext();
+
+        //  event.preventDefault();
+        //alert($(".trrowcls").last().text());
+        $(".trrowcls").last().find("select").focus();
+    }
+
+    function RemoveField(val) {
+        //RemoveAmt(val);
+
+        $("#trrow_" + val).remove();
+
+        CheckField();
+        AddAmt();
+
+    }
+    function CheckField() {
+
+
+        var i = 0;
+        i = $(".tbladdoncls .trrowcls").length;
+        if (i == 1) {
+
+            $(".aremove").hide();
+        }
+        else {
+
+            $(".aremove").show();
+        }
+        return i;
+    }
+    function AddAmt() {
+        // $("#tbladdon").find(addamtcls);
+        // alert($("#tbladdon").find(addamtcls))
+        //var ival = CheckField();
+        //alert(ival + 'hii');
+        //var count = $('#tbladdon.addamtcls')
+        var Invoicetype=$('#Type_id').val();
+
+        if(Invoicetype=="2")
+        {
+            $('.spanamount').show()
+            $('.spanamount').addClass("spanamountBackcolor");
+        }
+        else
+        {
+            $('.spanamount').show()
+        }
+
+        var temp = 0;
+        var numItems = $('.addamtcls').each(function () {
+
+
+            if ($(this).val() != '') {
+                temp += parseFloat($(this).val());
+
+            }
+            else {
+
+            }
+        });
+
+        const formatter = new Intl.NumberFormat('en-US', {
+
+            currency: 'USD',
+            minimumFractionDigits: 2
+        })
+        var n = temp.toFixed(2);
+        var totalamount = "$ " + formatter.format(n);
+        $("#TotalAmtByDept").val(n);
+        $("#spanamount").html(totalamount);
+    }
+    function Priceformat(val) {
+        var temp = val;
+        const formatter = new Intl.NumberFormat('en-US', {
+
+            currency: 'USD',
+            minimumFractionDigits: 2
+        })
+        var n = temp.toFixed(2);
+        var totalamount = "$ " + formatter.format(n);
+       // $("#TotalAmtByDept").val(n);
+        $("#Spinvoiceamout").html(totalamount);
+    }
+    function RemoveAmt(val) {
+        // alert(val)
+        //var ival = CheckField();
+
+        var finaltotal = 0;
+        var Totalamt = $('#spanamount').html();
+        // alert(Totalamt + "Totalamt")
+
+        // var temp = 0;
+        //alert(document.getElementById('Amt_' + (ival + 1)).value);
+        var temp = document.getElementById('Amt_' + (val)).value;
+
+        //var i;
+        //for (i = 0; i < ival; i++) {
+        //    temp -= parseFloat(document.getElementById('Amt_' + (i + 1)).value);
+        //    //var totalamt = parseFloat(document.getElementById('TotalAmtByDept'));
+        //    //totalamt = temp;
+
+        //}
+
+        //alert(temp)
+        //var temp = temp
+        //alert(temp)
+        var total = Totalamt.split("$").pop();
+        //alert(total);
+        finaltotal = total - temp;
+        var totalamount = "$" + (finaltotal);
+
+        $("#TotalAmtByDept").val(totalamount);
+        $("#spanamount").html(totalamount);
+    }
+
+    $(document).ready(function () {
+        var totalamt=@Model.TotalAmtByDept;
+        Priceformat(totalamt);
+        var vid=document.getElementById("Vendorname").value;
+        BindAddress(vid);
+        BindPhone(vid);
+        AddAmt();
+        $('[data-toggle="tooltip"]').tooltip();
+        CheckField();
+        var Detailstorenamevalue = '@(ViewBag.Detailstorenamevalue)';
+
+        if (Detailstorenamevalue != "") {
+            var role = '@Roles.IsUserInRole("Data Approver")';
+
+            if (role == 'True') {
+                $('#drp').val([Detailstorenamevalue]).trigger('change');
+                //   $('#drp').val(Storenameviewall);
+
+            }
+            else {
+                // var storename = document.getElementById('spnStore').innerHTML;
+                $('#spnStore').html(Detailstorenamevalue);
+                //alert(storename)
+
+
+            }
+        }
+
+        if ($('#Type_id').val() == "2") {
+
+            $('.spncredit').show()
+            //$("#spanamount").attr("style", "color:red;padding-left:0px");
+            $('.spanamount').show()
+            $('.spanamount').addClass("spanamountBackcolor");
+        }
+        else {
+            $('.spncredit').hide();
+            //$("#spanamount").removeAttr("style");
+            $('.spanamount').removeClass("spanamountBackcolor");
+            $('.spanamount').show()
+
+        }
+        //$("#Storename").attr("disabled", true);
+
+    });
+    function ddListPaymentTypeChange(paytype) {
+        if (paytype == "Cash") {
+            $('#Type_id').val([1]).trigger('change');
+
+
+
+            $('#Type_id').attr("disabled", "true");
+        }
+        else {
+            $('#Type_id').removeAttr("disabled");
+            $('#Type_id').val(['']).trigger('change');
+            var typeid = $('#Type_id').val();
+        }
+
+    }
+    function ddLTypeChange(paytype) {
+
+        if (paytype == "2") {
+
+            $('.spncredit').show()
+            //$("#spanamount").attr("style", "color:red;padding-left:0px");
+            $('.spanamount').show()
+            $('.spanamount').addClass("spanamountBackcolor");
+        }
+        else {
+            $('.spncredit').hide();
+            $('.spanamount').show()
+            $('.spanamount').removeClass("spanamountBackcolor");
+
+            //$("#spanamount").removeAttr("style");
+        }
+        var type = $("#Type_id").val();
+        $('#Type').val(type)
+    }
+    $('#Vendorname').change(function () {
+        var vid = document.getElementById("Vendorname").value;
+
+        BindPhone(vid);
+    });
+    function BindPhone(vid) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Invoice/BindVendorphone?vid=' + vid,
+            beforeSend: function () { Loader(1); },
+            // async: false,
+            success: function (response) {
+                if (response != "0") {
+                    $("#divvendorphone").attr("style", "display:block;");
+                    $("#PhoneNumber").empty();
+                    var test = response +
+                    $("#PhoneNumber").append(response);
+
+                }
+                else {
+                    $("#PhoneNumber").append("");
+                }
+                Loader(0);
+            }
+        });
+    }
+    function BindAddress(vid) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Invoice/BindVendoraddress?vid=' + vid,
+            beforeSend: function () { Loader(1); },
+            // async: false,
+            success: function (response) {
+                if (response != "0") {
+                    $("#divvendoraddress").attr("style", "display:block;");
+                    $("#addresss").empty();
+                    var test = response +
+                    $("#addresss").append(response);
+
+                }
+                else {
+                    $("#addresss").append("");
+                }
+                Loader(0);
+            }
+        });
+    }
+
+    function closemodal() {
+        $(".divIDClass").hide();
+        //$(".overlaybox").hide();
+    }
+</script>
+
+
+

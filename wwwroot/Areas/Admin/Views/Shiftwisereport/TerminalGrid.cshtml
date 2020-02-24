@@ -1,0 +1,85 @@
+﻿@model wwwroot.Areas.Admin.Models.Shiftwisereport_Select
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+    Layout = null;
+    WestZoneEntities db = new WestZoneEntities();
+}
+<div class="animate-panelmessesgarea padbtmzero">
+
+    @if (Convert.ToString(ViewBag.ErrorMessage) == "NoItemFound")
+    {
+        <script>
+        MyfunNoItem();
+        </script>
+    }
+</div>
+<div class="tabpanelbox">
+    @{
+        if (Model.TerminalData.Count > 0)
+        {
+            <input type="hidden" id="TotalCount" value="@ViewBag.TotalCount" />
+            <ul class="nav nav-tabs" id="myTab">
+                @for (int i = 0; i < Model.TerminalData.Count; i++)
+                {
+                    var liid = "li" + @Model.TerminalData[i].TerminalId.ToString();
+                    var hrefid = "href" + @Model.TerminalData[i].TerminalId.ToString();
+                    var tid = "tid" + i;
+                    <li id="@liid" class="liclass">
+
+                        <input type="hidden" value="@Model.TerminalData[i].TerminalId.ToString()" name="@tid" id="@tid" />
+                        <a id="@hrefid" href="#@Model.TerminalData[i].TerminalId" onclick="BindShiftData(@Model.TerminalData[i].TerminalId,'1')">
+                            @Model.TerminalData[i].TerminalName
+                        </a>
+                    </li>
+                }
+            </ul>
+            <div id="shiftdata">
+            </div>
+        }
+    }
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        var Count = $("#TotalCount").val();
+        
+        if (Count == 0) {
+            $("#BtnCloseout").show();
+        }
+        else {
+            $("#BtnCloseout").hide();
+        }
+        document.getElementById("spanotherdeposit").innerHTML = '@ViewBag.DepositeCount';
+        
+        
+        $(".add-row").click(function () {
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length);
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td colspan='2'><input type='text' class='form-control width100'/></td><td class='text-right'><input type='text' class='form-control width100'/> <input type='button' value='Delete' class='delete_btn' onclick='delete_row(" + table_len + ")'></td></tr>";
+        });
+    });
+
+    function Loader(val) {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if (val == 1) {
+            //alert("11");
+            $(".loading-container").attr("style", "display:block;")
+            //$('#loadbox').hide();
+
+            // $(".loading-container").show();
+            // $(".loading-inactive").show();
+        }
+        else {
+            //alert("00");
+            //$('.loading-container').removeClass('showbox');
+            $(".loading-container").attr("style", "display:none;")
+            //$(".loading-container").hide();
+            //$(".loading-inactive").hide();
+        }
+        // bind();
+    }
+    
+</script>

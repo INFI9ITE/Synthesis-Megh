@@ -1,0 +1,9 @@
+INSERT INTO [dbo].[tbl_DeletedInvoiceHistory](Invoiceid,[Store_id],[type_id],[Payment_type],[Vendor_id],[Invoice_Date],[Invoice_Number] ,[Note] ,[AttachNote]
+           ,[UploadInvoice],[ScanInvoice],[TotalAmtByDept],[IsStatus_id],[CreatedOn],[CreatedBy],[ModifiedOn],[ModifiedBy],
+		   [ApproveRejectBy],[ApproveRejectDate],[IsActive] ,[TxnID],[IsSync],[NotificationColor],[QBtransfer],[discounttype],
+		   [discount],[discountamount],[Ref_invoiceid])
+		   select id, [Store_id],[type_id],[Payment_type],[Vendor_id],[Invoice_Date],[Invoice_Number] ,[Note] ,[AttachNote]
+           ,[UploadInvoice],[ScanInvoice],[TotalAmtByDept],[IsStatus_id],[CreatedOn],[CreatedBy],[ModifiedOn],[ModifiedBy],
+		   [ApproveRejectBy],[ApproveRejectDate],[IsActive] ,[TxnID],[IsSync],[NotificationColor],[QBtransfer],[discounttype],
+		   [discount],[discountamount],[Ref_invoiceid] from tbl_Invoice where
+		   IsActive=0

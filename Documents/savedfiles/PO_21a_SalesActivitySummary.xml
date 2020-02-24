@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CrystalReport xmlns="urn:crystal-reports:schemas:report-detail"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:crystal-reports:schemas:report-detail http://www.businessobjects.com/products/xml/CR2008Schema.xsd">
+<ReportHeader>
+<Section SectionNumber="0">
+<Picture Name="Picture1" GraphicType="OLE">
+</Picture>
+</Section>
+</ReportHeader>
+<Group Level="1">
+<GroupHeader>
+<Section SectionNumber="0">
+</Section>
+</GroupHeader>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="0">
+<Text Name="Text4"><TextValue>Cashier Negative Report</TextValue>
+</Text>
+<Field Name="Field75" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="0">
+<Text Name="Text46"><TextValue>No Sales</TextValue>
+</Text>
+<Text Name="Text47"><TextValue>All Voids</TextValue>
+</Text>
+<Text Name="Text48"><TextValue>Item Corrects</TextValue>
+</Text>
+<Text Name="Text49"><TextValue>Returns</TextValue>
+</Text>
+<Text Name="Text50"><TextValue>Negative Totals</TextValue>
+</Text>
+<Field Name="Field49" FieldName="{@NegRep_Get_AllVoidAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field50" FieldName="{@NegRep_Get_AllVoidCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field51" FieldName="{@NegRep_Get_NoSaleCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field52" FieldName="{@NegRep_Get_ItemCorrectAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field53" FieldName="{@NegRep_Get_ItemCorrectCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field54" FieldName="{@NegRep_Get_ReturnMerchAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field55" FieldName="{@NegRep_Get_ReturnMerchCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text51"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text52"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text53"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text54"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text55"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field56" FieldName="{@NegRep_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field57" FieldName="{@NegRep_Get_TotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="1">
+<Text Name="Text5"><TextValue>Line Item Discount Report</TextValue>
+</Text>
+<Field Name="Field74" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>2/$3.00</FormattedValue><Value>2/$3.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>2/$5.00</FormattedValue><Value>2/$5.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>2/$6.00</FormattedValue><Value>2/$6.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>2/$7.00</FormattedValue><Value>2/$7.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>2\$4.00</FormattedValue><Value>2\$4.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>3/$2</FormattedValue><Value>3/$2</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>3/$2.00 GENERIC</FormattedValue><Value>3/$2.00 GENERIC</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>3/$5.00 GENERIC</FormattedValue><Value>3/$5.00 GENERIC</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>3/$7.00</FormattedValue><Value>3/$7.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>4/$3.00</FormattedValue><Value>4/$3.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>4/$5.00</FormattedValue><Value>4/$5.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>5/$4.00</FormattedValue><Value>5/$4.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="0">
+<Field Name="Field29" FieldName="{@ItemDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field30" FieldName="{@ItemDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text33"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field31" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>-D-</FormattedValue><Value>-D-</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="1">
+<Text Name="Text56"><TextValue>Line Item Discount Totals</TextValue>
+</Text>
+<Field Name="Field58" FieldName="{@ItemDis_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field59" FieldName="{@ItemDis_Get_TotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text57"><TextValue>Quantity</TextValue>
+</Text>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="2">
+<Text Name="Text6"><TextValue>Subtotal Discount Report</TextValue>
+</Text>
+<Field Name="Field142" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="1">
+<Field Name="Field32" FieldName="{@SubDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field33" FieldName="{@SubDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text35"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field34" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>10%</FormattedValue><Value>10%</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="1">
+<Field Name="Field32" FieldName="{@SubDis_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field33" FieldName="{@SubDis_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text35"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field34" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>-D-</FormattedValue><Value>-D-</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="2">
+<Text Name="Text58"><TextValue>Subtotal Discount Totals</TextValue>
+</Text>
+<Field Name="Field60" FieldName="{@SubDis_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field61" FieldName="{@SubDis_Get_TotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text59"><TextValue>Quantity</TextValue>
+</Text>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="3">
+<Field Name="Field151" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Text Name="Text140"><TextValue>Combo Discount Report</TextValue>
+</Text>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="2">
+<Field Name="Field165" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>SALAD BAR DISCOUNT</FormattedValue><Value>SALAD BAR DISCOUNT</Value></Field>
+<Text Name="Text144"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field147" FieldName="{@Combo_GetGroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field148" FieldName="{@Combo_GetGroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="3">
+<Text Name="Text148"><TextValue>Combo Discount Totals</TextValue>
+</Text>
+<Text Name="Text149"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field149" FieldName="{@Combo_GetTotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field150" FieldName="{@Combo_GetTotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="6">
+<Text Name="Text8"><TextValue>Collected Sales Tax Report</TextValue>
+</Text>
+<Field Name="Field156" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="5">
+<Field Name="Field38" FieldName="{@CollTax_Get_GroupTaxableAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field39" FieldName="{@CollTax_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text39"><TextValue>Taxable Sales</TextValue>
+</Text>
+<Field Name="Field40" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>State Tax</FormattedValue><Value>State Tax</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="6">
+<Text Name="Text62"><TextValue>Tax Collected Totals</TextValue>
+</Text>
+<Field Name="Field64" FieldName="{@CollTax_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="7">
+<Text Name="Text9"><TextValue>Exempted Sales Tax Report</TextValue>
+</Text>
+<Field Name="Field157" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="6">
+<Field Name="Field41" FieldName="{@ExemTax_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text41"><TextValue>Tax Exempt Sales</TextValue>
+</Text>
+<Field Name="Field42" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>State Tax</FormattedValue><Value>State Tax</Value></Field>
+<Field Name="Field43" FieldName="{@ExemTax_Get_GroupTaxableAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="7">
+<Text Name="Text63"><TextValue>Tax Exempted Totals</TextValue>
+</Text>
+<Field Name="Field65" FieldName="{@ExemTax_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="8">
+<Text Name="Text10"><TextValue>Sales Totals Report</TextValue>
+</Text>
+<Field Name="Field158" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="9">
+<Text Name="Text64"><TextValue>Gross Sales</TextValue>
+</Text>
+<Field Name="Field137" FieldName="{@Gross_GetGrossSales}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text65"><TextValue>Customer Count</TextValue>
+</Text>
+<Field Name="Field138" FieldName="{@Gross_GetGrossCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+<Section SectionNumber="11">
+<Text Name="Text66"><TextValue>Line Item Discount Total</TextValue>
+</Text>
+<Text Name="Text67"><TextValue>Subtotal Discount Total</TextValue>
+</Text>
+<Text Name="Text71"><TextValue>Negative Total</TextValue>
+</Text>
+<Text Name="Text72"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text73"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text74"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field66" FieldName="{@NegRep_Get_GrandTotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field67" FieldName="{@NegRep_Get_GrandTotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field68" FieldName="{@ItemDis_Get_GrandTotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field69" FieldName="{@ItemDis_Get_GrandTotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field70" FieldName="{@SubDis_Get_GrandTotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field71" FieldName="{@SubDis_Get_GrandTotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text75"><TextValue>-</TextValue>
+</Text>
+<Text Name="Text76"><TextValue>-</TextValue>
+</Text>
+<Text Name="Text77"><TextValue>-</TextValue>
+</Text>
+<Text Name="Text153"><TextValue>Combo Discount Total</TextValue>
+</Text>
+<Text Name="Text154"><TextValue>Quantity</TextValue>
+</Text>
+<Text Name="Text155"><TextValue>-</TextValue>
+</Text>
+<Field Name="Field153" FieldName="{@Combo_GetGrandTotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field154" FieldName="{@Combo_GetGrandTotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+<Section SectionNumber="12">
+<Text Name="Text78"><TextValue>=</TextValue>
+</Text>
+<Text Name="Text68"><TextValue>Net Sales With Tax</TextValue>
+</Text>
+<Field Name="Field76" FieldName="{@SalesTotal_NetSalesWithTax}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+<Section SectionNumber="14">
+<Text Name="Text80"><TextValue>=</TextValue>
+</Text>
+<Text Name="Text79"><TextValue>-</TextValue>
+</Text>
+<Text Name="Text69"><TextValue>Total Tax Collected</TextValue>
+</Text>
+<Text Name="Text70"><TextValue>Net Sales No Tax</TextValue>
+</Text>
+<Field Name="Field72" FieldName="{@CollTax_Get_GrandTotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field73" FieldName="{@SalesTotal_NetSalesNoTax}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="GetAvgSale1" FieldName="{@GetAvgSale}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text254"><TextValue>Average Sale</TextValue>
+</Text>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="9">
+<Text Name="Text11"><TextValue>Tenders In Drawer Report</TextValue>
+</Text>
+<Field Name="Field159" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="7">
+<Field Name="Field44" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>Cash</FormattedValue><Value>Cash</Value></Field>
+<Field Name="Field45" FieldName="{@InDrawer_Get_Group_Amount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field46" FieldName="{@InDrawer_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="7">
+<Field Name="Field44" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>Credit Cards</FormattedValue><Value>Credit Cards</Value></Field>
+<Text Name="Text43"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field45" FieldName="{@InDrawer_Get_Group_Amount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field46" FieldName="{@InDrawer_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="7">
+<Field Name="Field44" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>Debit Cards</FormattedValue><Value>Debit Cards</Value></Field>
+<Text Name="Text43"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field45" FieldName="{@InDrawer_Get_Group_Amount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field46" FieldName="{@InDrawer_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="7">
+<Field Name="Field44" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>EBT FOOD STAMPS</FormattedValue><Value>EBT FOOD STAMPS</Value></Field>
+<Text Name="Text43"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field45" FieldName="{@InDrawer_Get_Group_Amount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field46" FieldName="{@InDrawer_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="7">
+<Field Name="Field44" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>House Charge</FormattedValue><Value>House Charge</Value></Field>
+<Text Name="Text43"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field45" FieldName="{@InDrawer_Get_Group_Amount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field46" FieldName="{@InDrawer_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="15">
+<Field Name="Field77" FieldName="{@InDrawer_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field78" FieldName="{@InDrawer_Get_GrandTotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text81"><TextValue>Tenders In DrawerTotals</TextValue>
+</Text>
+<Text Name="Text82"><TextValue>Total Countable Tenders</TextValue>
+</Text>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+</GroupFooter>
+</Group>
+<GroupFooter>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="10">
+<Text Name="Text240"><TextValue>House Charge Report</TextValue>
+</Text>
+<Field Name="Field267" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="9">
+<Field Name="Field269" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>House Charge</FormattedValue><Value>House Charge</Value></Field>
+<Text Name="Text247"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field271" FieldName="{@ChargePayment_GetGroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field272" FieldName="{@ChargePayment_GetGroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="17">
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="11">
+<Text Name="Text12"><TextValue>Department Net Sales Report</TextValue>
+</Text>
+<Text Name="Text13"><TextValue>Department Name</TextValue>
+</Text>
+<Text Name="Text14"><TextValue>Net Sales</TextValue>
+</Text>
+<Text Name="Text15"><TextValue>(Net Sales include Negative Total and Discount, without Tax)</TextValue>
+</Text>
+<Field Name="Field160" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1CANDY NO TAX</FormattedValue><Value>*1CANDY NO TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1CANDY_TAX</FormattedValue><Value>*1CANDY_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1GRANOLA</FormattedValue><Value>*1GRANOLA</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1GROCERY</FormattedValue><Value>*1GROCERY</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1HBA_TAX</FormattedValue><Value>*1HBA_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1MEDICINE</FormattedValue><Value>*1MEDICINE</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1TAX GROCERY FSTMP</FormattedValue><Value>*1TAX GROCERY FSTMP</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*1TAX GROCERY NO/FSTMP</FormattedValue><Value>*1TAX GROCERY NO/FSTMP</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*2DAIRY</FormattedValue><Value>*2DAIRY</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*2DAIRY TAX</FormattedValue><Value>*2DAIRY TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*2FRESH JUICES</FormattedValue><Value>*2FRESH JUICES</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*2FRESH JUICES TAX</FormattedValue><Value>*2FRESH JUICES TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*3MEAT</FormattedValue><Value>*3MEAT</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*3MEAT PRE-PACK</FormattedValue><Value>*3MEAT PRE-PACK</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*3OVEN ROASTED CHICKEN</FormattedValue><Value>*3OVEN ROASTED CHICKEN</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*4FLOWERS_TAX</FormattedValue><Value>*4FLOWERS_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*4HOME MADE FRESH JUICES</FormattedValue><Value>*4HOME MADE FRESH JUICES</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*4PRE-PACK FRUIT SALADS</FormattedValue><Value>*4PRE-PACK FRUIT SALADS</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*4PRODUCE</FormattedValue><Value>*4PRODUCE</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*4PRODUCE ORGANIC</FormattedValue><Value>*4PRODUCE ORGANIC</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*4PRODUCE PRE-PACK</FormattedValue><Value>*4PRODUCE PRE-PACK</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*5DELI</FormattedValue><Value>*5DELI</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*5SANDWICHES PRE-PACK _TAX</FormattedValue><Value>*5SANDWICHES PRE-PACK _TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*5SANDWICHES_TAX</FormattedValue><Value>*5SANDWICHES_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*6COFFEE PRE-PACK</FormattedValue><Value>*6COFFEE PRE-PACK</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*6COFFEE_TAX</FormattedValue><Value>*6COFFEE_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*7SALAD BAR PRE-PACK_TAX</FormattedValue><Value>*7SALAD BAR PRE-PACK_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*7SALAD BAR_TAX</FormattedValue><Value>*7SALAD BAR_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*8CHEESE</FormattedValue><Value>*8CHEESE</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*8OLIVES</FormattedValue><Value>*8OLIVES</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*8SMOKED SALMON PRE-PACK</FormattedValue><Value>*8SMOKED SALMON PRE-PACK</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*9BEVERAGES NO TAX</FormattedValue><Value>*9BEVERAGES NO TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*9BEVERAGES_TAX</FormattedValue><Value>*9BEVERAGES_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>*9DEPOSIT</FormattedValue><Value>*9DEPOSIT</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>10FISH</FormattedValue><Value>10FISH</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>11BAKERY</FormattedValue><Value>11BAKERY</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>11BREAD FRESH</FormattedValue><Value>11BREAD FRESH</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>11DESSERTS</FormattedValue><Value>11DESSERTS</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12COLD SOUPS</FormattedValue><Value>12COLD SOUPS</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12DESSERTS HOMEMADE</FormattedValue><Value>12DESSERTS HOMEMADE</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12DIPS</FormattedValue><Value>12DIPS</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12FOODS PREPACK</FormattedValue><Value>12FOODS PREPACK</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12FOODS PREPARED</FormattedValue><Value>12FOODS PREPARED</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12HOT COUNTER FOOD_TAX</FormattedValue><Value>12HOT COUNTER FOOD_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>12HOT SOUPS_TAX</FormattedValue><Value>12HOT SOUPS_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>BEER &amp; WINE_TAX</FormattedValue><Value>BEER &amp; WINE_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>BREAD PRE-PACK</FormattedValue><Value>BREAD PRE-PACK</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>FROZEN</FormattedValue><Value>FROZEN</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>ICE CREAM</FormattedValue><Value>ICE CREAM</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>NUTS</FormattedValue><Value>NUTS</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>SNACKS</FormattedValue><Value>SNACKS</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="10">
+<Field Name="Field47" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>SUSHI_TAX</FormattedValue><Value>SUSHI_TAX</Value></Field>
+<Field Name="Field48" FieldName="{@DeptNet_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="18">
+<Text Name="Text83"><TextValue>Net Sales for Departments Listed</TextValue>
+</Text>
+<Field Name="Field79" FieldName="{@DeptNet_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text87"><TextValue>Cash Change Adjustment</TextValue>
+</Text>
+<Text Name="Text89"><TextValue>Net Sales for Departments After Cash Change Adjustment</TextValue>
+</Text>
+<Field Name="CashChangeAdjustGetTotal1" FieldName="{@CashChangeAdjust_GetTotal}"><FormattedValue>$0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="DeptNetWithAdjustment1" FieldName="{@DeptNetWithAdjustment}"><FormattedValue>$0.00</FormattedValue><Value>0.00</Value></Field>
+<Text Name="Text91"><TextValue>-</TextValue>
+</Text>
+<Text Name="Text93"><TextValue>=</TextValue>
+</Text>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="2">
+<GroupHeader>
+<Section SectionNumber="14">
+<Text Name="Text104"><TextValue>Paid Out Report</TextValue>
+</Text>
+<Field Name="Field163" FieldName="{@Label_OmitFromSales}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</GroupHeader>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="13">
+<Field Name="Field122" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>Paid Out - BOTTLE RETURNS</FormattedValue><Value>Paid Out - BOTTLE RETURNS</Value></Field>
+<Text Name="Text125"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field123" FieldName="{@PaidOut_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field124" FieldName="{@PaidOut_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<Group Level="3">
+<GroupFooter>
+<Section SectionNumber="13">
+<Field Name="Field122" FieldName="{sp_R_POS_Activity_21st.TLI_ReceiptAlias}"><FormattedValue>Paid Out - Vendors</FormattedValue><Value>Paid Out - Vendors</Value></Field>
+<Text Name="Text125"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field123" FieldName="{@PaidOut_Get_GroupAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field124" FieldName="{@PaidOut_Get_GroupCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+<GroupFooter>
+<Section SectionNumber="21">
+<Text Name="Text134"><TextValue>Paid Out Totals</TextValue>
+</Text>
+<Text Name="Text135"><TextValue>Quantity</TextValue>
+</Text>
+<Field Name="Field89" FieldName="{@PaidOut_Get_TotalAmount}"><FormattedValue>$ 0.00</FormattedValue><Value>0.00</Value></Field>
+<Field Name="Field90" FieldName="{@PaidOut_Get_TotalCount}"><FormattedValue>0</FormattedValue><Value>0.00</Value></Field>
+</Section>
+</GroupFooter>
+</Group>
+</Group>
+</CrystalReport>

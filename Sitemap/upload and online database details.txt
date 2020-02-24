@@ -1,0 +1,78 @@
+Bellow is the Synthesis database credentials,
+
+Management IP : 207.246.242.241,4120
+
+Database name: 593956_synthesisdb
+
+username: 593956_syndbusr
+
+Password: Google$2018
+
+
+
+Uploaded details:
+
+ 
+
+host: ftp3.ftptoyoursite.com
+
+username: synthesis
+
+Password: Google$2018
+
+
+
+
+URL: http://www.synthesis.com.asp1-3.phx1-2.websitetestlink.com
+
+
+
+=========================================================================================================================
+************************************************ Online Details *********************************************************
+=========================================================================================================================
+
+Domain: wsmanagementnyc.com has been hosted.
+
+ 
+
+Below is FTP details:
+
+Host: ftp.wsmanagementnyc.com          
+
+User: wsmanagement
+
+Pass: Google$2018
+
+ 
+
+MSSQL 2014 Database details:
+
+Management URL: https://mssql.lan3-1.websitesettings.com/mla
+
+Hostname: mssql1405\inst1
+
+Management IP: 207.246.248.242,4120
+
+Database: 350147_wsmanagementdb
+
+Username: 350147_wsmgusr
+
+Password: Google$2018
+
+ 
+
+Note:  Please do not use Management IP in connection string, use only Hostname.
+
+ 
+
+Cloud Storage Container:
+
+Main URL: http://cdn.wsmanagementnyc.com
+
+Original URL: http://9e9806735197036487c9-7d1688482271018d5e9bd041b5b881b0.r56.cf2.rackcdn.com
+
+ 
+
+Email
+
+No Emails

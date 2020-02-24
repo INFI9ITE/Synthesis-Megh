@@ -1,0 +1,804 @@
+﻿@model wwwroot.Areas.Admin.Models.Invoice_Select
+@using wwwrootBL.Entity;
+@using wwwroot.Class;
+@using System.Configuration;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMAster.cshtml";
+}
+
+<script src='@wwwroot.Class.AdminSiteConfiguration.GetURL()Content/Admin/assets/js/datetime/bootstrap-datepicker.js'></script>
+
+<div class="animate-panelmessesgarea padbtmzero">
+
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Success")
+    {
+        <script>
+            MyfunSuccess();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Delete")
+    {
+        <script>
+            MyfunSuccess();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+    {
+        <script>
+            MyfunError();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+    {
+        <script>
+            MyfunNoItem();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+    {
+        <script>
+            MyfunExistsEmpcode();
+        </script>
+    }
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#Invoice_Date').datetimepicker({
+            format: 'MMM DD, YYYY',
+            useCurrent: false
+        });
+
+    });
+</script>
+
+
+@*<div class="header-small">
+        <h3>Add Invoice <a href="@Url.Action("Index", "InvoiceReport")" class="pull-right btnbackbox" data-toggle="tooltip" data-placement="bottom" title="Back"> Back</a></h3>
+    </div>*@
+@using (Html.BeginForm("Detail", "InvoiceReport", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    @Html.ValidationSummary(true)
+    WestZoneEntities db = new WestZoneEntities();
+
+
+    <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+
+        <div class="header-small header_invoicedetail">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <h3>Invoice# <span>@Html.DisplayFor(m => m.Invoice_Number)</span> </h3>
+                </div>
+                <div class="col-md-7 col-sm-12">
+                    <div class="invoicedetail_text">
+                        <ul>
+                            @{
+                                var createbyvalue = Convert.ToInt32(Model.CreatedBy);
+                                //var Modifiedbyvalue = Convert.ToInt32(Model.ModifiedBy);
+                                var createdby = db.tbl_user.Where(x => x.Reg_userid == createbyvalue).Select(x => x.Name).FirstOrDefault();
+                                // var Modifiedby = db.tbl_user.Where(x => x.Reg_userid == Modifiedbyvalue).Select(x => x.Name).FirstOrDefault();
+                                <li>
+                                    <span class="ttl1">Created By</span> <span class="namebox">@createdby</span> <span class="datebox">
+                                        @wwwroot.Class.AdminSiteConfiguration.GetDatestatusmsg(Convert.ToString(Model.CreatedOn))
+                                    </span>
+                                </li>
+                                if (Model.ModifiedBy != null)
+                                {
+                                    <li> <span class="ttl1">Modified By</span> <span class="namebox">@Model.ModifiedBy</span> <span class="datebox">@wwwroot.Class.AdminSiteConfiguration.GetDatestatusmsg(Convert.ToString(Model.ModifiedOn))</span> </li>
+                                }
+
+                                <li>
+                                    @{
+
+                                        if (Model.IsStatus_id == 2)
+                                        {
+                                            <span class="ttl1">Approved By</span>
+                                            <span class="namebox">@Model.ApproveRejectBy</span>
+                                            <span class="datebox">@wwwroot.Class.AdminSiteConfiguration.GetDatestatusmsg(Convert.ToString(Model.ApproveRejectDate))</span>
+                                        }
+                                        else if (Model.IsStatus_id == 3)
+                                        { <span class="ttl1">Rejected By</span>
+                                            <span class="namebox">@Model.ApproveRejectBy</span>
+                                            <span class="datebox">@wwwroot.Class.AdminSiteConfiguration.GetDatestatusmsg(Convert.ToString(Model.ApproveRejectDate))</span>
+
+                                        }
+                                        else
+                                        {<span class="ttl1">Approved By</span>
+                                            <span class="namebox">Not Approved Yet</span>
+                                        }
+
+
+                                    }
+
+                                </li>
+                            }
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 leftpart">
+            <div>
+                @{
+                    <div class="invocettl" id="divstatus">
+                        @*<h3>Invoice PDF</h3>*@
+                        @if ((Model.IsStatus_id == 1 || Model.IsStatus_id == 2 || Model.IsStatus_id == 3))
+                        {
+                            var regid = WebSecurity.CurrentUserId;
+
+
+                            var curruntroleid = db.Select_RoleId_ByUserid(Convert.ToInt32(Model.CreatedBy)).FirstOrDefault();
+
+                            <ul class="pull-right invoicedetailnavi">
+                                @*<li>
+                                    @if ((Roles.IsUserInRole("Data Approver") && (curruntroleid == 2)) || (Roles.IsUserInRole("Store Manager") && (curruntroleid == 3)) || (Roles.IsUserInRole("Administrator") && ((Model.IsStatus_id != 1) || (Model.IsStatus_id != 4))))
+                                    {
+                                        <a class="btn btn-success btn_bule btn-sm" href="@Url.Action("Edit", "Dashboard", new { Id = Model.id, @class = "btn btn-success btn_bule btn-sm" })" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i>Edit</a>
+                                    }
+                                    else if (Model.CreatedBy == regid.ToString())
+                                    {
+                                        <a class="btn btn-success btn_bule btn-sm" href="@Url.Action("Edit", "Dashboard", new { Id = Model.id, @class = "btn btn-success btn_bule btn-sm" })" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i>Edit</a>
+                                    }
+                                </li>*@
+                                @if ((Model.IsStatus_id != 2 && Model.IsStatus_id != 3))//&& (Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Store Manager"))
+                                {
+                                    if (Model.CreatedBy != regid.ToString())
+                                    {
+                                        if ((Roles.IsUserInRole("Data Approver") && (curruntroleid == 2)) || (Roles.IsUserInRole("Store Manager") && (curruntroleid == 3)) || (Roles.IsUserInRole("Administrator") && ((Model.IsStatus_id != 1) || (Model.IsStatus_id != 4))))
+                                        {
+                                            <li>
+                                                <a onclick="return ComfirmApprove(@Model.id);" href="#" class="btn btn-success btn-sm"><i class="fa fa-check"></i>Approve</a>
+                                                @{
+                                                    var UserIdD = Model.id + "D";
+                                                }
+                                                <div id="@UserIdD" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                                                    <div class="modal-content ">
+                                                        <div class="modal-header text-center">
+                                                            <i class="glyphicon glyphicon-trash"></i>
+                                                        </div>
+                                                        <div class="modal-title">Message</div>
+                                                        <div class="modal-body ">Are you sure want to Approve this Invoice?</div>
+                                                        <div class="modal-footer" style="text-align:center">
+                                                            <a class="btn btn-danger" onclick="Approve(@Model.id);">Ok </a>
+                                                            <a class="btn" data-dismiss="modal" onclick="closemodal()">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            if (Model.IsStatus_id != 4)
+                                            {
+                                                <li>
+
+                                                    <a href="#" onclick="return ComfirmOnHold(@Model.id);" class="btn btn-warning btn-sm"><i class="fa fa-minus"></i>On Hold</a>
+                                                    @{
+                                                        var UserIdH = Model.id + "H";
+                                                    }
+                                                    <div id="@UserIdH" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                                                        <div class="modal-content ">
+                                                            <div class="modal-header text-center">
+                                                                <i class="glyphicon glyphicon-trash"></i>
+                                                            </div>
+                                                            <div class="modal-title">Message</div>
+                                                            <div class="modal-body ">Are you sure want to Hold this Invoice?</div>
+                                                            <div class="modal-footer" style="text-align:center">
+                                                                <a class="btn btn-danger" onclick="OnHold(@Model.id);">Ok </a>
+                                                                <a class="btn" data-dismiss="modal" onclick="closemodal()">Cancel</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+                                            <li>
+                                                <a href="#" class="btn btn-danger btn-sm" onclick="return ComfirmReject(@Model.id);"><i class="fa fa-times"></i>Reject</a>
+                                                @{
+                                                    var UserIdR = Model.id + "R";
+                                                }
+                                                <div id="@UserIdR" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                                                    <div class="modal-content ">
+                                                        <div class="modal-header text-center">
+                                                            <i class="glyphicon glyphicon-trash"></i>
+                                                        </div>
+                                                        <div class="modal-title">Message</div>
+                                                        <div class="modal-body ">Are you sure want to Reject this Invoice?</div>
+                                                        <div class="modal-footer" style="text-align:center">
+                                                            <a class="btn btn-danger" onclick="Reject(@Model.id);">Ok </a>
+                                                            <a class="btn" data-dismiss="modal" onclick="closemodal()">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        }
+
+                    </div>
+
+                }
+                <div class="invoiceimage">
+                    @if (!string.IsNullOrEmpty(Model.ScanInvoice))
+                    {
+                        @*<iframe src="@ConfigurationManager.AppSettings["cloudurl"]scanimage/@Model.ScanInvoice" frameborder="0" width="100%" height="1000"></iframe>*@
+                        <iframe src="~/userfiles/scanimage/@Model.ScanInvoice" frameborder="0" width="100%" height="800"></iframe>
+                    }
+                </div>
+                @*<div class="invoiceimage"></div>
+                    <div class="uploadscanbutton">
+                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                            <span class="btn btn-file">
+                                <span class="fileupload-new"> <span class="btnbox btnupload"> <img src="~/Content/Admin/images/icon_pdfblack.png" alt="" class="blackicon" /> <img src="~/Content/Admin/images/icon_pdfwhite.png" alt="" class="whiteicon" /> <span>Upload Pdf</span> </span> </span> <span class="fileupload-exists">Change</span>
+                                <input type="file" />
+                            </span> <span class="fileupload-preview"></span> <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>*@
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 rightpart">
+            <h3>
+                Invoice Information
+                <a href="javascript:void(0);" onclick="history.go(-1);" class="pull-right btnbackbox" placement="bottom" title="Back"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</a>
+                @*<a href="@Url.Action("Index", "invoicereport")" class="pull-right btnbackbox" data-toggle="tooltip" data-placement="bottom" title="Back"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>*@
+            </h3>
+            <div class="formmain">
+                @{
+
+                    if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label>Store Name</label><br />@*<span class="highlight">*</span>*@
+
+                                    <span class="fnt_midam">
+                                        @Html.DisplayFor(m => m.Storename)
+                                    </span>
+
+                                    @*@Html.ValidationMessageFor(model => model.storeid)*@
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Payment Method</label><br />
+                            <span class="fnt_midam">@Html.DisplayFor(m => m.Payment_type)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Type </label><br />
+                            <span class="fnt_midam">@Html.DisplayFor(m => m.Type)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Vendor</label><br />
+                            <span class="fnt_midam">@Html.DisplayFor(m => m.Vendorname)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Vendor Phone Number</label><br />
+                            @if (Model.PhoneNumber == "" || Model.PhoneNumber == null)
+                            {
+
+                                <div class="addressbox fnt_midam">Not Available</div>
+                            }
+                            else
+                            {
+                                <div class="addressbox fnt_midam">@Model.PhoneNumber</div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label>Vendor Address</label><br />
+                            @if (Model.address == "" || Model.address == null)
+                            {
+                                <div class="addressbox fnt_midam">Not Available</div>
+                            }
+                            else
+                            {
+                                <div class="addressbox fnt_midam">@Model.address</div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Invoice #</label><br />
+                            <span class="fnt_midam">@Html.DisplayFor(m => m.Invoice_Number)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label>Invoice Date</label><br />
+                            <span class="fnt_midam">@AdminSiteConfiguration.GetDateformat(Model.Invoice_Date.ToString())</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="whitebox">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Invoice Breakdown</label>
+                        </div>
+                    </div>
+                    <div id="tbladdon">
+                        <div class="row" id="trrow_1">
+                            @{
+
+
+                                var Departmentlist = db.tbl_Invoice_Department.Where(x => x.Invoice_id == Model.id).ToList();
+                                foreach (var item1 in Departmentlist)
+                                {
+
+                                    <div class="col-md-7 col-sm-7">
+                                        <div class="form-group">
+                                            @{
+                                                var department = db.tbl_Department.Where(x => x.id == item1.Dept_id).Select(x => x.Name).FirstOrDefault();
+                                                @department
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 padleftzero padrightzero fnt_bod">
+                                        <div class="form-group">
+                                            @{
+                                                if (Model.Type_id == 2)
+                                                {
+                                                    <span class="minusamount redback"><span>-</span> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item1.Amount))</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>
+                                                        $
+                                                        @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(item1.Amount))
+                                                    </span>
+                                                }
+
+                                            }
+
+                                        </div>
+                                    </div>
+                                    @*<div class="col-md-2 col-sm-2">
+                                            <a href="#" class="btnaddbox" id="aAdd_1" onclick="AddField(1)"><i class="fa fa-plus"></i></a>
+                                            <a id="aRemove_1" class="aremove" onclick="RemoveField(1)">-</a>
+                                        </div>*@
+
+                                }
+                            }
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7">
+                                <div class="form-group"> <span class="invoiceamttl">Total Invoice Amount</span> </div>
+                            </div>
+                            <div class="col-md-5 col-sm-5 padleftzero">
+                                <div class="form-group">
+                                    <span class="amount">
+                                        <span id="TotalAmtByDept"> </span>
+
+                                        @if (Model.Type_id == 2)
+                                        {
+                                            <span class="minusamount redback">-$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(Html.DisplayFor(m => m.TotalAmtByDept))) </span>
+                                        }
+                                        else
+                                        {
+                                            <span>
+
+                                                $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(Html.DisplayFor(m => m.TotalAmtByDept)))
+                                            </span>
+
+                                        }
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="form-group" style="display: block">
+                        <label>
+                            Department<span class="highlight">*</span>
+                        </label>
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <table border="0" id="tbladdon">
+                                        <tr>
+                                            <td width="220px" style="margin-left: 25px; display: block; float: left;">Depertment</td>
+                                            <td width="10px"></td>
+                                            <td width="120px" style=" display: block; float: left;">Amount</td>
+                                            <td width="120px" style="margin-left: 25px; display: block; float: left;">Level</td>
+                                        </tr>
+
+                                        <tr id="trrow_1">
+                                            <td width="220px" valign="top" style="margin-left: 25px; display: block; float: left;">
+                                                @Html.DropDownListFor(model => model.Dept_id, new SelectList(Model.BindDepartmentList, "Value", "Text"), "Select Department", new { style = "width: 220px;", @class = "form-control" })<span style="width: 20px; display: inline-block;"></span>
+                                                <br />@Html.ValidationMessageFor(model => model.Dept_id)
+                                            </td>
+                                            <td width="10px" style="font-size: 20px; font-weight: bold;padding:10px 0px 15px 10px" valign="top"><span id="spncredit" style="display:none;"> <b> - </b></span></td>
+                                            <td width="120px" style="display: block; float: left;">
+                                                @Html.TextBoxFor(model => model.Amt, new { maxlength = 100, @class = "form-control", id = "Amt_1", onchange = "AddAmt()" })
+                                                <br />
+                                                @Html.ValidationMessageFor(model => model.Amt)
+                                                <input type="hidden" />
+                                            </td>
+
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>*@
+
+                <div class="form-group">
+                    <label>
+                        Note
+                    </label><br />
+                        <span class="fnt_midam">@Html.DisplayFor(model => model.Note, new { maxlength = 100, @class = "form-control" })</span>
+                        @*@Html.LabelFor(model => model.Note, new { maxlength = 100, @class = "form-control addinvoicearea", @readonly = "readonly" })*@
+                    
+                </div>
+
+
+                @*@{
+                    if (Model.IsStatus_id != 2 && Model.IsStatus_id != 3 && Model.CreatedBy == WebSecurity.CurrentUserId.ToString())
+                    {
+                        <div class="from-group row">
+                            <div class="col-sm-8 ">
+                                <input type="submit" value="Save"
+                                       class="buttonbox btnsubmit" />
+
+                                @Html.ActionLink("Cancel", "Index", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+                            </div>
+                        </div>
+                    }
+                }*@
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clear">
+    </div>
+}
+@*@section FooterScript{*@
+
+<script>
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+
+        if (val == 1) {
+
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+
+        }
+
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    $(".decimalOnly").bind('keypress', function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+            return false;
+
+        return true;
+    });
+    $(".decimalOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+    $(".numericOnly").bind('keypress', function (e) {
+        if (e.keyCode == '9' || e.keyCode == '16') {
+            return;
+        }
+        var code;
+        if (e.keyCode) code = e.keyCode;
+        else if (e.which) code = e.which;
+        if (e.which == 46)
+            return false;
+        if (code == 8 || code == 46)
+            return true;
+        if (code < 48 || code > 57)
+            return false;
+    });
+
+    //Disable paste
+    $(".numericOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+
+    $(".numericOnly").bind('mouseenter', function (e) {
+        var val = $(this).val();
+        if (val != '0') {
+            val = val.replace(/[^0-9]+/g, "")
+            $(this).val(val);
+        }
+    });
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+
+
+    $('#country_id').change(function () {
+
+        StateBind();
+
+    });
+    function ReplaceData(html_val, c_val, r_val) {
+
+        while (html_val.indexOf(c_val) != -1) {
+            html_val = html_val.replace((c_val), (r_val));
+        }
+        return html_val;
+    }
+    //Type addmore starts
+    function AddField(val) {
+        //alert(val);
+        var val = CheckField();
+        var html = $("#trrow_" + val).html();//.replaceWith("_"+val,"_"+(val+1));
+        html = ReplaceData(html, "_" + val, "_" + (val + 1));
+
+        $("#trrow_" + val).after("<div id='trrow_" + (val + 1) + "'>" + html + "</div>");
+        //$("#tdaction_" + val).hide();
+
+        document.getElementById('aRemove_' + (val + 1)).setAttribute('onclick', 'RemoveField(' + (val + 1) + ')')
+        document.getElementById('aAdd_' + (val + 1)).setAttribute('onclick', 'AddField(' + (val + 1) + ')')
+
+        var i_rtn = CheckField();
+    }
+    function RemoveField(val) {
+        $("#trrow_" + val).remove();
+
+        CheckField();
+
+
+    }
+    function CheckField() {
+        var i = 0;
+        $("#tbladdon :input[type='hidden']").each(function () {
+            i = i + 1;
+        });
+
+        if (i == 1) {
+
+            $(".aremove").hide();
+        }
+        else {
+            $(".aremove").show();
+        }
+        return i;
+    }
+    function AddAmt() {
+
+        var ival = CheckField();
+        var temp = 0;
+        var i;
+        for (i = 0; i < ival; i++) {
+            temp += parseFloat(document.getElementById('Amt_' + (i + 1)).value);
+            //var totalamt = parseFloat(document.getElementById('TotalAmtByDept'));
+            //totalamt = temp;
+
+        }
+        $("#TotalAmtByDept").val(temp);
+
+    }
+
+    $(document).ready(function () {
+        CheckField();
+        var Detailstorenamevalue = '@(ViewBag.Detailstorenamevalue)';
+
+        if (Detailstorenamevalue != "") {
+            var role = '@Roles.IsUserInRole("Data Approver")';
+
+            if (role == 'True') {
+                $('#drp').val([Detailstorenamevalue]).trigger('change');
+                //   $('#drp').val(Storenameviewall);
+
+            }
+            else {
+                // var storename = document.getElementById('spnStore').innerHTML;
+                $('#spnStore').html(Detailstorenamevalue);
+                //alert(storename)
+
+
+            }
+        }
+        //$("#Storename").attr("disabled", true);
+
+    });
+    function ddListPaymentTypeChange(paytype) {
+        if (paytype == "Cash Payment") {
+            $('#Type_id').val([1]).trigger('change');
+            $('#Type_id').attr("disabled", "true");
+        }
+        else {
+            $('#Type_id').removeAttr("disabled");
+            $('#Type_id').val(['']).trigger('change');
+            var typeid = $('#Type_id').val();
+
+            $("#Type").val(typeid);
+            if (typeid == "2") {
+                $('#spncredit').removeAttr("style");
+                //alert("dfdfddfddfdfdf");
+                $('#spncredit').attr("style", "display:block;")
+            }
+            else {
+                $('#spncredit').removeAttr("style");
+                $('#spncredit').attr("style", "display:none;")
+            }
+
+
+        }
+
+    }
+    function ddLTypeChange(paytype) {
+
+        if (paytype == "2") {
+
+
+            $('#spncredit').attr("style", "display:block;")
+        }
+        else {
+            $('#spncredit').attr("style", "display:none;")
+        }
+        //if (paytype == "Cash Payment") {
+        //    $('#Type_id').val([1]).trigger('change');
+        //    $('#Type_id').attr("disabled", "true");
+        //}
+        //else {
+        //    $('#Type_id').removeAttr("disabled");
+        //    $('#Type_id').val(['']).trigger('change');
+        //    var typeid = $('#Type_id').val();
+        //    alert(typeid);
+        //    $("#Type").val(typeid);
+        //    if (typeid == "2") {
+        //        $('#spncredit').removeAttr("style");
+        //        alert("dfdfddfddfdfdf");
+        //        $('#spncredit').attr("style", "display:block;")
+        //    }
+        //    else {
+        //        $('#spncredit').removeAttr("style");
+        //        $('#spncredit').attr("style", "display:none;")
+        //    }
+
+
+        //}
+
+
+
+
+    }
+
+    function ComfirmOnHold(ID) {
+        var DivId = "#" + ID + "H";
+        $(DivId).show();
+    }
+    function OnHold(ID) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/InvoiceReport/InvoiceOnHold?id=' + ID,
+            success: function (response) {
+                $("#divstatus").hide();
+                location.reload();
+                //return true;
+            },
+            error: function () {
+                //Loader(0);
+            }
+        });
+    }
+    function ComfirmApprove(ID) {
+        //vibhusha
+        //var check = confirm("Are you sure you want to Approve this Invoice?");
+        //if (check == true) {
+        //    Approve(ID);
+
+        //    //return true;
+        //}
+        //else {
+        //    //return false;
+        //}
+        //vibhusha
+        var DivId = "#" + ID + "D";
+        $(DivId).show();
+    }
+    function Approve(ID) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/InvoiceReport/InvoiceApprove?id=' + ID,
+            success: function (response) {
+                $("#divstatus").hide();
+                location.reload();
+                //return true;
+            },
+            error: function () {
+                //Loader(0);
+            }
+        });
+    }
+
+    function ComfirmReject(ID) {
+        //vibhusha
+        //var check = confirm("Are you sure you want to Reject this Invoice?");
+        //if (check == true) {
+        //    Reject(ID);
+
+        //    //return true;
+        //}
+        //else {
+        //    //return false;
+        //}
+        //vibhusha
+        var DivId = "#" + ID + "R";
+        $(DivId).show();
+
+    }
+
+    function Reject(ID) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/InvoiceReport/InvoiceReject?id=' + ID,
+            success: function (response) {
+                $("#divstatus").hide();
+                location.reload();
+                //return true;
+            },
+            error: function () {
+                //Loader(0);
+            }
+        });
+    }
+    function closemodal() {
+        $(".divIDClass").hide();
+        //$(".overlaybox").hide();
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

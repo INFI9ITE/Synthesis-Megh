@@ -1,0 +1,768 @@
+﻿@model wwwroot.Areas.Admin.Models.Shiftwisereport_Select
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+    /**/
+
+    /**/
+    WestZoneEntities db = new WestZoneEntities();
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+<link href="~/Content/Admin/assets/css/newpage.css" rel="stylesheet" />
+<div class="animate-panelmessesgarea padbtmzero">
+
+    @if (Convert.ToString(ViewBag.storeid) == "0")
+    {
+        <script>
+            PopUpSelectStore();
+        </script>
+    }
+    @if (Convert.ToString(ViewBag.ErrorMessage) == "NoItemFound")
+    {
+        <script>
+            MyfunNoItem();
+        </script>
+    }
+</div>
+
+@if (Convert.ToString(ViewBag.storeid) != "0")
+{
+
+    <div class="header-small header_invoicedetail">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="dateboxhd">
+                    <ul class="set_calss3">
+                        <li class="set_class4">
+			<div><input name="Startdate" type="text" maxlength="100" id="Startdate" placeholder="From" class="datepicker form-control" onkeydown="return false">
+                            @*<input data-val="true" data-val-date="The field Startdate must be a date." data-val-required=" " id="Startdate" name="Startdate" placeholder="From" type="text" value="" class="datepicker form-control" />*@</div>
+			<div> <a class="openotherbox">Other Deposits <strong><span id="spanotherdeposit"></span></strong></a>
+			    @if (Roles.IsUserInRole("Back Office Manager"))
+                        {
+
+                        }
+			@*<a href="@Url.Action("Daycloseout", "Shiftwisereport")">Day Close Out </a>*@
+                            <a class="openotherbox_red" id="BtnCloseout" onclick="ConfirmDayClose()">Day Close Out</a></div>
+                            
+			   
+                        </li>
+
+                        <li class="set_calss2">
+                            <span>Customer Count <strong> @wwwroot.Class.AdminSiteConfiguration.RoundPriceWithComma(Convert.ToString(Model.Coustomercount)) </strong> </span>
+                            <span> Sales <strong>$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(Model.totalsalesamount)) </strong ></span >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-6">
+                <div class="invoicedetail_text btnsynxls">
+                    <ul>
+                        @*<li>
+                                <a href="#" class="btn mailsync" onclick="SynData();">Email Sync</a>
+                            </li>*@
+                        @*<li>  <a href="#" class="btn importxls">Import XLS</a> </li>*@
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="other-deposite" id="divother">
+        @{
+            Html.RenderAction("OtherDepositGrid");
+        }
+    </div>
+    <div id="getdata">
+        @*Html.RenderAction("TerminalGrid")*@
+    </div>
+            }
+<div id="ConfirmDayClose" class="divIDClass modal-popup modal-danger modal-message max_widht300" style="position: fixed; display:none;">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <i class="glyphicon glyphicon-fire"></i>
+        </div>
+        <div class="modal-title"><b><label id="DisplayMessage"></label></b></div>
+        <div class="modal-body "></div>
+        <div class="modal-footer " style="text-align:center">
+            <a class="btn btn-danger" onclick="DayCloseoutfun()">Yes </a>
+            <a class="btn" data-dismiss="modal" onclick="closemodal()">No </a>
+        </div>
+    </div>
+</div>
+<div id="popupStoreAlert" class="divIDClass modal-popup modal-danger modal-message max_widht300" style="position: fixed; display:none">
+    <div class="modal-content ">
+        <div class="modal-header text-center">
+            <i class="glyphicon glyphicon-fire"></i>
+        </div>
+        <div class="modal-title">No Store Selected</div>
+        <div class="modal-body ">Please Select Store.</div>
+        <div class="modal-footer " style="text-align:center">
+            <a class="btn btn-danger" data-dismiss="modal" onclick="closemodal()" ;>Ok </a>
+        </div>
+    </div>
+</div>
+<script>
+    function closemodal() {
+        $(".divIDClass").hide();
+    }
+
+
+</script>
+
+<script>
+    $('.stop-propagation').on('click', function (e) {
+        e.stopPropagation();
+    });
+</script>
+<script>
+    //('.date-picker').datetimepicker();
+
+    $(function () {
+        $('#Startdate').datetimepicker({
+            format: 'MM-DD-YYYY',
+            useCurrent: true
+        });
+
+
+        $('#Startdate').on('dp.change', function (e) {
+            var id = $(this).val();
+            @*@ViewBag.Startdate = id;*@
+            GetData(id);
+        });
+    });
+
+    $(document).ready(function () {
+        //alert();
+        $(".openotherbox").click(function () {
+            var startdate = document.getElementById("Startdate").value;
+            Bindotherdata(startdate);
+            $(".other-deposite").slideToggle("slow");
+        });
+        $('#Startdate').datetimepicker({
+            format: 'MM-DD-YYYY',
+            useCurrent: true
+        });
+
+        $('#Startdate').attr('autocomplete', 'off');
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        let current_datetime = new Date()
+        let formatted_date = months[current_datetime.getMonth()] + " " + current_datetime.getDate() + "," + current_datetime.getFullYear()
+
+        $('#Startdate').val(formatted_date);
+        //alert($('#Startdate').val(formatted_date) + "2");
+    });
+</script>
+<script>
+    $('.burgermenu').click(function () {
+        $('#sidebar').toggleClass('showmenu');
+        $('.page-content').toggleClass('marleft110');
+    })
+
+    function delete_rowold(no) {
+        document.getElementById("row" + no + "").outerHTML = "";
+
+    }
+    function add_rownew() {
+
+
+
+        var new_name = document.getElementById("new_name").value;
+
+        var new_country = document.getElementById("new_country").value;
+        var pay_method = document.getElementById("paymethod").value;
+
+        var table = document.getElementById("data_tabletwo");
+        var table_len = (table.rows.length) - 1;
+        var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td class='minamt' id='name_row" + table_len + "' data-id='" + new_name + "'>" + new_name + "<input type='text' class='form-control' id='new_name" + table_len + "'data-id='" + new_name + "'></td><td class='maxamt' id='payment_row" + table_len + "' data-id='" + pay_method + "'>" + pay_method + "<select class='myval' id='paymethod" + table_len + "' data-id='" + pay_method + "' ><option value=''>Select </option><option value='Master Card'>Master Card</option><option value='Visa Card'>Visa Card</option><option value='American Express'>American Express</option></select></td><td class='maxamt' id='country_row" + table_len + "' data-id='" + new_country + "'>" + new_country + "<input type='text' class='form-control' id='new_country'" + new_country + "' data-id='" + pay_method + "'></td><td class='text-center'> <input type='button' value='Edit' class='btneditbox' onclick='edit_rownew(" + table_len + ")' id='edit_button(" + table_len + ")'/>  <input type='button' value='Delete' class='delete_btn' onclick='delete_rowold(" + table_len + ")'> </td></tr>";
+
+        document.getElementById("new_name").value = "";
+        document.getElementById("new_country").value = "";
+        document.getElementById("paymethod").value = "";
+    }
+
+    function edit_rownew(no) {
+        //alert();
+        document.getElementById("edit_button" + no).style.display = "none";
+        document.getElementById("save_button" + no).style.display = "block";
+
+        var name = document.getElementById("name_row" + no);
+        var country = document.getElementById("payment_row" + no);
+        var age = document.getElementById("country_row" + no);
+
+        var name_data = name.innerHTML;
+        var country_data = country.innerHTML;
+        var age_data = age.innerHTML;
+
+        name.innerHTML = "<input type='text' maxlength='50' id='name_text" + no + "' value='" + name_data + "'>";
+        country.innerHTML = "<input type='text' id='country_text" + no + "' value='" + country_data + "'>";
+        age.innerHTML = "<input type='text'  maxlength='18' id='age_text" + no + "' value='" + age_data + "'>";
+
+    }
+
+</script>
+
+<script>
+
+    function GetData(Currentdate) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/Terminalgrid',
+            data: { date: Currentdate },
+            beforeSend: function () {
+                Loader(1);
+            },
+            // async: false,
+            success: function (response) {
+                //    $("body").html(response);
+                $('#getdata').empty();
+                $('#getdata').append(response);
+
+                Loader(0);
+                var tiddata = $("#tid0").val();
+                var terval = '@ViewBag.terminalidval';
+                var TerminalId = getParameterByName('TerminalId'); // "lorem"
+                //alert(TerminalId + "+>value");
+                //alert(!TerminalId);
+                if (TerminalId) {
+                    BindShiftData(TerminalId, "1");
+                }
+                else if (terval === "") {
+                    BindShiftData(tiddata, "1");
+                }
+                else {
+                    BindShiftData(terval, "1");
+
+                }
+
+            }
+        });
+
+    }
+    function BindShiftData(id, flag) {
+        $(".liclass").removeClass("active");
+        $("#li" + id).addClass("active");
+        var startdate = $('#Startdate').val();
+        //alert( id);
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/ShiftDataGrid',
+            data: { date: startdate, terminalid: id },
+            beforeSend: function () {
+                Loader(1);
+            },
+            // async: false,
+            success: function (response) {
+
+                //    $("body").html(response);
+                $('#shiftdata').empty();
+                $('#shiftdata').append(response);
+                Loader(0);
+                var shiftid = $("#shift0").val();
+                var tiddata = $("#ter0").val();
+                var tidval = '@ViewBag.terminalidval';
+                var sid_val = '@ViewBag.Shiftdataid';
+                //alert(flag + "flagg");
+                if (flag === "1") {
+                    //alert("F111");
+                    BindShifttenderData(tiddata, shiftid);
+                }
+                else {
+                    // alert("F2222");
+                    BindShifttenderData(tidval, sid_val);
+                }
+
+
+
+            }
+        });
+    }
+    function BindShifttenderData(id, sid) {
+        $(".lishift").removeClass("active");
+        $("#lishift_" + sid).addClass("active");
+        var startdate = $('#Startdate').val();
+
+        //alert(Currentdate);
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/ShiftWisetenderGrid',
+            data: { date: startdate, terminalid: id, shiftid: sid },
+            beforeSend: function () {
+                Loader(1);
+            },
+            // async: false,
+            success: function (response) {
+
+                //    $("body").html(response);
+                $('#shifttenderdata').empty();
+                $('#shifttenderdata').append(response);
+                Loader(0);
+                //BindShiftData(id);
+            }
+        });
+    }
+
+    function Loader(val) {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if (val == 1) {
+            //alert("11");
+            $(".loading-container").attr("style", "display:block;")
+            //$('#loadbox').hide();
+
+            // $(".loading-container").show();
+            // $(".loading-inactive").show();
+        }
+        else {
+            //alert("00");
+            //$('.loading-container').removeClass('showbox');
+            $(".loading-container").attr("style", "display:none;")
+            //$(".loading-container").hide();
+            //$(".loading-inactive").hide();
+        }
+        // bind();
+    }
+    $(document).ready(function () {
+
+        var startdate = '@ViewBag.Startdate';
+        $('#Startdate').val(startdate);
+        //alert($('#Startdate').val(startdate) + "1");
+        GetData(startdate);
+    });
+
+    function CheckOtherDepositeValue() {
+        //var nameval = $('#new_name').val();
+        //var paymentmode = $('#paymethod').val();
+        var amountval = $('#new_country').val();
+        var Optionidval = $('#Optionid').val();
+        var Payidval = $('#Payid').val();
+        var vendoridval = $('#vendorid').val();
+        //var Otherval = $('#Other').val();
+        if (/*nameval == "" &&*/ amountval == "" && Optionidval == "" && Payidval == "" /*&& Otherval == ""*/ && vendoridval == "") {
+            //alert("all")
+            $("#AmountIsReq").show();
+            $("#MethodIsReq").show();
+            //$("#NameIsReq").show();
+            $("#OptionsIsReq").show();
+            $("#VendorIsReq").show();
+            //$("#OtherIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        else {
+
+            if (Payidval != "") {
+                $("#MethodIsReq").hide();
+            }
+
+        }
+
+        //if (nameval != "" && amountval != "" && Optionidval !== "" && Payidval !== "" && Otherval !== "" && vendoridval !== "") {
+        //    $("#AmountIsReq").hide();
+        //    $("#MethodIsReq").hide();
+        //    $("#NameIsReq").hide();
+        //    $("#OptionsIsReq").hide();
+        //    $("#VendorIsReq").hide();
+        //    $("#OtherIsReq").hide();
+        //    $("#btnotherdepositsubmit").css("cursor", "pointer");
+        //    document.getElementById("btnotherdepositsubmit").disabled = false;
+        //}
+        //if (nameval == '') {
+
+        //    $("#NameIsReq").show();
+        //    $("#btnotherdepositsubmit").css("cursor","no-drop");
+        //    document.getElementById("btnotherdepositsubmit").disabled = true;
+        //}
+        //else {
+        //    $("#NameIsReq").hide();
+        //    $("#btnotherdepositsubmit").css("cursor", "pointer");
+        //    document.getElementById("btnotherdepositsubmit").disabled = false;
+        //}
+        if ((Payidval == "") && ($('#Payid').is(':enabled'))) {
+
+            $("#MethodIsReq").show();
+            $("#VendorIsReq").hide();
+            //$("#OtherIsReq").hide();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        else if (($('#vendorid').is(':disabled')) && ($('#Other').is(':disabled'))) {
+            $("#btnotherdepositsubmit").css("cursor", "pointer");
+            document.getElementById("btnotherdepositsubmit").disabled = false;
+            $("#MethodIsReq").hide();
+
+
+        }
+        if (amountval == "") {
+            $("#AmountIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        else {
+            $("#AmountIsReq").hide();
+            $("#btnotherdepositsubmit").css("cursor", "pointer");
+            document.getElementById("btnotherdepositsubmit").disabled = false;
+        }
+        if (Optionidval == '') {
+
+            $("#OptionsIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        else {
+            $("#OptionsIsReq").hide();
+            $("#btnotherdepositsubmit").css("cursor", "pointer");
+            document.getElementById("btnotherdepositsubmit").disabled = false;
+        }
+        if ((vendoridval == '') && ($('#vendorid').is(':enabled'))) {
+
+            $("#MethodIsReq").hide();
+            //$("#OtherIsReq").hide();
+            $("#VendorIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        else if (($('#Payid').is(':disabled')) && ($('#Other').is(':disabled'))) {
+            //$("#OtherIsReq").hide();
+            $("#VendorIsReq").hide();
+            $("#btnotherdepositsubmit").css("cursor", "pointer");
+            document.getElementById("btnotherdepositsubmit").disabled = false;
+
+        }
+        //if ((Otherval == '') && ($('#Other').is(':enabled'))) {
+
+        //    $("#OtherIsReq").show();
+        //    $("#MethodIsReq").hide();
+        //    $("#VendorIsReq").hide();
+        //    $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //    document.getElementById("btnotherdepositsubmit").disabled = true;
+        //}
+        //else if (($('#vendorid').is(':disabled')) && ($('#Payid').is(':disabled'))) {
+        //    $("#OtherIsReq").hide();
+        //    $("#btnotherdepositsubmit").css("cursor", "pointer");
+        //    document.getElementById("btnotherdepositsubmit").disabled = false;
+
+        //}
+
+        //else {
+        //    alert("8")
+        //    $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //    document.getElementById("btnotherdepositsubmit").disabled = false;
+        //}
+    }
+
+    function SaveOtherdeposit() {
+
+        var id = '@ViewBag.storeid';
+        var startdate = $('#Startdate').val();
+        var nameval = $('#new_name').val();
+        var paymentmode = $('#Payid').val();
+        var amountval = $('#new_country').val();
+        var Optionsval = $('#Optionid').val();
+        var vendorval = $('#vendorid').val();
+        var Otherval = $('#Other').val();
+
+        if (Optionsval == 'Gift Certificate' || Optionsval == 'House Charge Account') {
+            if (paymentmode === "") {
+                return false;
+                document.getElementById("btnotherdepositsubmit").disabled = true;
+            }
+            else if (paymentmode === null) {
+                return false;
+                document.getElementById("btnotherdepositsubmit").disabled = true;
+            }
+            else {
+                document.getElementById("btnotherdepositsubmit").disabled = false;
+            }
+        }
+        if (Optionsval == 'Rebate') {
+            if (vendorval === "") {
+                return false;
+                document.getElementById("btnotherdepositsubmit").disabled = true;
+            }
+            else if (vendorval === null) {
+                return false;
+                document.getElementById("btnotherdepositsubmit").disabled = true;
+            }
+            else {
+                document.getElementById("btnotherdepositsubmit").disabled = false;
+            }
+        }
+        if (Optionsval == 'Other') {
+
+        }
+        //if (Optionsval == 'Rebate') {
+        //    document.getElementById("Payid").disabled = true;
+        //    document.getElementById("Other").disabled = true;
+        //    $("#MethodIsReq").hide();
+        //    $("#OtherIsReq").hide();
+        //    //$("#tdvendorid").show()
+        //    //$("#thvendorid").show();
+        //}
+        //else {
+        //    document.getElementById("vendorid").disabled = false;
+        //    //$("#tdvendorid").hide();
+        //    //$("#thvendorid").hide();
+        //}
+        //if (Optionsval == 'Other') {
+        //    document.getElementById("vendorid").disabled = true;
+        //    document.getElementById("Payid").disabled = true;
+        //    $("#MethodIsReq").hide();
+        //    $("#VendorIsReq").hide();
+        //    //$("#thother").show();
+        //    //$("#tdother").show();
+
+        //}
+        //else {
+        //    document.getElementById("Other").disabled = false;
+        //    //$("#thother").hide();
+        //    //$("#tdother").hide();
+        //}
+        //if (nameval === "") {
+
+        //    $("#NameIsReq").show();
+        //    $("#MethodIsReq").hide();
+        //    $("#AmountIsReq").hide();
+        //    $("#OptionsIsReq").hide();
+        //    $("#VendorIsReq").hide();
+        //    $("#OtherIsReq").hide();
+
+        //    $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //    document.getElementById("btnotherdepositsubmit").disabled = true;
+        //}
+        //else if (paymentmode === "")
+        // {
+        //     $("#NameIsReq").hide();
+        //     $("#MethodIsReq").show();
+        //     $("#AmountIsReq").hide();
+        //     $("#OptionsIsReq").hide();
+        //     $("#VendorIsReq").hide();
+        //     $("#OtherIsReq").hide();
+
+        //     $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //     document.getElementById("btnotherdepositsubmit").disabled = true;
+        // }
+        //else if (amountval === "")
+        // {
+        //     $("#NameIsReq").hide();
+        //     $("#MethodIsReq").hide();
+        //     $("#AmountIsReq").show();
+        //     $("#OptionsIsReq").hide();
+        //     $("#VendorIsReq").hide();
+        //     $("#OtherIsReq").hide();
+
+        //     $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //     document.getElementById("btnotherdepositsubmit").disabled = true;
+        // }
+        //else if (Optionsval === "")
+        // {
+        //     $("#NameIsReq").hide();
+        //     $("#MethodIsReq").hide();
+        //     $("#AmountIsReq").hide();
+        //     $("#OptionsIsReq").show();
+        //     $("#VendorIsReq").hide();
+        //     $("#OtherIsReq").hide();
+
+        //     $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //     document.getElementById("btnotherdepositsubmit").disabled = true;
+        // }
+        //else if (vendorval === "")
+        // {
+        //     $("#NameIsReq").hide();
+        //     $("#MethodIsReq").hide();
+        //     $("#AmountIsReq").hide();
+        //     $("#OptionsIsReq").hide();
+        //     $("#OtherIsReq").hide();
+        //     $("#VendorIsReq").show();
+        //     $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //     document.getElementById("btnotherdepositsubmit").disabled = true;
+        // }
+        //else if (Otherval === "")
+        // {
+        //     $("#NameIsReq").hide();
+        //     $("#MethodIsReq").hide();
+        //     $("#AmountIsReq").hide();
+        //     $("#OptionsIsReq").hide();
+        //     $("#OtherIsReq").show();
+        //     $("#VendorIsReq").hide();
+        //     $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //     document.getElementById("btnotherdepositsubmit").disabled = true;
+        // }
+        //if (nameval === '') {
+        //    //alert(nameval);
+        //    $("#NameIsReq").show();
+        //    $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //    document.getElementById("btnotherdepositsubmit").disabled = true;
+        //}
+        //else if (paymentmode === "") {
+        //    //alert("paymentmode");
+        //    $("#MethodIsReq").show();
+        //    $("#btnotherdepositsubmit").css("cursor", "no-drop");
+        //    document.getElementById("btnotherdepositsubmit").disabled = true;
+        //}
+        if (Optionsval === "") {
+            //alert(amountval);
+            $("#OptionsIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        else if (amountval === "") {
+            //alert(amountval);
+            $("#AmountIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+        if (amountval === "") {
+            //alert(amountval);
+            $("#AmountIsReq").show();
+            $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            document.getElementById("btnotherdepositsubmit").disabled = true;
+        }
+            //else if (vendorval === "") {
+            //    //alert(amountval);
+            //    $("#VendorIsReq").show();
+            //    $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            //    document.getElementById("btnotherdepositsubmit").disabled = true;
+            //}
+            //else if (Otherval === "") {
+            //    //alert(amountval);
+            //    $("#OtherIsReq").show();
+            //        $("#btnotherdepositsubmit").css("cursor", "no-drop");
+            //        document.getElementById("btnotherdepositsubmit").disabled = true;
+            //    }
+        else {
+            //document.getElementById("Optionid").required = false;
+            $("#AmountIsReq").hide();
+            $("#MethodIsReq").hide();
+            //$("#NameIsReq").hide();
+            $("#OptionsIsReq").hide();
+            $("#VendorIsReq").hide();
+            //$("#OtherIsReq").hide();
+            $("#btnotherdepositsubmit").css("cursor", "pointer");
+            document.getElementById("btnotherdepositsubmit").disabled = false;
+            $.ajax({
+                url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/Saveotherdepositdata',
+                data: { sid: id, date: startdate, name: nameval, payment: paymentmode, amount: amountval, options: Optionsval, vendor: vendorval, Other: Otherval },
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                beforeSend: function () { Loader(1); },
+                success: function (response) {
+                    if (response === "sucess") {
+                        // $(".other-deposite").slideToggle("slow");
+                        Bindotherdata(startdate);
+                        MyCustomToster('Deposits added Successfully');
+                    }
+                    Loader(0);
+                }
+            });
+        }
+    }
+    function Bindotherdata(Currentdate) {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/OtherDepositGrid',
+            data: { date: Currentdate },
+            beforeSend: function () {
+                Loader(1);
+            },
+            // async: false,
+            success: function (response) {
+
+                //   $("body").html(response);
+                document.getElementById("spanotherdeposit").innerHTML = '@ViewBag.DepositeCount';
+                $('#divother').empty();
+                $('#divother').append(response);
+                Loader(0);
+
+            }
+        });
+    }
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function delete_Other_Deposite() {
+        var Id = document.getElementById("DepositId").value;
+        //alert(Id);
+        var startdate = $('#Startdate').val();
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/Deleteotherdepositdata',
+            data: { Id: Id },
+            type: 'POST',
+            cache: false,
+            dataType: 'json',
+            beforeSend: function () { Loader(1); },
+            success: function (response) {
+                if (response === "sucess") {
+                    // $(".other-deposite").slideToggle("slow");
+                    Bindotherdata(startdate);
+                    MyCustomToster('Deposits deleted successfully');
+                }
+                Loader(0);
+            }
+        });
+    }
+
+    function ConfirmDayClose() {
+        var date = $('#Startdate').val();
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/GetStatus',
+            data: { date: date},
+            type: 'POST',
+            cache: false,
+
+            beforeSend: function () { Loader(1); },
+            success: function (response) {
+                Loader(0);
+                $("#ConfirmDayClose").show();
+                if (response == 0) {
+                    $("#DisplayMessage").text("Are You Sure You Want To Close Out The Day?");
+                }
+                else if (response == 1) {
+                    $("#DisplayMessage").text("Closing Report Is Already Approved, Are You Sure You Want To Update It?");
+                }
+                else if (response == 2) {
+                    $("#DisplayMessage").text("Closing Report Is Already Updated & Approved, Are You Sure You Want To Update It?");
+                }
+                else if (response == 3) {
+                    $("#DisplayMessage").text("Closing Report Is Already Updated & Approved, Are You Sure You Want To Update It?");
+                }
+            },
+            error: function () {
+                Loader(0);
+
+            }
+        });
+    }
+
+    function DayCloseoutfun()
+    {
+        var date=$('#Startdate').val();
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/Daycloseout?date_val=' + date,
+            type: 'POST',
+            cache: false,
+
+            beforeSend: function () { Loader(1); },
+            success: function (response) {
+                Loader(0);
+                MyCustomAlert(response, 1);
+                $(".divIDClass").hide();
+            },
+            error: function () {
+                Loader(0);
+                MyCustomAlert("Some Error Accrued", 2);
+                $(".divIDClass").hide();
+            }
+        });
+
+    }
+
+</script>

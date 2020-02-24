@@ -1,0 +1,3059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WestZoneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="QBConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Store_Id" Type="Int32" />
+    <Property Name="CompanyFilePath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="QBVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="QBYear" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BillAccListID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BillAccName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SyncDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SiteConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="level" Type="Int32" />
+    <Property Name="Currencydigit" Type="Int32" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryLarge" Type="Int32" />
+    <Property Name="CategoryMedium" Type="Int32" />
+    <Property Name="CategorySmall" Type="Int32" />
+    <Property Name="ProductLarge" Type="Int32" />
+    <Property Name="ProductMedium" Type="Int32" />
+    <Property Name="ProductSmall" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Activity_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Activity_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_Department">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ListID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StoreID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_DepartmentNetSales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivitySalesSummuryId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CeatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_EmploymentStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_EmploymentType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Gender">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Invoice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Store_id" Type="Int32" />
+    <Property Name="Type_id" Type="Int32" />
+    <Property Name="Payment_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vendor_id" Type="Int32" />
+    <Property Name="Invoice_Date" Type="DateTime" Precision="3" />
+    <Property Name="Invoice_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="AttachNote" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UploadInvoice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ScanInvoice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAmtByDept" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsStatus_id" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApproveRejectBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApproveRejectDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="TxnID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsSync" Type="Int32" />
+    <Property Name="NotificationColor" Type="Boolean" />
+    <Property Name="QBtransfer" Type="Boolean" />
+    <Property Name="discounttype" Type="Int32" />
+    <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="discountamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ref_invoiceid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Invoice_Department">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Invoice_id" Type="Int32" />
+    <Property Name="Dept_id" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_LogSummary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_MaritalStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_PaidOut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivitySalesSummuryId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CeatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_Pamentype">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_Store_Terminal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Storeid" Type="Int32" />
+    <Property Name="Terminal" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Roleid" Type="Int32" />
+    <Property Name="Reg_userid" Type="Int32" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_user_store">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Storeid" Type="Int32" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="Reg_userid" Type="Int32" />
+    <Property Name="StoreName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Vendor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ListID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="webpages_Roles" Relationship="Self.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+  </EntityType>
+  <EntityType Name="Utility">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sitename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="sitelogo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="siteurl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MailServer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="from" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Authenticate" Type="Int32" />
+    <Property Name="emailtop" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="emailbottom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="port" Type="Int32" />
+    <Property Name="pagination" Type="Int32" />
+    <Property Name="sitebyname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="sitebyurl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+    <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="UserProfiles" Relationship="Self.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="webpages_UsersInRoles">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="*" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="WestZoneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="QBConfigs" EntityType="Self.QBConfig" />
+    <EntitySet Name="SiteConfigurations" EntityType="Self.SiteConfiguration" />
+    <EntitySet Name="tbl_Activity_action" EntityType="Self.tbl_Activity_action" />
+    <EntitySet Name="tbl_Activity_log" EntityType="Self.tbl_Activity_log" />
+    <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" />
+    <EntitySet Name="tbl_DepartmentNetSales" EntityType="Self.tbl_DepartmentNetSales" />
+    <EntitySet Name="tbl_EmploymentStatus" EntityType="Self.tbl_EmploymentStatus" />
+    <EntitySet Name="tbl_EmploymentType" EntityType="Self.tbl_EmploymentType" />
+    <EntitySet Name="tbl_Gender" EntityType="Self.tbl_Gender" />
+    <EntitySet Name="tbl_Invoice" EntityType="Self.tbl_Invoice" />
+    <EntitySet Name="tbl_Invoice_Department" EntityType="Self.tbl_Invoice_Department" />
+    <EntitySet Name="tbl_LogSummary" EntityType="Self.tbl_LogSummary" />
+    <EntitySet Name="tbl_MaritalStatus" EntityType="Self.tbl_MaritalStatus" />
+    <EntitySet Name="tbl_PaidOut" EntityType="Self.tbl_PaidOut" />
+    <EntitySet Name="tbl_Pamentype" EntityType="Self.tbl_Pamentype" />
+    <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" />
+    <EntitySet Name="tbl_Store_Terminal" EntityType="Self.tbl_Store_Terminal" />
+    <EntitySet Name="tbl_Type" EntityType="Self.tbl_Type" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <EntitySet Name="tbl_user_store" EntityType="Self.tbl_user_store" />
+    <EntitySet Name="tbl_Vendor" EntityType="Self.tbl_Vendor" />
+    <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+    <EntitySet Name="Utilities" EntityType="Self.Utility" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
+    <AssociationSet Name="webpages_UsersInRoles" Association="Self.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <FunctionImport Name="BindBackofficemanager" ReturnType="Collection(WestZoneModel.BindBackofficemanager_Result)" />
+    <FunctionImport Name="BindDataapproval" ReturnType="Collection(WestZoneModel.BindDataapproval_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_multiple_userRole">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="delete_multiple_userstores">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_InvoiceNotification" ReturnType="Collection(WestZoneModel.Get_InvoiceNotification_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_InvoiceNotification_Grid" ReturnType="Collection(WestZoneModel.Get_InvoiceNotification_Grid_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_ReguserId_edit" ReturnType="Collection(WestZoneModel.Get_ReguserId_edit_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_ReguserId_edit_dataapp" ReturnType="Collection(WestZoneModel.Get_ReguserId_edit_dataapp_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_ReguserId_edit_Owner" ReturnType="Collection(WestZoneModel.Get_ReguserId_edit_Owner_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_ReguserId_edit_storeman" ReturnType="Collection(WestZoneModel.Get_ReguserId_edit_storeman_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_roleid_rolename_byReg_userid" ReturnType="Collection(WestZoneModel.Get_roleid_rolename_byReg_userid_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmailId" ReturnType="Collection(String)">
+      <Parameter Name="Role" Mode="In" Type="String" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getrolebyusername" ReturnType="Collection(String)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetRoleNameList" ReturnType="Collection(WestZoneModel.GetRoleNameList_Result)" />
+    <FunctionImport Name="GetRoleNameListByUserId" ReturnType="Collection(WestZoneModel.GetRoleNameListByUserId_Result)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUser_dataApproval" ReturnType="Collection(WestZoneModel.GetUser_dataApproval_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getusernames" ReturnType="Collection(WestZoneModel.getusernames_Result)" />
+    <FunctionImport Name="Membership_EnableUser">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Select_RoleId_ByUserid" ReturnType="Collection(Int32)">
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPDepartment" ReturnType="Collection(WestZoneModel.SPDepartment_Result)">
+      <Parameter Name="Spara" Mode="In" Type="Int32" />
+      <Parameter Name="StoreID" Mode="In" Type="Int32" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="ListID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPInvoice" ReturnType="Collection(WestZoneModel.SPInvoice_Result)">
+      <Parameter Name="Spara" Mode="In" Type="Int32" />
+      <Parameter Name="TxnID" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="StoreID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPInvoiceDepartment" ReturnType="Collection(WestZoneModel.SPInvoiceDepartment_Result)">
+      <Parameter Name="Spara" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SPLogSummary">
+      <Parameter Name="Spara" Mode="In" Type="String" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SPStore" ReturnType="Collection(WestZoneModel.SPStore_Result)">
+      <Parameter Name="Spara" Mode="In" Type="Int32" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_Id" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyFilePath" Mode="In" Type="String" />
+      <Parameter Name="QBVersion" Mode="In" Type="String" />
+      <Parameter Name="QBYear" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SPVendor" ReturnType="Collection(WestZoneModel.SPVendor_Result)">
+      <Parameter Name="Spara" Mode="In" Type="Int32" />
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="StoreID" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="ListID" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Acivity_Log_GridData" ReturnType="Collection(WestZoneModel.tbl_Acivity_Log_GridData_Result)" />
+    <FunctionImport Name="tbl_Activity_log_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_DepartmentNetSalesbySalesActivityId" ReturnType="Collection(WestZoneModel.tbl_DepartmentNetSalesbySalesActivityId_Result)">
+      <Parameter Name="ActivitySalesSummuryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Employee_GridData">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Employee_Insert">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="SecondName" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="SocSecurityNo" Mode="In" Type="String" />
+      <Parameter Name="Genderid" Mode="In" Type="Int32" />
+      <Parameter Name="MaritalStatusid" Mode="In" Type="Int32" />
+      <Parameter Name="Photo" Mode="In" Type="String" />
+      <Parameter Name="EmpDoc" Mode="In" Type="String" />
+      <Parameter Name="EmpNote" Mode="In" Type="String" />
+      <Parameter Name="HomePhone" Mode="In" Type="String" />
+      <Parameter Name="MobilePhone" Mode="In" Type="String" />
+      <Parameter Name="Street" Mode="In" Type="String" />
+      <Parameter Name="AptSuiteBuilding" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+      <Parameter Name="TerminationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="Deptid" Mode="In" Type="Int32" />
+      <Parameter Name="EmpTypeid" Mode="In" Type="Int32" />
+      <Parameter Name="EmpStatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Roleid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Employee_store_Insert">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="StoreName" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Employee_Update">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="SecondName" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="SocSecurityNo" Mode="In" Type="String" />
+      <Parameter Name="Genderid" Mode="In" Type="Int32" />
+      <Parameter Name="MaritalStatusid" Mode="In" Type="Int32" />
+      <Parameter Name="Photo" Mode="In" Type="String" />
+      <Parameter Name="EmpDoc" Mode="In" Type="String" />
+      <Parameter Name="EmpNote" Mode="In" Type="String" />
+      <Parameter Name="HomePhone" Mode="In" Type="String" />
+      <Parameter Name="MobilePhone" Mode="In" Type="String" />
+      <Parameter Name="Street" Mode="In" Type="String" />
+      <Parameter Name="AptSuiteBuilding" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="HireDate" Mode="In" Type="DateTime" />
+      <Parameter Name="TerminationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="Deptid" Mode="In" Type="Int32" />
+      <Parameter Name="EmpTypeid" Mode="In" Type="Int32" />
+      <Parameter Name="EmpStatusId" Mode="In" Type="Int32" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Roleid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Dashbord_GridData" ReturnType="Collection(WestZoneModel.tbl_Invoice_Dashbord_GridData_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+      <Parameter Name="pageindex" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Dashbord_GridData_DataApp" ReturnType="Collection(WestZoneModel.tbl_Invoice_Dashbord_GridData_DataApp_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Dashbord_GridData_StoreManager" ReturnType="Collection(WestZoneModel.tbl_Invoice_Dashbord_GridData_StoreManager_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Department_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="Invoice_id" Mode="In" Type="Int32" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_exists_InNo" ReturnType="Collection(Int32)">
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="invoicedate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_exists_InNo_Edit" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="invoicedate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_PaidOutbySalesActivityId" ReturnType="Collection(WestZoneModel.tbl_PaidOutbySalesActivityId_Result)">
+      <Parameter Name="ActivitySalesSummuryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_Excelread_exists" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_Excelread_exists_Result)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="Terminalid" Mode="In" Type="Int32" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_store_byid" ReturnType="Collection(WestZoneModel.tbl_store_byid_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_exists" ReturnType="Collection(WestZoneModel.tbl_Store_exists_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_GridData" ReturnType="Collection(WestZoneModel.tbl_Store_GridData_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_Terminal_byid" ReturnType="Collection(WestZoneModel.tbl_Store_Terminal_byid_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_Terminal_Select" ReturnType="Collection(WestZoneModel.tbl_Store_Terminal_Select_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="Terminal" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_tbl_Store_Terminal_exists" ReturnType="Collection(WestZoneModel.tbl_tbl_Store_Terminal_exists_Result)">
+      <Parameter Name="Terminal" Mode="In" Type="String" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_tbl_Store_Terminal_existsbyid" ReturnType="Collection(WestZoneModel.tbl_tbl_Store_Terminal_existsbyid_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Terminal" Mode="In" Type="String" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_TendersInDrawerbySalesActivityId" ReturnType="Collection(WestZoneModel.tbl_TendersInDrawerbySalesActivityId_Result)">
+      <Parameter Name="ActivitySalesSummuryId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_backoffice" ReturnType="Collection(WestZoneModel.tbl_user_backoffice_Result)" />
+    <FunctionImport Name="tbl_user_backoffice_edit" ReturnType="Collection(WestZoneModel.tbl_user_backoffice_edit_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_backoffice_edit_new" ReturnType="Collection(WestZoneModel.tbl_user_backoffice_edit_new_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="Roleid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_byid" ReturnType="Collection(WestZoneModel.tbl_user_byid_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_DataApprover" ReturnType="Collection(WestZoneModel.tbl_user_DataApprover_Result)" />
+    <FunctionImport Name="tbl_user_DataApprover_edit" ReturnType="Collection(WestZoneModel.tbl_user_DataApprover_edit_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_GridData" ReturnType="Collection(WestZoneModel.tbl_user_GridData_Result)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_GridData_byid" ReturnType="Collection(WestZoneModel.tbl_user_GridData_byid_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Roleid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_name" ReturnType="Collection(WestZoneModel.tbl_user_name_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_Owner" ReturnType="Collection(WestZoneModel.tbl_user_Owner_Result)" />
+    <FunctionImport Name="tbl_user_Owner_edit" ReturnType="Collection(WestZoneModel.tbl_user_Owner_edit_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_Selectstore" ReturnType="Collection(WestZoneModel.tbl_user_Selectstore_Result)" />
+    <FunctionImport Name="tbl_user_Selectstore_Admin" ReturnType="Collection(WestZoneModel.tbl_user_Selectstore_Admin_Result)" />
+    <FunctionImport Name="tbl_user_store_By_Reg_userid" ReturnType="Collection(WestZoneModel.tbl_user_store_By_Reg_userid_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_delete">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="StoreName" Mode="In" Type="String" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_Insert_BackOfficeMan">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="StoreName" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_Insert_DataApp">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="StoreName" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_Insert_Owner">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="StoreName" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_Insert_StoreMan">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="StoreName" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_store_select_StorebyUser" ReturnType="Collection(String)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_user_Storemanager" ReturnType="Collection(WestZoneModel.tbl_user_Storemanager_Result)" />
+    <FunctionImport Name="tbl_user_Storemanager_edit" ReturnType="Collection(WestZoneModel.tbl_user_Storemanager_edit_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_Employee_Password">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Update_tbl_user_Password">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="webpages_Roles_byRolename" ReturnType="Collection(Int32)">
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Unsetteled_Invoice_Administrator" ReturnType="Collection(WestZoneModel.Unsetteled_Invoice_Administrator_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_DayClosereportGrid" ReturnType="Collection(WestZoneModel.tbl_DayClosereportGrid_Result)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="DateTime" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_Store" EntityType="WestZoneModel.tbl_Store" />
+    <FunctionImport Name="tbl_Store_Create" ReturnType="Collection(Decimal)">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="StoreNo" Mode="In" Type="String" />
+      <Parameter Name="FaxNo" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="Address2" Mode="In" Type="String" />
+      <Parameter Name="EmailId" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_Update">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="StoreNo" Mode="In" Type="String" />
+      <Parameter Name="FaxNo" Mode="In" Type="String" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="Address2" Mode="In" Type="String" />
+      <Parameter Name="EmailId" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Storewise_Excelupload_insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="filename" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StoreIdListFromUserId" ReturnType="Collection(Int32)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_Emailexists" ReturnType="Collection(WestZoneModel.tbl_Store_Emailexists_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Store_Terminal_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="Terminal" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_bystoreid" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_bystoreid_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomercount" ReturnType="Collection(Decimal)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_shift" EntityType="WestZoneModel.tbl_shift" />
+    <FunctionImport Name="tbl_SalesActivitySummary_updatecashiername">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="shiftname" Mode="In" Type="String" />
+      <Parameter Name="cashiername" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_tenderinDraw_byid" ReturnType="Collection(WestZoneModel.tbl_tenderinDraw_byid_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_Terminalwiselist" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_Terminalwiselist_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_shiftlist" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_shiftlist_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Storewise_Excelupload_insertData" ReturnType="Collection(Decimal)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="filename" Mode="In" Type="String" />
+      <Parameter Name="date" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_TendersInDrawer_updateAmount">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GetSalesamount_byterminal" ReturnType="Collection(WestZoneModel.GetSalesamount_byterminal_Result)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_Terminalwiselistbytid" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_Terminalwiselistbytid_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_TendersInDrawer" EntityType="WestZoneModel.tbl_TendersInDrawer" />
+    <FunctionImport Name="Insert_tbl_TendersInDrawer" ReturnType="Collection(Decimal)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_exists_InNo_New" ReturnType="Collection(Int32)">
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="invoicedate" Mode="In" Type="DateTime" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="typeid" Mode="In" Type="Int32" />
+      <Parameter Name="vendorid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCashTotal" ReturnType="Collection(WestZoneModel.GetCashTotal_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOtherTotal" ReturnType="Collection(WestZoneModel.GetOtherTotal_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetShiftWiseTotal" ReturnType="Collection(WestZoneModel.GetShiftWiseTotal_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetTitleList" ReturnType="Collection(WestZoneModel.GetTitleList_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetTitleWiseTotal" ReturnType="Collection(WestZoneModel.GetTitleWiseTotal_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Storewise_Excelupload_updateissync">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Issync" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CheckExistence_byshiftwise" ReturnType="Collection(Int32)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="shiftname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_Terminallist" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_Terminallist_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetShiftWiseGrandTotal" ReturnType="Collection(WestZoneModel.GetShiftWiseGrandTotal_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="checkterminalwiseshift" ReturnType="Collection(WestZoneModel.checkterminalwiseshift_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteFromtbl_DepartmentNetSales">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteFromtbl_Excelread_Errormsg">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteFromtbl_PaidOut">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteFromtbl_Storewise_Excelupload">
+      <Parameter Name="filename" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteFromtbl_TendersInDrawer">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSyncwiselist" ReturnType="Collection(WestZoneModel.GetSyncwiselist_Result)">
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCreditCardDetails" ReturnType="Collection(WestZoneModel.GetCreditCardDetails_Result)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftId" Mode="In" Type="Int32" />
+      <Parameter Name="date" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCreditcard_details_AMEX" ReturnType="Collection(WestZoneModel.GetCreditcard_details_AMEX_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCreditcard_details_Discover" ReturnType="Collection(WestZoneModel.GetCreditcard_details_Discover_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCreditcard_details_Master" ReturnType="Collection(WestZoneModel.GetCreditcard_details_Master_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCreditcard_details_Visa" ReturnType="Collection(WestZoneModel.GetCreditcard_details_Visa_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="StartTime" Mode="In" Type="String" />
+      <Parameter Name="EndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Creditcard_details_exists" ReturnType="Collection(Int32)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftId" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="String" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tbl_Creditcard_details" EntityType="WestZoneModel.tbl_Creditcard_details" />
+    <FunctionImport Name="tbl_Creditcard_details_Insert" ReturnType="Collection(String)">
+      <Parameter Name="ShiftId" Mode="In" Type="Int32" />
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="String" />
+      <Parameter Name="Amount_AMEX" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount_Discover" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount_Master" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount_Visa" Mode="In" Type="Decimal" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="TerminalId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Creditcard_details_Update">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftId" Mode="In" Type="Int32" />
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="String" />
+      <Parameter Name="Amount_AMEX" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount_Discover" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount_Master" Mode="In" Type="Decimal" />
+      <Parameter Name="Amount_Visa" Mode="In" Type="Decimal" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="TerminalId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Get_Count_tbl_otherdeposit" ReturnType="Collection(WestZoneModel.Get_Count_tbl_otherdeposit_Result)">
+      <Parameter Name="ShiftId" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tbl_discounttype" EntityType="WestZoneModel.tbl_discounttype" />
+    <FunctionImport Name="tbl_Invoice_Insert_discount" ReturnType="Collection(String)">
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="Type_id" Mode="In" Type="Int32" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Vendor_id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="AttachNote" Mode="In" Type="String" />
+      <Parameter Name="UploadInvoice" Mode="In" Type="String" />
+      <Parameter Name="ScanInvoice" Mode="In" Type="String" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="QBtransfer" Mode="In" Type="Boolean" />
+      <Parameter Name="discounttype" Mode="In" Type="Int32" />
+      <Parameter Name="discount" Mode="In" Type="Decimal" />
+      <Parameter Name="discountamount" Mode="In" Type="Decimal" />
+      <Parameter Name="refinvoiceid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Insert_StoreManager_discount" ReturnType="Collection(String)">
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="Type_id" Mode="In" Type="Int32" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Vendor_id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="AttachNote" Mode="In" Type="String" />
+      <Parameter Name="UploadInvoice" Mode="In" Type="String" />
+      <Parameter Name="ScanInvoice" Mode="In" Type="String" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="ApproveRejectBy" Mode="In" Type="String" />
+      <Parameter Name="QBtransfer" Mode="In" Type="Boolean" />
+      <Parameter Name="discounttype" Mode="In" Type="Int32" />
+      <Parameter Name="discount" Mode="In" Type="Decimal" />
+      <Parameter Name="discountamount" Mode="In" Type="Decimal" />
+      <Parameter Name="refinvoiceid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_invoiceupdate_discountdata">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="discounttype" Mode="In" Type="Int32" />
+      <Parameter Name="discount" Mode="In" Type="Decimal" />
+      <Parameter Name="discountamount" Mode="In" Type="Decimal" />
+      <Parameter Name="refinvoiceid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_exists_InNo_Edit_New" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="invoicedate" Mode="In" Type="DateTime" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="typeid" Mode="In" Type="Int32" />
+      <Parameter Name="vendorid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_otherdeposit_Delete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_invoice_updatediscountdata">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="discounttype" Mode="In" Type="Int32" />
+      <Parameter Name="discount" Mode="In" Type="Decimal" />
+      <Parameter Name="discountamt" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <EntitySet Name="tbl_SalesActivitySummary" EntityType="WestZoneModel.tbl_SalesActivitySummary" />
+    <FunctionImport Name="GetUnassignedShiftnamelist" ReturnType="Collection(WestZoneModel.GetUnassignedShiftnamelist_Result)">
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesActivitySummary_Select" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_Select_Result)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="DateTime" />
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="Terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_DuplicateInvoiceDashbord" ReturnType="Collection(WestZoneModel.tbl_Invoice_DuplicateInvoiceDashbord_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Update" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="invoicedate" Mode="In" Type="DateTime" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="typeid" Mode="In" Type="Int32" />
+      <Parameter Name="vendorid" Mode="In" Type="Int32" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+      <Parameter Name="ModifiedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="TotalAmtByDept" Mode="In" Type="Decimal" />
+      <Parameter Name="QBtransfer" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_GridData_ForPdf" ReturnType="Collection(WestZoneModel.tbl_Invoice_GridData_ForPdf_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="Vendor" Mode="In" Type="Int32" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_GridData_ForExcel" ReturnType="Collection(WestZoneModel.tbl_Invoice_GridData_ForExcel_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="Vendor" Mode="In" Type="Int32" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="CheckUserExistwhilelock" ReturnType="Collection(WestZoneModel.CheckUserExistwhilelock_Result)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="roleid" Mode="In" Type="Int32" />
+      <Parameter Name="reg_userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetRoleidfromuserid" ReturnType="Collection(WestZoneModel.GetRoleidfromuserid_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_userlist" ReturnType="Collection(WestZoneModel.tbl_userlist_Result)">
+      <Parameter Name="Reg_userid" Mode="In" Type="Int32" />
+      <Parameter Name="Roleid" Mode="In" Type="Int32" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_GridData" ReturnType="Collection(WestZoneModel.tbl_Invoice_GridData_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="VendorName" Mode="In" Type="Int32" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Membership_DisableUser">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_DeletedInvoiceHistory" EntityType="WestZoneModel.tbl_DeletedInvoiceHistory" />
+    <FunctionImport Name="tbl_Invoice_DeleteAndInsertintodeletehistory" ReturnType="Collection(Int32)">
+      <Parameter Name="invoiceid" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="Type_id" Mode="In" Type="Int32" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Vendor_id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="AttachNote" Mode="In" Type="String" />
+      <Parameter Name="UploadInvoice" Mode="In" Type="String" />
+      <Parameter Name="ScanInvoice" Mode="In" Type="String" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="ApproveRejectBy" Mode="In" Type="String" />
+      <Parameter Name="QBtransfer" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_otherdeposit_insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="paymentmethod" Mode="In" Type="String" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="options" Mode="In" Type="String" />
+      <Parameter Name="Vendor" Mode="In" Type="String" />
+      <Parameter Name="Other" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tbl_otherdeposit" EntityType="WestZoneModel.tbl_otherdeposit" />
+    <EntitySet Name="tbl_Option" EntityType="WestZoneModel.tbl_Option" />
+    <EntitySet Name="tbl_Payment_Method" EntityType="WestZoneModel.tbl_Payment_Method" />
+    <FunctionImport Name="tbl_Option_select" ReturnType="Collection(WestZoneModel.tbl_Option_select_Result)" />
+    <FunctionImport Name="tbl_Payment_Method_Byoption" ReturnType="Collection(WestZoneModel.tbl_Payment_Method_Byoption_Result)">
+      <Parameter Name="SelectOption" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Getotherdeposit" ReturnType="Collection(WestZoneModel.Getotherdeposit_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="TransactionEndTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetLatestAvailableDate" ReturnType="Collection(WestZoneModel.GetLatestAvailableDate_Result)" />
+    <FunctionImport Name="tbl_SalesActivitySummary_shiftlist_byid" ReturnType="Collection(WestZoneModel.tbl_SalesActivitySummary_shiftlist_byid_Result)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_PaidOut_byid" ReturnType="Collection(WestZoneModel.tbl_PaidOut_byid_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_PaidOut_Update_byid">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateById" Mode="In" Type="Int32" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Dashbord_Grid_Data" ReturnType="Collection(WestZoneModel.tbl_Invoice_Dashbord_Grid_Data_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+      <Parameter Name="pageindex" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Insert" ReturnType="Collection(String)">
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="Type_id" Mode="In" Type="Int32" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Vendor_id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="AttachNote" Mode="In" Type="String" />
+      <Parameter Name="UploadInvoice" Mode="In" Type="String" />
+      <Parameter Name="ScanInvoice" Mode="In" Type="String" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="QBtransfer" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Insert_StoreManager" ReturnType="Collection(String)">
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="Type_id" Mode="In" Type="Int32" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Vendor_id" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Invoice_Number" Mode="In" Type="String" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="AttachNote" Mode="In" Type="String" />
+      <Parameter Name="UploadInvoice" Mode="In" Type="String" />
+      <Parameter Name="ScanInvoice" Mode="In" Type="String" />
+      <Parameter Name="IsStatus_id" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+      <Parameter Name="ApproveRejectBy" Mode="In" Type="String" />
+      <Parameter Name="QBtransfer" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Invoice_Dashbord_GridData_Administrator" ReturnType="Collection(WestZoneModel.tbl_Invoice_Dashbord_GridData_Administrator_Result)">
+      <Parameter Name="startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="enddate" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_type" Mode="In" Type="String" />
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="searchdashbord" Mode="In" Type="String" />
+      <Parameter Name="AmtMaximum" Mode="In" Type="Decimal" />
+      <Parameter Name="AmtMinimum" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GetLatestAvailableDateForSalesSummery" ReturnType="Collection(WestZoneModel.GetLatestAvailableDateForSalesSummery_Result)" />
+    <FunctionImport Name="GetPaidOutCount" ReturnType="Collection(WestZoneModel.GetPaidOutCount_Result)">
+      <Parameter Name="StartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaidOutCountShiftWise" ReturnType="Collection(WestZoneModel.GetPaidOutCountShiftWise_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaidOutTitleList" ReturnType="Collection(WestZoneModel.GetPaidOutTitleList_Result)">
+      <Parameter Name="StartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaidOutTitleListName" ReturnType="Collection(WestZoneModel.GetPaidOutTitleListName_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="ShiftName" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDate" Mode="In" Type="String" />
+      <Parameter Name="PaidOutTitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetSalesAmountTotal" ReturnType="Collection(WestZoneModel.GetSalesAmountTotal_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCustomercount_byterminal" ReturnType="Collection(WestZoneModel.GetCustomercount_byterminal_Result)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaidOutTotal" ReturnType="Collection(WestZoneModel.GetPaidOutTotal_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaidOutTotal_Shiftwisereport" ReturnType="Collection(WestZoneModel.GetPaidOutTotal_Shiftwisereport_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CheckExist_Configuration" ReturnType="Collection(Int32)">
+      <Parameter Name="Group_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CheckUseOfGroupId" ReturnType="Collection(Int32)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="ExceptionHandlingLogs" EntityType="WestZoneModel.ExceptionHandlingLog" />
+    <EntitySet Name="tbl_ChildSalesEntries" EntityType="WestZoneModel.tbl_ChildSalesEntries" />
+    <EntitySet Name="tbl_SalesGeneralEntries" EntityType="WestZoneModel.tbl_SalesGeneralEntries" />
+    <EntitySet Name="tbl_SalesGeneralEntriesHistory" EntityType="WestZoneModel.tbl_SalesGeneralEntriesHistory" />
+    <FunctionImport Name="Insert_tbl_ChildSalesEntries" ReturnType="Collection(Decimal)">
+      <Parameter Name="gid" Mode="In" Type="Int32" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="groupname" Mode="In" Type="String" />
+      <Parameter Name="groupid" Mode="In" Type="Int32" />
+      <Parameter Name="amount" Mode="In" Type="Decimal" />
+      <Parameter Name="deptid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_inquiry_insert">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="contactno" Mode="In" Type="String" />
+      <Parameter Name="adddress" Mode="In" Type="String" />
+      <Parameter Name="inquirytype" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+      <Parameter Name="state" Mode="In" Type="String" />
+      <Parameter Name="callme" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CheckConfigurationsales" ReturnType="Collection(WestZoneModel.CheckConfigurationsales_Result)">
+      <Parameter Name="saledate" Mode="In" Type="DateTime" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_ConfigureStatus" EntityType="WestZoneModel.tbl_ConfigureStatus" />
+    <FunctionImport Name="Get_statusCode" ReturnType="Collection(WestZoneModel.Get_statusCode_Result)">
+      <Parameter Name="startDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GettotalAmount" ReturnType="Collection(Decimal)">
+      <Parameter Name="saledate" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_SalesGeneralEntries" ReturnType="Collection(Decimal)">
+      <Parameter Name="Storeid" Mode="In" Type="Int32" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="salesdate" Mode="In" Type="String" />
+      <Parameter Name="totalamount" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_otherdeposit_select_bystoreid" ReturnType="Collection(WestZoneModel.tbl_otherdeposit_select_bystoreid_Result)">
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_otherdeposit_selectbystoreid" ReturnType="Collection(WestZoneModel.tbl_otherdeposit_selectbystoreid_Result)">
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUnassignShiftName" ReturnType="Collection(WestZoneModel.GetUnassignShiftName_Result)">
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Tbl_Configuration" EntityType="WestZoneModel.Tbl_Configuration" />
+    <EntitySet Name="tbl_GroupName" EntityType="WestZoneModel.tbl_GroupName" />
+    <EntitySet Name="tbl_TypicalBalance_master" EntityType="WestZoneModel.tbl_TypicalBalance_master" />
+    <FunctionImport Name="Get_UniqueTendersInDrawer" ReturnType="Collection(WestZoneModel.Get_UniqueTendersInDrawer_Result)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Configuration">
+      <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+      <Parameter Name="Store_id" Mode="In" Type="Int32" />
+      <Parameter Name="Group_id" Mode="In" Type="Int32" />
+      <Parameter Name="Memo" Mode="In" Type="String" />
+      <Parameter Name="typicalbalid" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Groupname_Search" ReturnType="Collection(WestZoneModel.tbl_Groupname_Search_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tbl_Storewise_Excelupload" EntityType="WestZoneModel.tbl_Storewise_Excelupload" />
+    <FunctionImport Name="tbl_SalesGeneralEntries_Delete">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesGeneralEntries_updateposno">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="noofpos" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_ChildSalesEntries_updatedata">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="memo" Mode="In" Type="String" />
+      <Parameter Name="typicalid" Mode="In" Type="Int32" />
+      <Parameter Name="title" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_Excelread_Errormsg_insert" ReturnType="Collection(WestZoneModel.tbl_Excelread_Errormsg_insert_Result)">
+      <Parameter Name="Excelid" Mode="In" Type="Int32" />
+      <Parameter Name="RowNo" Mode="In" Type="Int32" />
+      <Parameter Name="ColumnNo" Mode="In" Type="Int32" />
+      <Parameter Name="ErrorMessage" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_ExcelRead_insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="Excelreadate" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Filename" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_PaidOut_insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="ActivitySalesid" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="createdby" Mode="In" Type="String" />
+      <Parameter Name="createdDate" Mode="In" Type="DateTime" />
+      <Parameter Name="updatedby" Mode="In" Type="String" />
+      <Parameter Name="updatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_DepartmentNetSales_insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="ActivitySalesid" Mode="In" Type="Int32" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="createdby" Mode="In" Type="String" />
+      <Parameter Name="createdDate" Mode="In" Type="DateTime" />
+      <Parameter Name="updatedby" Mode="In" Type="String" />
+      <Parameter Name="updatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <EntitySet Name="tbl_ExcelRead" EntityType="WestZoneModel.tbl_ExcelRead" />
+    <EntitySet Name="tbl_Excelread_Errormsg" EntityType="WestZoneModel.tbl_Excelread_Errormsg" />
+    <FunctionImport Name="GeneralEntryDetail" ReturnType="Collection(WestZoneModel.GeneralEntryDetail_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getTenderAccountsStoreWise" ReturnType="Collection(WestZoneModel.sp_getTenderAccountsStoreWise_Result)">
+      <Parameter Name="storeId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="tbl_DefaultAccount" EntityType="WestZoneModel.tbl_DefaultAccount" />
+    <FunctionImport Name="GetTotalNetSalesTaxAmount" ReturnType="Collection(WestZoneModel.GetTotalNetSalesTaxAmount_Result)">
+      <Parameter Name="saledate" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetTilteWiseSaleslist" ReturnType="Collection(WestZoneModel.GetTilteWiseSaleslist_Result)">
+      <Parameter Name="saledate" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tbl_SalesGeneralEntries_select" ReturnType="Collection(WestZoneModel.tbl_SalesGeneralEntries_select_Result)">
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="salesdate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GetPaidOutTotal_Shiftwisereportbyterminalid" ReturnType="Collection(WestZoneModel.GetPaidOutTotal_Shiftwisereportbyterminalid_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSalesAmountTotalbyTerminalID" ReturnType="Collection(WestZoneModel.GetSalesAmountTotalbyTerminalID_Result)">
+      <Parameter Name="StoreId" Mode="In" Type="Int32" />
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetTotalCustomercount_byterminalid" ReturnType="Collection(WestZoneModel.GetTotalCustomercount_byterminalid_Result)">
+      <Parameter Name="TransactionStartTime" Mode="In" Type="String" />
+      <Parameter Name="storeid" Mode="In" Type="Int32" />
+      <Parameter Name="terminalid" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="BindBackofficemanager_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="BindDataapproval_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Get_InvoiceNotification_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="fullname" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="Get_InvoiceNotification_Grid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="fullname" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="Get_ReguserId_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="Get_ReguserId_edit_dataapp_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="Get_ReguserId_edit_Owner_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="Get_ReguserId_edit_storeman_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="Get_roleid_rolename_byReg_userid_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="Rolename" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetRoleNameList_Result">
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetRoleNameListByUserId_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetUser_dataApproval_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="getusernames_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="56" />
+  </ComplexType>
+  <ComplexType Name="SPDepartment_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="ListID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="StoreID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SPInvoice_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="VIsActive" Nullable="true" />
+    <Property Type="String" Name="ListID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TypeName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPInvoiceDepartment_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Invoice_id" Nullable="true" />
+    <Property Type="Int32" Name="Dept_id" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ListID" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SPStore_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="SPVendor_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="StoreId" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="ListID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PostalCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address1" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="tbl_Acivity_Log_GridData_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="String" Name="Comment" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="Action" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_DepartmentNetSalesbySalesActivityId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ActivitySalesSummuryId" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_Dashbord_GridData_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_Dashbord_GridData_DataApp_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_Dashbord_GridData_StoreManager_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_PaidOutbySalesActivityId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ActivitySalesSummuryId" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_Excelread_exists_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+    <Property Type="DateTime" Name="TransactionStartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TransactionEndTime" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="CustomerCount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AverageSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_store_byid_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Store_exists_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Store_GridData_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Store_Terminal_byid_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Store_Terminal_Select_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="String" Name="Terminal" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="storename" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="tbl_tbl_Store_Terminal_exists_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="String" Name="Terminal" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_tbl_Store_Terminal_existsbyid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="String" Name="Terminal" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_TendersInDrawerbySalesActivityId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ActivitySalesSummuryId" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_backoffice_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_backoffice_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_backoffice_edit_new_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_byid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_DataApprover_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_DataApprover_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_GridData_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="userid_val" Nullable="true" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Boolean" Name="lockval" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_GridData_byid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="userid_val" Nullable="true" />
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Boolean" Name="lockval" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_name_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_Owner_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_Owner_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_Selectstore_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_Selectstore_Admin_Result">
+    <Property Type="Int32" Name="Storeid" Nullable="false" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_store_By_Reg_userid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_Storemanager_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_user_Storemanager_edit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Unsetteled_Invoice_Administrator_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="tbl_DayClosereportGrid_Result">
+    <Property Type="Decimal" Name="NetAmount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="TaxAmount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="storename" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="storeid" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tbl_Store">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="StoreNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FaxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="EmailId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="tbl_Store_Emailexists_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="Address2" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreNo" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="EmailId" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_bystoreid_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+    <Property Type="DateTime" Name="TransactionStartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TransactionEndTime" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="CustomerCount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AverageSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="shiftname" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <EntityType Name="tbl_shift">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="tbl_tenderinDraw_byid_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ActivitySalesSummuryId" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_Terminalwiselist_Result">
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="terminal" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_shiftlist_Result">
+    <Property Type="String" Name="starttime" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Endtime" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="shiftname" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="cashiername" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="CustomerCount" Nullable="true" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetSalesamount_byterminal_Result">
+    <Property Type="Decimal" Name="TotalNetSalesWithTax" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="type" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_Terminalwiselistbytid_Result">
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="terminal" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tbl_TendersInDrawer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActivitySalesSummuryId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CeatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ismanually" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="GetShiftWiseTotal_Result">
+    <Property Type="Decimal" Name="TotalTax" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="TotleByShift" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="TotalCustomer" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetCashTotal_Result">
+    <Property Type="Decimal" Name="TotalByTitle" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetOtherTotal_Result">
+    <Property Type="Decimal" Name="TotalByTitle" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetTitleList_Result">
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetTitleWiseTotal_Result">
+    <Property Type="Decimal" Name="invoiceid" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_Terminallist_Result">
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="terminal" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetShiftWiseGrandTotal_Result">
+    <Property Type="Decimal" Name="TotalByTitle" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="checkterminalwiseshift_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+    <Property Type="DateTime" Name="TransactionStartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TransactionEndTime" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="CustomerCount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AverageSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="shiftname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="cashiername" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GetSyncwiselist_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="DateTime" Name="Createdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="issync" Nullable="true" />
+    <Property Type="String" Name="filename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ErrorMessage" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetCreditCardDetails_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="StoreId" Nullable="true" />
+    <Property Type="Int32" Name="ShiftId" Nullable="true" />
+    <Property Type="DateTime" Name="Date" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Amount_AMEX" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount_Discover" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount_Master" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount_Visa" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetCreditcard_details_AMEX_Result">
+    <Property Type="Decimal" Name="TotalAMEX" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetCreditcard_details_Discover_Result">
+    <Property Type="Decimal" Name="TotalDiscover" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetCreditcard_details_Master_Result">
+    <Property Type="Decimal" Name="TotalMaster" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetCreditcard_details_Visa_Result">
+    <Property Type="Decimal" Name="TotalVisa" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <EntityType Name="tbl_Creditcard_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="ShiftId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Amount_AMEX" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount_Discover" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount_Master" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Amount_Visa" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ShiftName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TerminalId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="Get_Count_tbl_otherdeposit_Result">
+    <Property Type="Int32" Name="DepositeCount" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tbl_discounttype">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_SalesActivitySummary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Storeid" Type="Int32" />
+    <Property Name="Terminalid" Type="Int32" />
+    <Property Name="TransactionStartTime" Type="DateTime" Precision="3" />
+    <Property Name="TransactionEndTime" Type="DateTime" Precision="3" />
+    <Property Name="CustomerCount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="NetSalesWithTax" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TotalTaxCollected" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AverageSale" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CeatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="shiftname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="cashiername" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <ComplexType Name="GetUnassignedShiftnamelist_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+    <Property Type="DateTime" Name="TransactionStartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TransactionEndTime" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="CustomerCount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AverageSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="shiftname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="cashiername" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="TerminalName" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_Select_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="Terminalid" Nullable="true" />
+    <Property Type="DateTime" Name="TransactionStartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="TransactionEndTime" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="CustomerCount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AverageSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="FileName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="shiftname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="cashiername" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Terminal" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_DuplicateInvoiceDashbord_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="Boolean" Name="QBtransfer" Nullable="true" />
+    <Property Type="Int32" Name="discounttype" Nullable="true" />
+    <Property Type="Decimal" Name="discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="discountamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Ref_invoiceid" Nullable="true" />
+    <Property Type="Int32" Name="storeidval" Nullable="true" />
+    <Property Type="Int32" Name="typeidval" Nullable="true" />
+    <Property Type="Int32" Name="vendoridval" Nullable="true" />
+    <Property Type="DateTime" Name="invoicedateval" Nullable="true" Precision="23" />
+    <Property Type="String" Name="invoicenoval" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_GridData_ForPdf_Result">
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="CreatedOn" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Invoice_Date" Nullable="true" MaxLength="30" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_GridData_ForExcel_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="Boolean" Name="QBtransfer" Nullable="true" />
+    <Property Type="Int32" Name="discounttype" Nullable="true" />
+    <Property Type="Decimal" Name="discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="discountamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Ref_invoiceid" Nullable="true" />
+    <Property Type="String" Name="Invoice_Date_str" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="CreatedOn_str" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="CheckUserExistwhilelock_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="String" Name="StoreName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetRoleidfromuserid_Result">
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="tbl_userlist_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Roleid" Nullable="true" />
+    <Property Type="Int32" Name="Reg_userid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_GridData_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="Boolean" Name="QBtransfer" Nullable="true" />
+    <Property Type="Int32" Name="discounttype" Nullable="true" />
+    <Property Type="Decimal" Name="discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="discountamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Ref_invoiceid" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="RoleId" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <EntityType Name="tbl_DeletedInvoiceHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Invoiceid" Type="Int32" />
+    <Property Name="Store_id" Type="Int32" />
+    <Property Name="Type_id" Type="Int32" />
+    <Property Name="Payment_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Vendor_id" Type="Int32" />
+    <Property Name="Invoice_Date" Type="DateTime" Precision="3" />
+    <Property Name="Invoice_Number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="AttachNote" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UploadInvoice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ScanInvoice" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAmtByDept" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="IsStatus_id" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApproveRejectBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApproveRejectDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="TxnID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsSync" Type="Int32" />
+    <Property Name="NotificationColor" Type="Boolean" />
+    <Property Name="QBtransfer" Type="Boolean" />
+    <Property Name="discounttype" Type="Int32" />
+    <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="discountamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Ref_invoiceid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_otherdeposit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="storeid" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paymentmethod" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="options" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Vendor" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Other" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Option">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SelectOption" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_Payment_Method">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="payMehoed" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="tbl_Option_select_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="SelectOption" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="tbl_Payment_Method_Byoption_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="payMehoed" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="Getotherdeposit_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="createdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="storeid" Nullable="true" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="paymentmethod" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="options" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Vendor" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Other" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GetLatestAvailableDate_Result">
+    <Property Type="DateTime" Name="LatestAvailableDate" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesActivitySummary_shiftlist_byid_Result">
+    <Property Type="String" Name="starttime" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Endtime" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="shiftname" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="cashiername" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="terminal" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CustomerCount" Nullable="true" />
+    <Property Type="Decimal" Name="NetSalesWithTax" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="TotalTaxCollected" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Paidoutamount" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="tbl_PaidOut_byid_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="ActivitySalesSummuryId" Nullable="true" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="CeatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_Dashbord_Grid_Data_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="Boolean" Name="QBtransfer" Nullable="true" />
+    <Property Type="Int32" Name="discounttype" Nullable="true" />
+    <Property Type="Decimal" Name="discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="discountamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Ref_invoiceid" Nullable="true" />
+    <Property Type="Int64" Name="RowNumber" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="RoleId" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="tbl_Invoice_Dashbord_GridData_Administrator_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Store_id" Nullable="true" />
+    <Property Type="Int32" Name="Type_id" Nullable="true" />
+    <Property Type="String" Name="Payment_type" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Vendor_id" Nullable="true" />
+    <Property Type="DateTime" Name="Invoice_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Invoice_Number" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Note" Nullable="true" MaxLength="2000" />
+    <Property Type="String" Name="AttachNote" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UploadInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ScanInvoice" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="TotalAmtByDept" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="IsStatus_id" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ModifiedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ApproveRejectBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="ApproveRejectDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="TxnID" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsSync" Nullable="true" />
+    <Property Type="Boolean" Name="NotificationColor" Nullable="true" />
+    <Property Type="Boolean" Name="QBtransfer" Nullable="true" />
+    <Property Type="Int32" Name="discounttype" Nullable="true" />
+    <Property Type="Decimal" Name="discount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="discountamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="Ref_invoiceid" Nullable="true" />
+    <Property Type="Int64" Name="RowNumber" Nullable="true" />
+    <Property Type="String" Name="Storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Typename" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="vendorname" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Statusname" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="deptamt" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="String" Name="RoleId" Nullable="true" MaxLength="256" />
+  </ComplexType>
+  <ComplexType Name="GetLatestAvailableDateForSalesSummery_Result">
+    <Property Type="DateTime" Name="LatestAvailableDate" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutCount_Result">
+    <Property Type="Int32" Name="PaidOutCount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutCountShiftWise_Result">
+    <Property Type="Decimal" Name="PaidOutTotal" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetSalesAmountTotal_Result">
+    <Property Type="Decimal" Name="TotalByTitle" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutTitleList_Result">
+    <Property Type="String" Name="PaidOutTitle" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GetCustomercount_byterminal_Result">
+    <Property Type="Int32" Name="customercount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutTotal_Result">
+    <Property Type="Decimal" Name="PaidOutTotal" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutTotal_Shiftwisereport_Result">
+    <Property Type="Decimal" Name="TotalByTitlePO" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutTitleListName_Result">
+    <Property Type="Decimal" Name="PaidOutTotal" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <EntityType Name="ExceptionHandlingLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LogTime" Type="DateTime" Precision="3" />
+    <Property Name="Ipaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_ChildSalesEntries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Gid" Type="Int32" />
+    <Property Name="storeid" Type="Int32" />
+    <Property Name="Groupname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="groupid" Type="Int32" />
+    <Property Name="deptid" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Memo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Typeid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_SalesGeneralEntries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="storeid" Type="Int32" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="salesdate" Type="DateTime" Precision="3" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="syncstatus" Type="Int32" />
+    <Property Name="totalamount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="noofpos" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_SalesGeneralEntriesHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="storeid" Type="Int32" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="salesdate" Type="DateTime" Precision="3" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="syncstatus" Type="Int32" />
+    <Property Name="totalamount" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <ComplexType Name="CheckConfigurationsales_Result">
+    <Property Type="String" Name="title" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="totalamount" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <EntityType Name="tbl_ConfigureStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Statusname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="statusid" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="Get_statusCode_Result">
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="Int32" Name="dataty" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_otherdeposit_select_bystoreid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="createdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="storeid" Nullable="true" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="paymentmethod" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="options" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Vendor" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Other" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="tbl_otherdeposit_selectbystoreid_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="createdate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="storeid" Nullable="true" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="paymentmethod" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="options" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Vendor" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Other" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GetUnassignShiftName_Result">
+    <Property Type="Int32" Name="TotalCount" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Tbl_Configuration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dept_id" Type="Int32" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Memo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="typicalbalid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_GroupName">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Typicalbalanceid" Type="Int32" />
+    <Property Name="memo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="deptid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_TypicalBalance_master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="Get_UniqueTendersInDrawer_Result">
+    <Property Type="String" Name="title" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="typeval" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_Groupname_Search_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Typicalbalanceid" Nullable="true" />
+    <Property Type="String" Name="memo" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+    <Property Type="String" Name="QbAccount" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="QbAccountid" Nullable="true" />
+    <Property Type="String" Name="typicalname" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="typicalid" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tbl_Storewise_Excelupload">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Storeid" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="issync" Type="Int32" />
+    <Property Name="filename" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="tbl_Excelread_Errormsg_insert_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Excelid" Nullable="true" />
+    <Property Type="Int32" Name="RowNo" Nullable="true" />
+    <Property Type="Int32" Name="ColumnNo" Nullable="true" />
+    <Property Type="String" Name="ErrorMessage" Nullable="true" MaxLength="1000" />
+  </ComplexType>
+  <EntityType Name="tbl_ExcelRead">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsFlag" Type="Boolean" />
+    <Property Name="Excelreadate" Type="DateTime" Precision="3" />
+    <Property Name="Filename" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_Excelread_Errormsg">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Excelid" Type="Int32" />
+    <Property Name="RowNo" Type="Int32" />
+    <Property Name="ColumnNo" Type="Int32" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="GeneralEntryDetail_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="Gid" Nullable="true" />
+    <Property Type="Int32" Name="storeid" Nullable="true" />
+    <Property Type="String" Name="Groupname" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="groupid" Nullable="true" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Memo" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Typeid" Nullable="true" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Fullname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="statusname" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="SalesDate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_getTenderAccountsStoreWise_Result">
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="GroupId" Nullable="true" />
+    <Property Type="Int32" Name="typicalbalid" Nullable="true" />
+    <Property Type="String" Name="typicalBalName" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+    <Property Type="String" Name="DeptName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Memo" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="flag" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="tbl_DefaultAccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="GetTotalNetSalesTaxAmount_Result">
+    <Property Type="Decimal" Name="totalnetsalesamountwithtax" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="totaltaxamount" Nullable="true" Precision="38" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GetTilteWiseSaleslist_Result">
+    <Property Type="String" Name="title" Nullable="true" MaxLength="1000" />
+    <Property Type="Decimal" Name="totalamount" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="flag" Nullable="false" />
+    <Property Type="Int32" Name="refid" Nullable="true" />
+    <Property Type="Int32" Name="groupid" Nullable="true" />
+    <Property Type="Int32" Name="deptid" Nullable="true" />
+    <Property Type="String" Name="MEmo" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="typicalbalid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="tbl_SalesGeneralEntries_select_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="storeid" Nullable="true" />
+    <Property Type="Int32" Name="userid" Nullable="true" />
+    <Property Type="DateTime" Name="salesdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Createddate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="status" Nullable="true" />
+    <Property Type="Int32" Name="syncstatus" Nullable="true" />
+    <Property Type="Decimal" Name="totalamount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="noofpos" Nullable="true" />
+    <Property Type="String" Name="storename" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Fullname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="statusname" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GetPaidOutTotal_Shiftwisereportbyterminalid_Result">
+    <Property Type="Decimal" Name="TotalByTitlePO" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="type" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetSalesAmountTotalbyTerminalID_Result">
+    <Property Type="Decimal" Name="TotalByTitle" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Int32" Name="type" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetTotalCustomercount_byterminalid_Result">
+    <Property Type="Int32" Name="customercount" Nullable="true" />
+    <Property Type="Int32" Name="type" Nullable="true" />
+  </ComplexType>
+</Schema>

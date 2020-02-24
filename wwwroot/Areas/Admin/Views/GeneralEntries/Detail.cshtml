@@ -1,0 +1,376 @@
+﻿@model wwwroot.Areas.Admin.Models.GeneralEntriesDetail
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+<!--<div class="header-small special_bg icon_12">
+    <h3>Detail <a href="@Url.Action("Index", "GeneralEntries")" class="pull-right addstore" data-toggle="tooltip" data-placement="bottom" title="Back"><img src="~/Content/Admin/images/chevron-left.svg" alt="" /></a></h3>
+</div>-->
+@using (Html.BeginForm("Detail", "GeneralEntries", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmuser" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="page-body headertopbox addinvoice">
+        <div class="header-small special_bg marginleft0 box_special1 marginnone  martop15">
+            <div class="hd_tital">
+                <div class="set_two">
+                    <span>Journal Entry</span><div class="paddleft10"> @*<input name="txtstartdate" data-val="true" data-val-date="The field Startdate must be a date." type="text" maxlength="100" id="txtstartdate" placeholder="From" class="datepicker form-control" onkeydown="return false">*@<label Id="lblclosedate"></label></div>
+                </div>
+            </div>
+            <div class="hd_right">
+                <div class="addrowbox">
+                    <input type="button" class="add-row btn_orange clsbtnedit" value="Edit Values" onclick="Editfunction()">
+                    <input type="submit" value="Save Values"
+                           class="add-row btn_orange clsbtnsubmit" style="display:none" />
+                    <a href="/Admin/GeneralEntries" class="pull-right btnbackbox" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Back"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="datagrid">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table_green_set">
+                    <thead>
+                        <tr class="bg_green">
+                            @*<th style="text-align:left">Close Out Date</th>
+                                <th style="text-align:left">Created Date</th>*@
+                            @*<th style="text-align:left">Group Name</th>*@
+                            <th style="text-align:left">QB Account</th>
+                            <th width="150" class="brd_right1" style="text-align:center">Debit</th>
+                            <th width="150" style="text-align:center">Credit</th>
+                            <th style="text-align:left">Memo</th>
+                            @*<th style="text-align:right">Amount</th>
+                                <th style="text-align:left">Created By</th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            decimal Debittot = 0;
+                            decimal Credittot = 0;
+                        <!--<span>@wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(@Model.GeneralEntries[0].CloseOutDate))</span> -->
+                            if (Model.GeneralEntries.Count() > 0)
+                            {
+                                for (var i = 0; i < Model.GeneralEntries.Count(); i++)
+                                {
+
+                                    <tr>
+                                        @Html.HiddenFor(model => Model.GeneralEntries[i].ChildSalesId)
+                                        @Html.HiddenFor(model => Model.GeneralEntries[i].id)
+                                        @Html.HiddenFor(model => Model.GeneralEntries[i].CloseOutDateformat, new { Id = "HndCloseoutdate" })
+                                        @*<td style="text-align:left">@wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(@Model.GeneralEntries[i].CloseOutDate))</td>*@
+                                        @*<td style="text-align:left">@wwwroot.Class.AdminSiteConfiguration.GetDate(Convert.ToString(@Model.GeneralEntries[i].CreatedDate))</td>*@
+                                        @* <td style="text-align:left">@Model.GeneralEntries[i].GroupName</td>*@
+
+                                        <td style="text-align:left">@Model.GeneralEntries[i].DeptName</td>
+
+                                        <td style="text-align:right">
+                                            @*class="text-center brd_right2"*@
+                                            @if (Model.GeneralEntries[i].Typeid == 2)
+                                            {
+                                                <span class="despan"><strong>$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Model.GeneralEntries[i].TotalAmount))</strong></span>
+                                                Debittot = Convert.ToDecimal(Debittot + @Model.GeneralEntries[i].TotalAmount);
+                                                @Html.TextBoxFor(model => model.GeneralEntries[i].TotalAmount, new { maxlength = 500, @class = "form-control txtedit bold decimalOnly", style = "display: none;" })
+                                            }
+                                            else
+                                            {  <strong>-</strong>}
+
+                                        </td>
+
+                                        <td style="text-align:right">
+                                            @*class="text-center brd_right2"*@
+                                            @if (Model.GeneralEntries[i].Typeid == 1)
+                                            {
+                                                <span class="crspan"><strong>$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Model.GeneralEntries[i].TotalAmount))</strong></span>
+                                                Credittot = Convert.ToDecimal(Credittot + @Model.GeneralEntries[i].TotalAmount);
+                                                @Html.TextBoxFor(model => model.GeneralEntries[i].TotalAmount, new { maxlength = 500, @class = "form-control txtedit bold decimalOnly", style = "display: none;" })
+                                            }
+                                            else
+                                            {  <strong>-</strong>}
+
+                                        </td>
+                                        <td style="text-align:left">@Model.GeneralEntries[i].Memo</td>
+                                        @*<td style="text-align:right">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Model.GeneralEntries[i].TotalAmount))</td>
+                                            <td style="text-align:left">@Model.GeneralEntries[i].UserName</td>*@
+                                    </tr>
+                                }
+
+                                <tr class="last-tr">
+                                    <td>&nbsp;</td>
+                                    <td class="fnt20 brd_right3 clsgrey" style="text-align:right;">
+                                        <span Id="Iddebtot">
+                                            <input  type="hidden" id="hnddebitvalue" value="@Debittot"/>
+                                            <strong>$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Debittot)) </strong>
+
+                                        </span>
+                                    </td>
+                                    <td class="fnt20 clsgrey2" style="text-align:right">
+                                        <input type="hidden" id="hndcreditvalue" value="@Credittot" />
+                                    <span Id="Idcredtot"><strong> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Credittot)) </strong></span></td>
+                                    @*<td></td>*@
+                                    <td style="text-align:right">
+                                        @*@if (Model.GeneralEntries[0].validationflag == 0)
+                                            {*@
+
+                                        <div Id="DivApprove">
+                                            @if (Model.GeneralEntries[0].Status == "Pending")
+                                            {
+                                                <a onclick="ConfirmApprove(@Model.GeneralEntries[0].id,'@Model.GeneralEntries[0].Status')" class="btn_comman buttonbox btnsubmit" title="Mark As Approve">Approve</a>
+                                            }
+                                            else
+                                            {
+                                                <a onclick="ConfirmApprove(@Model.GeneralEntries[0].id,'@Model.GeneralEntries[0].Status')" class="btn_comman buttonbox btnsubmit" title="Mark As Approve">Approve</a>
+                                            }
+                                        </div>
+                                        <div Id="DivDesableApprove" style="Display:none">
+                                            <label class="btn_comman buttonbox btnsubmit btn_red float_left" id="lbl" style="Display:none">Total Debit and Credit Amount don't match.</label>
+                                            <a href="#" class="btn_comman buttonbox btnsubmit btn_gray isDisabled">Approve</a>
+                                        </div>
+
+                                        @*}*@
+                                        @*else
+                                            {
+                                                <a onclick="Configuration()" class="" title="Configuration"><img src="../../../Content/Admin/images/icon_configar.png" alt="" /> Configuration</a>
+                                            }*@
+                                    </td>
+
+
+                                </tr>
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                    </tbody>
+                </table>
+                <div id="popupApproveAlert" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 30%; display:none">
+                    <div class="modal-content ">
+                        <div class="modal-header text-center">
+                            <i class="glyphicon glyphicon-fire"></i>
+                        </div>
+                        <div class="modal-title"><b><label id="DisplayStatus"></label></b><input type="hidden" id="DisplayIdNumber" /></div>
+                        <div class="modal-body "></div>
+                        <div class="modal-footer " style="text-align:center">
+                            <a class="btn btn-success" onclick="MarkAsApprove()">Yes </a>
+                            <a class="btn btn-danger" data-dismiss="modal" onclick="closemodal()">No </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="popupConfiguration" class="divIDClass modal-popup modal-danger modal-message " style="position: fixed;  left:45%; width:300px; top: 30%; display:none">
+                    <div class="modal-content ">
+                        <div class="modal-header text-center">
+                            <i class="glyphicon glyphicon-fire"></i>
+                        </div>
+                        <div class="modal-title"><b><label id="DisplayStatus">Please Configure Group Names.</label></b><input type="hidden" id="DisplayIdNumber" /></div>
+                        <div class="modal-body "></div>
+                        <div class="modal-footer " style="text-align:center">
+                            <a class="btn btn-danger" data-dismiss="modal" onclick="closemodal()">ok </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                            }
+<script type="text/javascript">
+
+    $(".decimalOnly").bind('keypress', function isNumberKey(evt) {
+        //var character = String.fromCharCode(evt.keyCode)
+        //var newValue = this.value + character;
+        //if (isNaN(newValue) || parseFloat(newValue) * 100 % 1 > 0) {
+        //    evt.preventDefault();
+        //    return false;
+        //}
+        var charCode = (evt.which) ? evt.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 46)
+            return false;
+
+        return true;
+    });
+    $(".decimalOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+
+    //$(".numericOnly").bind('keypress', function (e) {
+    //    if (e.keyCode == '9' || e.keyCode == '16') {
+    //        return;
+    //    }
+    //    var code;
+    //    if (e.keyCode) code = e.keyCode;
+    //    else if (e.which) code = e.which;
+    //    if (e.which == 46)
+    //        return false;
+    //    if (code == 8 || code == 46)
+    //        return true;
+    //    if (code < 48 || code > 57)
+    //        return false;
+    //});
+
+    //$(".numericOnly").bind("paste", function (e) {
+    //    e.preventDefault();
+    //});
+
+    //$(".numericOnly").bind('mouseenter', function (e) {
+    //    var val = $(this).val();
+    //    if (val != '0') {
+    //        val = val.replace(/[^0-9]+/g, "")
+    //        $(this).val(val);
+    //    }
+    //});
+    //function isNumberKey(evt) {
+    //    var charCode = (evt.which) ? evt.which : event.keyCode;
+    //    if (charCode != 46 && charCode > 31
+    //        && (charCode < 48 || charCode > 57))
+    //        return false;
+
+    //    return true;
+    //}
+    @*$('#btnNewInvoiceSubmit').click(function (evt) {
+
+
+        if (@GlobalStore.GlobalStore_id == 0) {
+
+        $('#popupStoreid').show();
+    }
+            else
+    {
+        $('#popupStoreid').hide();
+        var scaninvoice = $("#ScanInvoice").val();
+        if (scaninvoice == "") {
+            $('#popupid').show();
+            //$('#spaninvoice').addClass("errorclass");
+        }
+        else {
+            $('#popupid').hide();
+        }
+    }
+
+
+
+    $("#hdnreqval").val("1");
+
+    });*@
+
+
+    function ReplaceData(html_val, c_val, r_val) {
+
+        while (html_val.indexOf(c_val) != -1) {
+            html_val = html_val.replace((c_val), (r_val));
+        }
+        return html_val;
+    }
+
+
+</script>
+<script>
+
+    function Editfunction() {
+
+        var DebitVal = $("#Iddebtot").text();
+        var debit = DebitVal.replace("$", "");
+        var Creditval = $("#Idcredtot").text();
+        var credit = Creditval.replace("$", "");
+        var debit_value = $("#hnddebitvalue").val();
+        var credit_value = $("#hndcreditvalue").val();
+        if (parseFloat(debit_value) == parseFloat(credit_value)) {
+            $(".txtedit").show();
+            $("#DivApprove").show();
+            $("#DivDesableApprove").hide();
+            $(".despan").hide();
+            $(".crspan").hide();
+            $(".clsbtnsubmit").show();
+            $(".clsbtnedit").hide();
+        }
+        else {
+
+            $(".clsgrey2").addClass("bg_greay");
+            $(".clsgrey").addClass("bg_greay brd_greay");
+            $(".txtedit").show();
+            $(".despan").hide();
+            $(".crspan").hide();
+            $(".clsbtnsubmit").show();
+            $(".clsbtnedit").hide();
+            $("#DivApprove").hide();
+            $("#DivDesableApprove").show();
+            $("#lbl").show();
+        }
+
+
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        //txtstartdate
+       
+        var debit_value = $("#hnddebitvalue").val();
+        var credit_value = $("#hndcreditvalue").val();
+        var DebitVal = $("#Iddebtot").text();
+        var debit = DebitVal.replace("$", "");
+        var Creditval = $("#Idcredtot").text();
+        var credit = Creditval.replace("$", "");
+        if (parseFloat(debit_value) == parseFloat(credit_value)) {
+
+            $("#DivApprove").show();
+
+        }
+        else {
+            $("#DivApprove").hide();
+        }
+
+
+        var inputF = $("#HndCloseoutdate").val();
+
+
+        $("#lblclosedate").html(inputF);
+
+        $('#txtstartdate').datetimepicker({
+            format: 'DD-MMM-YYYY',
+            useCurrent: false
+        });
+    });
+    function closemodal() {
+        $(".divIDClass").hide();
+    }
+    function Configuration() {
+        $("#popupConfiguration").show();
+    }
+    function ConfirmApprove(ID, Status) {
+        $("#popupApproveAlert").show();
+        $("#DisplayIdNumber").val(ID);
+        if (Status == "Pending" || Status == "") {
+            $("#DisplayStatus").text("Are you Sure you want to Approve?");
+        }
+        else {
+            $("#DisplayStatus").text("This Entry Is Updated, Are You Sure You Want To Re-Approve?");
+        }
+    }
+    function MarkAsApprove() {
+        var ID = $("#DisplayIdNumber").val();
+        var Status = $("#DisplayStatus").text();
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/GeneralEntries/MarkAsApprove',
+            data: { Id: ID },
+            async: false,
+            beforeSend: function () { Loader(1); },
+            success: function (response) {
+                Loader(0);
+                if (Status == "Are you Sure you want to Approve?") {
+                    MyCustomToster("Approved Successfully");
+                }
+                else {
+                    MyCustomToster("ReApproved Successfully");
+                }
+                window.location.href = '@wwwroot.Class.AdminSiteConfiguration.GetURL()Admin/GeneralEntries/Index';
+            },
+            error: function () {
+                Loader(0);
+            }
+        });
+        $(".myval").select2({
+            //placeholder: "select",
+            allowclear: true,
+            //minimumResultsForSearch: -1
+        });
+    }
+</script>

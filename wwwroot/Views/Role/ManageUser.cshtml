@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ManageUser</title>
+</head>
+<body>
+    <div>
+        
+<h2>Add User</h2>
+  
+
+   @using (Html.BeginForm("AddUserWithRoleName", "Role", FormMethod.Post, new { enctype = "multipart/form-data" }))
+   {
+        @Html.AntiForgeryToken()
+       <text>User Name</text>
+       @Html.TextBox("UserName")
+       <br /><br />
+          <text>  Password</text>
+       @Html.TextBox("Password")
+       <br /><br />
+         <text>  RoleName</text>
+       @Html.TextBox("RoleName")
+       <br /><br />
+       <input id="btncreate" type="submit" value="button" />
+   }
+
+
+
+<h2>Delete User</h2>
+  
+
+   @using (Html.BeginForm("DeleteUser", "Role", FormMethod.Post, new { enctype = "multipart/form-data" }))
+   {
+        @Html.AntiForgeryToken()
+       <text>User Name</text>
+       @Html.TextBox("UserName")
+       <br /><br />
+         
+       <br /><br />
+       <input id="btndelete" type="submit" value="button" />
+   }
+    </div>
+</body>
+</html>

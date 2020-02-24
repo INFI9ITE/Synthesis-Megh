@@ -1,0 +1,2538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WestZoneModelStoreContainer" CdmEntityContainer="WestZoneEntities">
+    <EntitySetMapping Name="QBConfigs">
+      <EntityTypeMapping TypeName="WestZoneModel.QBConfig">
+        <MappingFragment StoreEntitySet="QBConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Store_Id" ColumnName="Store_Id" />
+          <ScalarProperty Name="CompanyFilePath" ColumnName="CompanyFilePath" />
+          <ScalarProperty Name="QBVersion" ColumnName="QBVersion" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="QBYear" ColumnName="QBYear" />
+          <ScalarProperty Name="BillAccListID" ColumnName="BillAccListID" />
+          <ScalarProperty Name="BillAccName" ColumnName="BillAccName" />
+          <ScalarProperty Name="SyncDate" ColumnName="SyncDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteConfigurations">
+      <EntityTypeMapping TypeName="WestZoneModel.SiteConfiguration">
+        <MappingFragment StoreEntitySet="SiteConfiguration">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="level" ColumnName="level" />
+          <ScalarProperty Name="Currencydigit" ColumnName="Currencydigit" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="CategoryLarge" ColumnName="CategoryLarge" />
+          <ScalarProperty Name="CategoryMedium" ColumnName="CategoryMedium" />
+          <ScalarProperty Name="CategorySmall" ColumnName="CategorySmall" />
+          <ScalarProperty Name="ProductLarge" ColumnName="ProductLarge" />
+          <ScalarProperty Name="ProductMedium" ColumnName="ProductMedium" />
+          <ScalarProperty Name="ProductSmall" ColumnName="ProductSmall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Activity_action">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Activity_action">
+        <MappingFragment StoreEntitySet="tbl_Activity_action">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Activity_log">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Activity_log">
+        <MappingFragment StoreEntitySet="tbl_Activity_log">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Department">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Department">
+        <MappingFragment StoreEntitySet="tbl_Department">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ListID" ColumnName="ListID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DepartmentNetSales">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_DepartmentNetSales">
+        <MappingFragment StoreEntitySet="tbl_DepartmentNetSales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_EmploymentStatus">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_EmploymentStatus">
+        <MappingFragment StoreEntitySet="tbl_EmploymentStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_EmploymentType">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_EmploymentType">
+        <MappingFragment StoreEntitySet="tbl_EmploymentType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Gender">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Gender">
+        <MappingFragment StoreEntitySet="tbl_Gender">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Invoice">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Invoice">
+        <MappingFragment StoreEntitySet="tbl_Invoice">
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Invoice_Department">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Invoice_Department">
+        <MappingFragment StoreEntitySet="tbl_Invoice_Department">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Invoice_id" ColumnName="Invoice_id" />
+          <ScalarProperty Name="Dept_id" ColumnName="Dept_id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LogSummary">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_LogSummary">
+        <MappingFragment StoreEntitySet="tbl_LogSummary">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_MaritalStatus">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_MaritalStatus">
+        <MappingFragment StoreEntitySet="tbl_MaritalStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PaidOut">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_PaidOut">
+        <MappingFragment StoreEntitySet="tbl_PaidOut">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Pamentype">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Pamentype">
+        <MappingFragment StoreEntitySet="tbl_Pamentype">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Status">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Status">
+        <MappingFragment StoreEntitySet="tbl_Status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Store_Terminal">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Store_Terminal">
+        <MappingFragment StoreEntitySet="tbl_Store_Terminal">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Type">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Type">
+        <MappingFragment StoreEntitySet="tbl_Type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_user">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user_store">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_user_store">
+        <MappingFragment StoreEntitySet="tbl_user_store">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Vendor">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Vendor">
+        <MappingFragment StoreEntitySet="tbl_Vendor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ListID" ColumnName="ListID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="WestZoneModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilities">
+      <EntityTypeMapping TypeName="WestZoneModel.Utility">
+        <MappingFragment StoreEntitySet="Utilities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sitename" ColumnName="sitename" />
+          <ScalarProperty Name="sitelogo" ColumnName="sitelogo" />
+          <ScalarProperty Name="siteurl" ColumnName="siteurl" />
+          <ScalarProperty Name="MailServer" ColumnName="MailServer" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Authenticate" ColumnName="Authenticate" />
+          <ScalarProperty Name="emailtop" ColumnName="emailtop" />
+          <ScalarProperty Name="emailbottom" ColumnName="emailbottom" />
+          <ScalarProperty Name="port" ColumnName="port" />
+          <ScalarProperty Name="pagination" ColumnName="pagination" />
+          <ScalarProperty Name="sitebyname" ColumnName="sitebyname" />
+          <ScalarProperty Name="sitebyurl" ColumnName="sitebyurl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="WestZoneModel.webpages_Membership">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="WestZoneModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Roles">
+      <EntityTypeMapping TypeName="WestZoneModel.webpages_Roles">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="WestZoneModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="webpages_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="UserProfile">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="BindBackofficemanager" FunctionName="WestZoneModel.Store.BindBackofficemanager">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.BindBackofficemanager_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BindDataapproval" FunctionName="WestZoneModel.Store.BindDataapproval">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.BindDataapproval_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="delete_multiple_userRole" FunctionName="WestZoneModel.Store.delete_multiple_userRole" />
+    <FunctionImportMapping FunctionImportName="delete_multiple_userstores" FunctionName="WestZoneModel.Store.delete_multiple_userstores" />
+    <FunctionImportMapping FunctionImportName="Get_InvoiceNotification" FunctionName="WestZoneModel.Store.Get_InvoiceNotification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_InvoiceNotification_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="storename" ColumnName="storename" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_InvoiceNotification_Grid" FunctionName="WestZoneModel.Store.Get_InvoiceNotification_Grid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_InvoiceNotification_Grid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="storename" ColumnName="storename" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_ReguserId_edit" FunctionName="WestZoneModel.Store.Get_ReguserId_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_ReguserId_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_ReguserId_edit_dataapp" FunctionName="WestZoneModel.Store.Get_ReguserId_edit_dataapp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_ReguserId_edit_dataapp_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_ReguserId_edit_Owner" FunctionName="WestZoneModel.Store.Get_ReguserId_edit_Owner">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_ReguserId_edit_Owner_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_ReguserId_edit_storeman" FunctionName="WestZoneModel.Store.Get_ReguserId_edit_storeman">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_ReguserId_edit_storeman_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Get_roleid_rolename_byReg_userid" FunctionName="WestZoneModel.Store.Get_roleid_rolename_byReg_userid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_roleid_rolename_byReg_userid_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEmailId" FunctionName="WestZoneModel.Store.GetEmailId" />
+    <FunctionImportMapping FunctionImportName="getrolebyusername" FunctionName="WestZoneModel.Store.getrolebyusername" />
+    <FunctionImportMapping FunctionImportName="GetRoleNameList" FunctionName="WestZoneModel.Store.GetRoleNameList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetRoleNameList_Result">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRoleNameListByUserId" FunctionName="WestZoneModel.Store.GetRoleNameListByUserId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetRoleNameListByUserId_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUser_dataApproval" FunctionName="WestZoneModel.Store.GetUser_dataApproval">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetUser_dataApproval_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getusernames" FunctionName="WestZoneModel.Store.getusernames">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.getusernames_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Membership_EnableUser" FunctionName="WestZoneModel.Store.Membership_EnableUser" />
+    <FunctionImportMapping FunctionImportName="Select_RoleId_ByUserid" FunctionName="WestZoneModel.Store.Select_RoleId_ByUserid" />
+    <FunctionImportMapping FunctionImportName="SPDepartment" FunctionName="WestZoneModel.Store.SPDepartment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.SPDepartment_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ListID" ColumnName="ListID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPInvoice" FunctionName="WestZoneModel.Store.SPInvoice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.SPInvoice_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="VIsActive" ColumnName="VIsActive" />
+          <ScalarProperty Name="ListID" ColumnName="ListID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPInvoiceDepartment" FunctionName="WestZoneModel.Store.SPInvoiceDepartment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.SPInvoiceDepartment_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Invoice_id" ColumnName="Invoice_id" />
+          <ScalarProperty Name="Dept_id" ColumnName="Dept_id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ListID" ColumnName="ListID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPLogSummary" FunctionName="WestZoneModel.Store.SPLogSummary" />
+    <FunctionImportMapping FunctionImportName="SPStore" FunctionName="WestZoneModel.Store.SPStore">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.SPStore_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SPVendor" FunctionName="WestZoneModel.Store.SPVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.SPVendor_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ListID" ColumnName="ListID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Acivity_Log_GridData" FunctionName="WestZoneModel.Store.tbl_Acivity_Log_GridData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Acivity_Log_GridData_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Activity_log_Insert" FunctionName="WestZoneModel.Store.tbl_Activity_log_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_DepartmentNetSalesbySalesActivityId" FunctionName="WestZoneModel.Store.tbl_DepartmentNetSalesbySalesActivityId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_DepartmentNetSalesbySalesActivityId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Employee_GridData" FunctionName="WestZoneModel.Store.tbl_Employee_GridData" />
+    <FunctionImportMapping FunctionImportName="tbl_Employee_Insert" FunctionName="WestZoneModel.Store.tbl_Employee_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_Employee_store_Insert" FunctionName="WestZoneModel.Store.tbl_Employee_store_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_Employee_Update" FunctionName="WestZoneModel.Store.tbl_Employee_Update" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Dashbord_GridData" FunctionName="WestZoneModel.Store.tbl_Invoice_Dashbord_GridData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_Dashbord_GridData_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Dashbord_GridData_DataApp" FunctionName="WestZoneModel.Store.tbl_Invoice_Dashbord_GridData_DataApp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_Dashbord_GridData_DataApp_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Dashbord_GridData_StoreManager" FunctionName="WestZoneModel.Store.tbl_Invoice_Dashbord_GridData_StoreManager">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_Dashbord_GridData_StoreManager_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Department_Insert" FunctionName="WestZoneModel.Store.tbl_Invoice_Department_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_exists_InNo" FunctionName="WestZoneModel.Store.tbl_Invoice_exists_InNo" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_exists_InNo_Edit" FunctionName="WestZoneModel.Store.tbl_Invoice_exists_InNo_Edit" />
+    <FunctionImportMapping FunctionImportName="tbl_PaidOutbySalesActivityId" FunctionName="WestZoneModel.Store.tbl_PaidOutbySalesActivityId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_PaidOutbySalesActivityId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_Excelread_exists" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_Excelread_exists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_Excelread_exists_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="AverageSale" ColumnName="AverageSale" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_store_byid" FunctionName="WestZoneModel.Store.tbl_store_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_store_byid_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Store_exists" FunctionName="WestZoneModel.Store.tbl_Store_exists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Store_exists_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Store_GridData" FunctionName="WestZoneModel.Store.tbl_Store_GridData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Store_GridData_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Store_Terminal_byid" FunctionName="WestZoneModel.Store.tbl_Store_Terminal_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Store_Terminal_byid_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Store_Terminal_Select" FunctionName="WestZoneModel.Store.tbl_Store_Terminal_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Store_Terminal_Select_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="storename" ColumnName="storename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_tbl_Store_Terminal_exists" FunctionName="WestZoneModel.Store.tbl_tbl_Store_Terminal_exists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_tbl_Store_Terminal_exists_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_tbl_Store_Terminal_existsbyid" FunctionName="WestZoneModel.Store.tbl_tbl_Store_Terminal_existsbyid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_tbl_Store_Terminal_existsbyid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_TendersInDrawerbySalesActivityId" FunctionName="WestZoneModel.Store.tbl_TendersInDrawerbySalesActivityId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_TendersInDrawerbySalesActivityId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_backoffice" FunctionName="WestZoneModel.Store.tbl_user_backoffice">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_backoffice_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_backoffice_edit" FunctionName="WestZoneModel.Store.tbl_user_backoffice_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_backoffice_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_backoffice_edit_new" FunctionName="WestZoneModel.Store.tbl_user_backoffice_edit_new">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_backoffice_edit_new_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_byid" FunctionName="WestZoneModel.Store.tbl_user_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_byid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_DataApprover" FunctionName="WestZoneModel.Store.tbl_user_DataApprover">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_DataApprover_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_DataApprover_edit" FunctionName="WestZoneModel.Store.tbl_user_DataApprover_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_DataApprover_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_GridData" FunctionName="WestZoneModel.Store.tbl_user_GridData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_GridData_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="userid_val" ColumnName="userid_val" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="lockval" ColumnName="lockval" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_GridData_byid" FunctionName="WestZoneModel.Store.tbl_user_GridData_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_GridData_byid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="userid_val" ColumnName="userid_val" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="lockval" ColumnName="lockval" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_Insert" FunctionName="WestZoneModel.Store.tbl_user_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_user_name" FunctionName="WestZoneModel.Store.tbl_user_name">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_name_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_Owner" FunctionName="WestZoneModel.Store.tbl_user_Owner">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_Owner_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_Owner_edit" FunctionName="WestZoneModel.Store.tbl_user_Owner_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_Owner_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_Selectstore" FunctionName="WestZoneModel.Store.tbl_user_Selectstore">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_Selectstore_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_Selectstore_Admin" FunctionName="WestZoneModel.Store.tbl_user_Selectstore_Admin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_Selectstore_Admin_Result">
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_store_By_Reg_userid" FunctionName="WestZoneModel.Store.tbl_user_store_By_Reg_userid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_store_By_Reg_userid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_store_delete" FunctionName="WestZoneModel.Store.tbl_user_store_delete" />
+    <FunctionImportMapping FunctionImportName="tbl_user_store_Insert" FunctionName="WestZoneModel.Store.tbl_user_store_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_user_store_Insert_BackOfficeMan" FunctionName="WestZoneModel.Store.tbl_user_store_Insert_BackOfficeMan" />
+    <FunctionImportMapping FunctionImportName="tbl_user_store_Insert_DataApp" FunctionName="WestZoneModel.Store.tbl_user_store_Insert_DataApp" />
+    <FunctionImportMapping FunctionImportName="tbl_user_store_Insert_Owner" FunctionName="WestZoneModel.Store.tbl_user_store_Insert_Owner" />
+    <FunctionImportMapping FunctionImportName="tbl_user_store_Insert_StoreMan" FunctionName="WestZoneModel.Store.tbl_user_store_Insert_StoreMan" />
+    <FunctionImportMapping FunctionImportName="tbl_user_store_select_StorebyUser" FunctionName="WestZoneModel.Store.tbl_user_store_select_StorebyUser" />
+    <FunctionImportMapping FunctionImportName="tbl_user_Storemanager" FunctionName="WestZoneModel.Store.tbl_user_Storemanager">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_Storemanager_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_user_Storemanager_edit" FunctionName="WestZoneModel.Store.tbl_user_Storemanager_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_user_Storemanager_edit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Update_Employee_Password" FunctionName="WestZoneModel.Store.Update_Employee_Password" />
+    <FunctionImportMapping FunctionImportName="Update_tbl_user_Password" FunctionName="WestZoneModel.Store.Update_tbl_user_Password" />
+    <FunctionImportMapping FunctionImportName="webpages_Roles_byRolename" FunctionName="WestZoneModel.Store.webpages_Roles_byRolename" />
+    <FunctionImportMapping FunctionImportName="Unsetteled_Invoice_Administrator" FunctionName="WestZoneModel.Store.Unsetteled_Invoice_Administrator">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Unsetteled_Invoice_Administrator_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_DayClosereportGrid" FunctionName="WestZoneModel.Store.tbl_DayClosereportGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_DayClosereportGrid_Result">
+          <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="storename" ColumnName="storename" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Store">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Store">
+        <MappingFragment StoreEntitySet="tbl_Store">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Store_Create" FunctionName="WestZoneModel.Store.tbl_Store_Create" />
+    <FunctionImportMapping FunctionImportName="tbl_Store_Update" FunctionName="WestZoneModel.Store.tbl_Store_Update" />
+    <FunctionImportMapping FunctionImportName="tbl_Storewise_Excelupload_insert" FunctionName="WestZoneModel.Store.tbl_Storewise_Excelupload_insert" />
+    <FunctionImportMapping FunctionImportName="StoreIdListFromUserId" FunctionName="WestZoneModel.Store.StoreIdListFromUserId" />
+    <FunctionImportMapping FunctionImportName="tbl_Store_Emailexists" FunctionName="WestZoneModel.Store.tbl_Store_Emailexists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Store_Emailexists_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="StoreNo" ColumnName="StoreNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Store_Terminal_Insert" FunctionName="WestZoneModel.Store.tbl_Store_Terminal_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_bystoreid" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_bystoreid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_bystoreid_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="AverageSale" ColumnName="AverageSale" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomercount" FunctionName="WestZoneModel.Store.GetCustomercount" />
+    <EntitySetMapping Name="tbl_shift">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_shift">
+        <MappingFragment StoreEntitySet="tbl_shift">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_updatecashiername" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_updatecashiername" />
+    <FunctionImportMapping FunctionImportName="tbl_tenderinDraw_byid" FunctionName="WestZoneModel.Store.tbl_tenderinDraw_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_tenderinDraw_byid_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_Terminalwiselist" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_Terminalwiselist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_Terminalwiselist_Result">
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="terminal" ColumnName="terminal" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_shiftlist" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_shiftlist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_shiftlist_Result">
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="Endtime" ColumnName="Endtime" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cashiername" ColumnName="cashiername" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Storewise_Excelupload_insertData" FunctionName="WestZoneModel.Store.tbl_Storewise_Excelupload_insertData" />
+    <FunctionImportMapping FunctionImportName="tbl_TendersInDrawer_updateAmount" FunctionName="WestZoneModel.Store.tbl_TendersInDrawer_updateAmount" />
+    <FunctionImportMapping FunctionImportName="GetSalesamount_byterminal" FunctionName="WestZoneModel.Store.GetSalesamount_byterminal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetSalesamount_byterminal_Result">
+          <ScalarProperty Name="TotalNetSalesWithTax" ColumnName="TotalNetSalesWithTax" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_Terminalwiselistbytid" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_Terminalwiselistbytid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_Terminalwiselistbytid_Result">
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="terminal" ColumnName="terminal" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_TendersInDrawer">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_TendersInDrawer">
+        <MappingFragment StoreEntitySet="tbl_TendersInDrawer">
+          <ScalarProperty Name="ismanually" ColumnName="ismanually" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Insert_tbl_TendersInDrawer" FunctionName="WestZoneModel.Store.Insert_tbl_TendersInDrawer" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_exists_InNo_New" FunctionName="WestZoneModel.Store.tbl_Invoice_exists_InNo_New" />
+    <FunctionImportMapping FunctionImportName="GetCashTotal" FunctionName="WestZoneModel.Store.GetCashTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCashTotal_Result">
+          <ScalarProperty Name="TotalByTitle" ColumnName="TotalByTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOtherTotal" FunctionName="WestZoneModel.Store.GetOtherTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetOtherTotal_Result">
+          <ScalarProperty Name="TotalByTitle" ColumnName="TotalByTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetShiftWiseTotal" FunctionName="WestZoneModel.Store.GetShiftWiseTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetShiftWiseTotal_Result">
+          <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+          <ScalarProperty Name="TotleByShift" ColumnName="TotleByShift" />
+          <ScalarProperty Name="TotalCustomer" ColumnName="TotalCustomer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTitleList" FunctionName="WestZoneModel.Store.GetTitleList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetTitleList_Result">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTitleWiseTotal" FunctionName="WestZoneModel.Store.GetTitleWiseTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetTitleWiseTotal_Result">
+          <ScalarProperty Name="invoiceid" ColumnName="invoiceid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Storewise_Excelupload_updateissync" FunctionName="WestZoneModel.Store.tbl_Storewise_Excelupload_updateissync" />
+    <FunctionImportMapping FunctionImportName="CheckExistence_byshiftwise" FunctionName="WestZoneModel.Store.CheckExistence_byshiftwise" />
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_Terminallist" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_Terminallist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_Terminallist_Result">
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="terminal" ColumnName="terminal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetShiftWiseGrandTotal" FunctionName="WestZoneModel.Store.GetShiftWiseGrandTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetShiftWiseGrandTotal_Result">
+          <ScalarProperty Name="TotalByTitle" ColumnName="TotalByTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="checkterminalwiseshift" FunctionName="WestZoneModel.Store.checkterminalwiseshift">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.checkterminalwiseshift_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="AverageSale" ColumnName="AverageSale" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+          <ScalarProperty Name="cashiername" ColumnName="cashiername" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteFromtbl_DepartmentNetSales" FunctionName="WestZoneModel.Store.DeleteFromtbl_DepartmentNetSales" />
+    <FunctionImportMapping FunctionImportName="DeleteFromtbl_Excelread_Errormsg" FunctionName="WestZoneModel.Store.DeleteFromtbl_Excelread_Errormsg" />
+    <FunctionImportMapping FunctionImportName="DeleteFromtbl_PaidOut" FunctionName="WestZoneModel.Store.DeleteFromtbl_PaidOut" />
+    <FunctionImportMapping FunctionImportName="DeleteFromtbl_Storewise_Excelupload" FunctionName="WestZoneModel.Store.DeleteFromtbl_Storewise_Excelupload" />
+    <FunctionImportMapping FunctionImportName="DeleteFromtbl_TendersInDrawer" FunctionName="WestZoneModel.Store.DeleteFromtbl_TendersInDrawer" />
+    <FunctionImportMapping FunctionImportName="GetSyncwiselist" FunctionName="WestZoneModel.Store.GetSyncwiselist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetSyncwiselist_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="issync" ColumnName="issync" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCreditCardDetails" FunctionName="WestZoneModel.Store.GetCreditCardDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCreditCardDetails_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Amount_AMEX" ColumnName="Amount_AMEX" />
+          <ScalarProperty Name="Amount_Discover" ColumnName="Amount_Discover" />
+          <ScalarProperty Name="Amount_Master" ColumnName="Amount_Master" />
+          <ScalarProperty Name="Amount_Visa" ColumnName="Amount_Visa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCreditcard_details_AMEX" FunctionName="WestZoneModel.Store.GetCreditcard_details_AMEX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCreditcard_details_AMEX_Result">
+          <ScalarProperty Name="TotalAMEX" ColumnName="TotalAMEX" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCreditcard_details_Discover" FunctionName="WestZoneModel.Store.GetCreditcard_details_Discover">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCreditcard_details_Discover_Result">
+          <ScalarProperty Name="TotalDiscover" ColumnName="TotalDiscover" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCreditcard_details_Master" FunctionName="WestZoneModel.Store.GetCreditcard_details_Master">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCreditcard_details_Master_Result">
+          <ScalarProperty Name="TotalMaster" ColumnName="TotalMaster" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCreditcard_details_Visa" FunctionName="WestZoneModel.Store.GetCreditcard_details_Visa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCreditcard_details_Visa_Result">
+          <ScalarProperty Name="TotalVisa" ColumnName="TotalVisa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Creditcard_details_exists" FunctionName="WestZoneModel.Store.tbl_Creditcard_details_exists" />
+    <EntitySetMapping Name="tbl_Creditcard_details">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Creditcard_details">
+        <MappingFragment StoreEntitySet="tbl_Creditcard_details">
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+          <ScalarProperty Name="Amount_Visa" ColumnName="Amount_Visa" />
+          <ScalarProperty Name="Amount_Master" ColumnName="Amount_Master" />
+          <ScalarProperty Name="Amount_Discover" ColumnName="Amount_Discover" />
+          <ScalarProperty Name="Amount_AMEX" ColumnName="Amount_AMEX" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Creditcard_details_Insert" FunctionName="WestZoneModel.Store.tbl_Creditcard_details_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_Creditcard_details_Update" FunctionName="WestZoneModel.Store.tbl_Creditcard_details_Update" />
+    <FunctionImportMapping FunctionImportName="Get_Count_tbl_otherdeposit" FunctionName="WestZoneModel.Store.Get_Count_tbl_otherdeposit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_Count_tbl_otherdeposit_Result">
+          <ScalarProperty Name="DepositeCount" ColumnName="DepositeCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_discounttype">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_discounttype">
+        <MappingFragment StoreEntitySet="tbl_discounttype">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Insert_discount" FunctionName="WestZoneModel.Store.tbl_Invoice_Insert_discount" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Insert_StoreManager_discount" FunctionName="WestZoneModel.Store.tbl_Invoice_Insert_StoreManager_discount" />
+    <FunctionImportMapping FunctionImportName="tbl_invoiceupdate_discountdata" FunctionName="WestZoneModel.Store.tbl_invoiceupdate_discountdata" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_exists_InNo_Edit_New" FunctionName="WestZoneModel.Store.tbl_Invoice_exists_InNo_Edit_New" />
+    <FunctionImportMapping FunctionImportName="tbl_otherdeposit_Delete" FunctionName="WestZoneModel.Store.tbl_otherdeposit_Delete" />
+    <FunctionImportMapping FunctionImportName="tbl_invoice_updatediscountdata" FunctionName="WestZoneModel.Store.tbl_invoice_updatediscountdata" />
+    <EntitySetMapping Name="tbl_SalesActivitySummary">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary">
+        <MappingFragment StoreEntitySet="tbl_SalesActivitySummary">
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="cashiername" ColumnName="cashiername" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="AverageSale" ColumnName="AverageSale" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUnassignedShiftnamelist" FunctionName="WestZoneModel.Store.GetUnassignedShiftnamelist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetUnassignedShiftnamelist_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="AverageSale" ColumnName="AverageSale" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+          <ScalarProperty Name="cashiername" ColumnName="cashiername" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="TerminalName" ColumnName="TerminalName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_Select" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_Select_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="Terminalid" ColumnName="Terminalid" />
+          <ScalarProperty Name="TransactionStartTime" ColumnName="TransactionStartTime" />
+          <ScalarProperty Name="TransactionEndTime" ColumnName="TransactionEndTime" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="AverageSale" ColumnName="AverageSale" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+          <ScalarProperty Name="cashiername" ColumnName="cashiername" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="storename" ColumnName="storename" />
+          <ScalarProperty Name="Terminal" ColumnName="Terminal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_DuplicateInvoiceDashbord" FunctionName="WestZoneModel.Store.tbl_Invoice_DuplicateInvoiceDashbord">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_DuplicateInvoiceDashbord_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="storeidval" ColumnName="storeidval" />
+          <ScalarProperty Name="typeidval" ColumnName="typeidval" />
+          <ScalarProperty Name="vendoridval" ColumnName="vendoridval" />
+          <ScalarProperty Name="invoicedateval" ColumnName="invoicedateval" />
+          <ScalarProperty Name="invoicenoval" ColumnName="invoicenoval" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Update" FunctionName="WestZoneModel.Store.tbl_Invoice_Update" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_GridData_ForPdf" FunctionName="WestZoneModel.Store.tbl_Invoice_GridData_ForPdf">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_GridData_ForPdf_Result">
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_GridData_ForExcel" FunctionName="WestZoneModel.Store.tbl_Invoice_GridData_ForExcel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_GridData_ForExcel_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="Invoice_Date_str" ColumnName="Invoice_Date_str" />
+          <ScalarProperty Name="CreatedOn_str" ColumnName="CreatedOn_str" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CheckUserExistwhilelock" FunctionName="WestZoneModel.Store.CheckUserExistwhilelock">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.CheckUserExistwhilelock_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRoleidfromuserid" FunctionName="WestZoneModel.Store.GetRoleidfromuserid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetRoleidfromuserid_Result">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_userlist" FunctionName="WestZoneModel.Store.tbl_userlist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_userlist_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Reg_userid" ColumnName="Reg_userid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_GridData" FunctionName="WestZoneModel.Store.tbl_Invoice_GridData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_GridData_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Membership_DisableUser" FunctionName="WestZoneModel.Store.Membership_DisableUser" />
+    <EntitySetMapping Name="tbl_DeletedInvoiceHistory">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_DeletedInvoiceHistory">
+        <MappingFragment StoreEntitySet="tbl_DeletedInvoiceHistory">
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Invoiceid" ColumnName="Invoiceid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_DeleteAndInsertintodeletehistory" FunctionName="WestZoneModel.Store.tbl_Invoice_DeleteAndInsertintodeletehistory" />
+    <FunctionImportMapping FunctionImportName="tbl_otherdeposit_insert" FunctionName="WestZoneModel.Store.tbl_otherdeposit_insert" />
+    <EntitySetMapping Name="tbl_otherdeposit">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_otherdeposit">
+        <MappingFragment StoreEntitySet="tbl_otherdeposit">
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Option">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Option">
+        <MappingFragment StoreEntitySet="tbl_Option">
+          <ScalarProperty Name="SelectOption" ColumnName="SelectOption" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Payment_Method">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Payment_Method">
+        <MappingFragment StoreEntitySet="tbl_Payment_Method">
+          <ScalarProperty Name="payMehoed" ColumnName="payMehoed" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Option_select" FunctionName="WestZoneModel.Store.tbl_Option_select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Option_select_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SelectOption" ColumnName="SelectOption" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Payment_Method_Byoption" FunctionName="WestZoneModel.Store.tbl_Payment_Method_Byoption">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Payment_Method_Byoption_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="payMehoed" ColumnName="payMehoed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Getotherdeposit" FunctionName="WestZoneModel.Store.Getotherdeposit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Getotherdeposit_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLatestAvailableDate" FunctionName="WestZoneModel.Store.GetLatestAvailableDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetLatestAvailableDate_Result">
+          <ScalarProperty Name="LatestAvailableDate" ColumnName="LatestAvailableDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesActivitySummary_shiftlist_byid" FunctionName="WestZoneModel.Store.tbl_SalesActivitySummary_shiftlist_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesActivitySummary_shiftlist_byid_Result">
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="Endtime" ColumnName="Endtime" />
+          <ScalarProperty Name="shiftname" ColumnName="shiftname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="cashiername" ColumnName="cashiername" />
+          <ScalarProperty Name="terminal" ColumnName="terminal" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+          <ScalarProperty Name="NetSalesWithTax" ColumnName="NetSalesWithTax" />
+          <ScalarProperty Name="TotalTaxCollected" ColumnName="TotalTaxCollected" />
+          <ScalarProperty Name="Paidoutamount" ColumnName="Paidoutamount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_PaidOut_byid" FunctionName="WestZoneModel.Store.tbl_PaidOut_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_PaidOut_byid_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActivitySalesSummuryId" ColumnName="ActivitySalesSummuryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CeatedBy" ColumnName="CeatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_PaidOut_Update_byid" FunctionName="WestZoneModel.Store.tbl_PaidOut_Update_byid" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Dashbord_Grid_Data" FunctionName="WestZoneModel.Store.tbl_Invoice_Dashbord_Grid_Data">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_Dashbord_Grid_Data_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Insert" FunctionName="WestZoneModel.Store.tbl_Invoice_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Insert_StoreManager" FunctionName="WestZoneModel.Store.tbl_Invoice_Insert_StoreManager" />
+    <FunctionImportMapping FunctionImportName="tbl_Invoice_Dashbord_GridData_Administrator" FunctionName="WestZoneModel.Store.tbl_Invoice_Dashbord_GridData_Administrator">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Invoice_Dashbord_GridData_Administrator_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Store_id" ColumnName="Store_id" />
+          <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+          <ScalarProperty Name="Payment_type" ColumnName="Payment_type" />
+          <ScalarProperty Name="Vendor_id" ColumnName="Vendor_id" />
+          <ScalarProperty Name="Invoice_Date" ColumnName="Invoice_Date" />
+          <ScalarProperty Name="Invoice_Number" ColumnName="Invoice_Number" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="AttachNote" ColumnName="AttachNote" />
+          <ScalarProperty Name="UploadInvoice" ColumnName="UploadInvoice" />
+          <ScalarProperty Name="ScanInvoice" ColumnName="ScanInvoice" />
+          <ScalarProperty Name="TotalAmtByDept" ColumnName="TotalAmtByDept" />
+          <ScalarProperty Name="IsStatus_id" ColumnName="IsStatus_id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ApproveRejectBy" ColumnName="ApproveRejectBy" />
+          <ScalarProperty Name="ApproveRejectDate" ColumnName="ApproveRejectDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TxnID" ColumnName="TxnID" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="NotificationColor" ColumnName="NotificationColor" />
+          <ScalarProperty Name="QBtransfer" ColumnName="QBtransfer" />
+          <ScalarProperty Name="discounttype" ColumnName="discounttype" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="discountamount" ColumnName="discountamount" />
+          <ScalarProperty Name="Ref_invoiceid" ColumnName="Ref_invoiceid" />
+          <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+          <ScalarProperty Name="Storename" ColumnName="Storename" />
+          <ScalarProperty Name="Typename" ColumnName="Typename" />
+          <ScalarProperty Name="vendorname" ColumnName="vendorname" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="deptamt" ColumnName="deptamt" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetLatestAvailableDateForSalesSummery" FunctionName="WestZoneModel.Store.GetLatestAvailableDateForSalesSummery">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetLatestAvailableDateForSalesSummery_Result">
+          <ScalarProperty Name="LatestAvailableDate" ColumnName="LatestAvailableDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutCount" FunctionName="WestZoneModel.Store.GetPaidOutCount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutCount_Result">
+          <ScalarProperty Name="PaidOutCount" ColumnName="PaidOutCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutCountShiftWise" FunctionName="WestZoneModel.Store.GetPaidOutCountShiftWise">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutCountShiftWise_Result">
+          <ScalarProperty Name="PaidOutTotal" ColumnName="PaidOutTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutTitleList" FunctionName="WestZoneModel.Store.GetPaidOutTitleList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutTitleList_Result">
+          <ScalarProperty Name="PaidOutTitle" ColumnName="PaidOutTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutTitleListName" FunctionName="WestZoneModel.Store.GetPaidOutTitleListName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutTitleListName_Result">
+          <ScalarProperty Name="PaidOutTotal" ColumnName="PaidOutTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSalesAmountTotal" FunctionName="WestZoneModel.Store.GetSalesAmountTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetSalesAmountTotal_Result">
+          <ScalarProperty Name="TotalByTitle" ColumnName="TotalByTitle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCustomercount_byterminal" FunctionName="WestZoneModel.Store.GetCustomercount_byterminal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetCustomercount_byterminal_Result">
+          <ScalarProperty Name="customercount" ColumnName="customercount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutTotal" FunctionName="WestZoneModel.Store.GetPaidOutTotal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutTotal_Result">
+          <ScalarProperty Name="PaidOutTotal" ColumnName="PaidOutTotal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutTotal_Shiftwisereport" FunctionName="WestZoneModel.Store.GetPaidOutTotal_Shiftwisereport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutTotal_Shiftwisereport_Result">
+          <ScalarProperty Name="TotalByTitlePO" ColumnName="TotalByTitlePO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CheckExist_Configuration" FunctionName="WestZoneModel.Store.CheckExist_Configuration" />
+    <FunctionImportMapping FunctionImportName="CheckUseOfGroupId" FunctionName="WestZoneModel.Store.CheckUseOfGroupId" />
+    <EntitySetMapping Name="ExceptionHandlingLogs">
+      <EntityTypeMapping TypeName="WestZoneModel.ExceptionHandlingLog">
+        <MappingFragment StoreEntitySet="ExceptionHandlingLog">
+          <ScalarProperty Name="ExceptionStackTrace" ColumnName="ExceptionStackTrace" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Ipaddress" ColumnName="Ipaddress" />
+          <ScalarProperty Name="LogTime" ColumnName="LogTime" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ChildSalesEntries">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_ChildSalesEntries">
+        <MappingFragment StoreEntitySet="tbl_ChildSalesEntries">
+          <ScalarProperty Name="Typeid" ColumnName="Typeid" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="Groupname" ColumnName="Groupname" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="Gid" ColumnName="Gid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SalesGeneralEntries">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_SalesGeneralEntries">
+        <MappingFragment StoreEntitySet="tbl_SalesGeneralEntries">
+          <ScalarProperty Name="noofpos" ColumnName="noofpos" />
+          <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+          <ScalarProperty Name="syncstatus" ColumnName="syncstatus" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="salesdate" ColumnName="salesdate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SalesGeneralEntriesHistory">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_SalesGeneralEntriesHistory">
+        <MappingFragment StoreEntitySet="tbl_SalesGeneralEntriesHistory">
+          <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+          <ScalarProperty Name="syncstatus" ColumnName="syncstatus" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="salesdate" ColumnName="salesdate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Insert_tbl_ChildSalesEntries" FunctionName="WestZoneModel.Store.Insert_tbl_ChildSalesEntries" />
+    <FunctionImportMapping FunctionImportName="tbl_inquiry_insert" FunctionName="WestZoneModel.Store.tbl_inquiry_insert" />
+    <FunctionImportMapping FunctionImportName="CheckConfigurationsales" FunctionName="WestZoneModel.Store.CheckConfigurationsales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.CheckConfigurationsales_Result">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_ConfigureStatus">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_ConfigureStatus">
+        <MappingFragment StoreEntitySet="tbl_ConfigureStatus">
+          <ScalarProperty Name="statusid" ColumnName="statusid" />
+          <ScalarProperty Name="Statusname" ColumnName="Statusname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_statusCode" FunctionName="WestZoneModel.Store.Get_statusCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_statusCode_Result">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dataty" ColumnName="dataty" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GettotalAmount" FunctionName="WestZoneModel.Store.GettotalAmount" />
+    <FunctionImportMapping FunctionImportName="Insert_SalesGeneralEntries" FunctionName="WestZoneModel.Store.Insert_SalesGeneralEntries" />
+    <FunctionImportMapping FunctionImportName="tbl_otherdeposit_select_bystoreid" FunctionName="WestZoneModel.Store.tbl_otherdeposit_select_bystoreid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_otherdeposit_select_bystoreid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_otherdeposit_selectbystoreid" FunctionName="WestZoneModel.Store.tbl_otherdeposit_selectbystoreid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_otherdeposit_selectbystoreid_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="paymentmethod" ColumnName="paymentmethod" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUnassignShiftName" FunctionName="WestZoneModel.Store.GetUnassignShiftName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetUnassignShiftName_Result">
+          <ScalarProperty Name="TotalCount" ColumnName="TotalCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Tbl_Configuration">
+      <EntityTypeMapping TypeName="WestZoneModel.Tbl_Configuration">
+        <MappingFragment StoreEntitySet="Tbl_Configuration">
+          <ScalarProperty Name="typicalbalid" ColumnName="typicalbalid" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Dept_id" ColumnName="Dept_id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_GroupName">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_GroupName">
+        <MappingFragment StoreEntitySet="tbl_GroupName">
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="Typicalbalanceid" ColumnName="Typicalbalanceid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TypicalBalance_master">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_TypicalBalance_master">
+        <MappingFragment StoreEntitySet="tbl_TypicalBalance_master">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Get_UniqueTendersInDrawer" FunctionName="WestZoneModel.Store.Get_UniqueTendersInDrawer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.Get_UniqueTendersInDrawer_Result">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="typeval" ColumnName="typeval" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Insert_Configuration" FunctionName="WestZoneModel.Store.Insert_Configuration" />
+    <FunctionImportMapping FunctionImportName="tbl_Groupname_Search" FunctionName="WestZoneModel.Store.tbl_Groupname_Search">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Groupname_Search_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Typicalbalanceid" ColumnName="Typicalbalanceid" />
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="QbAccount" ColumnName="QbAccount" />
+          <ScalarProperty Name="QbAccountid" ColumnName="QbAccountid" />
+          <ScalarProperty Name="typicalname" ColumnName="typicalname" />
+          <ScalarProperty Name="typicalid" ColumnName="typicalid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Storewise_Excelupload">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Storewise_Excelupload">
+        <MappingFragment StoreEntitySet="tbl_Storewise_Excelupload">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="issync" ColumnName="issync" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesGeneralEntries_Delete" FunctionName="WestZoneModel.Store.tbl_SalesGeneralEntries_Delete" />
+    <FunctionImportMapping FunctionImportName="tbl_SalesGeneralEntries_updateposno" FunctionName="WestZoneModel.Store.tbl_SalesGeneralEntries_updateposno" />
+    <FunctionImportMapping FunctionImportName="tbl_ChildSalesEntries_updatedata" FunctionName="WestZoneModel.Store.tbl_ChildSalesEntries_updatedata" />
+    <FunctionImportMapping FunctionImportName="tbl_Excelread_Errormsg_insert" FunctionName="WestZoneModel.Store.tbl_Excelread_Errormsg_insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Excelread_Errormsg_insert_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Excelid" ColumnName="Excelid" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="ColumnNo" ColumnName="ColumnNo" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_ExcelRead_insert" FunctionName="WestZoneModel.Store.tbl_ExcelRead_insert" />
+    <FunctionImportMapping FunctionImportName="tbl_PaidOut_insert" FunctionName="WestZoneModel.Store.tbl_PaidOut_insert" />
+    <FunctionImportMapping FunctionImportName="tbl_DepartmentNetSales_insert" FunctionName="WestZoneModel.Store.tbl_DepartmentNetSales_insert" />
+    <EntitySetMapping Name="tbl_ExcelRead">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_ExcelRead">
+        <MappingFragment StoreEntitySet="tbl_ExcelRead">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="Excelreadate" ColumnName="Excelreadate" />
+          <ScalarProperty Name="IsFlag" ColumnName="IsFlag" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Excelread_Errormsg">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Excelread_Errormsg">
+        <MappingFragment StoreEntitySet="tbl_Excelread_Errormsg">
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="ColumnNo" ColumnName="ColumnNo" />
+          <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+          <ScalarProperty Name="Excelid" ColumnName="Excelid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GeneralEntryDetail" FunctionName="WestZoneModel.Store.GeneralEntryDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GeneralEntryDetail_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Gid" ColumnName="Gid" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="Groupname" ColumnName="Groupname" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="Typeid" ColumnName="Typeid" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="statusname" ColumnName="statusname" />
+          <ScalarProperty Name="SalesDate" ColumnName="SalesDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getTenderAccountsStoreWise" FunctionName="WestZoneModel.Store.sp_getTenderAccountsStoreWise">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.sp_getTenderAccountsStoreWise_Result">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="typicalbalid" ColumnName="typicalbalid" />
+          <ScalarProperty Name="typicalBalName" ColumnName="typicalBalName" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_DefaultAccount">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_DefaultAccount">
+        <MappingFragment StoreEntitySet="tbl_DefaultAccount">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetTotalNetSalesTaxAmount" FunctionName="WestZoneModel.Store.GetTotalNetSalesTaxAmount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetTotalNetSalesTaxAmount_Result">
+          <ScalarProperty Name="totalnetsalesamountwithtax" ColumnName="totalnetsalesamountwithtax" />
+          <ScalarProperty Name="totaltaxamount" ColumnName="totaltaxamount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTilteWiseSaleslist" FunctionName="WestZoneModel.Store.GetTilteWiseSaleslist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetTilteWiseSaleslist_Result">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="refid" ColumnName="refid" />
+          <ScalarProperty Name="groupid" ColumnName="groupid" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="MEmo" ColumnName="MEmo" />
+          <ScalarProperty Name="typicalbalid" ColumnName="typicalbalid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_SalesGeneralEntries_select" FunctionName="WestZoneModel.Store.tbl_SalesGeneralEntries_select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_SalesGeneralEntries_select_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="storeid" ColumnName="storeid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="salesdate" ColumnName="salesdate" />
+          <ScalarProperty Name="Createddate" ColumnName="Createddate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="syncstatus" ColumnName="syncstatus" />
+          <ScalarProperty Name="totalamount" ColumnName="totalamount" />
+          <ScalarProperty Name="noofpos" ColumnName="noofpos" />
+          <ScalarProperty Name="storename" ColumnName="storename" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="statusname" ColumnName="statusname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPaidOutTotal_Shiftwisereportbyterminalid" FunctionName="WestZoneModel.Store.GetPaidOutTotal_Shiftwisereportbyterminalid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetPaidOutTotal_Shiftwisereportbyterminalid_Result">
+          <ScalarProperty Name="TotalByTitlePO" ColumnName="TotalByTitlePO" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSalesAmountTotalbyTerminalID" FunctionName="WestZoneModel.Store.GetSalesAmountTotalbyTerminalID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetSalesAmountTotalbyTerminalID_Result">
+          <ScalarProperty Name="TotalByTitle" ColumnName="TotalByTitle" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTotalCustomercount_byterminalid" FunctionName="WestZoneModel.Store.GetTotalCustomercount_byterminalid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.GetTotalCustomercount_byterminalid_Result">
+          <ScalarProperty Name="customercount" ColumnName="customercount" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Store_Create>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+
+<div class="header-small special_bg">
+    <h3>Activity Logs </h3>
+
+</div>
+@{
+Html.RenderAction("Grid");
+}
+
+
+

@@ -1,0 +1,394 @@
+﻿@model wwwroot.Areas.Admin.Models.Shiftwisereport_Select
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+    Layout = null;
+    WestZoneEntities db = new WestZoneEntities();
+}
+<style>
+    .TextboxWidth {
+        width: 100px;
+    }
+</style>
+@if (Convert.ToString(ViewBag.ErrorMessage) == "ExistShift")
+{
+    <script>
+        MyCustomAlert("Shift Name Already Exist","2");
+    </script>
+}
+@if (Convert.ToString(ViewBag.ErrorMessage) == "Sucess")
+{
+    <script>
+        MyfunSuccess();
+    </script>
+}
+@if (Convert.ToString(ViewBag.ErrorMessage) == "NoItemFound")
+{
+    <script>
+        MyfunNoItem();
+    </script>
+}
+<div class="tab-content">
+
+    <div id="tenderdiv" class="tab-pane in active">
+        @{
+            if (@Model.ShiftWisetenderData != null && @Model.ShiftWisetenderData.Count > 0)
+            {
+                <div class="tabcntbox">
+                    @using (Html.BeginForm("ShiftWisetenderGrid", "Shiftwisereport", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-9">
+                                <h1>@Model.ShiftWisetenderData[0].Terminalname</h1>
+
+                                <p>@Model.ShiftWisetenderData[0].StartTime to @Model.ShiftWisetenderData[0].EndTime  | Customer Count: <strong>@wwwroot.Class.AdminSiteConfiguration.RoundPriceWithComma(Convert.ToString(@Model.ShiftWisetenderData[0].CustomerCount))</strong></p>
+                            </div>
+
+                            <div class="col-md-6 col-sm-3">
+                                <div class="savebtnarea">
+                                    @{
+                                        <input type="submit" id="SubmitShift" value="Save" onclick="ChackCashierName()" name="" class="btn btnsavebox" />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="datagrid mt-5 shiftwisereport">
+                                    @{
+                                        decimal Total = 0;
+
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover" id="data_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th valign="top" class="selectboxtd wdth100px">
+                                                            <div class="set1">
+                                                                <span>Select</span>
+                                                                <span>
+                                                                    @Html.HiddenFor(model => Model.terminal_id)
+                                                                                                                                @Html.DropDownListFor(model => Model.ShiftWisetenderData[0].ShiftName, new SelectList(Model.ShiftWisetenderData[0].ShiftNameList, "Text", "Text", Model.ShiftWisetenderData[0].ShiftName), "Shift#", new { id = "SelectShift_", @class = "myval Width" })
+                                                                                                                            </span>
+                                                            </div>                                                            
+                                                        </th>
+                                                        <th valign="top selectboxtd">
+                                                            <div class="set1">
+                                                                <span>
+                                                                    @Html.HiddenFor(model => Model.ShiftWisetenderData[0].Id)
+                                                                                                                                Cashier's Name
+                                                                                                                            </span>
+                                                                <span>@Html.TextBoxFor(model => Model.ShiftWisetenderData[0].CashierName, new { @maxlength = "50", @class = "form-control required", @id = "CashierName_", @onchange = "ChackCashierName()" }) <br /></span>
+                                                            </div>
+                                                            
+                                                                <span class="highlight" id="Cashier_Name"> Cashier Name is Required</span>
+                                                        </th>
+                                                        <th class="wdth280 tabright">
+                                                            Net Sales With Taxes
+                                                            <span class="fnt25">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(@Model.ShiftWisetenderData[0].SalesAmount.ToString())</span>
+                                                            <span class="normaltext  dblock">Tax Collected $ @Model.ShiftWisetenderData[0].TotalTaxAmount</span>
+
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @for (int c = 0; c < Model.ShiftWisetenderData[0].TenderList.Count; c++)
+                                                    {
+                                                        <tr>
+                                                            <td colspan="2" class="creditcadboxlist">
+                                                                @Model.ShiftWisetenderData[0].TenderList[c].Name
+                                                                @if (Model.ShiftWisetenderData[0].TenderList[c].Name == "Credit Cards")
+                                                                {
+                                                                    <img src="~/Content/image/AMEX.png" style="height: 50px;width: 55px;" />
+                                                                    @Html.TextBoxFor(model => Model.AMEX, new { @placeholder = "- AMEX", @maxlength = "18", @class = "form-control decimalOnly required TextboxWidth", @style = "text-align:right;font-size: large;", @onchange = "CreditTotal()" })
+                                                                    <img src="~/Content/image/DISCOVER.png" style="height: 50px;width: 55px;" />
+                                                                    @Html.TextBoxFor(model => Model.Discover, new { @placeholder = "- Discover", @maxlength = "18", @class = "form-control decimalOnly required TextboxWidth", @style = "text-align:right;font-size: large;width:125px;", @onchange = "CreditTotal()" })
+                                                                    <img src="~/Content/image/MASTER.png" style="height: 50px;width: 55px;" />
+                                                                    @Html.TextBoxFor(model => Model.Master, new { @placeholder = "- Master", @maxlength = "18", @class = "form-control decimalOnly required TextboxWidth", @style = "text-align:right;font-size: large;", @onchange = "CreditTotal()" })
+                                                                    <img src="~/Content/image/VISA.png" style="height: 50px;width: 55px;" />
+                                                                    @Html.TextBoxFor(model => Model.Visa, new { @placeholder = "- Visa", @maxlength = "18", @class = "form-control decimalOnly required TextboxWidth", @style = "text-align:right;font-size: large;", @onchange = "CreditTotal()" })
+                                                                    @Html.Hidden("namea", "@Model.ShiftWisetenderData[0].TenderList[c].Amount", new { @id = "SumCreditValue" })
+                                                                    <span class="highlight" id="CreditAlert">Amount Must be Less Then Total Credit Value</span>
+                                                                }
+                                                            </td>
+
+                                                            <td class="text-right">
+                                                                @*@Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].TenderList[c].Amount, new { @class = "form-control", @id = "amount_" + n + c })*@
+                                                                @Html.HiddenFor(model => Model.ShiftWisetenderData[0].TenderList[c].Id)
+                                                                @Html.HiddenFor(model => Model.ShiftWisetenderData[0].TenderList[c].ListName)
+                                                                @Html.HiddenFor(model => Model.ShiftWisetenderData[0].TenderList[c].Name)
+                                                                @Html.TextBoxFor(model => Model.ShiftWisetenderData[0].TenderList[c].Amount, new
+                                                           {
+                                                               @maxlength = "18",
+                                                               @class = "form-control decimalOnly required TotalValue",
+                                                               @style = "text-align:right;font-size: large;",
+                                                               @id = "Amount_" + c @*, @onchange = "AmountSave('" + @tempvalue + "','" + @idval + "');"*@})
+                                                                <span class="highlight"> @Html.ValidationMessageFor(model => Model.ShiftWisetenderData[0].TenderList[c].Amount)</span>
+                                                                @{
+                                                                    decimal amount = Convert.ToDecimal(Model.ShiftWisetenderData[0].TenderList[c].Amount);
+                                                                    Total += amount;
+                                                                }
+
+                                                        </tr>
+                                                        @*if (Convert.ToString(Model.ShiftWisetenderData[0].TenderList[c].Name) == "Credit Card")
+            {
+                <tr>
+                    <td colspan="2">
+                        - AMEX
+                    </td>
+                    <td class="text-right">
+                        @Html.TextBoxFor(model => Model.AMEX, new { @maxlength = "20", @class = "form-control decimalOnly required", @style = "text-align:right" })
+                        @Html.ValidationMessageFor(model => Model.AMEX)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        - Discover
+                    </td>
+                    <td class="text-right">
+                        @Html.TextBoxFor(model => Model.Discover, new { @maxlength = "20", @class = "form-control decimalOnly required", @style = "text-align:right" })
+                        @Html.ValidationMessageFor(model => Model.Discover)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        - Master
+                    </td>
+                    <td class="text-right">
+                        @Html.TextBoxFor(model => Model.Master, new { @maxlength = "20", @class = "form-control decimalOnly required", @style = "text-align:right" })
+                        @Html.ValidationMessageFor(model => Model.Master)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        - Visa
+                    </td>
+                    <td class="text-right">
+                        @Html.TextBoxFor(model => Model.Visa, new { @maxlength = "20", @class = "form-control decimalOnly required", @style = "text-align:right" })
+                        @Html.ValidationMessageFor(model => Model.Visa)
+                    </td>
+                </tr>
+                }*@
+                                                    }
+                                                    @if (Model.ShiftWisetenderData[0].paidoutLists != null)
+                                                    {
+                                                        for (int c = 0; c < Model.ShiftWisetenderData[0].paidoutLists.Count; c++)
+                                                        {
+                                                            <tr>
+                                                                <td colspan="2" class="creditcadboxlist">
+                                                                    @Model.ShiftWisetenderData[0].paidoutLists[c].Title
+                                                                </td>
+
+                                                                <td class="text-right">
+                                                                    @Html.HiddenFor(model => Model.ShiftWisetenderData[0].paidoutLists[c].Id)
+                                                                    @Html.HiddenFor(model => Model.ShiftWisetenderData[0].paidoutLists[c].ListName)
+                                                                    @Html.HiddenFor(model => Model.ShiftWisetenderData[0].paidoutLists[c].Title)
+                                                                    @Html.TextBoxFor(model => Model.ShiftWisetenderData[0].paidoutLists[c].Amount, new
+                                                               {
+                                                                   @maxlength = "18",
+                                                                   @class = "form-control decimalOnly required",
+                                                                   @style = "text-align:right;font-size: large;",
+                                                                   @id = "PaidAmount_" + c @*, @onchange = "AmountSave('" + @tempvalue + "','" + @idval + "');"*@})
+                                                                    <span class="highlight"> @Html.ValidationMessageFor(model => Model.ShiftWisetenderData[0].paidoutLists[c].Amount)</span>
+                                                                    @{
+                                                                        decimal amount = Convert.ToDecimal(Model.ShiftWisetenderData[0].paidoutLists[c].Amount);
+                                                                        Total += amount;
+                                                                    }
+
+                                                            </tr>
+                                                        }
+                                                    }
+
+
+</table>
+                                            <span id="AddMoreName" class="highlight">Please Fill Blank fields</span>
+                                            <div class="addrowbox" @*style="display:none"*@>
+                                                <input type="button" class="add-row" value="+ Add Row">
+                                            </div>
+
+                                            <div class="totalbox">
+
+                                                <div class="totalttl">
+                                                    Actual Grand Total
+                                                </div>
+                                                <div class="grandtotalvalue">
+
+                                                    @*@{decimal paidoutamt = Convert.ToDecimal(Model.ShiftWisetenderData[0].Paidoutamount); }*@
+                                                    @*<span>Paid Out Amount <b style="color:green"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(paidoutamt.ToString())</b></span>*@
+                                                    @*@{decimal Totalbypaidamt = paidoutamt + Total;}*@
+                                                    @{decimal Totalbypaidamt = Total;}
+
+                                                    $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Totalbypaidamt.ToString())
+                                                    <div class="set_calss1">
+                                                        @{
+                                                            var Difference = Model.ShiftWisetenderData[0].SalesAmount - Total;
+
+                                                            if (Difference == 0)
+                                                            {
+
+                                                            }
+                                                            else if (Difference >= 0)
+                                                            {
+                                                                <span>Over/Short <b style="color:green"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span>Over/Short <b><span class="colorRed"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</span></b></span>
+                                                            }
+
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            }
+        }
+    </div>
+
+</div>
+<script>
+
+
+    $(".decimalOnly").bind('keypress', function isNumberKey(evt) {
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+            return false;
+
+        return true;
+    });
+    $(".decimalOnly").bind("paste", function (e) {
+        e.preventDefault();
+    });
+    $(document).ready(function () {
+        $('#CreditAlert').hide();
+        $('#Cashier_Name').hide();
+        $('#AddMoreName').hide();
+        $(".add-row").click(function () {
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length);
+            //alert(table_len);
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td colspan=2><input type='text' name='Title' id='Title' maxlength='40' class='form-control width195 required'/></td><td class='text-right'><input type='text' name='Amount' maxlength='18' id='Amount' class='form-control width195 decimalOnly' style='text-align:right;font-size: large;'/> <input type='button' value='Delete' class='delete_btn' onclick='delete_row(" + table_len + ")'></td></tr>";
+            // $("table tbody").append(row);
+            $(".decimalOnly").bind('keypress', function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 46)
+                    return false;
+
+                return true;
+            });
+            $(".decimalOnly").bind("paste", function (e) {
+                e.preventDefault();
+            });
+        });
+        //$("#AMEX").on("blur", function () {
+        //    var sum = CreditTotal();
+        //    $(this).parent("td").parent("tr").find(".TotalValue").removeAttr("value");
+        //    $(this).parent("td").parent("tr").find(".TotalValue").attr("value",sum);
+        //    $(this).parent("td").parent("tr").find("#SumCreditValue").val(sum);
+        //    $(this).parent("td").parent("tr").find(".TotalValue").trigger("blur");
+        //});
+        // Find and remove selected table rows
+
+    });
+
+    function delete_row(no) {
+        document.getElementById("row" + no + "").outerHTML = "";
+    }
+</script>
+<script type="text/javascript">
+    function CreditTotal() {
+        var AMEX = document.getElementById("AMEX").value;
+        var Discover = document.getElementById("Discover").value;
+        var Master = document.getElementById("Master").value;
+        var Visa = document.getElementById("Visa").value;
+        //var CreditValue = document.getElementById("SumCreditValue").value;
+
+        if (AMEX == "" || AMEX == '') {
+            AMEX = 0;
+        }
+        if (Discover == "" || Discover == '') {
+            Discover = 0;
+        }
+        if (Master == "" || Master == '') {
+            Master = 0;
+        }
+        if (Visa == "" || Visa == '') {
+            Visa = 0;
+        }
+        //if (CreditValue == "" || CreditValue == '') {
+        //    CreditValue = 0;
+        //}
+        var Sum = (parseFloat(AMEX) + parseFloat(Discover) + parseFloat(Master) + parseFloat(Visa));
+
+        //$('#SumCreditValue').parent("td").parent("tr").find(".TotalValue").val(Sum);
+        $('#AMEX').parent("td").parent("tr").find(".TotalValue").removeAttr("value");
+        $('#AMEX').parent("td").parent("tr").find(".TotalValue").attr("value", Sum);
+        //if (parseFloat(CreditValue) >= parseFloat(Sum)) {
+        //    document.getElementById("SubmitShift").disabled = false;
+        //    $('#CreditAlert').hide();
+        //} else {
+        //    document.getElementById("SubmitShift").disabled = true;
+        //    $('#CreditAlert').show();
+        //}
+
+    }
+    function ChackCashierName() {
+        //var name = document.getElementById("CashierName_").value;
+        //if (name === "" || name === '' || name === " ") {
+        //    //alert(name);
+        //    event.preventDefault();
+        //    $('#Cashier_Name').show();
+        //}
+        //else {
+        //    $('#Cashier_Name').hide();
+        //}
+
+
+        //event.preventDefault();
+        var Titleinps = document.getElementsByName('Title');
+        var Amountinps = document.getElementsByName('Amount');
+        //alert(inps);
+        var Titleresult = "false";
+        for (var i = 0; i < Titleinps.length; i++) {
+            var inp = Titleinps[i];
+            //alert(inp);
+            if (inp.value === null || inp.value === "" || inp.value === '') {
+                Titleresult = "true";
+                //alert(Titleresult + "result")
+                break;
+            }
+            //alert(inp.value + Titleresult);
+        }
+        var Amountresult = "false";
+        for (var j = 0; j < Amountinps.length; j++) {
+            var Amountinp = Amountinps[j];
+            //alert(Amountinp);
+            if (Amountinp.value === null || Amountinp.value === "" || Amountinp.value === '') {
+                Amountresult = "true";
+                //alert(Amountresult + "result")
+                break;
+            }
+            //alert(Amountinp.value + Amountresult);
+        }
+        if (Titleresult === "true" || Amountresult === "true") {
+            event.preventDefault();
+            $('#AddMoreName').show();
+        }
+        else {
+            $('#AddMoreName').hide();
+            //document.getElementById("SubmitShift").disabled = false;
+        }
+    }
+
+</script>

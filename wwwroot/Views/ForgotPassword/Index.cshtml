@@ -1,0 +1,90 @@
+﻿@model wwwroot.Models.ForgetPassword
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLogin.cshtml";
+}
+
+@using (Html.BeginForm("index", "forgotpassword", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="animated fadeInDown">
+
+
+        <div>
+            <div class="loginboxoage">
+                <div class="logobox">
+                    <img src="~/Content/Admin/images/logo.png" alt="" />
+                </div>
+                <h1>Forgot Password</h1>
+                <div class="loginblock">
+
+                    <div class="formbox">
+                        <div>
+                            @if (ViewBag.StatusMessage.ToString() == "Success")
+                            {
+                                <div class="alert alert-success">
+                                    <div class="tick">
+                                        We have send reset password link on your email address. Please check your Email Address
+                                    </div>
+                                </div>
+                            }
+
+                            @if (ViewBag.StatusMessage.ToString() == "Exists")
+                            {
+                                <div class="alert alert-danger">
+                                    <div class="cross">
+                                        <span>User Does not Exists.</span>
+                                    </div>
+                                </div>
+                            }
+                            @if (ViewBag.StatusMessage.ToString() == "Error")
+                            {
+
+                                <div class="alert alert-danger">
+                                    <div class="cross">
+                                        <strong>Error... Please Try Again.</strong>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="textboxarea">
+                            <p>Enter your UserName below and we will send you reset instructions!</p>
+                        </div>
+                        <div class="textboxarea">
+                            @Html.TextBoxFor(m => m.Username, new { @placeholder = "Username", @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Username)
+                        </div>
+                       
+                        <div class="textboxarea">
+                           
+                            <input type="submit" value="Submit" />
+							 <a href="@Url.Action("index", "login")" class="btncancel">Cancel</a>
+                        </div>
+
+                    </div>
+
+                    <!--###################### -->
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+}
+@section FooterScript{  }

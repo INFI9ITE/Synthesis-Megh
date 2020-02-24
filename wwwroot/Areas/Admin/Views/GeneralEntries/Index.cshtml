@@ -1,0 +1,18 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.GeneralEntries>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+<div class="header-small special_bg">
+    <h3>Journal Entries </h3>
+
+</div>
+
+    @{
+        Html.RenderAction("Grid");
+    }
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

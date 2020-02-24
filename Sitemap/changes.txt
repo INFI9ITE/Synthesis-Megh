@@ -1,0 +1,12 @@
+Activity log
+-Display AM/PM for time --- done
+-Remove dot. -----done
+Create Excel  Store message ----done
+Scroll in Grid  ---done
+Store Changes
+Design change of form ---done
+Fax no display in grid  ----done
+Edit page Replace storeno to Phoneno  ----done
+Three Drop down  SM,DM,BM ---
+Search button does not match 
+Validation of phoneno and fax no ---done

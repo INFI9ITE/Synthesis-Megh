@@ -1,0 +1,311 @@
+﻿@model wwwroot.Areas.Admin.Models.User_Edit
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+@*<div class="page-body headertopbox">
+        <h5 class="row-title"><i class="typcn typcn-th-small"></i>User</h5>
+        <div id="hbreadcrumb" class="pull-right">
+            <ol class="hbreadcrumb breadcrumb fontsize16">
+                <a runat="server" class="btn btn-default btn-maroon" href="@Url.Action("index", "User")"><i class="fa fa-backward"></i>Back</a>
+
+            </ol>
+        </div>
+    </div>*@
+
+<div id="globalTabContent">
+    <div class="animate-panelmessesgarea padbtmzero">
+        @if (ViewBag.StatusMessage.ToString() == "Success")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Insert.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Lock")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Lock.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "UnLock")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.UnLock.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Edit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Edit.ToString()');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+            {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+            {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+            {
+            <script>
+                MyfunExistsEmpcode();
+            </script>
+        }
+    </div>
+
+
+
+    <div id="PanAddUpdate">
+
+        <div class="header-small special_bg">
+            <h3>Edit User </h3>
+        </div>
+
+
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+                <div class="datagrid martop15">
+                    <div class="formmain">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label>
+                                        Name<span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.TextBoxFor(model => model.Name, new { maxlength = 100, @class = "form-control" })
+                                    <span class="highlight">
+                                        @Html.ValidationMessageFor(model => model.Name)
+                                    </span>
+
+
+                                </div>
+                                @*<div class="form-group">
+                                        <label>
+                                            Email<span class="highlight">*</span>
+                                        </label>
+
+
+                                            @Html.TextBoxFor(model => model.Email, new { maxlength = 100, @class = "form-control" })
+                                            <span class="highlight">     @Html.ValidationMessageFor(model => model.Email)</span>
+
+                                    </div>*@
+                                <div class="form-group">
+                                    <label>
+                                        User Name <span class="highlight">*</span>
+                                    </label>
+
+
+                                    @Html.TextBoxFor(model => model.UserName, new { maxlength = 100, @readonly = "readonly", @class = "form-control", })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.UserName)</span>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        User Role <span class="highlight">*</span>
+                                    </label>
+                                    @{
+                                        if (Model.flag > 0)
+                                        {
+                                            @Html.HiddenFor(model => model.rolename)
+                                            @Html.DropDownListFor(model => model.rolename, new SelectList(Model.BindRoleList, "value", "text"), "Select Role ", new { id = "rolename", @class = "myval", onchange = "ddChangeClearList()", disabled = "disabled" })
+                                           
+                                        }
+                                        else
+                                        {
+                                            @Html.DropDownListFor(model => model.rolename, new SelectList(Model.BindRoleList, "value", "text"), "Select Role ", new { id = "rolename", @class = "myval", onchange = "ddChangeClearList()" })
+                                            @Html.ValidationMessageFor(model => model.rolename)
+                                           
+                                        }
+                                    }
+
+
+                                </div>
+
+
+                                @*<div class="form-group">
+                                        <label>
+                                            User Store <span class="highlight">*</span>
+                                        </label>
+
+                                            @Html.ListBoxFor(model => model.Storename, new MultiSelectList(Model.BindStoreList, "value", "text", Model.UserStore.Select(x => x.UserStores).ToList()), new { id = "Storename", @class = "myval", onchange = "ddListChange()" })
+                                            @Html.ValidationMessageFor(model => model.Storename)
+
+                                    </div>*@
+
+                                <div class="form-group">
+                                    <div class="">
+                                        <input type="submit" value="Save" name="Save" id="Save"
+                                               class="buttonbox btnsubmit" />
+                                        @Html.ActionLink("Cancel", "Index", null, new { @class = "buttonbox btncancel" })
+                                    </div>
+                                </div>
+
+
+                                <div class="clear">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                        }
+
+    </div>
+
+</div>
+@*@section FooterScript{*@
+
+<script>
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+
+        if (val == 1) {
+
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+
+        }
+    }
+
+
+
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        ddListChange();
+    });
+    function ddChangeClearList() {
+        $('#Storename').val(null).trigger("change");
+        $(function () {
+            $('li').on('click', function (e) {
+                var menuItem = $(e.currentTarget);
+
+                if (menuItem.attr('aria-selection') === 'true') {
+                    $(this).attr('display', 'none');
+                } else {
+                    $(this).attr('display', 'block');
+                }
+            });
+        });
+        $('#Storename').val(null).trigger("change");
+    }
+    function ddListChange() {
+        var role = $('#rolename option:selected').text();
+
+        if (role == "Back Office Manager") {
+
+            { $("#Storename").removeAttr('multiple'); }
+            // { $("#select2-Storename-results").prop("multiple", true); }
+        }
+        else {
+
+            {
+
+                $("#Storename").prop("multiple", true);
+            }
+
+        }
+    }
+
+</script>
+@*}*@

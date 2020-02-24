@@ -1,0 +1,208 @@
+﻿@*@model wwwrootBL.Entity.Utility*@
+@model wwwroot.Areas.Admin.Models.Store_header
+@using wwwrootBL.Entity;
+@using wwwroot.Class;
+@{
+    Layout = null;
+}
+
+<div class="headermainbox printarea">
+    <div class="logo"><a href="@Url.Action("Index", "Dashboard")"><img src="~/Content/Admin/images/img_logosysthesis.png" /> </a></div>
+    @{
+        WestZoneEntities db = new WestZoneEntities();
+    }
+    @using (Html.BeginForm("Header", "AdminInclude", FormMethod.Post, new { enctype = "multipart/form-data", id = "frmid" }))
+    {
+        @*@Html.HiddenFor(model=>model.hdstore)*@
+        <input id="namevalue" type="hidden" name="storename" value="@Model.ControllerName" />
+        if ((!Roles.IsUserInRole("Administrator")) && (!Roles.IsUserInRole("Store Manager")))
+        {
+            if (Roles.IsUserInRole("Data Approver") || (Roles.IsUserInRole("Owner")))
+            {
+                <span class="applicationtext">
+                    @Html.DropDownListFor(model => model.storeid, new SelectList(Model.Storenamelist, "value", "text"), new { @class = "myval", onchange = "drpselect(this.value)" })
+                </span>
+            }
+            else if (Roles.IsUserInRole("Back Office Manager"))
+            {
+                var Storenamelist1 = db.tbl_user_store_By_Reg_userid(@WebSecurity.CurrentUserId).Select(x => x.StoreName).FirstOrDefault();
+                var stid = db.tbl_Store.Where(x => x.Name == Storenamelist1).Select(x => x.Id).FirstOrDefault();
+
+                <input id="stid" type="hidden" name="stid" />
+                @*@Html.HiddenFor(Model => Model.ControllerName)*@
+
+                <span class="applicationtext fnt25" id="spnStore">@Storenamelist1</span>
+            }
+
+        }
+        else
+        {
+            <span class="applicationtext">
+                @Html.DropDownListFor(model => model.storeid, new SelectList(Model.Storenamelist, "value", "text"), new { @class = "myval", onchange = "drpselect()" })
+
+            </span>
+
+
+
+        }
+    }
+    <a href="#" class="burgermenu"><i class="fa fa-bars"></i></a>
+    <div class="mobileclear"></div>
+    <div class="headerrightbox">
+        @{
+            var Name = "";
+            string s;
+            string firstlet;
+            //if (!Roles.IsUserInRole("Administrator"))
+            //{
+
+            Name = db.tbl_user_name(@WebSecurity.CurrentUserId).Select(x => x.Name).FirstOrDefault();
+            s = Name;
+            firstlet = s.Substring(0, 1).ToUpper();
+            //}
+            //else
+            //{
+            //    Name = "Admin";
+            //    s = Name;
+            //    firstlet = s.Substring(0, 1).ToUpper();
+            //}Back Office Manager
+            if ((!Roles.IsUserInRole("Administrator")) && (!Roles.IsUserInRole("Back Office Manager")) && (!Roles.IsUserInRole("Owner")))
+            {
+                // this is for ntification bell icon
+                <span class="badgeicon dropdown" id="invoice_notification">
+                </span>
+                //close
+            }
+            <span class="profile">
+                @if (Roles.IsUserInRole("Administrator"))
+                {
+                    <span class="profinename bg_profil_system_admin" id="circleid">@Html.Raw(firstlet)</span>}
+                else if (Roles.IsUserInRole("Back Office Manager"))
+                {
+                    <span class="profinename bg_profil_back_office" id="circleid">@Html.Raw(firstlet)</span>
+                }
+                else if (Roles.IsUserInRole("Data Approver"))
+                {
+                    <span class="profinename bg_profil_data_approver" id="circleid">@Html.Raw(firstlet)</span>
+                }
+                else if (Roles.IsUserInRole("Store Manager"))
+                {
+                    <span class="profinename bg_profil_store_manager" id="circleid">@Html.Raw(firstlet)</span>
+                }
+                else if (Roles.IsUserInRole("Owner"))
+                {
+                    <span class="profinename bg_profil_owner" id="circleid">@Html.Raw(firstlet)</span>
+                }
+                <span class="name">@Html.Raw(Name)</span>
+            </span>
+            <a href="@Url.Action("signout", "AdminInclude")" class="logout icon_color_wight" data-toggle="tooltip" data-placement="bottom" data-original-title="Logout"> <img src="~/Content/Admin/images/log-in.svg" alt="" /> </a>
+        }
+
+        <div class="clear"></div>
+
+    </div>
+    @*<div class="overlaytransparent" style="display:none"></div>*@
+</div>
+
+<script>
+    $(document).ready(function () {
+        var controllerName = '@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()';
+        $('#namevalue').val(controllerName);
+        //alert($('#namevalue').val());
+        Loader(0);
+        $("[data-toggle=tooltip]").tooltip();
+
+        //$(".select2-container").remove();
+
+
+        @*var role = '@Roles.IsUserInRole("Data Approver")';
+
+        if (role == 'True') {
+
+            document.getElementById('drp').value = '@GlobalStore.GlobalStore_name'
+        }
+        else {
+            $("#spnStore").html('@GlobalStore.GlobalStore_name');
+        }*@
+
+
+
+        //$("select").select2({
+        //    width: "100%",
+        //    formatResult: function (state) {
+        //        if (!state.id) return state.text;
+        //        if ($(state.element).data('active') == "0") {
+        //            return state.text + "<i class='fa fa-dot-circle-o'></i>";
+        //        } else {
+        //            return state.text;
+        //        }
+        //    },
+        //    formatSelection: function (state) {
+        //        if ($(state.element).data('active') == "0") {
+        //            return state.text + "<i class='fa fa-dot-circle-o'></i>";
+        //        } else {
+        //            return state.text;
+        //        }
+        //    }
+        //});
+        @*var role = '@Roles.IsUserInRole("Data Approver")';
+
+        if (role == 'True') {
+            var storenamelist = document.getElementById("drp").value;
+            alert(storenamelist)
+            var url = '@Url.Action("Grid", "invoiceReport")';
+            var data = { Store_val: storenamelist };
+            $.post(url, data, function (result) {
+
+
+            });
+        }
+        else {
+            var storename = document.getElementById('spnStore').innerHTML;
+            alert(storename);
+            var url = '@Url.Action("Grid", "invoiceReport")';
+            var data = { Store_val: storename };
+            $.post(url, data, function (result) {
+
+            });
+        }*@
+
+        $('#invoice_notification').click(function() {
+          //  alert();
+            $('.overlaytransparent').addClass('hidediv');
+           
+        })
+    });
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if (val == 1) {
+            $(".loading-container").attr("style", "display:block;")
+        }
+        else {
+            $(".loading-container").attr("style", "display:none;")
+        }
+
+    }
+    function drpselect() {
+        
+        $('#frmid').submit();
+
+
+        @*var url = '@Url.Action("Grid", "invoiceReport")';
+        var data = { Store_val: Store };
+        $.post(url, data, function (result) {
+            $('#grddata').empty();
+            $('#grddata').append(result);
+            Loader(0);
+        });*@
+
+        @*var url1 = '@Url.Action("GetAllData", "AdminInclude")';
+        var data = { Store_val: Store };
+        $.get(url1, data, function (result) {
+            getAll()
+        });*@
+
+    }
+</script>

@@ -1,0 +1,98 @@
+﻿@model wwwroot.Areas.Admin.Models.Admin_Login
+
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/AdminLogin.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post, new { enctype = "multipart/form-data", @id = "loginvalidation" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="animated fadeInDown">
+
+
+        <div>
+            <div class="loginboxoage">
+                <div class="logobox">
+                    <img src="~/Content/Admin/images/logo.png" alt="" />
+                </div>
+                <h1>Welcome</h1>
+                <div class="loginblock">
+
+                    <div class="formbox">
+                        <div>
+                            @if (ViewBag.statusmessage == "t")
+                {
+                                <span class="errormessage">@ViewBag.ErrorMessage</span>
+                            }
+                            @if (ViewBag.statusmessage == "t1")
+                {
+                                <span class="errormessage">@ViewBag.ErrorMessage</span>
+                            }
+                        </div>
+                        <div class="textboxarea">
+
+                            @Html.TextBoxFor(m => m.UserName, new { autocomplete = "off", @placeholder = "User Name", @autofocus = "autofocus", @autocapitalize = "off", @autocorrect = "off", Value = (string)ViewBag.AdminUsername, @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                        <div class="textboxarea">
+                            @Html.PasswordFor(m => m.Password, new { autocomplete = "off", @autocapitalize = "off", @autocorrect = "off", @placeholder = "Password", Value = (string)ViewBag.AdminPassword, @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                        <div class="form-group loginbox-forgot">
+
+                            @Html.CheckBoxFor(m => m.RememberMe)
+
+                        </div>
+                        <div class="textboxarea">
+                            @*<span class="forgotpass"><a href="@Url.Action("index", "forgotpassword")">Forgot password?</a></span>*@
+                            <input type="submit" class="btn btn-primary btn-block" value="Login">
+                        </div>
+
+                    </div>
+
+                    <!--###################### -->
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+        @*<div class="textboxarea">
+           
+            @Html.PasswordFor(m => m.Password, new { autocomplete = "off", @autocapitalize = "off", @autocorrect = "off", @placeholder = "Password", Value = (string)ViewBag.AdminPassword, @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>*@
+        @*<div class="form-group loginbox-forgot">*@
+           <!-- <div class="checkbox">
+                <label>
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    <span class="text">Remember me next time.</span>
+                </label>
+            </div> -->
+          <!--  <div class="form-group col-md-6 forgotpass text">
+              >
+            </div> -->
+        @*</div>*@
+        @*<div class="textboxarea">
+		<span class="forgotpass">  <a href="@Url.Action("index", "forgotpassword")" class="pull-right ">Forgot Password?</a></span>
+            <input type="submit" class="btn btn-primary btn-block" value="Login">
+        </div>*@
+
+
+    </div>
+    @section FooterScript{
+        <script type="text/javascript">
+
+            function registerpublish() {
+
+                if ($('#loginvalidation').valid()) {
+
+                }
+            }
+
+        </script>
+    }
+}

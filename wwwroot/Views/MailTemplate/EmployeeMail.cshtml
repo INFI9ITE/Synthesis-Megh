@@ -1,0 +1,98 @@
+﻿@model wwwroot.Areas.Admin.Models.Employee_ExcelUpload
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employee Detail</title>
+
+</head>
+<body>
+    <div class="brdemail">
+        <table cellpadding="0" cellspacing="0" width="600px" style="border: 1px solid #293245; margin: 0px; auto; display: block; font-family:Arial, Helvetica, sans-serif; font-size:13px;">
+            <tr>
+                <td runat="server" style="padding:10px; border-bottom:1px solid #ccc;"></td>
+
+                    @*<img src="@wwwroot.Class.AdminSiteConfiguration.GetURL()/content/admin/assets/img/logo.png" ></td>*@
+
+            </tr>
+            <tr>
+                <td>
+                    <table id="mytable" border="0" cellpadding="5" align="center" cellspacing="0" style="border-collapse: collapse; width: 600px;">
+                        <tr>
+                            <td colspan="2" style="background-color: #293245; color: #ffffff; padding: 5px 15px;">
+                                <b>Details as follow :</b>
+                            </td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td colspan="2">
+                                Hello <b>@Model.Name</b>,<br />
+                                <br />
+                                <b>Your Details are as bellow,</b>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table id="mytable2" border="0" cellpadding="5" align="center" cellspacing="0" style="border-collapse: collapse; width: 600px;">
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Employee Code:</td>
+                            <td>@Model.EmpCode</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Advance:</td>
+                            <td>@Model.Advance</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Expense Claim:</td>
+                            <td>@Model.ExpenseClaim</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Net:</td>
+                            <td>@Model.Net</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Entry No:</td>
+                            <td>@Model.EntryNo</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Entry Date:</td>
+                            <td>@Model.EntryDate</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Claim Report:</td>
+                            <td>@Model.ClaimReport</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Period:</td>
+                            <td>@Model.Period</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>NhText:</td>
+                            <td>@Model.NhText</td>
+                        </tr>
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td>Crdesc:</td>
+                            <td>@Model.Crdesc</td>
+                        </tr>
+                    </table>
+                    <table id="mytable3" border="0" cellpadding="5" align="center" cellspacing="0" style="border-collapse: collapse; width: 600px;">
+                        <tr class="" style="padding: 5px 10px; display: block;">
+                            <td colspan="2">
+                                Thanks and Regards,
+                                <br />
+                                <b>  @wwwroot.Class.AdminSiteConfiguration.SiteName</b>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr runat="server">
+                <td style="background: #293245; color: #ffffff; text-align: center; vertical-align: middle; height: 55px; font-family: Verdana, Geneva, sans-serif; font-size: 12px;">
+                    Copyrights &copy; @DateTime.Now.Year @wwwroot.Class.AdminSiteConfiguration.SiteName. All rights reserved.
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

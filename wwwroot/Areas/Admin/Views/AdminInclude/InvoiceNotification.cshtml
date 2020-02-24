@@ -1,0 +1,38 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Invoice_Notification>
+@{
+    Layout = null;
+}
+@{
+    <a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#" aria-expanded="true"><span class="badge">@ViewBag.Modalcount</span> </a>
+    if (@ViewBag.Modalcount > 0)
+    {
+        <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+            @foreach (var item in Model)
+            {
+            <li> <a href="@Url.Action("detail", "Invoicereport", new { Id = item.id})"> <span class="message"> Invoice # @item.Invoice_Number sent for approval from store @item.Storename by @item.username </span> </a> </li>
+            }
+            <li class="btnviewall"><a href="@Url.Action("Index", "Invoicereport")">View all</a></li>
+        </ul>
+    }
+
+
+}
+<script>
+    $(document).ready(function () {
+        @*var store = $("#drp").val();
+        alert(store + " store list")
+
+        var role = '@Roles.IsUserInRole("Data Approver")';
+        var element_Store;
+        if (role == 'True') {
+            var store = $("#drp").val();
+            alert(store + " store list")
+            element_Store = store;
+        }
+        else {
+            var storename = $('#spnStore').html();
+            alert(storename + " store")
+            element_Store = storename;
+        }*@
+    });
+</script>

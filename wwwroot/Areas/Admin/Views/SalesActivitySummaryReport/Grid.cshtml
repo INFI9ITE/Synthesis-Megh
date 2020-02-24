@@ -1,0 +1,388 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.SalesActivitySummaryreport>
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+
+    Layout = null;
+}
+
+<style>
+    .divIDClass {
+        z-index: 999999 !important;
+    }
+
+    .overlaytransparent {
+        display: none !important;
+    }
+
+    .searchfinal {
+        position: relative;
+        z-index: 1;
+    }
+</style>
+@if (ViewBag.StatusMessage.ToString() == "Delete")
+{
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "3000",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "10000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr.success('Entry deleted Successfully');
+    </script>
+}
+@if (ViewBag.StatusMessage.ToString() == "NoItem")
+{
+    <script>
+        NoRecoedFound();
+    </script>
+}
+<div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+
+
+    @{if (Model.Count() > 0)
+        {
+
+            <div class="datagrid martop15">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover tablecolor">
+                        <thead>
+                            <tr>
+                                <th>Transaction Time</th>
+                                <th>Terminal</th>
+                                <th class="text-center">Customer Count</th>
+                                <th class="text-center"> Net Sales With Tax</th>
+                                <th class="text-center">Total Tax Collected</th>
+                                <th class="text-center">Average Sale</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        @{
+                                            var datestart = wwwroot.Class.AdminSiteConfiguration.GetDatetimeformatwithAMPM(Convert.ToString(item.StartDate));
+                                            var dateEnd = wwwroot.Class.AdminSiteConfiguration.GetDatetimeformatwithAMPM(Convert.ToString(item.TransactionEndTime));
+                                        }
+                                        <td>
+                                            <a href="@Url.Action("Index", "Shiftwisereport", new { StoreId = item.Storeid, TerminalId = item.Terminalid, StartDate = @wwwroot.Class.AdminSiteConfiguration.GetDateformat(Convert.ToString(item.TransactionStartTime)) })" data-toggle="tooltip" data-placement="top" data-original-title="">
+                                                @datestart - @dateEnd
+                                            </a>
+                                        </td>
+                                        <td>@Html.Raw(item.Terminal)</td>
+                                        <td class="text-center">
+                                            @wwwroot.Class.AdminSiteConfiguration.RoundPriceWithComma(Convert.ToString(@Html.Raw(Convert.ToInt32(item.CustomerCount))))
+                                        </td>
+                                        <td class="text-center">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Html.Raw(item.NetSalesWithTax))) </td>
+                                        <td class="text-center">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Html.Raw(item.TotalTaxCollected))) </td>
+                                        <td class="text-center">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Convert.ToString(@Html.Raw(item.AverageSale))) </td>
+                                        <td colspan="2" class="text-center">
+                                            <a href="@Url.Action("detail", "SalesActivitySummaryReport",new { @id=item.Id})" class="" title="Detail" data-toggle="tooltip" data-placement="top" data-original-title="Detail"><img src="/Content/Admin/images/file-text.svg" alt="" /></a>
+                                            <a href="#" class="" title="Delete" onclick="return ErrorPopup(@item.Id)" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><img src="~/Content/Admin/images/trash-2.svg" alt="" /></a>
+                                        </td>
+                                    </tr>
+                                    var DivId = item.Id;
+                                    <div id="@DivId" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                                        <div class="modal-content ">
+                                            <div class="modal-header text-center">
+                                                <i class="glyphicon glyphicon-trash"></i>
+                                            </div>
+                                            <div class="modal-title">Message</div>
+                                            <div class="modal-body ">Are you sure you want to delete this Entry?</div>
+                                            <div class="modal-footer" style="text-align:center">
+                                                <a class="btn btn-danger" onclick="Delete('@item.Id')">Yes </a>
+                                                <a class="btn" data-dismiss="modal" onclick="closemodal()">No</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+                            <tr class="paginationGrid">
+                                <td colspan="8">
+                                    <span style="float:left">Showing @ViewBag.startIndex to @ViewBag.endIndex of @ViewBag.TotalDataCount entries</span>
+                                    <div class="pagination">
+                                        @if (ViewBag.LastPageIndex > 1)
+                                        {
+                                            if (ViewBag.CurrentPageIndex != 1)
+                                            {
+                                                <a id="btnPageFirst" style="cursor:pointer" onclick="javascript:FunPageIndex(1);" class=" Linkbutton firstpage nextbtn">First</a>
+                                                <a id="btnPagePrevious" style="cursor:pointer" onclick="javascript:FunPageIndex(@ViewBag.CurrentPageIndex    -1);" class=" Linkbutton Linkbutton prebtn">Previous</a>
+                                            }
+                                            int PageIndex = 3;
+                                            int StartPageIndex = ViewBag.CurrentPageIndex - PageIndex;//10-3=7
+                                            int EndPageIndex = ViewBag.CurrentPageIndex + PageIndex;//10+3=13
+
+                                            if (StartPageIndex < 1)
+                                            {
+                                                EndPageIndex = EndPageIndex - StartPageIndex;
+                                            }
+
+                                            if (EndPageIndex > ViewBag.LastPageIndex)
+                                            {
+                                                StartPageIndex = (StartPageIndex - (EndPageIndex - ViewBag.LastPageIndex)) + 1;
+                                            }
+
+                                            for (int i = 1; i <= @ViewBag.LastPageIndex; i++)
+                                            {
+
+                                                if ((StartPageIndex < i && EndPageIndex > i))
+                                                {
+                                                    if (ViewBag.CurrentPageIndex == i)
+                                                    {
+                                                        <span Style="min-width: 25px; display: inline-block;">@i          </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(@i);">@i</a>
+                                                    }
+                                                }
+                                            }
+                                            if (ViewBag.CurrentPageIndex != @ViewBag.LastPageIndex)
+                                            {
+                                                <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(@ViewBag.CurrentPageIndex    +1);" class=" Linkbutton nextbtn">Next</a>
+                                                <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(@ViewBag.LastPageIndex);" class=" Linkbutton lastpage nextbtn">Last</a>
+                                            }
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+    }
+</div>
+
+
+<div class="overlayboxpopup"></div>
+
+<script>
+                    function BindTerminal()
+                    {
+                        $('#DrpLstTerminal').html(null)
+                        $("#DrpLstTerminal").append("<option selected='selected' value=''>Select Terminal</option>");
+                        $('#DrpLstTerminal').Value = "";
+                        var param = {
+                            id: @ViewBag.storeid
+                        };
+                        $.getJSON('/admin/SalesActivitySummaryReport/bindDrpTerminalbyStoreid/', param, function (data)
+                        {
+                            $.each(data, function(i, Terminal) {
+                                $("#DrpLstTerminal").append(
+                                    "<option value=" + Terminal.Value + ">" + Terminal.Text + "</option>")
+                            });
+                            if (@ViewBag.Terminalid == "0")
+                            {
+                                $('#DrpLstTerminal').val('');
+                            }
+                            else
+                            {
+                                $('#DrpLstTerminal').val(@ViewBag.Terminalid);
+                            }
+                        });
+                    }
+</script>
+
+<script>
+
+                    $(document).ready(function ()
+                    {
+     if (@ViewBag.Terminalid == "0")
+                            {
+                                $('#DrpLstTerminal').val('0');
+                            }
+                            else
+                            {
+                                $('#DrpLstTerminal').val(@ViewBag.Terminalid);
+                        }
+                        bind();
+                    });
+
+                    function cleartextsearch()
+                    {
+                        FunSearchRecord();
+                    }
+
+                    var top = 0;
+                    function Loader(val)
+                    {
+                        var doc = document.documentElement;
+                        if (val == 1)
+                        {
+                            $("#secloader").removeClass('pace-active1');
+                            $("#secloader").addClass('pace-active');
+                            $("#dvloader").removeClass('bak1');
+                            $("#dvloader").addClass('bak');
+                            $("#globalFooter").addClass('LoaderFooter');
+                            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                        }
+                        else
+                        {
+                            $("#secloader").removeClass('pace-active');
+                            $("#secloader").addClass('pace-active1');
+                            $("#dvloader").removeClass('bak');
+                            $("#dvloader").addClass('bak1');
+                            $("#globalFooter").removeClass('LoaderFooter');
+                            doc.scrollTop = top;
+                        }
+                    }
+
+                    function FunPageIndex(pageindex)//grid pagination
+                    {
+
+                        GetData(0, pageindex, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid', '@ViewBag.Terminalid');
+                    }
+
+                    function FunSortData(SortData)//Grid header sorting
+                    {
+                        GetData(0, @ViewBag.CurrentPageIndex, SortData, @ViewBag.AscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid', '@ViewBag.Terminalid');
+                    }
+
+                    function FunPageRecord(PageRecord)//Grid Page per record
+                    {
+
+                        GetData(0, 1, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, PageRecord, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid', '@ViewBag.Terminalid');
+                    }
+
+                    function FunAlphaSearchRecord(alpha)//Alpha Search
+                    {
+                        GetData(1, 1, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, alpha, @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid', '@ViewBag.Terminalid');
+                    }
+                    //For Search Button
+                    function FunSearchRecord()//Search
+                    {
+                        var element_Store = document.getElementById('DrpLstStore').value;
+                        var element_txtstartdate = document.getElementById('txtstartdate').value;
+                        var element_txtenddate = document.getElementById('txtenddate').value;
+                        var element_Terminal = document.getElementById('DrpLstTerminal').value;
+
+                        GetData(1, 1, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '', '', element_txtstartdate, element_txtenddate, element_Store, element_Terminal);
+                    }
+
+                    function GetData(IsBindData_val, PageIndex, orderby_val, isAsc_val, PageSize_val, alpha_val, SearchRecords_val, startdate_val, enddate_val, Storeid_val, Tereminalid_val)
+                    {
+                        var IsFalse = true;
+                        $.ajax({
+                            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/SalesActivitySummaryReport/grid',
+                            data: { IsBindData: IsBindData_val, currentPageIndex: PageIndex, orderby: orderby_val.trim(), IsAsc: isAsc_val, PageSize: PageSize_val, SearchRecords: SearchRecords_val, Alpha: alpha_val, startdate: startdate_val, enddate: enddate_val, Storeid: Storeid_val, Terminalid: Tereminalid_val, IsFalse: IsFalse },
+                            async: false,
+                            beforeSend: function() { Loader(1); },
+                            success: function(response) {
+                                Loader(0);
+                                $('#grddata').empty();
+                                $('#grddata').append(response);
+                            }
+                        });
+                    }
+                    function bind()
+                    {
+                        if (document.getElementById('SelectRecords') != null)
+                        {
+                            document.getElementById('SelectRecords').value = @ViewBag.PageSize;
+                        }
+                        if (@ViewBag.Storeid != 0)
+                        {
+                            document.getElementById('DrpLstStore').value = @ViewBag.Storeid;
+                        }
+
+                        var Terminalid1 = @ViewBag.Terminalid;
+                        if (Terminalid1 != 0) {
+                            BindTerminal();
+                            document.getElementById('DrpLstTerminal').value = '@ViewBag.Terminalid';
+                        }
+
+
+}
+
+
+function closemodal()
+{
+
+                                            $(".overlaytransparent").hide();
+                                            $(".divIDClass").hide();
+}
+
+function ErrorPopup(ID)
+{
+
+                                        var DivId = ID;
+                                            $("#" + DivId).show();
+                                            $(".overlaytransparent").show();
+}
+
+function Delete(ID)
+{
+
+                                            $('.modal-backdrop').hide();
+                                            $.ajax({
+                                            url: '/admin/SalesActivitySummaryReport/delete',
+                                                data: { Id: ID},
+                                                async: false,
+                                                success: function(response) {
+                                                GetData(1, @ViewBag.CurrentPageIndex, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid', '@ViewBag.Terminalid');
+                                                return true;
+                                            },
+                                                error: function()
+                                                {
+                                                return false;
+                                            }
+                                        });
+}
+
+function SynData()
+{
+
+                                        var id = '@ViewBag.storeid';
+                                        var startdate = $('#Startdate').val();
+                                            $.ajax({
+                                            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()DataSync/Index',
+                                                data: { date: startdate},
+                                                beforeSend: function() {
+                                                Loader(1);
+                                            },
+                                            success: function(response) {
+                                            if (response === "sucess")
+                                            { }
+                                            GetData(1, @ViewBag.CurrentPageIndex, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, '@ViewBag.startdate', '@ViewBag.enddate', '@ViewBag.Storeid', '@ViewBag.Terminalid');
+                                            Loader(0);
+                                            }
+                                            });
+ }
+
+    function ExportExcelData() {
+        var StoreId = document.getElementById('DrpLstStore').value;
+        var StartDate = document.getElementById('txtstartdate').value;
+        var EndDate = document.getElementById('txtenddate').value;
+        var TerminalId = document.getElementById('DrpLstTerminal').value;
+        alert(StoreId); alert(StartDate); alert(EndDate); alert(TerminalId);
+        
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()SalesActivitySummaryReport/ExportExcelData',
+            data: { startdate: StartDate, enddate: EndDate, Storeid: StoreId, Terminalid: TerminalId},
+                                                beforeSend: function() {
+                                                Loader(1);
+                                            },
+                                            success: function(response) {
+                                                GetData(1, @ViewBag.CurrentPageIndex, '@ViewBag.OrderByVal', @ViewBag.IsAscVal, @ViewBag.PageSize, '@ViewBag.Alpha', @ViewBag.SearchRecords, StartDate, EndDate, StoreId, TerminalId);
+                                            Loader(0);
+                                            }
+                                            });
+    }
+</script>

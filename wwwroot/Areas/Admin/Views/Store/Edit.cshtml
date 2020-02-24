@@ -1,0 +1,328 @@
+﻿@model wwwroot.Areas.Admin.Models.Store_Edit
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+@*<div class="page-body headertopbox">
+        <h5 class="row-title"><i class="typcn typcn-th-small"></i>Store</h5>
+        <div id="hbreadcrumb" class="pull-right">
+            <ol class="hbreadcrumb breadcrumb fontsize16">
+                <a runat="server" class="btn btn-default btn-maroon" href="@Url.Action("index", "Store")"><i class="fa fa-backward"></i>Back</a>
+
+            </ol>
+        </div>
+    </div>*@
+
+<div id="globalTabContent">
+    <div class="animate-panelmessesgarea padbtmzero">
+        @if (ViewBag.StatusMessage.ToString() == "Success")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Insert.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Delete")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Delete.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Edit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Edit.ToString()');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+        {
+            <script>
+                MyfunExists();
+            </script>
+        }
+    </div>
+
+
+
+    <div id="PanAddUpdate">
+
+
+
+
+        <div class="header-small special_bg">
+            <h3>Edit Store </h3>
+        </div>
+        @using (Html.BeginForm("Edit", "Store", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        { @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+                <div class="datagrid martop15">
+                    <div class="formmain">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Store Name <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Name, new { maxlength = 500, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.Name)</span>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Address 1 <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Address, new { maxlength = 1000, @class = "form-control" })
+                                    <span class="highlight">     @Html.ValidationMessageFor(model => model.Address)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Address 2
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Address2, new { maxlength = 1000, @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Phone Number <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.StoreNo, new { maxlength = 100, @class = "form-control", placeholder = "(555) 555-5555" })
+                                    <span class="highlight">@Html.ValidationMessageFor(model => model.StoreNo)</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Fax Number <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.FaxNo, new { maxlength = 20, @class = "form-control", placeholder = "(555) 555-5555" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        EmailId <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.EmailId, new { maxlength = 250, @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmailId)
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Password <span class="highlight">*</span>
+                                    </label>
+                                    @Html.TextBoxFor(model => model.Password, new { maxlength = 250, @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Password)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @if (Model.BindBack_Office != null)
+                                    {
+                                        <label>
+                                            Back Office Manager <span class="highlight">*</span>
+                                        </label>
+
+                                        @Html.DropDownListFor(model => model.Back_Office_userid, new SelectList(Model.BindBack_Office, "value", "text"), "Select Back Office Manager ", new { id = "Back_Office_userid", @class = "myval" })
+                                        @Html.ValidationMessageFor(model => model.Back_Office_userid)
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @if (Model.BindStore_manager != null)
+                                    {
+                                        <label>
+                                            Store Manager <span class="highlight">*</span>
+                                        </label>
+
+                                        @Html.DropDownListFor(model => model.Store_Man_userid, new SelectList(Model.BindStore_manager, "value", "text"), "Select Store Manager ", new { id = "Store_Man_userid", @class = "myval" })
+                                        @Html.ValidationMessageFor(model => model.Store_Man_userid)
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @if (Model.BindData_app != null)
+                                    {
+                                        <label>
+                                            Data Approver <span class="highlight">*</span>
+                                        </label>
+
+                                        @*@Html.DropDownListFor(model => model.Data_app_userid, new SelectList(Model.BindData_app, "value", "text"), "Select Data Approver ", new { id = "Data_app_userid", @class = "myval" })
+                                            @Html.ValidationMessageFor(model => model.Data_app_userid)*@
+
+                                        @Html.ListBoxFor(model => model.Storename_Data_app, new MultiSelectList(Model.BindData_app, "value", "text", Model.Storename_Data_app_list.Select(x => x.UserDataAppmultis).ToList()), new { id = "Storename", @class = "myval" })
+                                        @Html.ValidationMessageFor(model => model.Storename_Data_app)
+
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @if (Model.BindData_Owner != null)
+                                    {
+                                        <label>
+                                            Owner <span class="highlight">*</span>
+                                        </label>
+
+                                        @*@Html.DropDownListFor(model => model.Data_app_userid, new SelectList(Model.BindData_app, "value", "text"), "Select Data Approver ", new { id = "Data_app_userid", @class = "myval" })
+                                            @Html.ValidationMessageFor(model => model.Data_app_userid)*@
+
+                                        @Html.ListBoxFor(model => model.Storename_Owner, new MultiSelectList(Model.BindData_Owner, "value", "text", Model.Storename_Owner_list.Select(x => x.UserOwnermultis).ToList()), new { id = "Storename1", @class = "myval" })
+                                        @Html.ValidationMessageFor(model => model.Storename_Owner)
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="form-group">
+                                <input type="submit" value="Save"
+                                       class="buttonbox btnsubmit" />
+
+
+                                @Html.ActionLink("Cancel", "Index", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<script>
+                document.getElementById('StoreNo').addEventListener('input', function (e) {
+                    var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+                    e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+                });
+</script>
+<script>
+                document.getElementById('FaxNo').addEventListener('input', function (e) {
+                    var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+                    e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+                });
+</script>
+
+@*@section FooterScript{
+
+        <script>
+                    var top = 0;
+                    function Loader(val) {
+                        var doc = document.documentElement;
+
+                        if (val == 1) {
+
+                            $("#secloader").removeClass('pace-active1');
+                            $("#secloader").addClass('pace-active');
+                            $("#dvloader").removeClass('bak1');
+                            $("#dvloader").addClass('bak');
+                            $("#globalFooter").addClass('LoaderFooter');
+                            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                        }
+                        else {
+                            $("#secloader").removeClass('pace-active');
+                            $("#secloader").addClass('pace-active1');
+                            $("#dvloader").removeClass('bak');
+                            $("#dvloader").addClass('bak1');
+                            $("#globalFooter").removeClass('LoaderFooter');
+                            doc.scrollTop = top;
+
+                        }
+                    }
+                    $(document).ready(function () {
+                        $("select").select2({
+                            allowclear: true,
+                            minimumResultsForSearch: -1
+                        });
+                    });
+
+
+        </script>
+
+    }*@

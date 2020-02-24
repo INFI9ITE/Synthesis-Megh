@@ -1,0 +1,287 @@
+﻿@model wwwroot.Areas.Admin.Models.Stats
+@{
+    Layout = null;
+    ViewBag.Title = "Grid";
+}
+<div>
+    @*<meta http-equiv="refresh" content="30" />*@
+    @{
+        if (Convert.ToString(ViewBag.StatusMessage) == "Delete")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+                toastr.success('Entry deleted Successfully');
+            </script>
+        }
+    }
+</div>
+
+<div class="header-small special_bg">
+    <h3>Unassigned Shifts</h3>
+ 
+</div>
+<div class="datagrid padding10px">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="text-align-left">Store Name</th>
+                    <th class="text-align-left" style="width:13%;">Terminal Name</th>
+                    <th class="text-align-center" style="width:13%;">Shift Name</th>
+                    <th class="text-align-left" style="width:13%;">Created Date</th>
+                    <th class="text-align-left" style="width:18%;">Transaction Start Date</th>
+                    <th class="text-align-left" style="width:18%;">Transaction End Date</th>
+                </tr>
+            </thead>
+            @if (Model.stats_Lists.Count > 0)
+            {
+                for (int i = 0; i < Model.stats_Lists.Count; i++)
+                {
+                    <tr class="even">
+                        <td class="fntlight text-align-left">@Model.stats_Lists[i].StoreName</td>
+                        <td class="fntlight text-align-left">@Model.stats_Lists[i].TerminalName</td>
+                        <td class="fntlight text-align-center">@Model.stats_Lists[i].shiftname</td>
+                        <td class="fntlight text-align-left">
+                            @*<a href="@Url.Action("Index", "Shiftwisereport", new { StoreId = @Model.stats_Lists[i].Storeid, TerminalId = @Model.stats_Lists[i].Terminalid, StartDate = @Model.stats_Lists[i].CreatedDate })" data-toggle="tooltip" data-placement="top" data-original-title="Edit">*@
+                            @wwwroot.Class.AdminSiteConfiguration.GetDateDisplay(Convert.ToString(@Model.stats_Lists[i].CreatedDate))
+                            @*</a>*@
+                        </td>
+                        <td class="fntlight text-align-left">
+                            <a href="@Url.Action("Index", "Shiftwisereport", new { StoreId = @Model.stats_Lists[i].Storeid, TerminalId = @Model.stats_Lists[i].Terminalid, StartDate = @wwwroot.Class.AdminSiteConfiguration.GetDateformat(Convert.ToString(@Model.stats_Lists[i].TransactionStartTime)) })" data-toggle="tooltip" data-placement="top" data-original-title="">
+                                @wwwroot.Class.AdminSiteConfiguration.GetDatetimeformatwithAMPM(Convert.ToString(@Model.stats_Lists[i].StartDate))
+                            </a>
+                        </td>
+                        <td class="fntlight text-align-left">@wwwroot.Class.AdminSiteConfiguration.GetDatetimeformatwithAMPM(Convert.ToString(@Model.stats_Lists[i].TransactionEndTime))</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="even">
+                    <td colspan="6" class="text-align-center">
+                        No POS feeds found
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+<div class="header-small special_bg">
+    <h3>Syncing Files <strong> @Model.syncdata.Count</strong> Remaining <input type="button" style="float:right; padding-left:20px!important; padding-right:20px!important;" name="btnSearch" value="Read Emails" id="btnreademail" onclick="javascript:SynEmailFiles();" class="buttonbox btnsubmit btn_spcial" /></h3>
+    <div style="clear:both;"></div></div>
+<div class="datagrid padding10px"  style="z-index:inherit;">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="text-align-left">Store Name</th>
+                    <th class="text-align-center" style="width:15%;">Date</th>
+                    <th class="text-align-center" style="width:15%;">Sync Status</th>
+                    <th class="text-align-center" style="width:5%;">File Name</th>
+                    <th class="text-align-center" style="width:5%;">Action</th>
+                </tr>
+            </thead>
+            @if (Model.syncdata.Count > 0)
+            {
+                for (int j = 0; j < Model.syncdata.Count; j++)
+                {
+            <tr class="even">
+                <td class="fntlight">@Model.syncdata[j].StoreName</td>
+                <td class="fntlight text-align-center">
+                    @*<a href="#" data-toggle="tooltip" data-placement="top" data-original-title="Edit">*@
+                    @wwwroot.Class.AdminSiteConfiguration.GetDateDisplay(Convert.ToString(@Model.syncdata[j].Createdate))
+                    @*</a>*@
+                </td>
+                @{
+                    var ErrorId = Model.syncdata[j].id;
+                    var ItemidD = Model.syncdata[j].id + "D";
+                    <td class="fntlight text-align-center">
+                        @if (@Model.syncdata[j].issync == 0)
+                        {
+
+                            @*<a data-target="#@ErrorId" data-toggle="@Model.syncdata[j].ErrorMessage" data-placement="top" title="" data-original-title="Delete" onclick="return ErrorPopup(@Model.syncdata[j].id)">*@
+                            <span>In Queue</span>
+                            @*</ a >*@
+                        }
+                        else if (@Model.syncdata[j].issync == 1)
+                        {
+                            @*<a data-target="#@ErrorId" data-toggle="@Model.syncdata[j].ErrorMessage" data-placement="top" title="" data-original-title="Delete" onclick="return ErrorPopup(@Model.syncdata[j].id)">*@
+                            <span>Synced </span>
+                            /*</a>*/
+                        }
+                        else if (@Model.syncdata[j].issync == 3)
+                        {
+                            @*<a data-target="#@ErrorId" data-toggle="@Model.syncdata[j].ErrorMessage" data-placement="top" title="" data-original-title="Delete" onclick="return ErrorPopup(@Model.syncdata[j].id)">*@
+                            <span> This POS feed already exists! </span>
+                            /*</a>*/
+                        }
+                        else
+                        {
+                            <a data-target="#@ErrorId" data-toggle="" data-placement="top" title="" onclick="return ErrorPopup(@Model.syncdata[j].id)">File not recognized!</a>
+                        }
+                    </td>
+                    <div id="@ErrorId" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:40%; width:400px; top: 30%; display:none; z-index:999999;">
+                        <div class="modal-content ">
+                            <div class="modal-header text-center">
+                                @*<i class="glyphicon glyphicon-fire"></i>*@
+                                <h3 style="color:black;"><b>Excel Error Message</b></h3>
+                            </div>
+                            <div class="modal-title">@Model.syncdata[j].ErrorMessage</div>
+                            @*<div class="modal-body ">Please Select Store.</div>*@
+                            <div class="modal-footer " style="text-align:center">
+                                <a class="btn btn-danger" data-dismiss="modal" onclick="closemodal()">Ok </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <td class="text-align-center">
+                    @if (@Model.syncdata[j].issync == 2 || @Model.syncdata[j].issync == 3)
+                    {
+                        <a href="@Url.Action("DownloadPhoto", "Stats", new { FileName = @Model.syncdata[j].filename })" data-toggle="tooltip" data-placement="top" data-original-title="">
+
+                            <img src="/Content/Admin/images/icon_exceldownload.png" alt="">
+                        </a>
+                       
+                    }
+
+                 
+                </td>
+                <td class="text-align-center">
+                    @if (@Model.syncdata[j].issync == 2 || @Model.syncdata[j].issync == 3)
+                    {
+                        <a href="#" onclick="return ComfirmDelete(@Model.syncdata[j].id);" data-toggle="tooltip" data-placement="top"
+                           data-original-title="Delete"><img src="../Content/Admin/images/trash-2.svg" alt="" /></a>
+                    }
+
+                    <div id="@ItemidD" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                        <div class="modal-content ">
+                            <div class="modal-header text-center">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </div>
+                            <div class="modal-title">Message</div>
+                            <div class="modal-body ">Are you sure want to delete this Entry?</div>
+                            <div class="modal-footer" style="text-align:center">
+                                <a class="btn btn-danger" onclick="Delete(@Model.syncdata[j].id);">Ok </a>
+                                <a class="btn" data-dismiss="modal" onclick="closemodal()">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+                }
+            }
+            else
+            {
+                <tr class="even">
+                    <td colspan="4" class="text-align-center">
+                        No POS feeds found.
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+<script>
+    function ErrorPopup(ID) {
+        $(".overlaytransparent").show();
+        var DivId = ID;
+        $("#" + DivId).show();
+    }
+    function Loader(val) {
+        var doc = document.documentElement;
+        if (val == 1) {
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+        }
+    }
+
+
+    function SynEmailFiles()
+    {
+                                        var id = '@ViewBag.storeid';
+                                        var startdate = $('#Startdate').val();
+                                            $.ajax({
+                                            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()JobGetFilesFromMail/Index',
+                                                data: { date: startdate},
+                                                beforeSend: function() {
+                                                Loader(1);
+                                            },
+                                            success: function(response) {
+                                                Loader(0);
+                                                location.reload(true);
+
+                                            }
+                                            });
+    }
+ 
+    function ComfirmDelete(ID)
+     {
+         var DivId="#"+ID+"D";
+         $(DivId).show();
+        @*var check = confirm("Are you sure you want to Delete this record?");
+        if (check == true) {
+            Delete(ID);
+            GetData(1,@ViewBag.CurrentPageIndex,  '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle');
+            return true;
+        }
+        else {
+            return false;
+        }*@
+    }
+
+
+    function Delete(ID)
+    {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/Stats/delete',
+            data: { id: ID},
+            async: false,
+            success: function (response) {
+                location.reload(true);
+                //GetData(1,@ViewBag.CurrentPageIndex,'@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle');
+                //return true;
+            },
+            error:function()
+            {
+                //return false;
+            }
+        });
+    }
+
+    function closemodal(){
+        $(".divIDClass").hide();
+    }
+</script>

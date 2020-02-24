@@ -1,0 +1,477 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Invoice_Select>
+@using wwwroot.Areas.Admin.Models
+@{
+
+    Layout = null;
+}
+<style>
+    .divIDClass {
+        z-index: 999999 !important;
+    }
+</style>
+<div id="grddata">
+    <div class="animate-panelmessesgarea padbtmzero">
+
+
+        @if (ViewBag.StatusMessage.ToString() == "Success")
+        {
+            <script>
+                MyfunSuccess();
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Delete")
+        {
+            <script>
+                MyfunSuccess();
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @*@if (ViewBag.StatusMessage.ToString() == "Exists")
+                {
+                <script>
+                    MyfunExists();
+                </script>
+            }*@
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+        {
+            <script>
+                MyfunExistsEmpcode();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "InvalidPDFSize")
+        {
+            <script>
+                InvalidPDFSize();
+            </script>
+        }
+
+    </div>
+    <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+        <div class="searchfinal">
+            <div class="widget-body shadownone brdrgray">
+
+                <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <div class="dataTables_filter">
+                        <table border="0" cellspacing="0" width="100%" style="text-align: right; margin-bottom: 0px;" cellpadding="0">
+
+                            <tr>
+                                <td class="left-text dataTables_length showdata" style="padding-top: 0px!important;">
+
+                                    @{
+                                        List<SelectListItem> listItem_Records = new List<SelectListItem>();
+                                        string[] Records = wwwroot.Class.AdminSiteConfiguration.GetArrayForRecord().ToString().Split(',');
+                                        foreach (string word in Records)
+                                        {
+                                            listItem_Records.Add(new SelectListItem
+                                            {
+                                                Text = word.Split(':')[0],
+                                                Value = word.Split(':')[1]
+                                            });
+                                        }
+
+                                        @Html.DropDownList("SelectRecords", listItem_Records, new { @class = "myval", @onchange = "javascript:FunPageRecord(this.value);" })
+                                    }&nbsp;&nbsp;&nbsp;Records
+                                </td>
+                                <td width="145">
+                                    <div class="input-group">
+                                        @{
+                                            List<SelectListItem> Lstvendor = new List<SelectListItem>();
+                                            foreach (ddllist item in ViewBag.Datavendor)
+                                            {
+                                                Lstvendor.Add(new SelectListItem
+                                                {
+                                                    Text = item.Text,
+                                                    Value = Convert.ToString(item.Value)
+                                                });
+                                            }
+                                        }
+                                        @Html.DropDownList("DrpLstVendor", Lstvendor, "Select Vendor", new { @class = "myval" })
+                                    </div>
+
+                                </td>
+
+                                @*<td width="145">
+                                        <div class="input-group">
+
+
+                                            @{
+                                                List<SelectListItem> LstCtgry2 = new List<SelectListItem>();
+                                                foreach (ddllist item in ViewBag.Datadesig)
+                                                {
+                                                    LstCtgry2.Add(new SelectListItem
+                                                    {
+                                                        Text = item.Text,
+                                                        Value = Convert.ToString(item.Value)
+                                                    });
+                                                }
+                                            }
+                                            @Html.DropDownList("DrpLstDesignation", LstCtgry2, "Select Designation", new { @class = "myval" })
+                                        </div>
+
+                                    </td>*@
+                                <td>
+                                    <div class="input-group date-picker">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+
+                                        <input name="txtstartdate" type="text" maxlength="100" id="txtstartdate" placeholder="Start Date" class="form-control m-b">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group date-picker">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+
+                                        <input name="txtenddate" type="text" maxlength="100" id="txtenddate" placeholder="End Date" class="form-control m-b">
+                                    </div>
+                                </td>
+                                <td width="265">
+                                    <div class="input-group">
+                                        <input name="txtSearchTitle" type="text" maxlength="100" id="txtSearchTitle" placeholder="Invoice Number" class="form-control m-b">
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="submit" name="btnSearch" value="Search" id="btnSearch" onclick="javascript:FunSearchRecord();" class="btn btn-info btnsearchicon" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @{if (Model.Count() > 0)
+            {
+
+                <div class="datagrid martop15">
+                    <div class="table-responsive">
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th><a class="textred" onclick="javascript:FunSortData('Vendorname');" style="color:#fff; text-decoration:none; cursor:pointer;">Vendor</a></th>
+                                    <th>Type</th>
+                                    <th><a class="textred" onclick="javascript:FunSortData('Invoice_Number');" style="color:#fff; text-decoration:none; cursor:pointer;">Invoice Number</a></th>
+                                    <th><a class="textred" onclick="javascript:FunSortData('Invoice_Date');" style="color:#fff; text-decoration:none; cursor:pointer;">Invoice Date</a></th>
+
+
+                                    @*<th>Store Name</th>*@
+                                    <th>Payment Type</th>
+
+
+
+                                    @* <th>Note</th>*@
+                                    @* <th>Action</th>*@
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var item in Model)
+                                    {
+
+                                        <tr class="even">
+                                            <td><a href="#">@Html.Raw(item.Vendorname)</a></td>
+                                            <td>@Html.Raw(item.Type)</td>
+                                            <td><a href="#">@Html.Raw(item.Invoice_Number)</a></td>
+                                            <td>
+                                                @wwwroot.Class.AdminSiteConfiguration.GetDateformat(Convert.ToString(item.Invoice_Date))
+                                            </td>
+                                            @*<td>@Html.Raw(item.Storename)</td>*@
+                                            <td> @Html.Raw(item.Payment_type) </td>
+
+
+
+                                            @* <td>@Html.Raw(item.Note)</td>*@
+                                            @*<td>*@
+
+                                            @*<input type="hidden" id="ID" name="ID" value="@item.id" />
+                                                <a href="@Url.Action("edit", "User", new { Id = item.id })" class="edit" title="Edit"><img src="../Content/Admin/images/icons/icon_iconedit.png" alt="" /> </a>*@
+
+                                            @{
+                                                //var UserIdD = @item.id + "D";
+                                            }
+
+                                            @* <a onclick="return ComfirmDelete(@item.id);" class="delete" title="Delete"><img src="../Content/Admin/images/icon_delete.png" alt="" /> </a>*@
+                                            @*<a class="detail" title="Detail" href="@Url.Action("detail", "Department", new { Id = @item.id ,Area = "Admin"})">
+                                                    <i class="fa fa-link"></i>
+                                                </a>*@
+
+                                            @*<div id="@UserIdD" class="divIDClass modal-popup modal-danger modal-message" style="position: fixed;  left:45%; width:300px; top: 10px; display:none">
+                                                    <div class="modal-content ">
+                                                        <div class="modal-header text-center">
+                                                            <i class="glyphicon glyphicon-trash"></i>
+                                                        </div>
+                                                        <div class="modal-title">Delete</div>
+                                                        <div class="modal-body ">Are you sure want to delete this record?</div>
+                                                        <div class="modal-footer" style="text-align:center">
+                                                            <a class="btn btn-danger" onclick="Delete(@item.id);">Ok </a>
+                                                            <a class="btn" data-dismiss="modal" onclick="closemodal()">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </div>*@
+
+
+                                            @*</td>*@
+                                        </tr> }
+                                }
+
+                                <tr class="paginationGrid">
+                                    <td colspan="8">
+                                        <span style="float:left">Showing @ViewBag.startIndex to @ViewBag.endIndex of @ViewBag.TotalDataCount entries</span>
+                                        <div class="pagination">
+                                            @if (ViewBag.LastPageIndex > 1)
+                                            {
+                                                if (ViewBag.CurrentPageIndex != 1)
+                                                {
+                                                    <a id="btnPageFirst" style="cursor:pointer" onclick="javascript:FunPageIndex(1);" class=" Linkbutton firstpage nextbtn">First</a>
+                                                    <a id="btnPagePrevious" style="cursor:pointer" onclick="javascript:FunPageIndex(@ViewBag.CurrentPageIndex    -1);" class=" Linkbutton Linkbutton prebtn">Previous</a>
+                                                }
+                                                int PageIndex = 3;
+                                                int StartPageIndex = ViewBag.CurrentPageIndex - PageIndex;//10-3=7
+                                                int EndPageIndex = ViewBag.CurrentPageIndex + PageIndex;//10+3=13
+
+                                                if (StartPageIndex < 1)
+                                                {
+                                                    EndPageIndex = EndPageIndex - StartPageIndex;
+                                                }
+
+                                                if (EndPageIndex > ViewBag.LastPageIndex)
+                                                {
+                                                    StartPageIndex = (StartPageIndex - (EndPageIndex - ViewBag.LastPageIndex)) + 1;
+                                                }
+
+                                                for (int i = 1; i <= @ViewBag.LastPageIndex; i++)
+                                                {
+
+                                                    if ((StartPageIndex < i && EndPageIndex > i))
+                                                    {
+                                                        if (ViewBag.CurrentPageIndex == i)
+                                                        {
+                                                            <span Style="min-width: 25px; display: inline-block;">@i          </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a id="btnnum" style="cursor:pointer" onclick="javascript:FunPageIndex(@i);">@i</a>
+                                                        }
+                                                    }
+                                                }
+                                                if (ViewBag.CurrentPageIndex != @ViewBag.LastPageIndex)
+                                                {
+                                                    <a id="btnPageNext" style="cursor:pointer" onclick="javascript:FunPageIndex(@ViewBag.CurrentPageIndex    +1);" class=" Linkbutton nextbtn">Next</a>
+                                                    <a id="btnPageLast" style="cursor:pointer" onclick="javascript:FunPageIndex(@ViewBag.LastPageIndex);" class=" Linkbutton lastpage nextbtn">Last</a>
+                                                }
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+
+
+    });
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#txtstartdate').datetimepicker({
+            format: 'MMM DD, YYYY',
+            useCurrent: false
+        });
+        $('#txtenddate').datetimepicker({
+            format: 'MMM DD, YYYY',
+            useCurrent: false
+        });
+
+        $('#txtstartdate').on("dp.change", function (e) {
+            $('#txtenddate').data("DateTimePicker").minDate(e.date);
+        });
+        $('#txtenddate').click("dp.change", function (e) {
+
+            $('#txtenddate').data("DateTimePicker").minDate($('#txtstartdate').val());
+        });
+
+    });
+
+    var top=0;
+    function Loader(val)
+    {
+        var doc = document.documentElement;
+        $("[data-toggle=tooltip]").tooltip();
+        if(val==1){
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+        }
+        else{
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop=top;
+        }
+        bind();
+    }
+
+    function FunSearchRecord()//Search
+    {
+        window.FunSearchRecord=FunSearchRecord
+        var element_txtSearchTitle = document.getElementById('txtSearchTitle').value;
+        var element_Vendor = document.getElementById('DrpLstVendor').value;
+        var element_txtstartdate = document.getElementById('txtstartdate').value;
+        var element_txtenddate = document.getElementById('txtenddate').value;
+        GetData(1, 1, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize, '', '', element_txtSearchTitle, element_Vendor, element_txtstartdate, element_txtenddate);
+
+    }
+
+    function FunPageIndex(pageindex)//grid pagination
+    {
+        GetData(0,pageindex, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle','@ViewBag.Vendorname','@ViewBag.startdate','@ViewBag.enddate');
+    }
+
+    function FunSortData(SortData)//Grid header sorting
+    {
+        GetData(0,@ViewBag.CurrentPageIndex, SortData,@ViewBag.AscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle','@ViewBag.Vendorname','@ViewBag.startdate','@ViewBag.enddate');
+    }
+
+    function FunPageRecord(PageRecord)//Grid Page per record
+    {
+        GetData(0,1, '@ViewBag.OrderByVal',@ViewBag.IsAscVal,PageRecord,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle','@ViewBag.Vendorname','@ViewBag.startdate','@ViewBag.enddate');
+    }
+
+    function FunAlphaSearchRecord(alpha)//Alpha Search
+    {
+        GetData(1,1,'@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,alpha,@ViewBag.SearchRecords,'','@ViewBag.Vendorname','@ViewBag.startdate','@ViewBag.enddate');
+    }
+    //For Search Button
+
+
+    function GetData(IsBindData_val, PageIndex, orderby_val, isAsc_val, PageSize_val, alpha_val, SearchRecords_val, SearchTitle_val, vendor_val, startdate_val, enddate_val)
+    {
+
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/Invoice/grid',
+            data: { IsBindData: IsBindData_val, currentPageIndex: PageIndex, orderby: orderby_val.trim(), IsAsc: isAsc_val, PageSize: PageSize_val, SearchRecords: SearchRecords_val, Alpha: alpha_val, SearchTitle: SearchTitle_val, Vendorname: vendor_val, startdate: startdate_val, enddate: enddate_val},
+            beforeSend: function () { Loader(1); },
+            // async: false,
+            success: function (response) {
+                //    $("body").html(response);
+                $('#grddata').empty();
+                $('#grddata').append(response);
+                Loader(0);
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+
+    }
+
+
+    document.getElementById('txtSearchTitle').onkeypress=function(e){
+        if(e.keyCode==13){
+            document.getElementById('btnSearch').click();
+        }
+    }
+    function bind(){
+
+        $(".myval").select2({
+            //placeholder: "select",
+            allowclear: true,
+            //minimumResultsForSearch: -1
+        });
+        document.getElementById('SelectRecords').value = @ViewBag.PageSize;
+        document.getElementById('txtSearchTitle').value = "@ViewBag.SearchTitle";
+
+        $(".select2-container").remove();
+        document.getElementById('DrpLstVendor').value = '@ViewBag.Vendorname';
+        document.getElementById('txtstartdate').value = "@ViewBag.startdate";
+        document.getElementById('txtenddate').value = "@ViewBag.enddate";
+
+        $("select").select2({
+            width: "100%",
+            formatResult: function (state) {
+                if (!state.id) return state.text;
+                if ($(state.element).data('active') == "0") {
+                    return state.text + "<i class='fa fa-dot-circle-o'></i>";
+                } else {
+                    return state.text;
+                }
+            },
+            formatSelection: function (state) {
+                if ($(state.element).data('active') == "0") {
+                    return state.text + "<i class='fa fa-dot-circle-o'></i>";
+                } else {
+                    return state.text;
+                }
+            }
+        });
+
+    }
+    function ComfirmDelete(ID)
+    {
+        var check = confirm("Are you sure you want to Delete this record?");
+        if (check == true) {
+            Delete(ID);
+            GetData(1,@ViewBag.CurrentPageIndex,  '@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle','@ViewBag.Vendorname','@ViewBag.startdate','@ViewBag.enddate');
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+
+    function Delete(ID)
+    {
+        $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/admin/Invoice/delete',
+            data: { Id: ID},
+            async: false,
+            success: function (response) {
+                GetData(1,@ViewBag.CurrentPageIndex,'@ViewBag.OrderByVal',@ViewBag.IsAscVal,@ViewBag.PageSize,'@ViewBag.Alpha',@ViewBag.SearchRecords,'@ViewBag.SearchTitle','@ViewBag.Vendorname','@ViewBag.startdate','@ViewBag.enddate');
+                return true;
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+    }
+
+    function closemodal(){
+
+        $(".divIDClass").hide();
+
+    }
+</script>

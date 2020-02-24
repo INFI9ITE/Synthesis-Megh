@@ -1,0 +1,52 @@
+﻿@model IEnumerable<wwwroot.Areas.Admin.Models.Invoice_Notification_Showall>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+
+<div class="header-small">
+    <h3>Invoice Notification </h3>
+
+</div>
+@{
+    Html.RenderAction("Grid");
+}
+
+<script>
+    $(document).ready(function () {
+
+        //Loader(0);
+        var Storenameviewall = '@(ViewBag.storenamevalue)';
+
+        if (Storenameviewall != "") {
+            var role = '@Roles.IsUserInRole("Data Approver")';
+
+            if (role == 'True') {
+                $('#drp').val([Storenameviewall]).trigger('change');
+           //   $('#drp').val(Storenameviewall);
+
+            }
+            else {
+                // var storename = document.getElementById('spnStore').innerHTML;
+                $('#spnStore').html(Storenameviewall);
+                //alert(storename)
+
+
+            }
+        }
+
+    });
+    //var top = 0;
+    //function Loader(val) {
+    //    var doc = document.documentElement;
+    //    $("[data-toggle=tooltip]").tooltip();
+    //    if (val == 1) {
+    //        $(".loading-container").attr("style", "display:block;")
+    //    }
+    //    else {
+    //        $(".loading-container").attr("style", "display:none;")
+    //    }
+
+    //}
+</script>
+

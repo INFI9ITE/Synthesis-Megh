@@ -1,0 +1,174 @@
+﻿@model wwwroot.Areas.Admin.Models.User_Store
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+<div id="globalTabContent">
+    <div id="PanAddUpdate">
+
+    <div class="header-small">
+        <h3>Store Assignment</h3>
+    </div>
+    @using (Html.BeginForm("UserStore", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+            <div class="datagrid martop15">
+                <div class="formmain">
+                    <div class="row">
+                            @if (Model.UserStore.Count > 0)
+                            {
+                                <div class="col-md-12">
+                                    <table class="table table-striped table-hover">
+
+                                        <thead>
+                                            <tr>
+                                               
+                                                <th width="30px">Store</th>
+                                                <th width="400px">Assigned User</th>
+                                                <th>New User Assign</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            @{
+                                                int i = 1;
+                                                foreach (var item in Model.UserStore)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.Hidden("Storename", item.UserStores)
+                                                       @Html.Label(item.UserStores)
+                                                        </td>
+                                                        <td>@ViewBag.Fullname</td>
+                                                       
+                                                        <td><span class="userdropdown">@Html.DropDownList("Back_Office_userid", new SelectList(Model.BindBack_Office, "value", "text",""), "Select User",new { @class = "myval", id = "Back_Office_userid" + i }) </span></td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            }
+                                            <tr>
+                                                <td colspan="4" align="center">
+                                                    <div class="from-group">
+                                                        <div class="col-sm-8 col-sm-offset-2">
+                                                            <input type="submit" value="Save" name="Save" id="Save"
+                                                                   class="buttonbox btnsubmit" />
+                                                            @Html.ActionLink("Cancel", "Index", null, new { @class = "buttonbox btncancel" })
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    @*@{
+                                            WestZoneEntities db = new WestZoneEntities();
+                                            var storevalue = "";
+                                            var uname = Model.UserName;
+                                            int user_id = Convert.ToInt32(WebSecurity.GetUserId(uname));
+                                            var Storenamelist = db.tbl_user_store_By_Reg_userid(user_id).Select(x => x.StoreName).ToList();
+                                            foreach (var item1 in Storenamelist)
+                                            {
+                                                if (Storenamelist.Count > 1)
+                                                {
+                                                    storevalue += item1 + ",";
+                                                }
+                                                else
+                                                {
+                                                    storevalue += item1;
+                                                }
+
+
+                                            }
+                                        }
+                                        @storevalue*@
+
+                                  
+
+                                    <div class="clear">
+                                    </div>
+                                </div>
+                                                }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+
+    </div>
+
+
+
+
+
+<script>
+    var top = 0;
+    function Loader(val) {
+        var doc = document.documentElement;
+
+        if (val == 1) {
+
+            $("#secloader").removeClass('pace-active1');
+            $("#secloader").addClass('pace-active');
+            $("#dvloader").removeClass('bak1');
+            $("#dvloader").addClass('bak');
+            $("#globalFooter").addClass('LoaderFooter');
+            top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+        }
+        else {
+            $("#secloader").removeClass('pace-active');
+            $("#secloader").addClass('pace-active1');
+            $("#dvloader").removeClass('bak');
+            $("#dvloader").addClass('bak1');
+            $("#globalFooter").removeClass('LoaderFooter');
+            doc.scrollTop = top;
+
+        }
+    }
+
+
+
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        ddListChange();
+    });
+    function ddChangeClearList() {
+        $('#Storename').val(null).trigger("change");
+        $(function () {
+            $('li').on('click', function (e) {
+                var menuItem = $(e.currentTarget);
+
+                if (menuItem.attr('aria-selection') === 'true') {
+                    $(this).attr('display', 'none');
+                } else {
+                    $(this).attr('display', 'block');
+                }
+            });
+        });
+        $('#Storename').val(null).trigger("change");
+    }
+    function ddListChange() {
+        var role = $('#rolename option:selected').text();
+
+        if (role == "Back Office Manager") {
+
+            { $("#Storename").removeAttr('multiple'); }
+            // { $("#select2-Storename-results").prop("multiple", true); }
+        }
+        else {
+
+            {
+
+                $("#Storename").prop("multiple", true);
+            }
+
+        }
+    }
+
+</script>

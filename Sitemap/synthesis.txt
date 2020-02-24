@@ -1,0 +1,12 @@
+1) Map terminals to Store
+2) Upload PDF or PDF folder mapping (Store / Terminal / Datefolder)
+3) Scan PDF and Dump data in DB
+4) Genenrate day wise Reports 
+5) Import Data to Quickbooks
+6) Azure server
+7) Role wise sales Display
+8) Multiple backoffice manager
+9) Sorting
+10) Day close report store wise
+11) CDN Import
+

@@ -1,0 +1,153 @@
+﻿<!-- /Page Sidebar -->
+@{
+    Layout = null;
+}
+@{
+    string ControllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString().ToLower();
+    string ActionName = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString().ToLower();
+}
+<div class="page-sidebar  sidebar-fixed menu-compact " id="sidebar">
+    <aside id="menu" class="printorder">
+        <div id="navigation" class="printorder">
+            <ul class="nav sidebar-menu fnt_set2 icon_color_wight">
+                <li @{if (ControllerName == "dashboard") { <text> class="active" </text>     }}> <a href="@Url.Action("Index", "dashboard")"> <i class="menu-icon"><img src="~/Content/Admin/images/monitor.svg" alt="" /></i> <span>Dashboard </span> </a> </li>
+
+                @*@if (Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Administrator"))
+                    {
+                        <li @{if (ControllerName == "invoice" && Request.QueryString["quick"] == "1") { <text> class="active" </text>  }}> <a href="@Url.Action("create", "invoice", new { quick = 1 })"> <i class="menu-icon"><img src="~/Content/Admin/images/edit-2.svg" alt="" /></i> <span>Quick Invoice </span> </a> </li>
+                    }*@
+
+                @if (Roles.IsUserInRole("Back Office Manager") || Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Administrator"))
+                {
+                    <li @{if (ControllerName == "invoice") { <text> class="active" </text>     }}> <a href="@Url.Action("Create", "invoice")"> <i class="menu-icon"><img src="~/Content/Admin/images/file-plus.svg" alt="" /></i> <span>Add Invoice </span> </a> </li>
+    }
+
+                @*@if (Roles.IsUserInRole("Back Office Manager") || Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Store Manager") || Roles.IsUserInRole("Administrator") || Roles.IsUserInRole("Owner"))
+                {
+                    <li @{if (ControllerName == "invoicereport") { <text> class="active" </text>     }}> <a href="@Url.Action("Index", "invoicereport")"> <i class="menu-icon"><img src="~/Content/Admin/images/pie-chart.svg" alt=""></i> <span>Reports </span> </a> </li>
+    }*@
+
+                <li @{if (ControllerName == "shiftwisetenderreport" || ControllerName == "invoicereport" ) { <text> class="active open" </text>        }}>
+                    <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="~/Content/Admin/images/pie-chart.svg" alt="" /></i> <span>Reports</span> </a>
+                    <ul class="submenu">
+                        @if (Roles.IsUserInRole("Administrator"))
+                        {
+                            <li @{if (ControllerName == "shiftwisetenderreport")
+                                { <text> class="active" </text>       }}>
+                                <a href="@Url.Action("Index", "shiftwisetenderreport")">
+                                    <span class="menu-text">Sales Summary Report</span>
+                                </a>
+                            </li>
+                                }
+                 @if (Roles.IsUserInRole("Back Office Manager") || Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Store Manager") || Roles.IsUserInRole("Administrator") || Roles.IsUserInRole("Owner"))
+                 {
+                            <li @{if (ControllerName == "invoicereport")
+                                { <text> class="active" </text>        }}>
+                                <a href="@Url.Action("Index", "invoicereport")">
+                                    <span class="menu-text">COGS/Expenses Reports</span>
+                                </a>
+                            </li>
+                                }
+
+                    </ul>
+                </li>
+
+                <li @{if (ControllerName == "store" || ControllerName == "user" || ControllerName == "employee" || ControllerName == "activitylog" || ControllerName == "changepassword" || ControllerName == "StoreTerminal" || ControllerName == "groupmaster" || ControllerName == "configuration") { <text> class="active open" </text>     }}>
+                    <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="~/Content/Admin/images/settings.svg" alt="" /></i> <span>Settings </span> </a>
+                    <ul class="submenu">
+                        @if (Roles.IsUserInRole("Administrator"))
+                        {
+                            <li @{if (ControllerName == "user") { <text> class="active" </text>     }}>
+                                <a href="@Url.Action("Index", "user")">
+                                    <span class="menu-text">Users</span>
+                                </a>
+                            </li>
+
+                            <li @{if (ControllerName == "store") { <text> class="active" </text>     }}>
+                                <a href="@Url.Action("Index", "store")">
+                                    <span class="menu-text">Store</span>
+                                </a>
+                            </li>
+                            <li @{if (ControllerName == "activitylog") { <text> class="active" </text>     }}>
+                                <a href="@Url.Action("Index", "activitylog")">
+                                    <span class="menu-text">Activity Log</span>
+                                </a>
+                            </li>
+                           
+
+    }
+
+                        @if (Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Administrator"))
+                        {
+                        <li @{if (ControllerName == "groupmaster") { <text> class="active" </text>       }}>
+                            <a href="@Url.Action("Index", "groupmaster")">
+                                <span class="menu-text">Group Accounts</span>
+                            </a>
+                        </li>
+                        <li @{if (ControllerName == "configuration") { <text> class="active" </text>       }}>
+                            <a href="@Url.Action("Index", "configuration")">
+                                <span class="menu-text">Tender Accounts</span>
+                            </a>
+                        </li>
+                        }
+
+                        <li @{if (ControllerName == "changepassword") { <text> class="active" </text>     }}>
+                            <a href="@Url.Action("Index", "changepassword")">
+                                <span class="menu-text">Change Password</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @*@if (Roles.IsUserInRole("Back Office Manager") || Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Store Manager") || Roles.IsUserInRole("Owner") || Roles.IsUserInRole("Administrator"))
+                    {
+                        <li @{if (ControllerName == "unsettledinvoice") { <text> class="active" </text>  }}> <a href="@Url.Action("Index", "unsettledinvoice")"> <i class="menu-icon"><img src="~/Content/Admin/images/pie-chart.svg" alt=""></i> <span>Unsettled Invoice </span> </a> </li>
+                    }
+                    @if (Roles.IsUserInRole("Administrator"))
+                    {
+                        <li @{if (ControllerName == "duplicateinvoice") { <text> class="active" </text>  }}> <a href="@Url.Action("Index", "duplicateinvoice")"> <i class="menu-icon"><img src="~/Content/Admin/images/pie-chart.svg" alt=""></i> <span>Duplicate Invoice </span> </a> </li>
+                    }*@
+
+@if (Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Administrator"))
+{ 
+                <li @{if (ControllerName == "salesactivitysummaryreport" || ControllerName == "shiftwisereport" || ControllerName == "shiftwisetenderreport" || ControllerName == "dayclosereport" || ControllerName == "stats" || ControllerName == "generalentries") { <text> class="active open" </text>     }}>
+                    <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="~/Content/Admin/images/cash-register.svg" alt="" /></i> <span>Registers</span> </a>
+                    <ul class="submenu">
+                        @if (Roles.IsUserInRole("Administrator"))
+                        {
+                            <li @{if (ControllerName == "stats") { <text> class="active" </text>      }}>
+                                <a href="@Url.Action("Index", "stats")">
+                                    <span class="menu-text">Sync POS feeds</span>
+                                </a>
+                            </li>
+                            <li @{if (ControllerName == "salesactivitysummaryreport") { <text> class="active" </text>     }}>
+                                <a href="@Url.Action("Index", "salesactivitysummaryreport")">
+                                    <span class="menu-text">Daily POS Feeds</span>
+                                </a>
+                            </li>
+                            <li @{if (ControllerName == "shiftwisereport") { <text> class="active" </text>     }}>
+                                <a href="@Url.Action("Index", "shiftwisereport")">
+                                    <span class="menu-text">Shift/Registers Close Out</span>
+                                </a>
+                            </li>
+                          
+                          
+    }
+                        @if (Roles.IsUserInRole("Data Approver") || Roles.IsUserInRole("Administrator"))
+                        {
+                            <li @{if (ControllerName == "generalentries") { <text> class="active" </text>      }}> <a href="@Url.Action("Index", "generalentries")"><span>Journal Entries </span> </a> </li>
+    }
+
+
+    @*<li @{if (ControllerName == "dayclosereport") { <text> class="active" </text>  }}>
+            <a href="@Url.Action("Index", "dayclosereport")">
+                <span class="menu-text">Daily POS Data</span>
+            </a>
+        </li>*@
+
+</ul>
+</li>
+                                }
+</ul>
+</div>
+</aside>
+</div>

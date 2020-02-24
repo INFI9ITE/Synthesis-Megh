@@ -1,0 +1,652 @@
+﻿@model wwwroot.Areas.Admin.Models.Shiftwisereport_Select
+@using wwwroot.Areas.Admin.Models
+@using wwwrootBL.Entity;
+@{
+    Layout = null;
+    WestZoneEntities db = new WestZoneEntities();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Grid</title>
+    <style>
+        .Width {
+            width: 150px !important;
+        }
+
+        /*.showbox {
+            display: none !important;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="getdata">
+        <div class="tabpanelbox">
+            @{
+
+                <ul class="nav nav-tabs" id="myTab">
+                    @for (int i = 0; i < Model.TerminalList.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <li class="active">
+                                <a data-toggle="tab" href="#@Model.TerminalList[i].TerminalId">
+                                    @Model.TerminalList[i].TerminalName
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="tab-red">
+                                <a data-toggle="tab" href="#@Model.TerminalList[i].TerminalId">
+                                    @Model.TerminalList[i].TerminalName
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+
+                <div class="tab-content">
+                    @for (int j = 0; j < Model.TerminalList.Count; j++)
+                    {
+                        if (j == 0)
+                        {
+                            <div id="@Model.TerminalList[j].TerminalId" class="tab-pane in active">
+                                <div class="tabsublinks">
+                                    <ul class="nav nav-tabs" id="mySubTab">
+                                        @for (int k = 0; k < Model.TerminalList[j].ShiftList.Count; k++)
+                                        {
+                                            if (k == 0)
+                                            {
+                                                <li class="active">
+                                                    <a href="#@Model.TerminalList[j].ShiftList[k].Id" data-toggle="tab" aria-expanded="true">@Model.TerminalList[j].ShiftList[k].ShiftName</a>
+                                                </li>
+
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    <a href="#@Model.TerminalList[j].ShiftList[k].Id" data-toggle="tab" aria-expanded="true">@Model.TerminalList[j].ShiftList[k].ShiftName</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                    <div class="customer-count">
+                                        <span>Customer Count (All Shifts) <strong> @Model.TerminalList[j].CustomerCount </strong> </span>
+                                        <span>Sales (All Shifts) <strong>$ @Model.TerminalList[j].SalesAmount</strong></span>
+                                    </div>
+
+                                    <div class="tab-content">
+                                        @for (int l = 0; l < Model.TerminalList[j].ShiftList.Count; l++)
+                                        {
+                                            if (l == 0)
+                                            {
+                                                <div id="@Model.TerminalList[j].ShiftList[l].Id" class="tab-pane in active">
+                                                    <div class="tabcntbox">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-9">
+                                                                <h1>@Model.TerminalList[j].TerminalName</h1>
+                                                                <p>@Model.TerminalList[j].ShiftList[l].StartTime to @Model.TerminalList[j].ShiftList[l].EndTime  | Customer Count <strong>@Model.TerminalList[j].ShiftList[l].CustomerCount</strong></p>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-3">
+                                                                <div class="savebtnarea">
+                                                                    @{
+                                                                        var temp = string.Concat(j, l);
+                                                                        var ShiftId = Model.TerminalList[j].ShiftList[l].Id;
+
+                                                                        <input type="submit" id="SubmitShift_@temp" onclick="SubmitShift(this.id,@ShiftId)" value="Save" name="" class="btn btnsavebox" />
+
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="datagrid mt-5">
+                                                                    @{
+                                                                        decimal Total = 0;
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped table-hover" id="data_table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th valign="top" width="100" class="paddrightzero">
+                                                                                            Select
+                                                                                            @Html.DropDownListFor(model => Model.TerminalList[j].ShiftList[l].ShiftName, new SelectList(Model.TerminalList[j].ShiftList[l].ShiftNameList, "Text", "Text"), "Select Shift", new { id = "SelectShift_" + j + l, @class = "myval Width" })
+                                                                                        </th>
+                                                                                        <th valign="top">
+                                                                                            Cashier's Name @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[l].CashierName, new { @class = "form-control", @id = "CashierName_" + j + l }) <br />
+                                                                                        </th>
+
+                                                                                        <th width="280" class="tabright">
+                                                                                            Net Sales With Taxes
+                                                                                            <span class="fnt25">
+                                                                                                $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(@Model.TerminalList[j].ShiftList[l].SalesAmount.ToString())
+                                                                                            </span>
+
+                                                                                            <span class="normaltext">Tax Collected $ @Model.TerminalList[j].ShiftList[l].TotalTaxAmount</span>
+
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    @for (int a = 0; a < Model.TerminalList[j].ShiftList[l].TenderList.Count; a++)
+                                                                                    {
+                                                                                        <tr>
+                                                                                            <td colspan="2">@Model.TerminalList[j].ShiftList[l].TenderList[a].Name</td>
+                                                                                            <td class="text-right">
+                                                                                                @{
+                                                                                                    var tempvalue = j.ToString() + l.ToString() + a.ToString();
+                                                                                                    var idval = @Model.TerminalList[j].ShiftList[l].TenderList[a].Id;
+                                                                                                }
+                                                                                                @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[l].TenderList[a].Amount, new
+                                                                                           {
+                                                                                               @class = "form-control",
+                                                                                               @id = "Amount_" + j + l + a @*, @onchange = "AmountSave('" + @tempvalue + "','" + @idval + "');"*@})
+                                                                                            </td>
+                                                                                            @{
+                                                                                                decimal amount = Convert.ToDecimal(Model.TerminalList[j].ShiftList[l].TenderList[a].Amount);
+                                                                                                Total += amount;
+                                                                                            }
+
+                                                                                        </tr>
+                                                                                    }
+                                                                            </table>
+                                                                            <div class="addrowbox" @*style="display:none"*@>
+                                                                                <input type="button" class="add-row" value="+ Add Row">
+                                                                            </div>
+                                                                            <div class="totalbox">
+                                                                                <div class="totalttl">
+                                                                                    Actual Grand Total
+                                                                                </div>
+                                                                                <div class="grandtotalvalue">
+                                                                                    $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Total.ToString())
+                                                                                    @{
+                                                                                        var Difference = Model.TerminalList[j].ShiftList[l].SalesAmount - Total;
+
+
+                                                                                        if (Difference == 0)
+                                                                                        {
+
+                                                                                        }
+                                                                                        else if (Difference >= 0)
+                                                                                        {
+                                                                                            <span>Over <b style="color:green"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span>Short <b class="red"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+
+                                                                                    }
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div id="@Model.TerminalList[j].ShiftList[l].Id" class="tab-pane">
+                                                    <div class="tabcntbox">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-9">
+                                                                <h1>@Model.TerminalList[j].TerminalName</h1>
+                                                                <p>@Model.TerminalList[j].ShiftList[l].StartTime to @Model.TerminalList[j].ShiftList[l].EndTime  | Customer Count<strong>@Model.TerminalList[j].ShiftList[l].CustomerCount</strong></p>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-3">
+                                                                <div class="savebtnarea">
+                                                                    @{
+                                                                        var temp = string.Concat(j, l);
+                                                                        var ShiftId = Model.TerminalList[j].ShiftList[l].Id;
+
+                                                                        <input type="submit" id="SubmitShift_@temp" onclick="SubmitShift(this.id,@ShiftId)" value="Save" name="" class="btn btnsavebox" />
+
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="datagrid mt-5">
+                                                                    @{
+                                                                        decimal Total = 0;
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped table-hover" id="data_table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th valign="top" width="100" class="paddrightzero">
+                                                                                            Select
+                                                                                            @Html.DropDownListFor(model => Model.TerminalList[j].ShiftList[l].ShiftName, new SelectList(Model.TerminalList[j].ShiftList[l].ShiftNameList, "Text", "Text"), "Select Shift", new { id = "SelectShift_" + j + l, @class = "myval Width" })
+                                                                                        </th>
+                                                                                        <th valign="top">
+                                                                                            Cashier's Name @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[l].CashierName, new { @class = "form-control", @id = "CashierName_" + j + l }) <br />
+                                                                                        </th>
+                                                                                        <th width="280" class="tabright">
+                                                                                            Net Sales With Taxes
+                                                                                            <span class="fnt25">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(@Model.TerminalList[j].ShiftList[l].SalesAmount.ToString())</span>
+                                                                                            <span class="normaltext">Tax Collected $ @Model.TerminalList[j].ShiftList[l].TotalTaxAmount</span>
+
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    @for (int b = 0; b < Model.TerminalList[j].ShiftList[l].TenderList.Count; b++)
+                                                                                    {
+                                                                                        <tr>
+                                                                                            <td colspan="2">@Model.TerminalList[j].ShiftList[l].TenderList[b].Name</td>
+                                                                                            <td class="text-right">
+                                                                                                @*@Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[l].TenderList[b].Amount, new { @class = "form-control", @id = "Amount_" + l + b })*@
+                                                                                                @{
+                                                                                                    var tempvalue = j.ToString() + l.ToString() + b.ToString();
+                                                                                                    var idval = @Model.TerminalList[j].ShiftList[l].TenderList[b].Id;
+                                                                                                }
+                                                                                                @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[l].TenderList[b].Amount, new
+                                                                                           {
+                                                                                               @class = "form-control",
+                                                                                               @id = "Amount_" + j + l + b @*, @onchange = "AmountSave('" + @tempvalue + "','" + @idval + "');"*@})
+
+                                                                                            </td>
+                                                                                            @{
+                                                                                                decimal amount = Convert.ToDecimal(Model.TerminalList[j].ShiftList[l].TenderList[b].Amount);
+                                                                                                Total += amount;
+                                                                                            }
+                                                                                        </tr>
+                                                                                    }
+                                                                            </table>
+                                                                            <div class="addrowbox" @*style="display:none"*@>
+                                                                                <input type="button" class="add-row" value="+ Add Row">
+                                                                            </div>
+                                                                            <div class="totalbox">
+                                                                                <div class="totalttl">
+                                                                                    Actual Grand Total
+                                                                                </div>
+                                                                                <div class="grandtotalvalue">
+                                                                                    $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Total.ToString())
+                                                                                    @{
+                                                                                        var Difference = Model.TerminalList[j].ShiftList[l].SalesAmount - Total;
+
+
+                                                                                        if (Difference == 0)
+                                                                                        {
+
+                                                                                        }
+                                                                                        else if (Difference >= 0)
+                                                                                        {
+                                                                                            <span>Over <b style="color:green"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span>Short <b> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+
+                                                                                    }
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="@Model.TerminalList[j].TerminalId" class="tab-pane">
+                                <div class="tabsublinks">
+                                    <ul class="nav nav-tabs" id="mySubTab">
+                                        @for (int m = 0; m < Model.TerminalList[j].ShiftList.Count; m++)
+                                        {
+                                            if (m == 0)
+                                            {
+                                                <li class="active">
+                                                    <a href="#@Model.TerminalList[j].ShiftList[m].Id" data-toggle="tab" aria-expanded="true">@Model.TerminalList[j].ShiftList[m].ShiftName</a>
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li class="tab-red">
+                                                    <a href="#@Model.TerminalList[j].ShiftList[m].Id" data-toggle="tab" aria-expanded="true">@Model.TerminalList[j].ShiftList[m].ShiftName</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+
+                                    <div class="customer-count">
+                                        <span>Customer Count(All Shifts) <strong> @Model.TerminalList[j].CustomerCount</strong> </span>
+                                        <span>Sales(All Shifts) <strong>$ @Model.TerminalList[j].SalesAmount</strong></span>
+                                    </div>
+
+                                    <div class="tab-content">
+
+
+                                        @for (int n = 0; n < Model.TerminalList[j].ShiftList.Count; n++)
+                                        {
+                                            if (n == 0)
+                                            {
+                                                <div id="@Model.TerminalList[j].ShiftList[n].Id" class="tab-pane in active">
+                                                    <div class="tabcntbox">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-9">
+                                                                <h1>@Model.TerminalList[j].TerminalName</h1>
+                                                                <p>@Model.TerminalList[j].ShiftList[n].StartTime to @Model.TerminalList[j].ShiftList[n].EndTime  | Customer Count<strong>@Model.TerminalList[j].ShiftList[n].CustomerCount</strong></p>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-3">
+                                                                <div class="savebtnarea">
+                                                                    @{
+                                                                        var temp = string.Concat(j, n);
+                                                                        var ShiftId = Model.TerminalList[j].ShiftList[n].Id;
+
+                                                                        <input type="submit" id="SubmitShift_@temp" onclick="SubmitShift(this.id,@ShiftId)" value="Save" name="" class="btn btnsavebox" />
+
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="datagrid mt-5">
+                                                                    @{
+                                                                        decimal Total = 0;
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped table-hover" id="data_table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th valign="top" width="100" class="paddrightzero">
+                                                                                            Select
+                                                                                            @Html.DropDownListFor(model => Model.TerminalList[j].ShiftList[n].ShiftName, new SelectList(Model.TerminalList[j].ShiftList[n].ShiftNameList, "Text", "Text"), "Select Shift", new { id = "SelectShift_" + j + n, @class = "myval Width" })
+                                                                                        </th>
+                                                                                        <th valign="top">
+                                                                                            Cashier's Name @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].CashierName, new { @class = "form-control", @id = "CashierName_" + j + n }) <br />
+                                                                                        </th>
+                                                                                        <th width="280" class="tabright">
+                                                                                            Net Sales With Taxes
+                                                                                            <span class="fnt25">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(@Model.TerminalList[j].ShiftList[n].SalesAmount.ToString())</span>
+                                                                                            <span class="normaltext">Tax Collected $ @Model.TerminalList[j].ShiftList[n].TotalTaxAmount</span>
+
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    @for (int c = 0; c < Model.TerminalList[j].ShiftList[n].TenderList.Count; c++)
+                                                                                    {
+                                                                                        <tr>
+                                                                                            <td colspan="2">@Model.TerminalList[j].ShiftList[n].TenderList[c].Name</td>
+                                                                                            <td class="text-right">
+                                                                                                @*@Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].TenderList[c].Amount, new { @class = "form-control", @id = "amount_" + n + c })*@
+                                                                                                @{
+                                                                                                    var tempvalue = j.ToString() + n.ToString() + c.ToString();
+                                                                                                    var idval = @Model.TerminalList[j].ShiftList[n].TenderList[c].Id;
+                                                                                                }
+                                                                                                @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].TenderList[c].Amount, new
+                                                                                           {
+                                                                                               @class = "form-control",
+                                                                                               @id = "Amount_" + j + n + c @*, @onchange = "AmountSave('" + @tempvalue + "','" + @idval + "');"*@})
+
+                                                                                                @{
+                                                                                                    decimal amount = Convert.ToDecimal(Model.TerminalList[j].ShiftList[n].TenderList[c].Amount);
+                                                                                                    Total += amount;
+                                                                                                }
+                                                                                        </tr>
+                                                                                    }
+
+                                                                            </table>
+                                                                            <div class="addrowbox" @*style="display:none"*@>
+                                                                                <input type="button" class="add-row" value="+ Add Row">
+                                                                            </div>
+                                                                            <div class="totalbox">
+                                                                                <div class="totalttl">
+                                                                                    Actual Grand Total
+                                                                                </div>
+                                                                                <div class="grandtotalvalue">
+                                                                                    $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Total.ToString())
+                                                                                    @{
+                                                                                        var Difference = Model.TerminalList[j].ShiftList[n].SalesAmount - Total;
+
+
+                                                                                        if (Difference == 0)
+                                                                                        {
+
+                                                                                        }
+                                                                                        else if (Difference >= 0)
+                                                                                        {
+                                                                                            <span>Over <b style="color:green"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span>Short <b> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+
+                                                                                    }
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div id="@Model.TerminalList[j].ShiftList[n].Id" class="tab-pane">
+                                                    <div class="tabcntbox">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-9">
+                                                                <h1>@Model.TerminalList[j].TerminalName</h1>
+                                                                <p>@Model.TerminalList[j].ShiftList[n].StartTime to @Model.TerminalList[j].ShiftList[n].EndTime  | Customer Count<strong>@Model.TerminalList[j].ShiftList[n].CustomerCount</strong></p>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-3">
+                                                                <div class="savebtnarea">
+                                                                    @{
+                                                                        var temp = string.Concat(j, n);
+                                                                        var ShiftId = Model.TerminalList[j].ShiftList[n].Id;
+
+                                                                        <input type="submit" id="SubmitShift_@temp" onclick="SubmitShift(this.id,@ShiftId)" value="Save" name="" class="btn btnsavebox" />
+
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="datagrid mt-5">
+                                                                    @{
+                                                                        decimal Total = 0;
+                                                                        <div class="table-responsive">
+                                                                            <table class="table table-striped table-hover" id="data_table">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th valign="top" width="100" class="paddrightzero">
+                                                                                            Select
+                                                                                            @Html.DropDownListFor(model => Model.TerminalList[j].ShiftList[n].ShiftName, new SelectList(Model.TerminalList[j].ShiftList[n].ShiftNameList, "Text", "Text"), "Select Shift", new { id = "SelectShift_" + j + n, @class = "myval Width" })
+                                                                                        </th>
+                                                                                        <th valign="top">
+                                                                                            Cashier's Name @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].CashierName, new { @class = "form-control", @id = "CashierName_" + j + n }) <br />
+                                                                                        </th>
+                                                                                        <th width="280" class="tabright">
+                                                                                            Net Sales With Taxes
+                                                                                            <span class="fnt25">$ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(@Model.TerminalList[j].ShiftList[n].SalesAmount.ToString())</span>
+                                                                                            <span class="normaltext">Tax Collected $ @Model.TerminalList[j].ShiftList[n].TotalTaxAmount</span>
+
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    @for (int d = 0; d < Model.TerminalList[j].ShiftList[n].TenderList.Count; d++)
+                                                                                    {
+                                                                                        <tr>
+                                                                                            <td colspan="2">@Model.TerminalList[j].ShiftList[n].TenderList[d].Name</td>
+                                                                                            <td class="text-right">
+                                                                                                @*@Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].TenderList[d].Amount, new { @class = "form-control", @id = "Amount_" + n + d })*@
+                                                                                                @{
+                                                                                                    var tempvalue = j.ToString() + n.ToString() + d.ToString();
+                                                                                                    var idval = @Model.TerminalList[j].ShiftList[n].TenderList[d].Id;
+                                                                                                }
+                                                                                                @Html.TextBoxFor(model => Model.TerminalList[j].ShiftList[n].TenderList[d].Amount, new
+                                                                                           {
+                                                                                               @class = "form-control",
+                                                                                               @id = "Amount_" + j + n + d @*, @onchange = "AmountSave('" + @tempvalue + "','" + @idval + "');"*@})
+                                                                                            </td>
+                                                                                            @{
+                                                                                                decimal amount = Convert.ToDecimal(Model.TerminalList[j].ShiftList[n].TenderList[d].Amount);
+                                                                                                Total += amount;
+                                                                                            }
+                                                                                        </tr>
+                                                                                    }
+
+                                                                            </table>
+                                                                            <div class="addrowbox" @*style="display:none"*@>
+                                                                                <input type="button" class="add-row" value="+ Add Row">
+                                                                            </div>
+                                                                            <div class="totalbox">
+                                                                                <div class="totalttl">
+                                                                                    Actual Grand Total
+                                                                                </div>
+                                                                                <div class="grandtotalvalue">
+                                                                                    $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Total.ToString())
+                                                                                    @{
+                                                                                        var Difference = Model.TerminalList[j].ShiftList[n].SalesAmount - Total;
+
+
+                                                                                        if (Difference == 0)
+                                                                                        {
+
+                                                                                        }
+                                                                                        else if (Difference >= 0)
+                                                                                        {
+                                                                                            <span>Over <b style="color:green"> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            <span>Short <b> $ @wwwroot.Class.AdminSiteConfiguration.PriceWithComma(Difference.ToString())</b></span>
+                                                                                        }
+
+                                                                                    }
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            //}
+
+                        }
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $(".add-row").click(function () {
+                var table = document.getElementById("data_table");
+                var table_len = (table.rows.length);
+                var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td colspan='2'><input type='text' class='form-control width100'/></td><td class='text-right'><input type='text' class='form-control width100'/> <input type='button' value='Delete' class='delete_btn' onclick='delete_row(" + table_len + ")'></td></tr>";
+            });
+        });
+
+        $('.ActiveShow').click(function () {
+            var val = $(this).attr('href');
+            $(this).parent('div').parent('div');
+        })
+
+        function SubmitShift(Id, ShiftId) {
+            //alert(Id);
+            var DID = Id.substr(Id.length - 2);
+            var CName = document.getElementById('CashierName_' + DID).value;
+            var SShift = document.getElementById('SelectShift_' + DID).value;
+            //var amountval = document.getElementById('Amount_' + DID).value;
+            //alert("amountval" + amountval + "SShift" + SShift + "CName" + CName);
+            //alert(CName + SShift);
+            $.ajax({
+                url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/SaveData',
+                data: { CashierName: CName, SelectShift: SShift, SummeryId: ShiftId },
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                beforeSend: function () { Loader(1); },
+                success: function (json) {
+                    Loader(0);
+                    var startdateval = $('#Startdate').val();
+                    GetData(startdateval);
+                    if (json == true) {
+
+                    }
+                }
+            });
+        }
+        function Loader(val) {
+            var doc = document.documentElement;
+            $("[data-toggle=tooltip]").tooltip();
+            if (val == 1) {
+                //alert("11");
+                $(".loading-container").attr("style", "display:block;")
+                //$('#loadbox').hide();
+
+                // $(".loading-container").show();
+                // $(".loading-inactive").show();
+            }
+            else {
+                //alert("00");
+                //$('.loading-container').removeClass('showbox');
+                $(".loading-container").attr("style", "display:none;")
+                //$(".loading-container").hide();
+                //$(".loading-inactive").hide();
+            }
+            // bind();
+        }
+        function AmountSave(amountid, idval) {
+            //alert(amountid);
+            //alert(idval);
+            var amountval = document.getElementById('Amount_' + amountid).value;
+
+                       $.ajax({
+                           url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/Admin/shiftwisereport/SaveTenderinDrawerData',
+                           data: { id: idval, amount: amountval},
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                beforeSend: function () { Loader(1); },
+                success: function (json) {
+                    Loader(0);
+                    var startdateval = $('#Startdate').val();
+                    GetData(startdateval);
+                    if (json == true) {
+
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

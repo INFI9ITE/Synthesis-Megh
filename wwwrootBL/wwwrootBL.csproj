@@ -1,0 +1,670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A9B9C6AD-4039-43A1-A0EF-9E219823638B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>wwwrootBL</RootNamespace>
+    <AssemblyName>wwwrootBL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.AspNet, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.AspNet.0.2.0\lib\net45\Hangfire.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.7.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.7.7\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebHelpers.3.2.4\lib\net45\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.4\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.4\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Entity\BindBackofficemanager_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BindDataapproval_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CheckConfigurationsales_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\checkterminalwiseshift_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\CheckUserExistwhilelock_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\dataentity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataentity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\dataentity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\dataentity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataentity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ExceptionHandlingLog.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GeneralEntryDetail_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCashTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCreditCardDetails_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCreditcard_details_AMEX_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCreditcard_details_Discover_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCreditcard_details_Master_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCreditcard_details_Visa_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetCustomercount_byterminal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetLatestAvailableDateForSalesSummery_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetLatestAvailableDate_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Getotherdeposit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetOtherTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutCountShiftWise_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutCount_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutTitleListName_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutTitleList_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutTotal_Shiftwisereportbyterminalid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetPaidOutTotal_Shiftwisereport_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetRoleidfromuserid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetRoleNameListByUserId_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetRoleNameList_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSalesAmountTotalbyTerminalID_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSalesAmountTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSalesamount_byterminal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetShiftWiseGrandTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetShiftWiseTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetSyncwiselist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetTilteWiseSaleslist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetTitleList_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetTitleWiseTotal_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetTotalCustomercount_byterminalid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetTotalNetSalesTaxAmount_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetUnassignedShiftnamelist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetUnassignShiftName_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\getusernames_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\GetUser_dataApproval_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_Count_tbl_otherdeposit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_InvoiceNotification_Grid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_InvoiceNotification_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_ReguserId_edit_dataapp_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_ReguserId_edit_Owner_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_ReguserId_edit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_ReguserId_edit_storeman_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_roleid_rolename_byReg_userid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_statusCode_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Get_UniqueTendersInDrawer_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\QBConfig.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SiteConfiguration.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SPDepartment_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SPInvoiceDepartment_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SPInvoice_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SPStore_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SPVendor_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\sp_getTenderAccountsStoreWise_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Acivity_Log_GridData_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Activity_action.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Activity_log.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_ChildSalesEntries.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Tbl_Configuration.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_ConfigureStatus.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Creditcard_details.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DayClosereportGrid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DefaultAccount.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DeletedInvoiceHistory.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Department.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DepartmentNetSales.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DepartmentNetSalesbySalesActivityId_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_discounttype.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_EmploymentStatus.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_EmploymentType.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_ExcelRead.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Excelread_Errormsg.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Excelread_Errormsg_insert_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Gender.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_GroupName.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Groupname_Search_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_Dashbord_GridData_Administrator_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_Dashbord_GridData_DataApp_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_Dashbord_GridData_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_Dashbord_GridData_StoreManager_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_Dashbord_Grid_Data_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_Department.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_DuplicateInvoiceDashbord_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_GridData_ForExcel_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_GridData_ForPdf_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Invoice_GridData_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_LogSummary.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_MaritalStatus.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Option.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Option_select_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_otherdeposit.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_otherdeposit_selectbystoreid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_otherdeposit_select_bystoreid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_PaidOut.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_PaidOutbySalesActivityId_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_PaidOut_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Pamentype.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Payment_Method.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Payment_Method_Byoption_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_bystoreid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_Excelread_exists_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_Select_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_shiftlist_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_shiftlist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_Terminallist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_Terminalwiselistbytid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesActivitySummary_Terminalwiselist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesGeneralEntries.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesGeneralEntriesHistory.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_SalesGeneralEntries_select_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_shift.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Status.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Storewise_Excelupload.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_store_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store_Emailexists_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store_exists_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store_GridData_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store_Terminal.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store_Terminal_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Store_Terminal_Select_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_tbl_Store_Terminal_existsbyid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_tbl_Store_Terminal_exists_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_tenderinDraw_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_TendersInDrawer.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_TendersInDrawerbySalesActivityId_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Type.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_TypicalBalance_master.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_userlist_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_backoffice_edit_new_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_backoffice_edit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_backoffice_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_DataApprover_edit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_DataApprover_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_GridData_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_GridData_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_name_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_Owner_edit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_Owner_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_Selectstore_Admin_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_Selectstore_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_store.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_Storemanager_edit_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_Storemanager_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_user_store_By_Reg_userid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Vendor.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Unsetteled_Invoice_Administrator_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserProfile.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Utility.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\webpages_Membership.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\webpages_OAuthMembership.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\webpages_Roles.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entity\dataentity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dataentity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\dataentity.edmx.diagram">
+      <DependentUpon>dataentity.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\dataentity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataentity.edmx</DependentUpon>
+      <LastGenOutput>dataentity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\dataentity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataentity.edmx</DependentUpon>
+      <LastGenOutput>dataentity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ManageRole</title>
+</head>
+<body>
+    <div>
+        <h2>Role Create</h2>
+
+   @using (Html.BeginForm("RoleCreate", "Role", FormMethod.Post, new { enctype = "multipart/form-data" }))
+   {
+        @Html.AntiForgeryToken()
+       @Html.TextBox("RoleName")
+       
+       <input id="btncreate" type="submit" value="button" />
+   }
+<br />
+<br />
+<br />
+
+<h2>Role Delete</h2>
+ @using (Html.BeginForm("RoleDelete", "Role", FormMethod.Post, new { enctype = "multipart/form-data" }))
+   {
+        @Html.AntiForgeryToken()
+       @Html.TextBox("RoleName")
+       
+       <input id="btndelete" type="submit" value="button" />
+   }
+    </div>
+</body>
+</html>
