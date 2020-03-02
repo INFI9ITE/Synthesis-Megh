@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -133,6 +132,10 @@
     </Reference>
     <Reference Include="SimpleRESTServices, Version=1.3.0.0, Culture=neutral, PublicKeyToken=8965cea5c205d3a3, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleRESTServices.1.3.0.1\lib\net40\SimpleRESTServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SynthesisQBOnline, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SynthesisQBOnline.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -300,7 +303,33 @@
     <Compile Include="Models\MailUtility.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\MyResponse.cs" />
+    <Compile Include="Models\QBHistoryModel.cs" />
+    <Compile Include="Models\QBOnlineconfigurationModel.cs" />
+    <Compile Include="Models\QBWebConnectorMappingModel.cs" />
+    <Compile Include="OauthGrant.aspx.cs">
+      <DependentUpon>OauthGrant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OauthGrant.aspx.designer.cs">
+      <DependentUpon>OauthGrant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QBAuth\DiscoveryData.cs" />
+    <Compile Include="QBAuth\IdToken.cs" />
+    <Compile Include="QBAuth\JWKS.cs" />
+    <Compile Include="QBAuth\QBRequest.cs" />
+    <Compile Include="QBAuth\UserInfo.cs" />
+    <Compile Include="QBClass\BOLQBRequestMaster.cs" />
+    <Compile Include="QBClass\QBCreateRequest.cs" />
+    <Compile Include="QBClass\QBExtractResponse.cs" />
+    <Compile Include="QBClass\wcwebservice.asmx.cs">
+      <DependentUpon>wcwebservice.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QBOnline\DAL.cs" />
+    <Compile Include="QBOnline\QBHistoryBAL.cs" />
+    <Compile Include="QBOnline\QBOnlineconfigurationBAL.cs" />
+    <Compile Include="QBOnline\QBWebConnectorMappingModelBAL.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="TextBuffer.cs" />
   </ItemGroup>
@@ -2763,6 +2792,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="KeepSessionAlive.aspx" />
+    <Content Include="OauthGrant.aspx" />
+    <Content Include="QBClass\wcwebservice.asmx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -3875,12 +3906,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
