@@ -11,7 +11,6 @@ namespace wwwroot.QBOnline
             string connstr = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             return connstr;
         }
-
         public void Insert_Update_Delete(SqlCommand cmd)
         {
             try
