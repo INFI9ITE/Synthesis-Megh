@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head id="Head1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Page title -->
+
+<title id="pagetitle">Synthesis</title>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!--Basic Styles-->
+<!--Basic Styles-->
+<link href="../Content/Admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../Content/Admin/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/weather-icons.min.css" rel="stylesheet" />
+<link href="../Content/Admin/css/select2.min.css" rel="stylesheet" />
+<!--Beyond styles-->
+<link href="../Content/Admin/assets/css/beyond.min.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/demo.min.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/typicons.min.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/animate.min.css" rel="stylesheet" />
+<link href="../Content/Admin/css/loader.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body class="fixed-navbar fixed-sidebar">
+<!-- Simple splash screen-->
+<div class="loading-container" style="display:none;">
+  <div class="loader"></div>
+</div>
+<div class="headermainbox">
+  <div class="logo"><a href="http://synthesis.weblivelink.com/html/"><img src="../Content/Admin/images/img_logosysthesis.jpg" /> </a></div>
+  <span class="applicationtext"><select class="myval">
+  <option>74-84 Westside Market</option>
+  <option>74-84 Westside Market</option>
+  <option>74-84 Westside Market</option>
+  <option>74-84 Westside Market</option>
+  </select></span> <a href="#" class="burgermenu"><i class="fa fa-bars"></i></a>
+  <div class="mobileclear"></div>
+  <div class="headerrightbox"> <span class="badgeicon dropdown"><a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#" aria-expanded="true"><span class="badge">1</span> </a>
+    <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li class="btnviewall"><a href="#">View all</a></li>
+    </ul>
+    </span><span class="profile"> <span class="profinename">J</span><span class="name">John Smith </span></span> <a href="http://synthesis.weblivelink.com/html" class="logout"> <img src="../Content/Admin/images/icons/icon_logout.jpg" alt=""/> </a>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<!-- Header -->
+
+<div class="main-container container-fluid"> 
+  <!-- Page Container -->
+  <div class="page-container"> 
+    <!-- Side Menu --> 
+    <!-- /Page Sidebar -->
+    
+    <div class="page-sidebar  sidebar-fixed menu-compact " id="sidebar">
+      <aside id="menu" class="printorder">
+        <div id="navigation" class="printorder">
+          <ul class="nav sidebar-menu">
+          <li> <a href="dashboard.html"> <i class="menu-icon"><img src="../Content/Admin/images/icons/icon_dashboard.png" alt=""/></i> <span>Dashboard </span> </a> </li>
+            <li> <a href="quickinvoice.html"> <i class="menu-icon"><img src="../Content/Admin/images/icons/icon_quickinvoice.png" alt=""/></i> <span>Quick Invoice </span> </a> </li>
+            <li> <a href="report.html"><i class="menu-icon"><img src="../Content/Admin/images/icons/icon_report.png" alt=""/></i> <span>Reports </span> </a></li>
+           <li class="active"> <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="../Content/Admin/images/icons/icon_settings.png" alt=""/></i> <span>Settings </span> </a>
+            <ul class="submenu">
+              <li><a href="store.html"><span class="menu-text">Store</span></a></li>
+              <li><a href="department.html"><span class="menu-text">Department</span></a></li>
+              <li><a href="users.html"><span class="menu-text">Users</span></a></li>
+              <li><a href="activitylog.html"><span class="menu-text">Activity Log</span></a></li>
+           </ul>
+            </li>
+            <li> <a href="#"><i class="menu-icon"><img src="../Content/Admin/images/icons/icon_quickbooks.png" alt=""/></i> <span>Link to <br/> Quickbooks </span> </a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <script type="text/javascript" src='../Content/Admin/vendor/jquery/dist/jquery.min.js'></script>
+    <div class="page-content">
+      <div class="header-small">
+        <h3>Add User </h3>
+      </div>
+      <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+        <div class="datagrid martop15">
+         <div class="formmain">
+        <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+          	<label> Name</label>
+            <input type="text" class="form-control" value="John smith"/>         
+          </div>
+          <div class="form-group">
+          	<label> Email</label>
+            <input type="text" class="form-control" value="johmsmith@gmail.com"/>         
+          </div>
+           <div class="form-group">
+          	<label>Assign Role</label>
+            <input type="text" class="form-control" value="Back Office Manager"/>         
+          </div>
+           <div class="form-group">
+          	<label>Store</label>
+            <input type="text" class="form-control" value="Westside Market"/>         
+          </div>
+          <div class="form-group">
+          <input type="submit" value="Save" class="buttonbox btnsubmit"/>
+          <a href="users.html" class="buttonbox btncancel">Cancel</a>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript" src='../Content/Scripts/jquery-ui-1.8.24.min.js'></script> 
+<script type="text/javascript" src='../Content/Scripts/jquery.validate.min.js'></script> 
+<script type="text/javascript" src='../Content/Scripts/jquery.validate.unobtrusive.min.js'></script> 
+<script type="text/javascript" src="../Content/Scripts/jquery.unobtrusive-ajax.min.js"></script> 
+<script type="text/javascript" src="../Content/Scripts/modernizr-2.6.2.js"></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/skins.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/bootstrap.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/bootstrap.file-input.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/app.js'></script> 
+<script type="text/javascript" src='../Content/Admin/vendor/metisMenu/dist/metisMenu.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/vendor/sparkline/index.js'></script> 
+<script type="text/javascript" src='../Content/Admin/vendor/moment/moment.js'></script> 
+<script type="text/javascript" src='../Content/Admin/vendor/xeditable/bootstrap3-editable/js/bootstrap-editable.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/jquery.flot.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/jquery.flot.tooltip.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/vendor/jquery-flot/jquery.flot.resize.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/globalize.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/app.plugin.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/perfect-scrollbar.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/custom.js'></script> 
+<script type="text/javascript" src='../Content/Admin/js/sweet-alert.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/slimscroll/jquery.slimscroll.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/select2/select2.js'></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/select2/select2.full.js'></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/beyond.js'></script> 
+<script src="../Content/Admin/js/bootstrap-datetimepicker.js"></script> 
+<script src="../Content/Admin/assets/js/bootbox/bootbox.js"></script> 
+<script src="../Content/Admin/assets/js/fileupload.js"></script> 
+<script>
+        $(".myval").select2({
+            width: "50%",
+        });
+        $(".myval1").select2({
+            minimumResultsForSearch: -1
+        });
+
+    </script> 
+<script>
+    $('.stop-propagation').on('click', function (e) {
+    e.stopPropagation();
+});
+</script> 
+<script>
+        //('.date-picker').datetimepicker();
+
+        $(function () {
+
+            var date = new Date();
+            var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+            $('#datepicker').datetimepicker({
+                format: 'MMM DD, YYYY',
+                useCurrent: false
+            });
+           
+        });
+    </script> 
+<script>
+    $('.burgermenu').click(function(){
+		$('#sidebar').toggleClass('showmenu');	
+		$('.page-content').toggleClass('marleft110');
+	})
+    </script>
+</body>
+</html>

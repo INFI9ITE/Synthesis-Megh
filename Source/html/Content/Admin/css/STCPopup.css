@@ -1,0 +1,44 @@
+
+        
+		
+		.maintablepdfbox{border:1px solid #ccc; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+		.maintablepdfbox input[type="text"]{border:1px solid #ccc; height:20px; width:95%;}
+		.maintablepdfbox textarea{border:1px solid #ccc; height:40px; width:95%;}
+		.tablepadding tr td{padding:5px 7px; font-size:12px;}
+		.tablepadding tr td span{display:block;}
+		.maintablepdfbox ul{margin:10px; padding:0px;}
+		.maintablepdfbox ul li{list-style-type:none; margin:0px; padding:0px; font-size:12px;}
+		.maintablepdfbox p{margin:0px; padding:0px; font-size:12px;}
+		
+		/************** electrical certi **************/
+		table.tbrborder {border:1px solid #ccc;}
+		.maintablepdfbox textarea.electricalcertiarea{border:1px solid #ccc; height:600px; width:100%;}
+		/**************** electrical certi ******************/
+		@page {
+            size: A4 ; 
+            margin:0px; padding:0px;
+}
+		.fnt8{font-size:11px;}
+		.fnt12{font-size:12px;font-family:Arial, Helvetica, sans-serif}
+		@media print {
+		body{font-family:Verdana, Geneva, sans-serif; font-size:8px;}
+            .font10 {font-size: 10px;}
+			/************** electrical certi **************/
+		.maintablepdfbox textarea.electricalcertiarea{border:1px solid #ccc; height:600px; width:100%;}
+            
+		/**************** electrical certi ******************/
+			label{font-size:10px!important;}
+			.fnt8{font-size:8px;}
+			.tablepadding tr td span{display:inline-block;}
+            body{font-family:Verdana, Geneva, sans-serif; font-size:8px;}		
+			.tablepadding tr td{padding:2px 2px; font-size:8px;}
+			ul li{list-style-type:disc; margin:0px; padding:0px; font-size:7px;}
+			p{margin:0px; padding:0px; font-size:7px;}
+			.maintablepdfbox input[type="text"]{border:1px solid #ccc; height:10px; width:95%; font-family:Verdana, Geneva, sans-serif; font-size:8px;}
+		    .maintablepdfbox textarea{border:1px solid #ccc; height:auto; width:95%;}
+            .heightset{ height: 10px!important}
+            
+
+}
+
+  
