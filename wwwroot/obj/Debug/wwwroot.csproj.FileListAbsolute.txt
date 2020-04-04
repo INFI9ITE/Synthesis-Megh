@@ -139,7 +139,6 @@ D:\synthesis\wwwroot\bin\openstacknet.dll
 D:\synthesis\wwwroot\bin\Owin.dll
 D:\synthesis\wwwroot\bin\SimpleRESTServices.dll
 D:\synthesis\wwwroot\bin\System.Net.Http.Formatting.dll
-D:\synthesis\wwwroot\bin\System.Net.Http.WebRequest.dll
 D:\synthesis\wwwroot\bin\System.Web.Helpers.dll
 D:\synthesis\wwwroot\bin\System.Web.Http.dll
 D:\synthesis\wwwroot\bin\System.Web.Http.WebHost.dll
@@ -179,7 +178,6 @@ D:\synthesis\wwwroot\bin\Newtonsoft.Json.xml
 D:\synthesis\wwwroot\bin\openstacknet.xml
 D:\synthesis\wwwroot\bin\SimpleRESTServices.xml
 D:\synthesis\wwwroot\bin\System.Net.Http.Formatting.xml
-D:\synthesis\wwwroot\bin\System.Net.Http.WebRequest.xml
 D:\synthesis\wwwroot\bin\System.Web.Helpers.xml
 D:\synthesis\wwwroot\bin\System.Web.Http.xml
 D:\synthesis\wwwroot\bin\System.Web.Http.WebHost.xml
@@ -202,116 +200,436 @@ D:\synthesis\wwwroot\bin\nl\Hangfire.Core.resources.dll
 D:\synthesis\wwwroot\bin\pt-BR\Hangfire.Core.resources.dll
 D:\synthesis\wwwroot\bin\zh\Hangfire.Core.resources.dll
 D:\synthesis\wwwroot\bin\zh-TW\Hangfire.Core.resources.dll
-D:\synthesis\wwwroot\obj\Debug\wwwroot.csprojResolveAssemblyReference.cache
+D:\synthesis\wwwroot\obj\Debug\wwwroot.csprojAssemblyReference.cache
 D:\synthesis\wwwroot\obj\Debug\wwwroot.csproj.CoreCompileInputs.cache
+D:\synthesis\wwwroot\obj\Debug\wwwroot.csproj.CopyComplete
 D:\synthesis\wwwroot\obj\Debug\wwwroot.dll
 D:\synthesis\wwwroot\obj\Debug\wwwroot.pdb
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\ApplicationInsights.config
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\wwwroot.dll.config
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\wwwroot.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\wwwroot.pdb
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.AspNet.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.Core.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OAuth.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OpenId.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\EntityFramework.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\EntityFramework.SqlServer.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Flurl.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Hangfire.AspNet.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Hangfire.Core.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Hangfire.SqlServer.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\itextsharp.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.Agent.Intercept.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.DependencyCollector.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.PerfCounterCollector.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.Web.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.WindowsServer.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.ApplicationInsights.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AspNet.SignalR.Core.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Owin.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Owin.Security.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Web.Helpers.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Web.Infrastructure.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Web.WebPages.OAuth.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Newtonsoft.Json.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\openstacknet.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Owin.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\SimpleRESTServices.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Net.Http.Formatting.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Helpers.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Http.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Http.WebHost.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Mvc.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Razor.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.WebPages.Deployment.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.WebPages.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.WebPages.Razor.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\WebMatrix.Data.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\WebMatrix.WebData.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\wwwrootBL.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Org.Mentalis.Security.Cryptography.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Mono.Math.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\wwwrootBL.pdb
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\wwwrootBL.dll.config
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.AspNet.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.Core.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OAuth.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OpenId.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\EntityFramework.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\EntityFramework.SqlServer.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Flurl.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Hangfire.AspNet.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Hangfire.Core.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Hangfire.SqlServer.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\itextsharp.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AspNet.SignalR.Core.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Owin.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Owin.Security.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.Web.WebPages.OAuth.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Newtonsoft.Json.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\openstacknet.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\SimpleRESTServices.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Net.Http.Formatting.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Helpers.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Http.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Http.WebHost.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Razor.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.WebPages.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.WebPages.Deployment.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.WebPages.Razor.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\System.Web.Mvc.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\WebMatrix.Data.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\WebMatrix.WebData.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.ApplicationInsights.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.DependencyCollector.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.WindowsServer.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Microsoft.AI.Web.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Org.Mentalis.Security.Cryptography.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\Mono.Math.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\es\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\nl\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\pt-BR\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\zh\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\bin\zh-TW\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\obj\Debug\wwwroot.csprojAssemblyReference.cache
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\obj\Debug\wwwroot.csproj.CoreCompileInputs.cache
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\obj\Debug\wwwroot.csproj.CopyComplete
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\obj\Debug\wwwroot.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwroot\obj\Debug\wwwroot.pdb
+D:\Projects\Synthesis_new\wwwroot\bin\ApplicationInsights.config
+D:\Projects\Synthesis_new\wwwroot\bin\wwwroot.dll.config
+D:\Projects\Synthesis_new\wwwroot\bin\wwwroot.dll
+D:\Projects\Synthesis_new\wwwroot\bin\wwwroot.pdb
+D:\Projects\Synthesis_new\wwwroot\bin\ChilkatDotNet45.dll
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.AspNet.dll
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.Core.dll
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OAuth.dll
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OpenId.dll
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Projects\Synthesis_new\wwwroot\bin\EntityFramework.dll
+D:\Projects\Synthesis_new\wwwroot\bin\EntityFramework.SqlServer.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Flurl.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Hangfire.AspNet.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Hangfire.Core.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Hangfire.SqlServer.dll
+D:\Projects\Synthesis_new\wwwroot\bin\itextsharp.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.DependencyCollector.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.Web.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.WindowsServer.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.ApplicationInsights.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Owin.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Owin.Security.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Web.Helpers.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Newtonsoft.Json.dll
+D:\Projects\Synthesis_new\wwwroot\bin\openstacknet.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Owin.dll
+D:\Projects\Synthesis_new\wwwroot\bin\SimpleRESTServices.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Net.Http.Formatting.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Helpers.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Http.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Http.WebHost.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Mvc.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Razor.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.WebPages.Deployment.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.WebPages.dll
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.WebPages.Razor.dll
+D:\Projects\Synthesis_new\wwwroot\bin\WebMatrix.Data.dll
+D:\Projects\Synthesis_new\wwwroot\bin\WebMatrix.WebData.dll
+D:\Projects\Synthesis_new\wwwroot\bin\wwwrootBL.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Org.Mentalis.Security.Cryptography.dll
+D:\Projects\Synthesis_new\wwwroot\bin\Mono.Math.dll
+D:\Projects\Synthesis_new\wwwroot\bin\wwwrootBL.pdb
+D:\Projects\Synthesis_new\wwwroot\bin\wwwrootBL.dll.config
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.AspNet.xml
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.Core.xml
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OAuth.xml
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OpenId.xml
+D:\Projects\Synthesis_new\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Projects\Synthesis_new\wwwroot\bin\EntityFramework.xml
+D:\Projects\Synthesis_new\wwwroot\bin\EntityFramework.SqlServer.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Flurl.pdb
+D:\Projects\Synthesis_new\wwwroot\bin\Flurl.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Hangfire.AspNet.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Hangfire.Core.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Hangfire.SqlServer.xml
+D:\Projects\Synthesis_new\wwwroot\bin\itextsharp.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Owin.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Owin.Security.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Newtonsoft.Json.xml
+D:\Projects\Synthesis_new\wwwroot\bin\openstacknet.xml
+D:\Projects\Synthesis_new\wwwroot\bin\SimpleRESTServices.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Net.Http.Formatting.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Helpers.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Http.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Http.WebHost.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Razor.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.WebPages.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.WebPages.Razor.xml
+D:\Projects\Synthesis_new\wwwroot\bin\System.Web.Mvc.xml
+D:\Projects\Synthesis_new\wwwroot\bin\WebMatrix.Data.xml
+D:\Projects\Synthesis_new\wwwroot\bin\WebMatrix.WebData.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.ApplicationInsights.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.DependencyCollector.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.WindowsServer.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Microsoft.AI.Web.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Org.Mentalis.Security.Cryptography.xml
+D:\Projects\Synthesis_new\wwwroot\bin\Mono.Math.xml
+D:\Projects\Synthesis_new\wwwroot\bin\es\Hangfire.Core.resources.dll
+D:\Projects\Synthesis_new\wwwroot\bin\nl\Hangfire.Core.resources.dll
+D:\Projects\Synthesis_new\wwwroot\bin\pt-BR\Hangfire.Core.resources.dll
+D:\Projects\Synthesis_new\wwwroot\bin\zh\Hangfire.Core.resources.dll
+D:\Projects\Synthesis_new\wwwroot\bin\zh-TW\Hangfire.Core.resources.dll
+D:\Projects\Synthesis_new\wwwroot\obj\Debug\wwwroot.csprojAssemblyReference.cache
+D:\Projects\Synthesis_new\wwwroot\obj\Debug\wwwroot.csproj.CoreCompileInputs.cache
+D:\Projects\Synthesis_new\wwwroot\obj\Debug\wwwroot.csproj.CopyComplete
+D:\Projects\Synthesis_new\wwwroot\obj\Debug\wwwroot.dll
+D:\Projects\Synthesis_new\wwwroot\obj\Debug\wwwroot.pdb
+D:\Viral\synthesis\wwwroot\bin\ApplicationInsights.config
+D:\Viral\synthesis\wwwroot\bin\wwwroot.dll.config
+D:\Viral\synthesis\wwwroot\bin\wwwroot.dll
+D:\Viral\synthesis\wwwroot\bin\wwwroot.pdb
+D:\Viral\synthesis\wwwroot\bin\ChilkatDotNet4.dll
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.AspNet.dll
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.Core.dll
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.dll
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.dll
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\Viral\synthesis\wwwroot\bin\EntityFramework.dll
+D:\Viral\synthesis\wwwroot\bin\EntityFramework.SqlServer.dll
+D:\Viral\synthesis\wwwroot\bin\Flurl.dll
+D:\Viral\synthesis\wwwroot\bin\Hangfire.AspNet.dll
+D:\Viral\synthesis\wwwroot\bin\Hangfire.Core.dll
+D:\Viral\synthesis\wwwroot\bin\Hangfire.SqlServer.dll
+D:\Viral\synthesis\wwwroot\bin\itextsharp.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.DependencyCollector.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.Web.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.WindowsServer.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.ApplicationInsights.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Owin.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Owin.Security.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Web.Helpers.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Web.Infrastructure.dll
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\Viral\synthesis\wwwroot\bin\Newtonsoft.Json.dll
+D:\Viral\synthesis\wwwroot\bin\openstacknet.dll
+D:\Viral\synthesis\wwwroot\bin\Owin.dll
+D:\Viral\synthesis\wwwroot\bin\SimpleRESTServices.dll
+D:\Viral\synthesis\wwwroot\bin\System.Net.Http.dll
+D:\Viral\synthesis\wwwroot\bin\System.Net.Http.Formatting.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.Helpers.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.Http.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.Http.WebHost.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.Mvc.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.Razor.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.WebPages.Deployment.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.WebPages.dll
+D:\Viral\synthesis\wwwroot\bin\System.Web.WebPages.Razor.dll
+D:\Viral\synthesis\wwwroot\bin\WebMatrix.Data.dll
+D:\Viral\synthesis\wwwroot\bin\WebMatrix.WebData.dll
+D:\Viral\synthesis\wwwroot\bin\wwwrootBL.dll
+D:\Viral\synthesis\wwwroot\bin\Org.Mentalis.Security.Cryptography.dll
+D:\Viral\synthesis\wwwroot\bin\Mono.Math.dll
+D:\Viral\synthesis\wwwroot\bin\wwwrootBL.pdb
+D:\Viral\synthesis\wwwroot\bin\wwwrootBL.dll.config
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.AspNet.xml
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.Core.xml
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.xml
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.xml
+D:\Viral\synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\Viral\synthesis\wwwroot\bin\EntityFramework.xml
+D:\Viral\synthesis\wwwroot\bin\EntityFramework.SqlServer.xml
+D:\Viral\synthesis\wwwroot\bin\Flurl.pdb
+D:\Viral\synthesis\wwwroot\bin\Flurl.xml
+D:\Viral\synthesis\wwwroot\bin\Hangfire.AspNet.xml
+D:\Viral\synthesis\wwwroot\bin\Hangfire.Core.xml
+D:\Viral\synthesis\wwwroot\bin\Hangfire.SqlServer.xml
+D:\Viral\synthesis\wwwroot\bin\itextsharp.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Owin.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Owin.Security.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\Viral\synthesis\wwwroot\bin\Newtonsoft.Json.xml
+D:\Viral\synthesis\wwwroot\bin\openstacknet.xml
+D:\Viral\synthesis\wwwroot\bin\SimpleRESTServices.xml
+D:\Viral\synthesis\wwwroot\bin\System.Net.Http.xml
+D:\Viral\synthesis\wwwroot\bin\System.Net.Http.Formatting.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.Helpers.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.Http.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.Http.WebHost.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.Razor.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.WebPages.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.WebPages.Deployment.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.WebPages.Razor.xml
+D:\Viral\synthesis\wwwroot\bin\System.Web.Mvc.xml
+D:\Viral\synthesis\wwwroot\bin\WebMatrix.Data.xml
+D:\Viral\synthesis\wwwroot\bin\WebMatrix.WebData.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.ApplicationInsights.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.DependencyCollector.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.WindowsServer.xml
+D:\Viral\synthesis\wwwroot\bin\Microsoft.AI.Web.xml
+D:\Viral\synthesis\wwwroot\bin\Org.Mentalis.Security.Cryptography.xml
+D:\Viral\synthesis\wwwroot\bin\Mono.Math.xml
+D:\Viral\synthesis\wwwroot\bin\es\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwroot\bin\nl\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwroot\bin\pt-BR\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwroot\bin\zh\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwroot\bin\zh-TW\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwroot\obj\Debug\wwwroot.csprojAssemblyReference.cache
+D:\Viral\synthesis\wwwroot\obj\Debug\wwwroot.csproj.CoreCompileInputs.cache
+D:\Viral\synthesis\wwwroot\obj\Debug\wwwroot.csproj.CopyComplete
+D:\Viral\synthesis\wwwroot\obj\Debug\wwwroot.dll
+D:\Viral\synthesis\wwwroot\obj\Debug\wwwroot.pdb
+E:\ChiragGurjar\Synthesis\wwwroot\bin\ApplicationInsights.config
+E:\ChiragGurjar\Synthesis\wwwroot\bin\wwwroot.dll.config
+E:\ChiragGurjar\Synthesis\wwwroot\bin\wwwroot.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\wwwroot.pdb
+E:\ChiragGurjar\Synthesis\wwwroot\bin\ChilkatDotNet4.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.AspNet.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.Core.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\EntityFramework.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\EntityFramework.SqlServer.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Flurl.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Hangfire.AspNet.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Hangfire.Core.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Hangfire.SqlServer.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\itextsharp.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.Agent.Intercept.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.DependencyCollector.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.Web.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.WindowsServer.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.ApplicationInsights.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Owin.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Owin.Security.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Web.Helpers.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Web.Infrastructure.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Newtonsoft.Json.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\openstacknet.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Owin.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\SimpleRESTServices.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Net.Http.Formatting.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Net.Http.WebRequest.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Helpers.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Http.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Http.WebHost.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Mvc.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Razor.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.WebPages.Deployment.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.WebPages.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.WebPages.Razor.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\WebMatrix.Data.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\WebMatrix.WebData.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\wwwrootBL.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Org.Mentalis.Security.Cryptography.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Mono.Math.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\wwwrootBL.pdb
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.AspNet.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.Core.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\EntityFramework.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\EntityFramework.SqlServer.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Flurl.pdb
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Flurl.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Hangfire.AspNet.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Hangfire.Core.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Hangfire.SqlServer.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\itextsharp.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Owin.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Owin.Security.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Newtonsoft.Json.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\openstacknet.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\SimpleRESTServices.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Net.Http.Formatting.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Net.Http.WebRequest.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Helpers.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Http.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Http.WebHost.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Razor.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.WebPages.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.WebPages.Deployment.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.WebPages.Razor.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\System.Web.Mvc.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\WebMatrix.Data.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\WebMatrix.WebData.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.ApplicationInsights.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.DependencyCollector.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.WindowsServer.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Microsoft.AI.Web.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Org.Mentalis.Security.Cryptography.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\Mono.Math.xml
+E:\ChiragGurjar\Synthesis\wwwroot\bin\es\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\nl\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\pt-BR\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\zh\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwroot\bin\zh-TW\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwroot\obj\Debug\wwwroot.csprojResolveAssemblyReference.cache
+E:\ChiragGurjar\Synthesis\wwwroot\obj\Debug\wwwroot.dll
+E:\ChiragGurjar\Synthesis\wwwroot\obj\Debug\wwwroot.pdb
+D:\synthesis\wwwroot\bin\ChilkatDotNet4.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\ApplicationInsights.config
+D:\kushal\Projects\Synthesis git\wwwroot\bin\wwwroot.dll.config
+D:\kushal\Projects\Synthesis git\wwwroot\bin\wwwroot.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\wwwroot.pdb
+D:\kushal\Projects\Synthesis git\wwwroot\bin\ChilkatDotNet4.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.AspNet.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.Core.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OAuth.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OpenId.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\EntityFramework.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\EntityFramework.SqlServer.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Flurl.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Hangfire.AspNet.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Hangfire.Core.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Hangfire.SqlServer.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\itextsharp.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.Agent.Intercept.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.DependencyCollector.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.Web.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.WindowsServer.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.ApplicationInsights.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Owin.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Owin.Security.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Web.Helpers.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Web.Infrastructure.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Newtonsoft.Json.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\openstacknet.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Owin.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\SimpleRESTServices.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Net.Http.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Net.Http.Formatting.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Helpers.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Http.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Http.WebHost.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Mvc.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Razor.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.WebPages.Deployment.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.WebPages.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.WebPages.Razor.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\WebMatrix.Data.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\WebMatrix.WebData.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\wwwrootBL.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Org.Mentalis.Security.Cryptography.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Mono.Math.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\wwwrootBL.pdb
+D:\kushal\Projects\Synthesis git\wwwroot\bin\wwwrootBL.dll.config
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.AspNet.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.Core.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OAuth.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OpenId.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\EntityFramework.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\EntityFramework.SqlServer.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Flurl.pdb
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Flurl.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Hangfire.AspNet.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Hangfire.Core.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Hangfire.SqlServer.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\itextsharp.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Owin.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Owin.Security.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Newtonsoft.Json.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\openstacknet.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\SimpleRESTServices.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Net.Http.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Net.Http.Formatting.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Helpers.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Http.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Http.WebHost.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Razor.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.WebPages.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.WebPages.Deployment.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.WebPages.Razor.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\System.Web.Mvc.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\WebMatrix.Data.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\WebMatrix.WebData.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.ApplicationInsights.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.DependencyCollector.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.WindowsServer.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Microsoft.AI.Web.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Org.Mentalis.Security.Cryptography.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\Mono.Math.xml
+D:\kushal\Projects\Synthesis git\wwwroot\bin\es\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\nl\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\pt-BR\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\zh\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwroot\bin\zh-TW\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwroot\obj\Debug\wwwroot.csprojAssemblyReference.cache
+D:\kushal\Projects\Synthesis git\wwwroot\obj\Debug\wwwroot.csproj.CoreCompileInputs.cache
+D:\kushal\Projects\Synthesis git\wwwroot\obj\Debug\wwwroot.csproj.CopyComplete
+D:\kushal\Projects\Synthesis git\wwwroot\obj\Debug\wwwroot.dll
+D:\kushal\Projects\Synthesis git\wwwroot\obj\Debug\wwwroot.pdb
 D:\Projects\Synthesis\wwwroot\bin\ApplicationInsights.config
 D:\Projects\Synthesis\wwwroot\bin\wwwroot.dll.config
 D:\Projects\Synthesis\wwwroot\bin\wwwroot.dll
 D:\Projects\Synthesis\wwwroot\bin\wwwroot.pdb
+D:\Projects\Synthesis\wwwroot\bin\ChilkatDotNet4.dll
 D:\Projects\Synthesis\wwwroot\bin\DotNetOpenAuth.AspNet.dll
 D:\Projects\Synthesis\wwwroot\bin\DotNetOpenAuth.Core.dll
 D:\Projects\Synthesis\wwwroot\bin\DotNetOpenAuth.OAuth.Consumer.dll

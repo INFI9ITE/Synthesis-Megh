@@ -75,6 +75,11 @@ namespace wwwrootBL.Entity
         public virtual DbSet<tbl_ExcelRead> tbl_ExcelRead { get; set; }
         public virtual DbSet<tbl_Excelread_Errormsg> tbl_Excelread_Errormsg { get; set; }
         public virtual DbSet<tbl_DefaultAccount> tbl_DefaultAccount { get; set; }
+        public virtual DbSet<tbl_Document_keyword> tbl_Document_keyword { get; set; }
+        public virtual DbSet<tbl_DocumentCategory> tbl_DocumentCategory { get; set; }
+        public virtual DbSet<tbl_DocumentFavorites> tbl_DocumentFavorites { get; set; }
+        public virtual DbSet<tbl_DocumentGallary> tbl_DocumentGallary { get; set; }
+        public virtual DbSet<tbl_UserWiseStickyNotes> tbl_UserWiseStickyNotes { get; set; }
     
         public virtual ObjectResult<BindBackofficemanager_Result> BindBackofficemanager()
         {
@@ -3766,6 +3771,294 @@ namespace wwwrootBL.Entity
                 new ObjectParameter("terminalid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTotalCustomercount_byterminalid_Result>("GetTotalCustomercount_byterminalid", transactionStartTimeParameter, storeidParameter, terminalidParameter);
+        }
+    
+        public virtual ObjectResult<tbl_DocumentCategory_GetAll_Result> tbl_DocumentCategory_GetAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_DocumentCategory_GetAll_Result>("tbl_DocumentCategory_GetAll");
+        }
+    
+        public virtual int tbl_Document_keyword_Insert(Nullable<int> docID, string title, Nullable<bool> isActive)
+        {
+            var docIDParameter = docID.HasValue ?
+                new ObjectParameter("DocID", docID) :
+                new ObjectParameter("DocID", typeof(int));
+    
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tbl_Document_keyword_Insert", docIDParameter, titleParameter, isActiveParameter);
+        }
+    
+        public virtual int tbl_DocumentFavorites_Insert(Nullable<int> docId, Nullable<int> userId, Nullable<System.DateTime> createdDate, Nullable<bool> isFavorite)
+        {
+            var docIdParameter = docId.HasValue ?
+                new ObjectParameter("DocId", docId) :
+                new ObjectParameter("DocId", typeof(int));
+    
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var createdDateParameter = createdDate.HasValue ?
+                new ObjectParameter("CreatedDate", createdDate) :
+                new ObjectParameter("CreatedDate", typeof(System.DateTime));
+    
+            var isFavoriteParameter = isFavorite.HasValue ?
+                new ObjectParameter("IsFavorite", isFavorite) :
+                new ObjectParameter("IsFavorite", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tbl_DocumentFavorites_Insert", docIdParameter, userIdParameter, createdDateParameter, isFavoriteParameter);
+        }
+    
+        public virtual int tbl_DocumentFavorites_deleteByDocId(Nullable<int> docId)
+        {
+            var docIdParameter = docId.HasValue ?
+                new ObjectParameter("DocId", docId) :
+                new ObjectParameter("DocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tbl_DocumentFavorites_deleteByDocId", docIdParameter);
+        }
+    
+        public virtual int tbl_DocumentKeywords_deleteByDocId(Nullable<int> docId)
+        {
+            var docIdParameter = docId.HasValue ?
+                new ObjectParameter("DocId", docId) :
+                new ObjectParameter("DocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tbl_DocumentKeywords_deleteByDocId", docIdParameter);
+        }
+    
+        public virtual ObjectResult<tbl_DocumentCategory_byid_Result> tbl_DocumentCategory_byid(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_DocumentCategory_byid_Result>("tbl_DocumentCategory_byid", idParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> tbl_DocumentCategory_Create(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("tbl_DocumentCategory_Create", nameParameter);
+        }
+    
+        public virtual int tbl_DocumentCategory_delete(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tbl_DocumentCategory_delete", idParameter);
+        }
+    
+        public virtual ObjectResult<tbl_DocumentCategory_exists_Result> tbl_DocumentCategory_exists(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_DocumentCategory_exists_Result>("tbl_DocumentCategory_exists", nameParameter);
+        }
+    
+        public virtual ObjectResult<tbl_DocumentCategory_GridData_Result> tbl_DocumentCategory_GridData(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_DocumentCategory_GridData_Result>("tbl_DocumentCategory_GridData", nameParameter);
+        }
+    
+        public virtual int tbl_DocumentCategory_Update(Nullable<int> id, string name)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tbl_DocumentCategory_Update", idParameter, nameParameter);
+        }
+    
+        public virtual ObjectResult<tbl_Document_Grid_DataN_Result> tbl_Document_Grid_DataN(string whereClause)
+        {
+            var whereClauseParameter = whereClause != null ?
+                new ObjectParameter("whereClause", whereClause) :
+                new ObjectParameter("whereClause", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_Document_Grid_DataN_Result>("tbl_Document_Grid_DataN", whereClauseParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> tbl_DocumentGallery_Insert(string title, Nullable<int> categoryId, Nullable<int> storeId, string notes, string description, string filePath, string attachFile, string attachExtention, Nullable<int> createdBy, Nullable<System.DateTime> createdDate, Nullable<int> modifiedBy, Nullable<System.DateTime> modifiedDate, Nullable<bool> isPrivate)
+        {
+            var titleParameter = title != null ?
+                new ObjectParameter("Title", title) :
+                new ObjectParameter("Title", typeof(string));
+    
+            var categoryIdParameter = categoryId.HasValue ?
+                new ObjectParameter("CategoryId", categoryId) :
+                new ObjectParameter("CategoryId", typeof(int));
+    
+            var storeIdParameter = storeId.HasValue ?
+                new ObjectParameter("StoreId", storeId) :
+                new ObjectParameter("StoreId", typeof(int));
+    
+            var notesParameter = notes != null ?
+                new ObjectParameter("Notes", notes) :
+                new ObjectParameter("Notes", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var filePathParameter = filePath != null ?
+                new ObjectParameter("FilePath", filePath) :
+                new ObjectParameter("FilePath", typeof(string));
+    
+            var attachFileParameter = attachFile != null ?
+                new ObjectParameter("AttachFile", attachFile) :
+                new ObjectParameter("AttachFile", typeof(string));
+    
+            var attachExtentionParameter = attachExtention != null ?
+                new ObjectParameter("AttachExtention", attachExtention) :
+                new ObjectParameter("AttachExtention", typeof(string));
+    
+            var createdByParameter = createdBy.HasValue ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(int));
+    
+            var createdDateParameter = createdDate.HasValue ?
+                new ObjectParameter("CreatedDate", createdDate) :
+                new ObjectParameter("CreatedDate", typeof(System.DateTime));
+    
+            var modifiedByParameter = modifiedBy.HasValue ?
+                new ObjectParameter("ModifiedBy", modifiedBy) :
+                new ObjectParameter("ModifiedBy", typeof(int));
+    
+            var modifiedDateParameter = modifiedDate.HasValue ?
+                new ObjectParameter("ModifiedDate", modifiedDate) :
+                new ObjectParameter("ModifiedDate", typeof(System.DateTime));
+    
+            var isPrivateParameter = isPrivate.HasValue ?
+                new ObjectParameter("IsPrivate", isPrivate) :
+                new ObjectParameter("IsPrivate", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("tbl_DocumentGallery_Insert", titleParameter, categoryIdParameter, storeIdParameter, notesParameter, descriptionParameter, filePathParameter, attachFileParameter, attachExtentionParameter, createdByParameter, createdDateParameter, modifiedByParameter, modifiedDateParameter, isPrivateParameter);
+        }
+    
+        public virtual ObjectResult<tbl_Document_Grid_Data_Result> tbl_Document_Grid_Data(Nullable<System.DateTime> startdate, Nullable<System.DateTime> enddate, Nullable<int> categoryId, string searchText)
+        {
+            var startdateParameter = startdate.HasValue ?
+                new ObjectParameter("startdate", startdate) :
+                new ObjectParameter("startdate", typeof(System.DateTime));
+    
+            var enddateParameter = enddate.HasValue ?
+                new ObjectParameter("enddate", enddate) :
+                new ObjectParameter("enddate", typeof(System.DateTime));
+    
+            var categoryIdParameter = categoryId.HasValue ?
+                new ObjectParameter("CategoryId", categoryId) :
+                new ObjectParameter("CategoryId", typeof(int));
+    
+            var searchTextParameter = searchText != null ?
+                new ObjectParameter("searchText", searchText) :
+                new ObjectParameter("searchText", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_Document_Grid_Data_Result>("tbl_Document_Grid_Data", startdateParameter, enddateParameter, categoryIdParameter, searchTextParameter);
+        }
+    
+        public virtual ObjectResult<tbl_Document_Grid_DataNew_Result> tbl_Document_Grid_DataNew(Nullable<int> categoryId, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate, string searchTitle, Nullable<int> skipRecord, Nullable<int> getRecord, Nullable<int> currentUserId, Nullable<bool> isImage, Nullable<bool> isEmail, Nullable<bool> isDoc, Nullable<bool> isSheet, Nullable<bool> isOther, Nullable<bool> isAdmin, Nullable<bool> isDataApprover, Nullable<bool> isStoreManager, Nullable<int> storeId, string strFileType)
+        {
+            var categoryIdParameter = categoryId.HasValue ?
+                new ObjectParameter("CategoryId", categoryId) :
+                new ObjectParameter("CategoryId", typeof(int));
+    
+            var startDateParameter = startDate.HasValue ?
+                new ObjectParameter("StartDate", startDate) :
+                new ObjectParameter("StartDate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("EndDate", endDate) :
+                new ObjectParameter("EndDate", typeof(System.DateTime));
+    
+            var searchTitleParameter = searchTitle != null ?
+                new ObjectParameter("SearchTitle", searchTitle) :
+                new ObjectParameter("SearchTitle", typeof(string));
+    
+            var skipRecordParameter = skipRecord.HasValue ?
+                new ObjectParameter("SkipRecord", skipRecord) :
+                new ObjectParameter("SkipRecord", typeof(int));
+    
+            var getRecordParameter = getRecord.HasValue ?
+                new ObjectParameter("GetRecord", getRecord) :
+                new ObjectParameter("GetRecord", typeof(int));
+    
+            var currentUserIdParameter = currentUserId.HasValue ?
+                new ObjectParameter("CurrentUserId", currentUserId) :
+                new ObjectParameter("CurrentUserId", typeof(int));
+    
+            var isImageParameter = isImage.HasValue ?
+                new ObjectParameter("isImage", isImage) :
+                new ObjectParameter("isImage", typeof(bool));
+    
+            var isEmailParameter = isEmail.HasValue ?
+                new ObjectParameter("isEmail", isEmail) :
+                new ObjectParameter("isEmail", typeof(bool));
+    
+            var isDocParameter = isDoc.HasValue ?
+                new ObjectParameter("isDoc", isDoc) :
+                new ObjectParameter("isDoc", typeof(bool));
+    
+            var isSheetParameter = isSheet.HasValue ?
+                new ObjectParameter("isSheet", isSheet) :
+                new ObjectParameter("isSheet", typeof(bool));
+    
+            var isOtherParameter = isOther.HasValue ?
+                new ObjectParameter("isOther", isOther) :
+                new ObjectParameter("isOther", typeof(bool));
+    
+            var isAdminParameter = isAdmin.HasValue ?
+                new ObjectParameter("isAdmin", isAdmin) :
+                new ObjectParameter("isAdmin", typeof(bool));
+    
+            var isDataApproverParameter = isDataApprover.HasValue ?
+                new ObjectParameter("isDataApprover", isDataApprover) :
+                new ObjectParameter("isDataApprover", typeof(bool));
+    
+            var isStoreManagerParameter = isStoreManager.HasValue ?
+                new ObjectParameter("isStoreManager", isStoreManager) :
+                new ObjectParameter("isStoreManager", typeof(bool));
+    
+            var storeIdParameter = storeId.HasValue ?
+                new ObjectParameter("storeId", storeId) :
+                new ObjectParameter("storeId", typeof(int));
+    
+            var strFileTypeParameter = strFileType != null ?
+                new ObjectParameter("strFileType", strFileType) :
+                new ObjectParameter("strFileType", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_Document_Grid_DataNew_Result>("tbl_Document_Grid_DataNew", categoryIdParameter, startDateParameter, endDateParameter, searchTitleParameter, skipRecordParameter, getRecordParameter, currentUserIdParameter, isImageParameter, isEmailParameter, isDocParameter, isSheetParameter, isOtherParameter, isAdminParameter, isDataApproverParameter, isStoreManagerParameter, storeIdParameter, strFileTypeParameter);
+        }
+    
+        public virtual ObjectResult<tbl_Document_Get_Detail_Result> tbl_Document_Get_Detail(Nullable<int> docId)
+        {
+            var docIdParameter = docId.HasValue ?
+                new ObjectParameter("DocId", docId) :
+                new ObjectParameter("DocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_Document_Get_Detail_Result>("tbl_Document_Get_Detail", docIdParameter);
         }
     }
 }

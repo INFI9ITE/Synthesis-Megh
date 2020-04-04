@@ -190,6 +190,52 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="tbl_Document_keyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocID" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="1000" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_DocumentCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="tbl_DocumentFavorites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocId" Type="int" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsFavorite" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_DocumentGallary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="1000" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="Notes" Type="text" />
+    <Property Name="Description" Type="text" />
+    <Property Name="FilePath" Type="varchar" MaxLength="200" />
+    <Property Name="AttachFile" Type="varchar" MaxLength="100" />
+    <Property Name="AttachExtention" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsPrivate" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
   <EntityType Name="tbl_EmploymentStatus">
     <Key>
       <PropertyRef Name="id" />
@@ -527,6 +573,14 @@
     <Property Name="StoreName" Type="varchar" MaxLength="100" />
     <Property Name="RoleId" Type="int" />
     <Property Name="RoleName" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="tbl_UserWiseStickyNotes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Notes" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="tbl_Vendor">
     <Key>
@@ -1051,6 +1105,89 @@
   </Function>
   <Function Name="tbl_DepartmentNetSalesbySalesActivityId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ActivitySalesSummuryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Document_Get_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Document_Grid_Data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="searchText" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Document_Grid_DataN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="whereClause" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Document_Grid_DataNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="EndDate" Type="date" Mode="In" />
+    <Parameter Name="SearchTitle" Type="varchar" Mode="In" />
+    <Parameter Name="SkipRecord" Type="int" Mode="In" />
+    <Parameter Name="GetRecord" Type="int" Mode="In" />
+    <Parameter Name="CurrentUserId" Type="int" Mode="In" />
+    <Parameter Name="isImage" Type="bit" Mode="In" />
+    <Parameter Name="isEmail" Type="bit" Mode="In" />
+    <Parameter Name="isDoc" Type="bit" Mode="In" />
+    <Parameter Name="isSheet" Type="bit" Mode="In" />
+    <Parameter Name="isOther" Type="bit" Mode="In" />
+    <Parameter Name="isAdmin" Type="bit" Mode="In" />
+    <Parameter Name="isDataApprover" Type="bit" Mode="In" />
+    <Parameter Name="isStoreManager" Type="bit" Mode="In" />
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="strFileType" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Document_keyword_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocID" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentCategory_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentCategory_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentCategory_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentCategory_exists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentCategory_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_DocumentCategory_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentCategory_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentFavorites_deleteByDocId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentFavorites_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsFavorite" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentGallery_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="CategoryId" Type="int" Mode="In" />
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="Notes" Type="text" Mode="In" />
+    <Parameter Name="Description" Type="text" Mode="In" />
+    <Parameter Name="FilePath" Type="varchar" Mode="In" />
+    <Parameter Name="AttachFile" Type="varchar" Mode="In" />
+    <Parameter Name="AttachExtention" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsPrivate" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_DocumentKeywords_deleteByDocId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocId" Type="int" Mode="In" />
   </Function>
   <Function Name="tbl_Employee_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Name" Type="varchar" Mode="In" />
@@ -1709,6 +1846,10 @@
     <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_DepartmentNetSales" EntityType="Self.tbl_DepartmentNetSales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_discounttype" EntityType="Self.tbl_discounttype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Document_keyword" EntityType="Self.tbl_Document_keyword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DocumentCategory" EntityType="Self.tbl_DocumentCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DocumentFavorites" EntityType="Self.tbl_DocumentFavorites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DocumentGallary" EntityType="Self.tbl_DocumentGallary" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_EmploymentStatus" EntityType="Self.tbl_EmploymentStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_EmploymentType" EntityType="Self.tbl_EmploymentType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ExcelRead" EntityType="Self.tbl_ExcelRead" Schema="dbo" store:Type="Tables" />
@@ -1737,6 +1878,7 @@
     <EntitySet Name="tbl_TypicalBalance_master" EntityType="Self.tbl_TypicalBalance_master" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_user_store" EntityType="Self.tbl_user_store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserWiseStickyNotes" EntityType="Self.tbl_UserWiseStickyNotes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_Vendor" EntityType="Self.tbl_Vendor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utilities" EntityType="Self.Utilities" Schema="dbo" store:Type="Tables" />

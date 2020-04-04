@@ -1,0 +1,1756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WestZoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ExceptionHandlingLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LogTime" Type="datetime" />
+    <Property Name="Ipaddress" Type="varchar" MaxLength="50" />
+    <Property Name="URL" Type="varchar" MaxLength="500" />
+    <Property Name="ExceptionMessage" Type="varchar" MaxLength="500" />
+    <Property Name="ExceptionStackTrace" Type="text" />
+  </EntityType>
+  <EntityType Name="QBConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Store_Id" Type="int" />
+    <Property Name="CompanyFilePath" Type="nvarchar" MaxLength="150" />
+    <Property Name="QBVersion" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="QBYear" Type="nvarchar" MaxLength="100" />
+    <Property Name="BillAccListID" Type="nvarchar" MaxLength="150" />
+    <Property Name="BillAccName" Type="nvarchar" MaxLength="150" />
+    <Property Name="SyncDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SiteConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="level" Type="int" />
+    <Property Name="Currencydigit" Type="int" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="CategoryLarge" Type="int" />
+    <Property Name="CategoryMedium" Type="int" />
+    <Property Name="CategorySmall" Type="int" />
+    <Property Name="ProductLarge" Type="int" />
+    <Property Name="ProductMedium" Type="int" />
+    <Property Name="ProductSmall" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Activity_action">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Action" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Activity_log">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userid" Type="int" />
+    <Property Name="Comment" Type="varchar" MaxLength="1000" />
+    <Property Name="Action" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_ChildSalesEntries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gid" Type="int" />
+    <Property Name="storeid" Type="int" />
+    <Property Name="Groupname" Type="varchar" MaxLength="200" />
+    <Property Name="groupid" Type="int" />
+    <Property Name="deptid" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Memo" Type="varchar" MaxLength="500" />
+    <Property Name="Typeid" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Configuration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dept_id" Type="int" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="200" />
+    <Property Name="Memo" Type="varchar" MaxLength="500" />
+    <Property Name="typicalbalid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_ConfigureStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Statusname" Type="varchar" MaxLength="200" />
+    <Property Name="statusid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Creditcard_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="ShiftId" Type="int" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Amount_AMEX" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount_Discover" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount_Master" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Amount_Visa" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ShiftName" Type="varchar" MaxLength="50" />
+    <Property Name="TerminalId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_DefaultAccount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tbl_DeletedInvoiceHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Invoiceid" Type="int" />
+    <Property Name="Store_id" Type="int" />
+    <Property Name="Type_id" Type="int" />
+    <Property Name="Payment_type" Type="varchar" MaxLength="50" />
+    <Property Name="Vendor_id" Type="int" />
+    <Property Name="Invoice_Date" Type="datetime" />
+    <Property Name="Invoice_Number" Type="varchar" MaxLength="100" />
+    <Property Name="Note" Type="varchar" MaxLength="2000" />
+    <Property Name="AttachNote" Type="varchar" MaxLength="100" />
+    <Property Name="UploadInvoice" Type="varchar" MaxLength="100" />
+    <Property Name="ScanInvoice" Type="varchar" MaxLength="100" />
+    <Property Name="TotalAmtByDept" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsStatus_id" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ApproveRejectBy" Type="varchar" MaxLength="50" />
+    <Property Name="ApproveRejectDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="TxnID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsSync" Type="int" />
+    <Property Name="NotificationColor" Type="bit" />
+    <Property Name="QBtransfer" Type="bit" />
+    <Property Name="discounttype" Type="int" />
+    <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="discountamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ref_invoiceid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Department">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ListID" Type="nvarchar" MaxLength="50" />
+    <Property Name="StoreID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_DepartmentNetSales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivitySalesSummuryId" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CeatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_discounttype">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_EmploymentStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpStatus" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_EmploymentType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeType" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tbl_ExcelRead">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsFlag" Type="bit" />
+    <Property Name="Excelreadate" Type="datetime" />
+    <Property Name="Filename" Type="varchar" MaxLength="2000" />
+    <Property Name="Type" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_Excelread_Errormsg">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Excelid" Type="int" />
+    <Property Name="RowNo" Type="int" />
+    <Property Name="ColumnNo" Type="int" />
+    <Property Name="ErrorMessage" Type="text" />
+  </EntityType>
+  <EntityType Name="tbl_Gender">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_GroupName">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="Typicalbalanceid" Type="int" />
+    <Property Name="memo" Type="varchar" MaxLength="500" />
+    <Property Name="deptid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Invoice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Store_id" Type="int" />
+    <Property Name="Type_id" Type="int" />
+    <Property Name="Payment_type" Type="varchar" MaxLength="50" />
+    <Property Name="Vendor_id" Type="int" />
+    <Property Name="Invoice_Date" Type="datetime" />
+    <Property Name="Invoice_Number" Type="varchar" MaxLength="100" />
+    <Property Name="Note" Type="varchar" MaxLength="2000" />
+    <Property Name="AttachNote" Type="varchar" MaxLength="100" />
+    <Property Name="UploadInvoice" Type="varchar" MaxLength="100" />
+    <Property Name="ScanInvoice" Type="varchar" MaxLength="100" />
+    <Property Name="TotalAmtByDept" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="IsStatus_id" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ApproveRejectBy" Type="varchar" MaxLength="50" />
+    <Property Name="ApproveRejectDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="TxnID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsSync" Type="int" />
+    <Property Name="NotificationColor" Type="bit" />
+    <Property Name="QBtransfer" Type="bit" />
+    <Property Name="discounttype" Type="int" />
+    <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="discountamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Ref_invoiceid" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Invoice_Department">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Invoice_id" Type="int" />
+    <Property Name="Dept_id" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_LogSummary">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_MaritalStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaritalStatus" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Option">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SelectOption" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_otherdeposit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="createdate" Type="datetime" />
+    <Property Name="storeid" Type="int" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="paymentmethod" Type="varchar" MaxLength="200" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="options" Type="varchar" MaxLength="200" />
+    <Property Name="Vendor" Type="varchar" MaxLength="200" />
+    <Property Name="Other" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_PaidOut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivitySalesSummuryId" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CeatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Pamentype">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Payment_Method">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="payMehoed" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_SalesActivitySummary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Storeid" Type="int" />
+    <Property Name="Terminalid" Type="int" />
+    <Property Name="TransactionStartTime" Type="datetime" />
+    <Property Name="TransactionEndTime" Type="datetime" />
+    <Property Name="CustomerCount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NetSalesWithTax" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalTaxCollected" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AverageSale" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FileName" Type="varchar" MaxLength="50" />
+    <Property Name="CeatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="shiftname" Type="varchar" MaxLength="200" />
+    <Property Name="cashiername" Type="varchar" MaxLength="200" />
+    <Property Name="StartDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_SalesGeneralEntries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="storeid" Type="int" />
+    <Property Name="userid" Type="int" />
+    <Property Name="salesdate" Type="datetime" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="syncstatus" Type="int" />
+    <Property Name="totalamount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="noofpos" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_SalesGeneralEntriesHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="storeid" Type="int" />
+    <Property Name="userid" Type="int" />
+    <Property Name="salesdate" Type="datetime" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="status" Type="int" />
+    <Property Name="syncstatus" Type="int" />
+    <Property Name="totalamount" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tbl_shift">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_Status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Store">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="500" />
+    <Property Name="Address" Type="varchar" MaxLength="1000" />
+    <Property Name="Address2" Type="varchar" MaxLength="1000" />
+    <Property Name="StoreNo" Type="varchar" MaxLength="100" />
+    <Property Name="FaxNo" Type="varchar" MaxLength="20" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_Store_Terminal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Storeid" Type="int" />
+    <Property Name="Terminal" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Storewise_Excelupload">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Storeid" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="issync" Type="int" />
+    <Property Name="filename" Type="varchar" MaxLength="200" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_TendersInDrawer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActivitySalesSummuryId" Type="int" />
+    <Property Name="Title" Type="varchar" MaxLength="500" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CeatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ismanually" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_TypicalBalance_master">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Roleid" Type="int" />
+    <Property Name="Reg_userid" Type="int" />
+    <Property Name="userid" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_user_store">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Storeid" Type="int" />
+    <Property Name="userid" Type="int" />
+    <Property Name="Reg_userid" Type="int" />
+    <Property Name="StoreName" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="varchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="tbl_Vendor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ListID" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sitename" Type="varchar" MaxLength="100" />
+    <Property Name="sitelogo" Type="varchar" MaxLength="100" />
+    <Property Name="siteurl" Type="varchar" MaxLength="100" />
+    <Property Name="MailServer" Type="varchar" MaxLength="100" />
+    <Property Name="from" Type="varchar" MaxLength="100" />
+    <Property Name="cc" Type="varchar" MaxLength="500" />
+    <Property Name="username" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Authenticate" Type="int" />
+    <Property Name="emailtop" Type="varchar" MaxLength="100" />
+    <Property Name="emailbottom" Type="varchar" MaxLength="100" />
+    <Property Name="port" Type="int" />
+    <Property Name="pagination" Type="int" />
+    <Property Name="sitebyname" Type="varchar" MaxLength="200" />
+    <Property Name="sitebyurl" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="BindBackofficemanager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="BindDataapproval" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckConfigurationsales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saledate" Type="datetime" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckExist_Configuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Group_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckExistence_byshiftwise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="shiftname" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="checkterminalwiseshift" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="tid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckUseOfGroupId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckUserExistwhilelock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="delete_multiple_userRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="delete_multiple_userstores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteFromtbl_DepartmentNetSales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteFromtbl_Excelread_Errormsg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteFromtbl_PaidOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteFromtbl_Storewise_Excelupload" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="filename" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteFromtbl_TendersInDrawer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GeneralEntryDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_Count_tbl_otherdeposit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShiftId" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Get_InvoiceNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_InvoiceNotification_Grid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_ReguserId_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_ReguserId_edit_dataapp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_ReguserId_edit_Owner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_ReguserId_edit_storeman" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_roleid_rolename_byReg_userid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Get_statusCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Get_UniqueTendersInDrawer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCashTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCreditcard_details_AMEX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="varchar" Mode="In" />
+    <Parameter Name="EndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCreditcard_details_Discover" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="varchar" Mode="In" />
+    <Parameter Name="EndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCreditcard_details_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="varchar" Mode="In" />
+    <Parameter Name="EndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCreditcard_details_Visa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="StartTime" Type="varchar" Mode="In" />
+    <Parameter Name="EndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCreditCardDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="ShiftId" Type="int" Mode="In" />
+    <Parameter Name="date" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCustomercount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="datetime" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCustomercount_byterminal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmailId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Role" Type="varchar" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetLatestAvailableDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetLatestAvailableDateForSalesSummery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Getotherdeposit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetOtherTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="varchar" Mode="In" />
+    <Parameter Name="EndDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutCountShiftWise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="varchar" Mode="In" />
+    <Parameter Name="EndDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutTitleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="varchar" Mode="In" />
+    <Parameter Name="EndDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutTitleListName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="varchar" Mode="In" />
+    <Parameter Name="EndDate" Type="varchar" Mode="In" />
+    <Parameter Name="PaidOutTitle" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="varchar" Mode="In" />
+    <Parameter Name="EndDate" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutTotal_Shiftwisereport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPaidOutTotal_Shiftwisereportbyterminalid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getrolebyusername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetRoleidfromuserid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetRoleNameList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetRoleNameListByUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSalesamount_byterminal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSalesAmountTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetSalesAmountTotalbyTerminalID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetShiftWiseGrandTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetShiftWiseTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetSyncwiselist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTilteWiseSaleslist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saledate" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTitleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetTitleWiseTotal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GettotalAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saledate" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTotalCustomercount_byterminalid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTotalNetSalesTaxAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="saledate" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUnassignedShiftnamelist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUnassignShiftName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUser_dataApproval" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getusernames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Insert_Configuration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="Group_id" Type="int" Mode="In" />
+    <Parameter Name="Memo" Type="varchar" Mode="In" />
+    <Parameter Name="typicalbalid" Type="int" Mode="In" />
+    <Parameter Name="title" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Insert_SalesGeneralEntries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="salesdate" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="Insert_tbl_ChildSalesEntries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="gid" Type="int" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="groupname" Type="varchar" Mode="In" />
+    <Parameter Name="groupid" Type="int" Mode="In" />
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+    <Parameter Name="deptid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Insert_tbl_TendersInDrawer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Membership_DisableUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Membership_EnableUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Select_RoleId_ByUserid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getTenderAccountsStoreWise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Spara" Type="int" Mode="In" />
+    <Parameter Name="StoreID" Type="int" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="ListID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SPInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Spara" Type="int" Mode="In" />
+    <Parameter Name="TxnID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="StoreID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPInvoiceDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Spara" Type="int" Mode="In" />
+    <Parameter Name="Invoice_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SPLogSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Spara" Type="nvarchar" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SPStore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Spara" Type="int" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Store_Id" Type="int" Mode="In" />
+    <Parameter Name="CompanyFilePath" Type="nvarchar" Mode="In" />
+    <Parameter Name="QBVersion" Type="nvarchar" Mode="In" />
+    <Parameter Name="QBYear" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SPVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Spara" Type="int" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="StoreID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="ListID" Type="nvarchar" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="StoreIdListFromUserId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Acivity_Log_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_Activity_log_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Action" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_ChildSalesEntries_updatedata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="memo" Type="varchar" Mode="In" />
+    <Parameter Name="typicalid" Type="int" Mode="In" />
+    <Parameter Name="title" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Creditcard_details_exists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeId" Type="int" Mode="In" />
+    <Parameter Name="ShiftId" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Creditcard_details_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShiftId" Type="int" Mode="In" />
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+    <Parameter Name="Amount_AMEX" Type="decimal" Mode="In" />
+    <Parameter Name="Amount_Discover" Type="decimal" Mode="In" />
+    <Parameter Name="Amount_Master" Type="decimal" Mode="In" />
+    <Parameter Name="Amount_Visa" Type="decimal" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="TerminalId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Creditcard_details_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="ShiftId" Type="int" Mode="In" />
+    <Parameter Name="StoreId" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="varchar" Mode="In" />
+    <Parameter Name="Amount_AMEX" Type="decimal" Mode="In" />
+    <Parameter Name="Amount_Discover" Type="decimal" Mode="In" />
+    <Parameter Name="Amount_Master" Type="decimal" Mode="In" />
+    <Parameter Name="Amount_Visa" Type="decimal" Mode="In" />
+    <Parameter Name="ShiftName" Type="varchar" Mode="In" />
+    <Parameter Name="TerminalId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_DayClosereportGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="datetime" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="datetime" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_DepartmentNetSales_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ActivitySalesid" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="createdby" Type="varchar" Mode="In" />
+    <Parameter Name="createdDate" Type="datetime" Mode="In" />
+    <Parameter Name="updatedby" Type="varchar" Mode="In" />
+    <Parameter Name="updatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_DepartmentNetSalesbySalesActivityId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ActivitySalesSummuryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Employee_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Employee_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="SecondName" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Birthday" Type="datetime" Mode="In" />
+    <Parameter Name="SocSecurityNo" Type="varchar" Mode="In" />
+    <Parameter Name="Genderid" Type="int" Mode="In" />
+    <Parameter Name="MaritalStatusid" Type="int" Mode="In" />
+    <Parameter Name="Photo" Type="varchar" Mode="In" />
+    <Parameter Name="EmpDoc" Type="varchar" Mode="In" />
+    <Parameter Name="EmpNote" Type="varchar" Mode="In" />
+    <Parameter Name="HomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="MobilePhone" Type="varchar" Mode="In" />
+    <Parameter Name="Street" Type="varchar" Mode="In" />
+    <Parameter Name="AptSuiteBuilding" Type="varchar" Mode="In" />
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="varchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="HireDate" Type="datetime" Mode="In" />
+    <Parameter Name="TerminationDate" Type="datetime" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="Deptid" Type="int" Mode="In" />
+    <Parameter Name="EmpTypeid" Type="int" Mode="In" />
+    <Parameter Name="EmpStatusId" Type="int" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Roleid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Employee_store_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="StoreName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Employee_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="SecondName" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Birthday" Type="datetime" Mode="In" />
+    <Parameter Name="SocSecurityNo" Type="varchar" Mode="In" />
+    <Parameter Name="Genderid" Type="int" Mode="In" />
+    <Parameter Name="MaritalStatusid" Type="int" Mode="In" />
+    <Parameter Name="Photo" Type="varchar" Mode="In" />
+    <Parameter Name="EmpDoc" Type="varchar" Mode="In" />
+    <Parameter Name="EmpNote" Type="varchar" Mode="In" />
+    <Parameter Name="HomePhone" Type="varchar" Mode="In" />
+    <Parameter Name="MobilePhone" Type="varchar" Mode="In" />
+    <Parameter Name="Street" Type="varchar" Mode="In" />
+    <Parameter Name="AptSuiteBuilding" Type="varchar" Mode="In" />
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="varchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+    <Parameter Name="HireDate" Type="datetime" Mode="In" />
+    <Parameter Name="TerminationDate" Type="datetime" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="Deptid" Type="int" Mode="In" />
+    <Parameter Name="EmpTypeid" Type="int" Mode="In" />
+    <Parameter Name="EmpStatusId" Type="int" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Roleid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Excelread_Errormsg_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Excelid" Type="int" Mode="In" />
+    <Parameter Name="RowNo" Type="int" Mode="In" />
+    <Parameter Name="ColumnNo" Type="int" Mode="In" />
+    <Parameter Name="ErrorMessage" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_ExcelRead_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Excelreadate" Type="datetime" Mode="In" />
+    <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="Filename" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Groupname_Search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_inquiry_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="contactno" Type="varchar" Mode="In" />
+    <Parameter Name="adddress" Type="varchar" Mode="In" />
+    <Parameter Name="inquirytype" Type="varchar" Mode="In" />
+    <Parameter Name="city" Type="varchar" Mode="In" />
+    <Parameter Name="state" Type="varchar" Mode="In" />
+    <Parameter Name="callme" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Dashbord_Grid_Data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+    <Parameter Name="pageindex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Dashbord_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+    <Parameter Name="pageindex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Dashbord_GridData_Administrator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Dashbord_GridData_DataApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Dashbord_GridData_StoreManager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_DeleteAndInsertintodeletehistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="invoiceid" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="Type_id" Type="int" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor_id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="AttachNote" Type="varchar" Mode="In" />
+    <Parameter Name="UploadInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="ScanInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="ApproveRejectBy" Type="varchar" Mode="In" />
+    <Parameter Name="QBtransfer" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Department_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invoice_id" Type="int" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Invoice_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_DuplicateInvoiceDashbord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_exists_InNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="invoicedate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_exists_InNo_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="invoicedate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_exists_InNo_Edit_New" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="invoicedate" Type="datetime" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="typeid" Type="int" Mode="In" />
+    <Parameter Name="vendorid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_exists_InNo_New" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="invoicedate" Type="datetime" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="typeid" Type="int" Mode="In" />
+    <Parameter Name="vendorid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="VendorName" Type="int" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_GridData_ForExcel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="Vendor" Type="int" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_GridData_ForPdf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="Vendor" Type="int" Mode="In" />
+    <Parameter Name="AmtMaximum" Type="decimal" Mode="In" />
+    <Parameter Name="AmtMinimum" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="Type_id" Type="int" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor_id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="AttachNote" Type="varchar" Mode="In" />
+    <Parameter Name="UploadInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="ScanInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="QBtransfer" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Insert_discount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="Type_id" Type="int" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor_id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="AttachNote" Type="varchar" Mode="In" />
+    <Parameter Name="UploadInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="ScanInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="QBtransfer" Type="bit" Mode="In" />
+    <Parameter Name="discounttype" Type="int" Mode="In" />
+    <Parameter Name="discount" Type="decimal" Mode="In" />
+    <Parameter Name="discountamount" Type="decimal" Mode="In" />
+    <Parameter Name="refinvoiceid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Insert_StoreManager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="Type_id" Type="int" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor_id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="AttachNote" Type="varchar" Mode="In" />
+    <Parameter Name="UploadInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="ScanInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="ApproveRejectBy" Type="varchar" Mode="In" />
+    <Parameter Name="QBtransfer" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Insert_StoreManager_discount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="Type_id" Type="int" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor_id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="AttachNote" Type="varchar" Mode="In" />
+    <Parameter Name="UploadInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="ScanInvoice" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="totalamount" Type="decimal" Mode="In" />
+    <Parameter Name="ApproveRejectBy" Type="varchar" Mode="In" />
+    <Parameter Name="QBtransfer" Type="bit" Mode="In" />
+    <Parameter Name="discounttype" Type="int" Mode="In" />
+    <Parameter Name="discount" Type="decimal" Mode="In" />
+    <Parameter Name="discountamount" Type="decimal" Mode="In" />
+    <Parameter Name="refinvoiceid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Invoice_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Invoice_Number" Type="varchar" Mode="In" />
+    <Parameter Name="invoicedate" Type="datetime" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="typeid" Type="int" Mode="In" />
+    <Parameter Name="vendorid" Type="int" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Note" Type="varchar" Mode="In" />
+    <Parameter Name="IsStatus_id" Type="int" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedOn" Type="datetime" Mode="In" />
+    <Parameter Name="TotalAmtByDept" Type="decimal" Mode="In" />
+    <Parameter Name="QBtransfer" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_invoice_updatediscountdata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="discounttype" Type="int" Mode="In" />
+    <Parameter Name="discount" Type="decimal" Mode="In" />
+    <Parameter Name="discountamt" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_invoiceupdate_discountdata" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="discounttype" Type="int" Mode="In" />
+    <Parameter Name="discount" Type="decimal" Mode="In" />
+    <Parameter Name="discountamount" Type="decimal" Mode="In" />
+    <Parameter Name="refinvoiceid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Option_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_otherdeposit_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_otherdeposit_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+    <Parameter Name="paymentmethod" Type="varchar" Mode="In" />
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="options" Type="varchar" Mode="In" />
+    <Parameter Name="Vendor" Type="varchar" Mode="In" />
+    <Parameter Name="Other" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_otherdeposit_select_bystoreid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_otherdeposit_selectbystoreid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_PaidOut_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_PaidOut_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ActivitySalesid" Type="int" Mode="In" />
+    <Parameter Name="Title" Type="varchar" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="createdby" Type="varchar" Mode="In" />
+    <Parameter Name="createdDate" Type="datetime" Mode="In" />
+    <Parameter Name="updatedby" Type="varchar" Mode="In" />
+    <Parameter Name="updatedDate" Type="datetime" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="tbl_PaidOut_Update_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="UpdateById" Type="int" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_PaidOutbySalesActivityId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ActivitySalesSummuryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Payment_Method_Byoption" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SelectOption" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_bystoreid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_Excelread_exists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="datetime" Mode="In" />
+    <Parameter Name="Terminalid" Type="int" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TransactionStartTime" Type="datetime" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="datetime" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="Terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_shiftlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_shiftlist_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_Terminallist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="datetime" Mode="In" />
+    <Parameter Name="TransactionEndTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_Terminalwiselist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_Terminalwiselistbytid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="TransactionStartTime" Type="varchar" Mode="In" />
+    <Parameter Name="terminalid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesActivitySummary_updatecashiername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="shiftname" Type="varchar" Mode="In" />
+    <Parameter Name="cashiername" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesGeneralEntries_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesGeneralEntries_select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="salesdate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="tbl_SalesGeneralEntries_updateposno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="noofpos" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_store_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="StoreNo" Type="varchar" Mode="In" />
+    <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Address2" Type="varchar" Mode="In" />
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_Emailexists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_exists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_Terminal_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_Terminal_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="Terminal" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_Terminal_Select" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="Terminal" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Store_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="StoreNo" Type="varchar" Mode="In" />
+    <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Address2" Type="varchar" Mode="In" />
+    <Parameter Name="EmailId" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Storewise_Excelupload_insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="filename" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Storewise_Excelupload_insertData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="storeid" Type="int" Mode="In" />
+    <Parameter Name="filename" Type="varchar" Mode="In" />
+    <Parameter Name="date" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_Storewise_Excelupload_updateissync" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Issync" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_tbl_Store_Terminal_exists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Terminal" Type="varchar" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_tbl_Store_Terminal_existsbyid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Terminal" Type="varchar" Mode="In" />
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_tenderinDraw_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_TendersInDrawer_updateAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="amount" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="tbl_TendersInDrawerbySalesActivityId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ActivitySalesSummuryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_backoffice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_user_backoffice_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_backoffice_edit_new" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="Roleid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_DataApprover" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_user_DataApprover_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_GridData_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Roleid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_name" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_Owner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_user_Owner_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_Selectstore" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_user_Selectstore_Admin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_user_store_By_Reg_userid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="StoreName" Type="varchar" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_Insert_BackOfficeMan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="StoreName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_Insert_DataApp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="StoreName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_Insert_Owner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="StoreName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_Insert_StoreMan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Storeid" Type="int" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="StoreName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_store_select_StorebyUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_user_Storemanager" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tbl_user_Storemanager_edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="tbl_userlist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Reg_userid" Type="int" Mode="In" />
+    <Parameter Name="Roleid" Type="int" Mode="In" />
+    <Parameter Name="storeid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Unsetteled_Invoice_Administrator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="startdate" Type="datetime" Mode="In" />
+    <Parameter Name="enddate" Type="datetime" Mode="In" />
+    <Parameter Name="Payment_type" Type="varchar" Mode="In" />
+    <Parameter Name="Dept_id" Type="int" Mode="In" />
+    <Parameter Name="Store_id" Type="int" Mode="In" />
+    <Parameter Name="searchdashbord" Type="varchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Update_Employee_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Update_tbl_user_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="webpages_Roles_byRolename" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="WestZoneModelStoreContainer">
+    <EntitySet Name="ExceptionHandlingLog" EntityType="Self.ExceptionHandlingLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QBConfig" EntityType="Self.QBConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteConfiguration" EntityType="Self.SiteConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Activity_action" EntityType="Self.tbl_Activity_action" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Activity_log" EntityType="Self.tbl_Activity_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ChildSalesEntries" EntityType="Self.tbl_ChildSalesEntries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Configuration" EntityType="Self.Tbl_Configuration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ConfigureStatus" EntityType="Self.tbl_ConfigureStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Creditcard_details" EntityType="Self.tbl_Creditcard_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DefaultAccount" EntityType="Self.tbl_DefaultAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DeletedInvoiceHistory" EntityType="Self.tbl_DeletedInvoiceHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DepartmentNetSales" EntityType="Self.tbl_DepartmentNetSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_discounttype" EntityType="Self.tbl_discounttype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_EmploymentStatus" EntityType="Self.tbl_EmploymentStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_EmploymentType" EntityType="Self.tbl_EmploymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ExcelRead" EntityType="Self.tbl_ExcelRead" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Excelread_Errormsg" EntityType="Self.tbl_Excelread_Errormsg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Gender" EntityType="Self.tbl_Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_GroupName" EntityType="Self.tbl_GroupName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Invoice" EntityType="Self.tbl_Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Invoice_Department" EntityType="Self.tbl_Invoice_Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LogSummary" EntityType="Self.tbl_LogSummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_MaritalStatus" EntityType="Self.tbl_MaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Option" EntityType="Self.tbl_Option" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_otherdeposit" EntityType="Self.tbl_otherdeposit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_PaidOut" EntityType="Self.tbl_PaidOut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Pamentype" EntityType="Self.tbl_Pamentype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Payment_Method" EntityType="Self.tbl_Payment_Method" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SalesActivitySummary" EntityType="Self.tbl_SalesActivitySummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SalesGeneralEntries" EntityType="Self.tbl_SalesGeneralEntries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SalesGeneralEntriesHistory" EntityType="Self.tbl_SalesGeneralEntriesHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_shift" EntityType="Self.tbl_shift" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Status" EntityType="Self.tbl_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Store" EntityType="Self.tbl_Store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Store_Terminal" EntityType="Self.tbl_Store_Terminal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Storewise_Excelupload" EntityType="Self.tbl_Storewise_Excelupload" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TendersInDrawer" EntityType="Self.tbl_TendersInDrawer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Type" EntityType="Self.tbl_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TypicalBalance_master" EntityType="Self.tbl_TypicalBalance_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user_store" EntityType="Self.tbl_user_store" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Vendor" EntityType="Self.tbl_Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilities" EntityType="Self.Utilities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

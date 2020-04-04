@@ -1,0 +1,701 @@
+<div id="ctl00_ContentPlaceHolder1_PanGrid" class="PanGrid">
+	
+                <div>
+		<table class="tblDisplay widthPc gridcss" cellspacing="0" cellpadding="3" rules="all" border="1" id="ctl00_ContentPlaceHolder1_GridView1" style="width:100%;border-collapse:collapse;">
+			<tr>
+				<th scope="col">Request No</th><th scope="col">Name</th><th scope="col">Created Date</th><th scope="col">Subject</th><th scope="col">Particular</th><th scope="col">Company Name</th><th scope="col">Cost Center Name</th><th scope="col" style="width:70px;">Attachment</th><th scope="col" style="width:150px;">Current Approval Name</th><th scope="col" style="width:40px;">&nbsp;</th>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                126
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                22/01/2020
+                            </td><td align="left">
+                                test 22 14
+                            </td><td align="left">
+                                test 22 14
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/82154SMART%20HOUSE%20SOLAR%20Changes.xlsx" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                103
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tet 14
+                            </td><td align="left">
+                                tet 14
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/7769595CEC%20approved%20PV%20modules.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                102
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                test 13
+                            </td><td align="left">
+                                test 13
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/6207495image.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                101
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst 12
+                            </td><td align="left">
+                                tst 12
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/6405899Buyer%20(2)%20(3).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                100
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst 11
+                            </td><td align="left">
+                                tst 11
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/3295295image%20(1).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                99
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                ts 10 
+                            </td><td align="left">
+                                ts 10
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/3508595image%20(1).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                98
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst 9
+                            </td><td align="left">
+                                tst 9
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/7725395CEC%20approved%20PV%20modules.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                97
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst 8
+                            </td><td align="left">
+                                tst 8
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/2842999Buyer%20(2)%20(3).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                96
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst7
+                            </td><td align="left">
+                                tst7
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/3020499Buyer%20(2)%20(2).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                95
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst7
+                            </td><td align="left">
+                                tst7
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/2190699Buyer%20(2)%20(1).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                94
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst6
+                            </td><td align="left">
+                                tst6
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/8990395image.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                93
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst5
+                            </td><td align="left">
+                                tst5
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/8102595CEC%20approved%20PV%20modules.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                92
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst4
+                            </td><td align="left">
+                                tst4
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/1227558Buyer%20(3).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                91
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst3
+                            </td><td align="left">
+                                tst3
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/7951395CEC%20approved%20PV%20modules%20(2).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                90
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                tst2
+                            </td><td align="left">
+                                tst2
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/1840695CEC%20approved%20PV%20modules%20(1).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                89
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                21/01/2020
+                            </td><td align="left">
+                                test
+                            </td><td align="left">
+                                test
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/2754758Buyer%20(3).xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                82
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Parekh Prashantkumar Rajeshbhai
+                                
+                            </td><td align="left" style="width:80px;">
+                                08/01/2020
+                            </td><td align="left">
+                                test
+                            </td><td align="left">
+                                stse
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/8962895CEC%20approved%20PV%20modules.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                75
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Vasava Hareshbhai Somabhai
+                                
+                            </td><td align="left" style="width:80px;">
+                                07/01/2020
+                            </td><td align="left">
+                                d
+                            </td><td align="left">
+                                ds
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/45988TAX%20INVOICE.pdf" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                61
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                04/01/2020
+                            </td><td align="left">
+                                sub
+                            </td><td align="left">
+                                part
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/19302IS_1180_1A1%20(1).pdf" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                60
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                04/01/2020
+                            </td><td align="left">
+                                subj909
+                            </td><td align="left">
+                                part909
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/3827173673CDNworkflow21-Dec-19%2040.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                29
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                04/01/2020
+                            </td><td align="left">
+                                test 04 jan 2020
+                            </td><td align="left">
+                                test 04 jan 2020
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                101 - Managing Director
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/9087873673CDNworkflow21-Dec-19%2040.xls" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                CHEN ZHIJIN
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="odd">
+				<td align="center" style="width:70px;">
+                                
+                                3
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                01/01/2020
+                            </td><td align="left">
+                                Test
+                            </td><td align="left">
+                                Test
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                106 - Shenyang Office
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/77159AudiR8.jpg" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                Wang Yanqiu
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr><tr class="even">
+				<td align="center" style="width:70px;">
+                                
+                                2
+                                
+                            </td><td align="left" style="width:190px;">
+                                
+                                Ashok Kumar Verma
+                                
+                            </td><td align="left" style="width:80px;">
+                                01/01/2020
+                            </td><td align="left">
+                                Test
+                            </td><td align="left">
+                                Test
+                            </td><td align="left" style="width:200px;">
+                                TBEA Energy (India) Private Limited
+                            </td><td align="left" style="width:170px;">
+                                 300358 - TATA POWER-250MVA Mahalaxmi R/S
+                            </td><td align="center">
+                                
+                                <a href="../../userfiles/QueryResolution/7633AudiR8.jpg" target="_blank">
+                                    <img src="../../images/icons/download.png" Height="20" Width="20" />
+                                    
+                                </a>
+                            </td><td align="left">
+                                Dharmesh Upadhyay
+                            </td><td align="center" valign="top" style="width:40px;">
+                                
+                            </td>
+			</tr>
+		</table>
+	</div>
+            
+</div>

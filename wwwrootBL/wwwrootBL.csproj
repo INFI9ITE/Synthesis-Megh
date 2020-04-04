@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,8 +11,6 @@
     <AssemblyName>wwwrootBL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -174,6 +171,7 @@
     <Compile Include="Entity\GetCashTotal_Result.cs">
       <DependentUpon>dataentity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\GetCategoryNameList_Result.cs" />
     <Compile Include="Entity\GetCreditCardDetails_Result.cs">
       <DependentUpon>dataentity.tt</DependentUpon>
     </Compile>
@@ -375,6 +373,42 @@
     <Compile Include="Entity\tbl_discounttype.cs">
       <DependentUpon>dataentity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tbl_DocumentCategory.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DocumentCategory_byid_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DocumentCategory_exists_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DocumentCategory_GetAll_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DocumentCategory_GridData_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DocumentFavorites.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_DocumentGallary.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Document_Get_Detail_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Document_Grid_DataNew_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Document_Grid_DataN_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Document_Grid_Data_Result.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tbl_Document_keyword.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tbl_EmploymentStatus.cs">
       <DependentUpon>dataentity.tt</DependentUpon>
     </Compile>
@@ -567,6 +601,9 @@
     <Compile Include="Entity\tbl_userlist_Result.cs">
       <DependentUpon>dataentity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tbl_UserWiseStickyNotes.cs">
+      <DependentUpon>dataentity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\tbl_user_backoffice_edit_new_Result.cs">
       <DependentUpon>dataentity.tt</DependentUpon>
     </Compile>
@@ -670,10 +707,4 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
-  </Target>
 </Project>

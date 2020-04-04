@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+<head id="Head1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Page title -->
+
+<title id="pagetitle">Synthesis</title>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!--Basic Styles-->
+<!--Basic Styles-->
+<link href="../Content/Admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+<link href="../Content/Admin/assets/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<!--Beyond styles-->
+<link href="../Content/Admin/assets/css/beyond.min.css" rel="stylesheet" />
+<link href="../Content/Admin/assets/css/style.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,600,700,800,900&display=swap" rel="stylesheet">
+</head>
+
+<body class="fixed-navbar fixed-sidebar">
+<!-- Simple splash screen-->
+<div class="loading-container" style="display:none;">
+  <div class="loader"></div>
+</div>
+<div class="headermainbox">
+  <div class="logo"><a href="http://synthesis.weblivelink.com/html/"><img src="../Content/Admin/images/img_logosysthesis.jpg" /> </a></div>
+  <span class="applicationtext"><select class="myval">
+  <option>74-84 Westside Market</option>
+  <option>74-84 Westside Market</option>
+  <option>74-84 Westside Market</option>
+  <option>74-84 Westside Market</option>
+  </select></span> <a href="#" class="burgermenu"><i class="fa fa-bars"></i></a>
+  <div class="mobileclear"></div>
+  <div class="headerrightbox"> <span class="badgeicon dropdown"><a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#" aria-expanded="true"><span class="badge">1</span> </a>
+    <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li> <a href="#"> <span class="message"> Invoice # E23-433456 sent for approval from store 73-84 West Side by John Smith </span> </a> </li>
+      <li class="btnviewall"><a href="#">View all</a></li>
+    </ul>
+    </span><span class="profile"> <span class="profinename">J</span><span class="name">John Smith </span></span> <a href="http://synthesis.weblivelink.com/html" class="logout"> <img src="../Content/Admin/images/icons/icon_logout.jpg" alt=""/> </a>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<!-- Header -->
+
+<div class="main-container container-fluid"> 
+  <!-- Page Container -->
+  <div class="page-container"> 
+    <!-- Side Menu --> 
+    <!-- /Page Sidebar -->
+    
+    <div class="page-sidebar  sidebar-fixed menu-compact " id="sidebar">
+      <aside id="menu" class="printorder">
+        <div id="navigation" class="printorder">
+            <ul class="nav sidebar-menu fnt_set2 icon_color_wight">
+                <li > <a href="/Admin/dashboard"> <i class="menu-icon"><img src="../Content/Admin/images/monitor.svg" alt="" /></i> <span>Dashboard </span> </a> </li>
+
+                
+
+                    <li   class="active"> <a href="/Admin/invoice/Create"> <i class="menu-icon"><img src="../Content/Admin/images/file-plus.svg" alt="" /></i> <span>Add Invoice </span> </a> </li>
+
+                <li >
+                    <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="../Content/Admin/images/pie-chart.svg" alt="" /></i> <span>Reports</span> </a>
+                    <ul class="submenu">
+                            <li >
+                                <a href="/Admin/shiftwisetenderreport">
+                                    <span class="menu-text">Sales Summary Report</span>
+                                </a>
+                            </li>
+                                             <li >
+                                <a href="/Admin/invoicereport">
+                                    <span class="menu-text">COGS/Expenses Reports</span>
+                                </a>
+                            </li>
+
+                    </ul>
+                </li>
+
+                <li >
+                    <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="../Content/Admin/images/settings.svg" alt="" /></i> <span>Settings </span> </a>
+                    <ul class="submenu">
+                            <li >
+                                <a href="/Admin/user">
+                                    <span class="menu-text">Users</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/Admin/store">
+                                    <span class="menu-text">Store</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/Admin/activitylog">
+                                    <span class="menu-text">Activity Log</span>
+                                </a>
+                            </li>
+
+                            <li >
+                                <a href="/Admin/groupmaster">
+                                    <span class="menu-text">Group Accounts</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/Admin/configuration">
+                                    <span class="menu-text">Tender Accounts</span>
+                                </a>
+                            </li>
+
+                        <li >
+                            <a href="/Admin/changepassword">
+                                <span class="menu-text">Change Password</span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="/Admin/Document">
+                                <span class="menu-text">Document</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+
+                <li >
+                    <a href="#" class="menu-dropdown"><i class="menu-icon"><img src="../Content/Admin/images/cash-register.svg" alt="" /></i> <span>Registers</span> </a>
+                    <ul class="submenu">
+                            <li >
+                                <a href="/Admin/stats">
+                                    <span class="menu-text">Sync POS feeds</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/Admin/salesactivitysummaryreport">
+                                    <span class="menu-text">Daily POS Feeds</span>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="/Admin/shiftwisereport">
+                                    <span class="menu-text">Shift/Registers Close Out</span>
+                                </a>
+                            </li>
+                                                    <li > <a href="/Admin/generalentries"><span>Journal Entries </span> </a> </li>
+        </ul>
+        </li>
+        <li><a href="/Admin/document"><i class="menu-icon"><img src="../Content/Admin/images/icon-letter.svg" alt="" /></i> <span>My Documents</span> </a></li>
+        </ul>
+        </div>
+      </aside>
+    </div>
+    <div class="page-content">
+      <div class="header-small special_bg">
+          <h3>QBIS <a href="/Admin/User/Create" class="pull-right addstore" data-toggle="tooltip" data-placement="bottom" data-original-title="Add"><img src="/Content/Admin/images/plus.svg" alt=""></a></h3>
+      </div>
+      <div class="page-body">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box grey_box">
+              <div class="top_content">
+                  <p>72-84 Westside Market LLC</p>
+                  <a href="#"  class="btn_config btn_grey">Not Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio9" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio9">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" data-toggle="modal" data-target="#myModal" class="btn_config btn_green">Connect Online Quickbooks</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>Maywood Market Place</p>
+                  <a href="#"  class="btn_config btn_green">Online Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio1" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio1">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" class="btn_config btn_green">Renew Token (In 90 Days)</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>170 Westside Market LLC</p>
+                  <a href="#" class="btn_config btn_green">Online Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio2" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio2">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" class="btn_config btn_green">Renew Token (In 90 Days)</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>2589 Westside Market LLC</p>
+                  <a href="#" class="btn_config btn_blue">Offline Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio3" >Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio3" checked>Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#"  class="btn_config btn_blue">Connect to Desktop Quickbooks</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>180 3rd Ave LLC</p>
+                  <a href="#" class="btn_config btn_green">Online Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio4" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio4">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" class="btn_config btn_green">Renew Token (In 90 Days)</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>1440 Westside Market LLC</p>
+                  <a href="#" class="btn_config btn_green">Online Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio6" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio6">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" class="btn_config btn_green">Renew Token (In 90 Days)</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>Westside SuperMarket LLC</p>
+                  <a href="#" class="btn_config btn_green">Online Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" class="btn_config btn_green">Renew Token (In 90 Days)</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 pad_10">
+            <div class="config_box">
+              <div class="top_content">
+                  <p>WS Market LLc</p>
+                  <a href="#" class="btn_config btn_green">Online Connected</a>
+              </div>
+              <div class="center_content">
+                  <p>Select Quickbooks Connection Type</p>
+                  <label class="radio-inline"><input type="radio" name="optradio7" checked>Online</label>
+                  <label class="radio-inline"><input type="radio" name="optradio7">Desktop</label>
+              </div>
+              <div class="bottom_content">
+                  <a href="#" class="btn_config btn_green">Renew Token (In 90 Days)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src='../Content/Admin/vendor/jquery/dist/jquery.min.js'></script>
+  </div>
+</div>
+</div>
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+     
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src='../Content/Scripts/jquery-ui-1.8.24.min.js'></script> 
+<script type="text/javascript" src='../Content/Admin/assets/js/bootstrap.min.js'></script> 
+
+
+
+</body>
+</html>

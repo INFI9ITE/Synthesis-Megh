@@ -49,6 +49,8 @@
     <a href="#" class="burgermenu"><i class="fa fa-bars"></i></a>
     <div class="mobileclear"></div>
     <div class="headerrightbox">
+        <a href="#stickymyModal" class="btnstickynote" data-toggle="modal" data-target="#stickymyModal"><img src="~/Content/Admin/images/icon_stickynotes.png" /></a>
+
         @{
             var Name = "";
             string s;
@@ -167,10 +169,60 @@
             });
         }*@
 
-        $('#invoice_notification').click(function() {
-          //  alert();
+        $('#invoice_notification').click(function () {
+            //  alert();
             $('.overlaytransparent').addClass('hidediv');
-           
+
+        });
+        getStickynote();
+        function getStickynote() {
+            $.ajax({
+            url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/AdminInclude/GetUserWiseStickyNote',
+            data: { },
+
+            beforeSend: function () { Loader(1); },
+            // async: false,
+            cache: false,
+            success: function (response) {
+
+                $("#hdrstickyNotesText").val(response.notes)
+                Loader(0);
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
+        }
+        $("#hdrCancelNote").click(function () {
+            getStickynote();
+        });
+        $("#hdrSaveNote").click(function () {
+            var note = $("#hdrstickyNotesText").val();            
+            $.ajax({
+                url: '@wwwroot.Class.AdminSiteConfiguration.GetURL()/AdminInclude/SetUserWiseStickyNote',
+                data: { notes:note},
+                method:"POST",
+            beforeSend: function () { Loader(1); },
+            // async: false,
+            cache: false,
+                success: function (response) {
+                    if (response.msgstatus == 1) {
+                        $("#hdrstickyNotesText").val(response.notes);
+                        MyCustomToster(response.msg)
+                    }
+                    else {
+                        MyCustomAlert(response.msg,2);
+                        //alert(response.excepetion);
+                    }                    
+                    Loader(0);
+                    $("#stickymyModal").modal("hide");
+            },
+            error:function()
+            {
+                Loader(0);
+            }
+        });
         })
     });
     var top = 0;
@@ -186,7 +238,7 @@
 
     }
     function drpselect() {
-        
+
         $('#frmid').submit();
 
 
@@ -206,3 +258,18 @@
 
     }
 </script>
+<div class="modal fade stickynotemodal" id="stickymyModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" style="padding:0px;">
+                <textarea maxlength="65500" id="hdrstickyNotesText"></textarea>                
+            </div>
+            <div class="modal-footer" style="">
+                <input type="submit" id="hdrSaveNote" value="Save Note" class="btnsavenote btn btn-default" />  <button type="button" id="hdrCancelNote" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

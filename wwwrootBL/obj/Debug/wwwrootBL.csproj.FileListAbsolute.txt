@@ -80,53 +80,140 @@ D:\synthesis\wwwrootBL\bin\Debug\nl\Hangfire.Core.resources.dll
 D:\synthesis\wwwrootBL\bin\Debug\pt-BR\Hangfire.Core.resources.dll
 D:\synthesis\wwwrootBL\bin\Debug\zh\Hangfire.Core.resources.dll
 D:\synthesis\wwwrootBL\bin\Debug\zh-TW\Hangfire.Core.resources.dll
-D:\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csprojResolveAssemblyReference.cache
+D:\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csprojAssemblyReference.cache
 D:\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csproj.CoreCompileInputs.cache
+D:\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csproj.CopyComplete
 D:\synthesis\wwwrootBL\obj\Debug\wwwrootBL.dll
 D:\synthesis\wwwrootBL\obj\Debug\wwwrootBL.pdb
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\wwwrootBL.dll.config
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\wwwrootBL.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\wwwrootBL.pdb
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\EntityFramework.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\EntityFramework.SqlServer.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Hangfire.AspNet.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Hangfire.Core.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Microsoft.Owin.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Microsoft.Web.Helpers.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Microsoft.Web.Infrastructure.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Newtonsoft.Json.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Owin.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.Helpers.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.Razor.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.WebPages.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\WebMatrix.Data.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\WebMatrix.WebData.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\EntityFramework.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\EntityFramework.SqlServer.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Hangfire.AspNet.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Hangfire.Core.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Microsoft.Owin.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\Newtonsoft.Json.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.Helpers.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.Razor.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.WebPages.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\WebMatrix.Data.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\WebMatrix.WebData.xml
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\es\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\nl\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\pt-BR\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\zh\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\bin\Debug\zh-TW\Hangfire.Core.resources.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\obj\Debug\wwwrootBL.csproj.CoreCompileInputs.cache
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\obj\Debug\wwwrootBL.csproj.CopyComplete
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\obj\Debug\wwwrootBL.dll
-F:\Maulik\SynthesisGithub\INFI9ITE\Synthesis-Megh\wwwrootBL\obj\Debug\wwwrootBL.pdb
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\wwwrootBL.dll.config
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\wwwrootBL.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\wwwrootBL.pdb
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\EntityFramework.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\EntityFramework.SqlServer.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Hangfire.AspNet.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Hangfire.Core.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Microsoft.Web.Helpers.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Newtonsoft.Json.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Owin.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.Helpers.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.Razor.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\WebMatrix.Data.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\WebMatrix.WebData.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\EntityFramework.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\EntityFramework.SqlServer.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Hangfire.AspNet.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Hangfire.Core.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\Newtonsoft.Json.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.Helpers.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.Razor.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\WebMatrix.Data.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\WebMatrix.WebData.xml
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\es\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\nl\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\pt-BR\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\zh\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\bin\Debug\zh-TW\Hangfire.Core.resources.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.dll
+E:\ChiragGurjar\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.pdb
+D:\Viral\synthesis\wwwrootBL\bin\Debug\wwwrootBL.dll.config
+D:\Viral\synthesis\wwwrootBL\bin\Debug\wwwrootBL.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\wwwrootBL.pdb
+D:\Viral\synthesis\wwwrootBL\bin\Debug\EntityFramework.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Hangfire.AspNet.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Hangfire.Core.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Microsoft.Web.Helpers.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Newtonsoft.Json.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Owin.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.Helpers.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.Razor.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\WebMatrix.Data.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\WebMatrix.WebData.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\EntityFramework.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Hangfire.AspNet.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Hangfire.Core.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\Newtonsoft.Json.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.Helpers.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.Razor.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\WebMatrix.Data.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\WebMatrix.WebData.xml
+D:\Viral\synthesis\wwwrootBL\bin\Debug\es\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\nl\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\pt-BR\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\zh\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwrootBL\bin\Debug\zh-TW\Hangfire.Core.resources.dll
+D:\Viral\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csprojAssemblyReference.cache
+D:\Viral\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csproj.CoreCompileInputs.cache
+D:\Viral\synthesis\wwwrootBL\obj\Debug\wwwrootBL.csproj.CopyComplete
+D:\Viral\synthesis\wwwrootBL\obj\Debug\wwwrootBL.dll
+D:\Viral\synthesis\wwwrootBL\obj\Debug\wwwrootBL.pdb
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\wwwrootBL.dll.config
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\wwwrootBL.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\wwwrootBL.pdb
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\EntityFramework.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\EntityFramework.SqlServer.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Hangfire.AspNet.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Hangfire.Core.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Microsoft.Owin.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Microsoft.Web.Helpers.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Newtonsoft.Json.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Owin.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.Helpers.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.Razor.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.WebPages.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\WebMatrix.Data.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\WebMatrix.WebData.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\EntityFramework.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\EntityFramework.SqlServer.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Hangfire.AspNet.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Hangfire.Core.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Microsoft.Owin.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\Newtonsoft.Json.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.Helpers.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.Razor.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.WebPages.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\System.Web.WebPages.Razor.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\WebMatrix.Data.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\WebMatrix.WebData.xml
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\es\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\nl\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\pt-BR\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\zh\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\bin\Debug\zh-TW\Hangfire.Core.resources.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\obj\Debug\wwwrootBL.csprojAssemblyReference.cache
+D:\kushal\Projects\Synthesis git\wwwrootBL\obj\Debug\wwwrootBL.csproj.CoreCompileInputs.cache
+D:\kushal\Projects\Synthesis git\wwwrootBL\obj\Debug\wwwrootBL.csproj.CopyComplete
+D:\kushal\Projects\Synthesis git\wwwrootBL\obj\Debug\wwwrootBL.dll
+D:\kushal\Projects\Synthesis git\wwwrootBL\obj\Debug\wwwrootBL.pdb
 D:\Projects\Synthesis\wwwrootBL\bin\Debug\wwwrootBL.dll.config
 D:\Projects\Synthesis\wwwrootBL\bin\Debug\wwwrootBL.dll
 D:\Projects\Synthesis\wwwrootBL\bin\Debug\wwwrootBL.pdb
@@ -166,8 +253,8 @@ D:\Projects\Synthesis\wwwrootBL\bin\Debug\nl\Hangfire.Core.resources.dll
 D:\Projects\Synthesis\wwwrootBL\bin\Debug\pt-BR\Hangfire.Core.resources.dll
 D:\Projects\Synthesis\wwwrootBL\bin\Debug\zh\Hangfire.Core.resources.dll
 D:\Projects\Synthesis\wwwrootBL\bin\Debug\zh-TW\Hangfire.Core.resources.dll
-D:\Projects\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.csprojAssemblyReference.cache
 D:\Projects\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.csproj.CoreCompileInputs.cache
 D:\Projects\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.csproj.CopyComplete
 D:\Projects\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.dll
 D:\Projects\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.pdb
+D:\Projects\Synthesis\wwwrootBL\obj\Debug\wwwrootBL.csprojAssemblyReference.cache

@@ -2534,5 +2534,182 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Document_keyword">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_Document_keyword">
+        <MappingFragment StoreEntitySet="tbl_Document_keyword">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DocumentCategory">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory">
+        <MappingFragment StoreEntitySet="tbl_DocumentCategory">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DocumentFavorites">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_DocumentFavorites">
+        <MappingFragment StoreEntitySet="tbl_DocumentFavorites">
+          <ScalarProperty Name="IsFavorite" ColumnName="IsFavorite" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DocId" ColumnName="DocId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_GetAll" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_GetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_GetAll_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Document_keyword_Insert" FunctionName="WestZoneModel.Store.tbl_Document_keyword_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_DocumentFavorites_Insert" FunctionName="WestZoneModel.Store.tbl_DocumentFavorites_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_DocumentFavorites_deleteByDocId" FunctionName="WestZoneModel.Store.tbl_DocumentFavorites_deleteByDocId" />
+    <FunctionImportMapping FunctionImportName="tbl_DocumentKeywords_deleteByDocId" FunctionName="WestZoneModel.Store.tbl_DocumentKeywords_deleteByDocId" />
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_byid" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_byid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_byid_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_Create" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_Create" />
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_delete" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_delete" />
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_exists" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_exists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_exists_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_GridData" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_GridData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_GridData_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_Update" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_Update" />
+    <FunctionImportMapping FunctionImportName="tbl_Document_Grid_DataN" FunctionName="WestZoneModel.Store.tbl_Document_Grid_DataN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Grid_DataN_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+          <ScalarProperty Name="Private" ColumnName="Private" />
+          <ScalarProperty Name="DocumentTitle" ColumnName="DocumentTitle" />
+          <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_DocumentGallery_Insert" FunctionName="WestZoneModel.Store.tbl_DocumentGallery_Insert" />
+    <FunctionImportMapping FunctionImportName="tbl_Document_Grid_Data" FunctionName="WestZoneModel.Store.tbl_Document_Grid_Data">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Grid_Data_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+          <ScalarProperty Name="Private" ColumnName="Private" />
+          <ScalarProperty Name="DocumentTitle" ColumnName="DocumentTitle" />
+          <ScalarProperty Name="filepath" ColumnName="filepath" />
+          <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_DocumentGallary">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_DocumentGallary">
+        <MappingFragment StoreEntitySet="tbl_DocumentGallary">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+          <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Document_Grid_DataNew" FunctionName="WestZoneModel.Store.tbl_Document_Grid_DataNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Grid_DataNew_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="isprivate" ColumnName="isprivate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+          <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+          <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="favId" ColumnName="favId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tbl_Document_Get_Detail" FunctionName="WestZoneModel.Store.tbl_Document_Get_Detail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Get_Detail_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+          <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+          <ScalarProperty Name="CreatedByName" ColumnName="CreatedByName" />
+          <ScalarProperty Name="ModifiedByName" ColumnName="ModifiedByName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_UserWiseStickyNotes">
+      <EntityTypeMapping TypeName="WestZoneModel.tbl_UserWiseStickyNotes">
+        <MappingFragment StoreEntitySet="tbl_UserWiseStickyNotes">
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,0 +1,85 @@
+ //public static bool UploadPDFFile(System.IO.Stream stream, string filename, string DeleteFileName = "")
+        //{
+        //    try
+        //    {
+        //        GC.Collect();
+        //        string username = ClaudUsername();
+        //        string api_key = ClaudKey();
+        //        string chosenContainer = ClaudContainer();
+        //        //string filePath = HttpContext.Current.Request.PhysicalApplicationPath + foldername;
+        //        var cloudIdentity = new CloudIdentity() { APIKey = api_key, Username = username };
+        //        var cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
+
+        //        //using (System.IO.FileStream stream = System.IO.File.OpenRead("http://hrcdn.xylem-india.com/" + filename))
+        //        //{
+        //        //HttpContext.Current.Response.Write(stream);
+        //        try
+        //        {
+        //            cloudFilesProvider.CreateObject(chosenContainer, stream, filename);
+        //            stream.Flush();
+        //            stream.Close();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //        }
+                
+                
+        //        //}
+
+
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    //HttpContext.Current.Response.End();
+        //    return true;
+        //}
+        //public static bool DeleteDocument(string foldername, string filename)
+        //{
+        //    GC.Collect();
+        //    string username = ClaudUsername();
+        //    string api_key = ClaudKey();
+        //    string chosenContainer = ClaudContainer();
+        //    var cloudIdentity = new CloudIdentity() { APIKey = api_key, Username = username };
+        //    var cloudFilesProvider = new CloudFilesProvider(cloudIdentity);
+        //    if (!string.IsNullOrEmpty(filename))
+        //    {
+        //        if (foldername != "")
+        //        {
+        //            chosenContainer = Path.Combine(chosenContainer, foldername);
+        //        }
+        //        try
+        //        {
+        //            cloudFilesProvider.DeleteObject(chosenContainer, filename);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return true;
+        //}
+        //public static string GetcdnDocumentsURL()
+        //{
+        //    return "http://hrcdn.xylem-india.com/";
+        //}
+        //public static string GetFolderName()
+        //{
+        //    return "HRApplication";
+        //}
+        //public static string ClaudUsername()
+        //{
+        //    return "nitinrpatel";
+        //}
+        //public static string ClaudKey()
+        //{
+        //    return "8492a8ec4a36138aeb469a2a5df07ff5";
+        //}
+        //public static string ClaudContainer()
+        //{
+        //    return "xylemhr";
+        //}
+        //public static string cdnURL()
+        //{
+        //    return "https://8290c2b0e1362de82c8f-8e4f3dc81a8aa9ba581f84abff540c4a.r98.cf2.rackcdn.com/";
+        //}

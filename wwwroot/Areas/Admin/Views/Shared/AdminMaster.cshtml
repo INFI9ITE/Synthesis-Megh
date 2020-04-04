@@ -28,7 +28,7 @@
     <link href="~/Content/Admin/assets/css/style.css" rel="stylesheet" />
     <link href="~/Content/Admin/assets/css/printstyle.css" rel="stylesheet" media="print" />
     <script type="text/javascript" src='~/Content/Admin/vendor/jquery/dist/jquery.min.js'></script>
- 
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css'>
  
     <script>
         $('.overlaytransparent').hide();
@@ -522,6 +522,7 @@
     <script src="~/Content/Admin/js/bootstrap-datetimepicker.js"></script>
     <script src="~/Content/Admin/assets/js/bootbox/bootbox.js"></script>
     <script src="~/Content/Admin/assets/js/fileupload.js"></script>
+    <script src='https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js'></script>
 
     <script>
 
@@ -547,6 +548,18 @@
             var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
             $('#datepicker').datetimepicker({
+                format: 'MMM DD, YYYY',
+                useCurrent: false
+            });
+            $('#txtstartdate').datetimepicker({
+                format: 'MMM DD, YYYY',
+                useCurrent: false
+            });
+            $('#txtenddate').datetimepicker({
+                format: 'MMM DD, YYYY',
+                useCurrent: false
+            });
+            $('#datepicker3').datetimepicker({
                 format: 'MMM DD, YYYY',
                 useCurrent: false
             });

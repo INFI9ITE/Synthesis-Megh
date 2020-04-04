@@ -195,6 +195,52 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tbl_Document_keyword">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocID" Type="int" />
+          <Property Name="Title" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_DocumentCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_DocumentFavorites">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="IsFavorite" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_DocumentGallary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="1000" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="StoreId" Type="int" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="Description" Type="text" />
+          <Property Name="FilePath" Type="varchar" MaxLength="200" />
+          <Property Name="AttachFile" Type="varchar" MaxLength="100" />
+          <Property Name="AttachExtention" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsPrivate" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+        </EntityType>
         <EntityType Name="tbl_EmploymentStatus">
           <Key>
             <PropertyRef Name="id" />
@@ -532,6 +578,14 @@
           <Property Name="StoreName" Type="varchar" MaxLength="100" />
           <Property Name="RoleId" Type="int" />
           <Property Name="RoleName" Type="varchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="tbl_UserWiseStickyNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Notes" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="tbl_Vendor">
           <Key>
@@ -1056,6 +1110,89 @@
         </Function>
         <Function Name="tbl_DepartmentNetSalesbySalesActivityId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ActivitySalesSummuryId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tbl_Document_Get_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tbl_Document_Grid_Data" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startdate" Type="datetime" Mode="In" />
+          <Parameter Name="enddate" Type="datetime" Mode="In" />
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+          <Parameter Name="searchText" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_Document_Grid_DataN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="whereClause" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_Document_Grid_DataNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="date" Mode="In" />
+          <Parameter Name="EndDate" Type="date" Mode="In" />
+          <Parameter Name="SearchTitle" Type="varchar" Mode="In" />
+          <Parameter Name="SkipRecord" Type="int" Mode="In" />
+          <Parameter Name="GetRecord" Type="int" Mode="In" />
+          <Parameter Name="CurrentUserId" Type="int" Mode="In" />
+          <Parameter Name="isImage" Type="bit" Mode="In" />
+          <Parameter Name="isEmail" Type="bit" Mode="In" />
+          <Parameter Name="isDoc" Type="bit" Mode="In" />
+          <Parameter Name="isSheet" Type="bit" Mode="In" />
+          <Parameter Name="isOther" Type="bit" Mode="In" />
+          <Parameter Name="isAdmin" Type="bit" Mode="In" />
+          <Parameter Name="isDataApprover" Type="bit" Mode="In" />
+          <Parameter Name="isStoreManager" Type="bit" Mode="In" />
+          <Parameter Name="storeId" Type="int" Mode="In" />
+          <Parameter Name="strFileType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_Document_keyword_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocID" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentCategory_byid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentCategory_Create" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentCategory_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentCategory_exists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentCategory_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="tbl_DocumentCategory_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentCategory_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentFavorites_deleteByDocId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentFavorites_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocId" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsFavorite" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentGallery_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="CategoryId" Type="int" Mode="In" />
+          <Parameter Name="StoreId" Type="int" Mode="In" />
+          <Parameter Name="Notes" Type="text" Mode="In" />
+          <Parameter Name="Description" Type="text" Mode="In" />
+          <Parameter Name="FilePath" Type="varchar" Mode="In" />
+          <Parameter Name="AttachFile" Type="varchar" Mode="In" />
+          <Parameter Name="AttachExtention" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="ModifiedBy" Type="int" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="IsPrivate" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="tbl_DocumentKeywords_deleteByDocId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DocId" Type="int" Mode="In" />
         </Function>
         <Function Name="tbl_Employee_GridData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name" Type="varchar" Mode="In" />
@@ -1714,6 +1851,10 @@
           <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_DepartmentNetSales" EntityType="Self.tbl_DepartmentNetSales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_discounttype" EntityType="Self.tbl_discounttype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Document_keyword" EntityType="Self.tbl_Document_keyword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DocumentCategory" EntityType="Self.tbl_DocumentCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DocumentFavorites" EntityType="Self.tbl_DocumentFavorites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DocumentGallary" EntityType="Self.tbl_DocumentGallary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_EmploymentStatus" EntityType="Self.tbl_EmploymentStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_EmploymentType" EntityType="Self.tbl_EmploymentType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ExcelRead" EntityType="Self.tbl_ExcelRead" Schema="dbo" store:Type="Tables" />
@@ -1742,6 +1883,7 @@
           <EntitySet Name="tbl_TypicalBalance_master" EntityType="Self.tbl_TypicalBalance_master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_user_store" EntityType="Self.tbl_user_store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserWiseStickyNotes" EntityType="Self.tbl_UserWiseStickyNotes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Vendor" EntityType="Self.tbl_Vendor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Utilities" EntityType="Self.Utilities" Schema="dbo" store:Type="Tables" />
@@ -3207,6 +3349,94 @@
             <Parameter Name="storeid" Mode="In" Type="Int32" />
             <Parameter Name="terminalid" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="tbl_Document_keyword" EntityType="WestZoneModel.tbl_Document_keyword" />
+          <EntitySet Name="tbl_DocumentCategory" EntityType="WestZoneModel.tbl_DocumentCategory" />
+          <EntitySet Name="tbl_DocumentFavorites" EntityType="WestZoneModel.tbl_DocumentFavorites" />
+          <FunctionImport Name="tbl_DocumentCategory_GetAll" ReturnType="Collection(WestZoneModel.tbl_DocumentCategory_GetAll_Result)" />
+          <FunctionImport Name="tbl_Document_keyword_Insert">
+            <Parameter Name="DocID" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentFavorites_Insert">
+            <Parameter Name="DocId" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsFavorite" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentFavorites_deleteByDocId">
+          <Parameter Name="DocId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentKeywords_deleteByDocId">
+          <Parameter Name="DocId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentCategory_byid" ReturnType="Collection(WestZoneModel.tbl_DocumentCategory_byid_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentCategory_Create" ReturnType="Collection(Decimal)">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentCategory_delete">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentCategory_exists" ReturnType="Collection(WestZoneModel.tbl_DocumentCategory_exists_Result)">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentCategory_GridData" ReturnType="Collection(WestZoneModel.tbl_DocumentCategory_GridData_Result)">
+          <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentCategory_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_Document_Grid_DataN" ReturnType="Collection(WestZoneModel.tbl_Document_Grid_DataN_Result)">
+          <Parameter Name="whereClause" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_DocumentGallery_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="StoreId" Mode="In" Type="Int32" />
+            <Parameter Name="Notes" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="FilePath" Mode="In" Type="String" />
+            <Parameter Name="AttachFile" Mode="In" Type="String" />
+            <Parameter Name="AttachExtention" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ModifiedBy" Mode="In" Type="Int32" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="IsPrivate" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_Document_Grid_Data" ReturnType="Collection(WestZoneModel.tbl_Document_Grid_Data_Result)">
+            <Parameter Name="startdate" Mode="In" Type="DateTime" />
+            <Parameter Name="enddate" Mode="In" Type="DateTime" />
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="searchText" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbl_DocumentGallary" EntityType="WestZoneModel.tbl_DocumentGallary" />
+          <FunctionImport Name="tbl_Document_Grid_DataNew" ReturnType="Collection(WestZoneModel.tbl_Document_Grid_DataNew_Result)">
+            <Parameter Name="CategoryId" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="SearchTitle" Mode="In" Type="String" />
+            <Parameter Name="SkipRecord" Mode="In" Type="Int32" />
+            <Parameter Name="GetRecord" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentUserId" Mode="In" Type="Int32" />
+            <Parameter Name="isImage" Mode="In" Type="Boolean" />
+            <Parameter Name="isEmail" Mode="In" Type="Boolean" />
+            <Parameter Name="isDoc" Mode="In" Type="Boolean" />
+            <Parameter Name="isSheet" Mode="In" Type="Boolean" />
+            <Parameter Name="isOther" Mode="In" Type="Boolean" />
+            <Parameter Name="isAdmin" Mode="In" Type="Boolean" />
+            <Parameter Name="isDataApprover" Mode="In" Type="Boolean" />
+            <Parameter Name="isStoreManager" Mode="In" Type="Boolean" />
+            <Parameter Name="storeId" Mode="In" Type="Int32" />
+            <Parameter Name="strFileType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="tbl_Document_Get_Detail" ReturnType="Collection(WestZoneModel.tbl_Document_Get_Detail_Result)">
+          <Parameter Name="DocId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tbl_UserWiseStickyNotes" EntityType="WestZoneModel.tbl_UserWiseStickyNotes" />
         </EntityContainer>
         <ComplexType Name="BindBackofficemanager_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -4818,6 +5048,138 @@
           <Property Type="Int32" Name="customercount" Nullable="true" />
           <Property Type="Int32" Name="type" Nullable="true" />
         </ComplexType>
+        <EntityType Name="tbl_Document_keyword">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_DocumentCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_DocumentFavorites">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsFavorite" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="tbl_DocumentCategory_GetAll_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="tbl_DocumentCategory_byid_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="tbl_DocumentCategory_exists_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="tbl_DocumentCategory_GridData_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="tbl_Document_Grid_DataN_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+          <Property Type="Boolean" Name="Private" Nullable="true" />
+          <Property Type="String" Name="DocumentTitle" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AttachExtention" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="StoreName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="isDelete" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="tbl_Document_Grid_Data_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int64" Name="RowNumber" Nullable="true" />
+          <Property Type="Boolean" Name="Private" Nullable="true" />
+          <Property Type="String" Name="DocumentTitle" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="filepath" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AttachFile" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="StoreName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="isDelete" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tbl_DocumentGallary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="StoreId" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AttachFile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AttachExtention" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsPrivate" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+        </EntityType>
+        <ComplexType Name="tbl_Document_Grid_DataNew_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Boolean" Name="isprivate" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="FilePath" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AttachFile" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AttachExtention" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="StoreName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" />
+          <Property Type="Boolean" Name="isDelete" Nullable="true" />
+          <Property Type="Int32" Name="createdby" Nullable="true" />
+          <Property Type="Int32" Name="favId" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="tbl_Document_Get_Detail_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="1000" />
+          <Property Type="Int32" Name="CategoryId" Nullable="true" />
+          <Property Type="Int32" Name="StoreId" Nullable="true" />
+          <Property Type="String" Name="Notes" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="FilePath" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="AttachFile" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AttachExtention" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="ModifiedBy" Nullable="true" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="IsPrivate" Nullable="true" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="true" />
+          <Property Type="String" Name="CreatedByName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ModifiedByName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="tbl_UserWiseStickyNotes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -7357,6 +7719,183 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_Document_keyword">
+            <EntityTypeMapping TypeName="WestZoneModel.tbl_Document_keyword">
+              <MappingFragment StoreEntitySet="tbl_Document_keyword">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DocID" ColumnName="DocID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DocumentCategory">
+            <EntityTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory">
+              <MappingFragment StoreEntitySet="tbl_DocumentCategory">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DocumentFavorites">
+            <EntityTypeMapping TypeName="WestZoneModel.tbl_DocumentFavorites">
+              <MappingFragment StoreEntitySet="tbl_DocumentFavorites">
+                <ScalarProperty Name="IsFavorite" ColumnName="IsFavorite" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DocId" ColumnName="DocId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_GetAll" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_GetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_GetAll_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbl_Document_keyword_Insert" FunctionName="WestZoneModel.Store.tbl_Document_keyword_Insert" />
+          <FunctionImportMapping FunctionImportName="tbl_DocumentFavorites_Insert" FunctionName="WestZoneModel.Store.tbl_DocumentFavorites_Insert" />
+          <FunctionImportMapping FunctionImportName="tbl_DocumentFavorites_deleteByDocId" FunctionName="WestZoneModel.Store.tbl_DocumentFavorites_deleteByDocId" />
+          <FunctionImportMapping FunctionImportName="tbl_DocumentKeywords_deleteByDocId" FunctionName="WestZoneModel.Store.tbl_DocumentKeywords_deleteByDocId" />
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_byid" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_byid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_byid_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_Create" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_Create" />
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_delete" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_delete" />
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_exists" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_exists">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_exists_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_GridData" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_GridData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_DocumentCategory_GridData_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbl_DocumentCategory_Update" FunctionName="WestZoneModel.Store.tbl_DocumentCategory_Update" />
+          <FunctionImportMapping FunctionImportName="tbl_Document_Grid_DataN" FunctionName="WestZoneModel.Store.tbl_Document_Grid_DataN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Grid_DataN_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+                <ScalarProperty Name="Private" ColumnName="Private" />
+                <ScalarProperty Name="DocumentTitle" ColumnName="DocumentTitle" />
+                <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbl_DocumentGallery_Insert" FunctionName="WestZoneModel.Store.tbl_DocumentGallery_Insert" />
+          <FunctionImportMapping FunctionImportName="tbl_Document_Grid_Data" FunctionName="WestZoneModel.Store.tbl_Document_Grid_Data">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Grid_Data_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+                <ScalarProperty Name="Private" ColumnName="Private" />
+                <ScalarProperty Name="DocumentTitle" ColumnName="DocumentTitle" />
+                <ScalarProperty Name="filepath" ColumnName="filepath" />
+                <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_DocumentGallary">
+            <EntityTypeMapping TypeName="WestZoneModel.tbl_DocumentGallary">
+              <MappingFragment StoreEntitySet="tbl_DocumentGallary">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+                <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tbl_Document_Grid_DataNew" FunctionName="WestZoneModel.Store.tbl_Document_Grid_DataNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Grid_DataNew_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="isprivate" ColumnName="isprivate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+                <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="favId" ColumnName="favId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tbl_Document_Get_Detail" FunctionName="WestZoneModel.Store.tbl_Document_Get_Detail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WestZoneModel.tbl_Document_Get_Detail_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="AttachFile" ColumnName="AttachFile" />
+                <ScalarProperty Name="AttachExtention" ColumnName="AttachExtention" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CreatedByName" ColumnName="CreatedByName" />
+                <ScalarProperty Name="ModifiedByName" ColumnName="ModifiedByName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_UserWiseStickyNotes">
+            <EntityTypeMapping TypeName="WestZoneModel.tbl_UserWiseStickyNotes">
+              <MappingFragment StoreEntitySet="tbl_UserWiseStickyNotes">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

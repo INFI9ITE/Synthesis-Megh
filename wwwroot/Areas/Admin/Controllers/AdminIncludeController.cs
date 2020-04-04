@@ -89,7 +89,7 @@ namespace wwwroot.Areas.Admin.Controllers
 
 
         [HttpPost]
-        public ActionResult Header(Store_header PostedData, string stid,string name)
+        public ActionResult Header(Store_header PostedData, string stid, string name)
         {
             string Currentpagename = HttpContext.Request.RequestContext.RouteData.Values["controller"].ToString();
             //PostedData.storeid = succstoreman.Reg_userid.GetValueOrDefault();
@@ -191,6 +191,43 @@ namespace wwwroot.Areas.Admin.Controllers
             ViewBag.Modalcount = modalcountval;
 
             return PartialView("~/Areas/Admin/Views/AdminInclude/_InvoiceNotification.cshtml", Result);
+        }
+
+        [HttpGet]
+        public ActionResult GetUserWiseStickyNote()
+        {
+            var getdata = (from dr in db.tbl_UserWiseStickyNotes where dr.UserId == WebSecurity.CurrentUserId select dr.Notes).FirstOrDefault();
+            return Json(new { notes = getdata == null ? "" : getdata }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult SetUserWiseStickyNote(string notes)
+        {
+            try
+            {
+                tbl_UserWiseStickyNotes getdata = (from dr in db.tbl_UserWiseStickyNotes where dr.UserId == WebSecurity.CurrentUserId select dr).FirstOrDefault();
+                if (getdata != null)
+                {
+                    getdata.Notes = notes;
+                    db.Entry(getdata).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(new { notes = getdata.Notes, msg = "Note updated successfully.", msgstatus = 1, excepetion = "" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    getdata = new tbl_UserWiseStickyNotes();
+                    getdata.Notes = notes;
+                    getdata.UserId = WebSecurity.CurrentUserId;
+                    db.tbl_UserWiseStickyNotes.Add(getdata);
+                    db.SaveChanges();
+                    return Json(new { notes = getdata.Notes, msg = "Note added successfully.", msgstatus = 1, excepetion = "" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { notes = "", msg = "An error while updating entry.", msgstatus = 0, excepetion = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

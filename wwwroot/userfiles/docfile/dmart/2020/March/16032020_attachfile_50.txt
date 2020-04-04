@@ -1,0 +1,9 @@
+Bithday / Anniversary Reminder 
+NCR Right => Admin
+New Joinee Documents
+----------------------
+Title
+Attachment
+
+Send welcome email on employee add
+

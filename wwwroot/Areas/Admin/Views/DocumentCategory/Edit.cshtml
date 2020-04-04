@@ -1,0 +1,144 @@
+﻿@model wwwroot.Areas.Admin.Models.DocumentCategory
+@{
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+<div id="globalTabContent">
+    <div class="animate-panelmessesgarea padbtmzero">
+        @if (ViewBag.StatusMessage.ToString() == "Success")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Insert.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Delete")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Delete.ToString()');
+            </script>
+        }
+        @if (ViewBag.StatusMessage.ToString() == "Edit")
+        {
+            <script>
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "3000",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "10000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                toastr.success('@ViewBag.Edit.ToString()');
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Error")
+        {
+            <script>
+                MyfunError();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "NoItem")
+        {
+            <script>
+                MyfunNoItem();
+            </script>
+        }
+        @if (Convert.ToString(ViewBag.StatusMessage) == "Exists")
+        {
+            <script>
+                MyfunExists();
+            </script>
+        }
+    </div>
+
+
+
+    <div id="PanAddUpdate">
+
+
+
+
+        <div class="header-small special_bg">
+            <h3>Edit Category </h3>
+        </div>
+        @using (Html.BeginForm("Edit", "DocumentCategory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {@Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div class="page-body headertopbox addinvoice" style="padding-top:0px!important;">
+            <div class="datagrid martop15">
+                <div class="formmain">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>
+                                    Document Category Name <span class="highlight">*</span>
+                                </label>
+                                @Html.TextBoxFor(model => model.Name, new { maxlength = 500, @class = "form-control" })
+                                <span class="highlight">     @Html.ValidationMessageFor(model => model.Name)</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <div class="form-group">
+                            <input type="submit" value="Save"
+                                   class="buttonbox btnsubmit" />
+
+
+                            @Html.ActionLink("Cancel", "Index", new { id = @ViewBag.id }, new { @class = "buttonbox btncancel" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+
+</div>

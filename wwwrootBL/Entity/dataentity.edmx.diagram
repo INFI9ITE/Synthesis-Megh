@@ -55,6 +55,11 @@
         <EntityTypeShape EntityType="WestZoneModel.tbl_ExcelRead" Width="1.5" PointX="21.375" PointY="3.75" />
         <EntityTypeShape EntityType="WestZoneModel.tbl_Excelread_Errormsg" Width="1.5" PointX="21.375" PointY="6.75" />
         <EntityTypeShape EntityType="WestZoneModel.tbl_DefaultAccount" Width="1.5" PointX="21.375" PointY="9.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_Document_keyword" Width="1.5" PointX="9.375" PointY="21.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_DocumentCategory" Width="1.5" PointX="21.375" PointY="12.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_DocumentFavorites" Width="1.5" PointX="21.375" PointY="15.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_DocumentGallary" Width="1.5" PointX="17.375" PointY="21.75" />
+        <EntityTypeShape EntityType="WestZoneModel.tbl_UserWiseStickyNotes" Width="1.5" PointX="21.375" PointY="18.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

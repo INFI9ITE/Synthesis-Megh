@@ -9,15 +9,15 @@ namespace wwwroot
     {
         public void Configuration(IAppBuilder app)
         {
-            app.MapSignalR();
+            //app.MapSignalR();
 
-            GlobalConfiguration.Configuration.UseSqlServerStorage("DefaultConnection");
+            //GlobalConfiguration.Configuration.UseSqlServerStorage("DefaultConnection");
 
-            app.UseHangfireDashboard();
-            app.UseHangfireServer();
-            TextBuffer tb = new TextBuffer();
-            RecurringJob.AddOrUpdate(
-                () => tb.executeExcel(), Cron.MinuteInterval(5));
+            //app.UseHangfireDashboard();
+            //app.UseHangfireServer();
+            //TextBuffer tb = new TextBuffer();
+            //RecurringJob.AddOrUpdate(
+            //    () => tb.executeExcel(), Cron.MinuteInterval(5));
         }
     }
 }
